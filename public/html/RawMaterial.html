@@ -5,12 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body ng-controller="RMCrtl">
+<button class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
     <div ng-repeat='item in items' class="form-group" id="field">
           <input ng-model='name' class="form-control" ></input>&nbsp
           <input ng-model='price' class="form-control" ></input>&nbsp
           <input ng-model='quantiy' class="form-control"></input>&nbsp
       <button class="btn btn-primary" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp
-       <button class="btn btn-primary" ng-click='add()'><i class="fa fa-plus-circle"></i></button>
+       <button class="btn btn-success" ng-click='add()'><i class="fa fa-plus-circle"></i></button>
 	</div>
 </body>
 </html>
