@@ -1,0 +1,43 @@
+<! DOCTYPE html>
+<html>
+<head>
+<title>Ansh Retails</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="login.css">
+<script src="/assets/javascripts/login.js"></script>
+</head>
+<body ng-app="loginapp" ng-controller="loginctrl">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8 hgt colr1">
+	<h1>Ansh Retails</h1>
+	</div>
+    <div class="col-lg-4 col-md-4 col-sm-4 hgt colr2">
+        <div class="card card-container">
+            <span class="glyphicon glyphicon-user icn"></span></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" ng-model="u_name" name="u_name" class="form-control" placeholder="Email address" required autofocus>
+                <input type="password" ng-model="u_pass" name="u_pass" class="form-control" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin log_bttn" type="submit" ng-click="login()">Login</button>
+            </form>
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -8,13 +8,13 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
-import scala.concurrent.duration.Duration;
-import scala.concurrent.ExecutionContextExecutor;
+
 
 /**
  * This controller contains an action that demonstrates how to write
  * simple asynchronous code in a controller. It uses a timer to
  * asynchronously delay sending a response for 1 second.
+ * @param <ExecutionContextExecutor>
  *
  * @param actorSystem We need the {@link ActorSystem}'s
  * {@link Scheduler} to run code after a delay.
@@ -24,7 +24,7 @@ import scala.concurrent.ExecutionContextExecutor;
  * An {@link ExecutionContextExecutor} implements both interfaces.
  */
 @Singleton
-public class AsyncController extends Controller {
+public class AsyncController<ExecutionContextExecutor> extends Controller {
 
     private final ActorSystem actorSystem;
     private final ExecutionContextExecutor exec;
@@ -43,18 +43,18 @@ public class AsyncController extends Controller {
      * will be called when the application receives a <code>GET</code> request with
      * a path of <code>/message</code>.
      */
-    public CompletionStage<Result> message() {
-        return getFutureMessage(1, TimeUnit.SECONDS).thenApplyAsync(Results::ok, exec);
-    }
+//    public CompletionStage<Result> message() {
+//       // return getFutureMessage(1, TimeUnit.SECONDS).thenApplyAsync(Results::ok, exec);
+//    }
 
-    private CompletionStage<String> getFutureMessage(long time, TimeUnit timeUnit) {
-        CompletableFuture<String> future = new CompletableFuture<>();
-        actorSystem.scheduler().scheduleOnce(
-            Duration.create(time, timeUnit),
-            () -> future.complete("Hi!"),
-            exec
-        );
-        return future;
-    }
+//    private CompletionStage<String> getFutureMessage(long time, TimeUnit timeUnit) {
+//        CompletableFuture<String> future = new CompletableFuture<>();
+//        actorSystem.scheduler().scheduleOnce(
+//            duration.create(time, timeUnit),
+//            () -> future.complete("Hi!"),
+//            exec
+//        );
+//        return future;
+//    }
 
 }
