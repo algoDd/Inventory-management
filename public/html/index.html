@@ -7,19 +7,12 @@ ANSH RETAILS
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
-
-
-<!--  <link   href="assets/CSS/style3.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="/assets/font/css/font-awesome.css">
-<link href="/assets/CSS/about1.css" rel="stylesheet" type="text/css">
-<link href="/assets/stylesheets/login.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="assets/CSS/signup.css" type="text/css">
-<link href="assets/CSS/up1.css" rel="stylesheet" type="text/css">
--->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/assets/stylesheets/main.css" rel="stylesheet" type="text/css">
 <link href="/assets/stylesheets/RawMaterial.css" rel="stylesheet" type="text/css">
 <link href="/assets/stylesheets/Billing.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/assets/javascripts/jquery.min.js"></script>
 <script src="assets/javascripts/bootstrap.min.js"></script>
 
@@ -28,7 +21,6 @@ ANSH RETAILS
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
-<script src="/assets/javascripts/angular-route.min.js" type="text/javascript"></script>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 
@@ -42,30 +34,10 @@ ANSH RETAILS
 </head>
 <body ng-app="RMApp" ng-controller="RMCrtl">
 
-<!--<div id="navbar">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!--<div class="navbar-header">
-      <a class="active navbar-brand" ui-sref="main" href="">Home</a>
-    </div>
-    <ul class="nav navbar-nav">
-       
-		 <li id="mydiv"><a id="my_div" class="li1" ui-sref="RawMaterial" href="">Raw Material</a> </li>
-		 <li> <a class="li2" ui-sref="Stock" href="">Stock</a></li> 
-      <li><a class="li3" ui-sref="Billing" href="">Billing</a></li>
-      <li><a class="li4" ui-sref="Sales" href="" >Sales</span></a></li>
-      
-    </ul>
-  </div>
-</nav>
-  
-      
-</div>-->
 <div class="container-fluid">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col_algn">
-
-<div class="container_1 image" id="i_1" onClick>
+<div class="container_1 image" id="i_1">
 <a ui-sref="RawMaterial">
 <i class="fa fa-cart-arrow-down gl_icn" aria-hidden="true"></i>
   <div class="overlay">
@@ -74,16 +46,7 @@ ANSH RETAILS
   </a>
 </div>
 
-<div class="container_2 image" id="i_2" onClick>
-<a ui-sref="Stock">
-<i class="fa fa-database gl_icn gl_icn2" aria-hidden="true"></i>
-  <div class="overlay">
-    <div class="text" id="txt_2">Stock</div>
-  </div>
-  </a>
-</div>
-
-<div class="container_3 image" id="i_3" onClick>
+<div class="container_3 image" id="i_3">
 <a ui-sref="Billing">
 <i class="fa fa-inr gl_icn gl_icn3" aria-hidden="true"></i>
   <div class="overlay">
@@ -92,7 +55,16 @@ ANSH RETAILS
   </a>
 </div>
 
-<div class="container_4 image" id="i_4" onClick>
+<div class="container_2 image" id="i_2">
+<a ui-sref="Stock">
+<i class="fa fa-database gl_icn gl_icn2" aria-hidden="true"></i>
+  <div class="overlay">
+    <div class="text" id="txt_2">Stock</div>
+  </div>
+  </a>
+</div>
+
+<div class="container_4 image" id="i_4">
 <a ui-sref="Sales">
 <i class="fa fa-line-chart gl_icn" aria-hidden="true"></i>
   <div class="overlay">
@@ -106,6 +78,5 @@ ANSH RETAILS
 </div>
 
 <div id="mainpage" ui-view></div>
-
 </body>
 </html>
