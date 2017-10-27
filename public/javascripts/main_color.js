@@ -10,5 +10,5 @@ $('#i_1,#i_2,#i_3,#i_4').click(function() {
   setTimeout(function() {
     $elem.css('background', oldBG);
   }, 1000);
-}); 
+});
 </script>
