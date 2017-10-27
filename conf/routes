@@ -16,6 +16,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #Routes
 GET  /RawMaterial						controllers.Assets.at(path="/public", file="html/index.html")
 GET  /Billing						    controllers.Assets.at(path="/public", file="html/index.html")
+GET  /Sales						        controllers.Assets.at(path="/public", file="html/index.html")
 GET  /Stock						    	controllers.Assets.at(path="/public", file="html/index.html")
 #GET /index								controllers.Assets.at(path="/public", file="html/index.html")
 GET /home								controllers.Assets.at(path="/public", file="html/index.html")

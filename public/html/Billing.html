@@ -16,50 +16,44 @@
   <div class='title_bill' ng-click="addb()">Bill</div>
 </div>
 
-<!--<ul class="ul_algn">
-<li id="li_algn"><a id="a_algn" href="#">Category</a></li>
-<li id="li_algn"><a id="a_algn" href="#">Code</a></li>
-<li id="li_algn"><a id="a_algn" href="#">Quantity</a></li>
-<li id="li_algn"><a id="a_algn" href="#">Price</a></li>
-</ul>-->
-
 <article>
   <nav class="btn-bar nav-dark">
-    <a href="#" class="btn btn-glass mrg">
+    <a href="#" class="btn btn-glass">
       Category
     </a>
-    <a href="#" class="btn btn-glass btn-primary">
+    <a href="#" class="btn btn-glass">
     Code
     </a>
-    <a href="#" class="btn btn-glass btn-success">
+    <a href="#" class="btn btn-glass">
       Quantity
     </a>
-    <a href="#" class="btn btn-glass btn-warning">
+    <a href="#" class="btn btn-glass">
       Price
     </a>
   </nav>
 </article>
 
 <div ng-show="one">
-    <div ng-repeat='item in bitems' class="form-group" id="field_bill">
-          <select ng-model='$crtl.selected_item' class="form-control frst" name="item_name">
+    <div ng-repeat='item in bitems' class="form-group div_colr" id="field_bill">
+          <select ng-model='$crtl.selected_item' class="form-control frst fbill_ctrl" name="item_name">
           <option value="" selected>Select Your Product</option>
           <option value="Register" selected>Registers</option>
           <option value="Cover Page">Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code' class="form-control " placeholder="Code"></input>&nbsp
-          <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control" placeholder="Quantity"></input>&nbsp
+          <input type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code"></input>&nbsp
+          <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity"></input>&nbsp
           <!--<input type="number" ng-model='$crtl.price' class="form-control" placeholder="Price"></input>&nbsp-->
-          <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price'  class="form-control" id="prc"></input>&nbsp
+          <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price'  class="form-control fbill_ctrl" id="prc"></input>&nbsp
        <button  class="btn btn-success" ng-click='addb($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary b_clr" ng-click='bdel($index)'><i class="fa fa-close"></i></button>&nbsp       
 	</div>
 </div>
-<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+
 </div>
 
 <button class="btn btn-info gen_butn" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
+<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
 
 <!-- Modal -->
   <div class="modal fade" id="bill_modal" role="dialog">
@@ -70,34 +64,32 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" data-html2canvas-ignore>&times;</button>
           <button id="pd" ng-click="exportAsPdf()" data-html2canvas-ignore > Generate Pdf</button>
-          <h1>Invoice</h1>
-			<address contenteditable>
-				<p>Jonathan Neal</p>
-				<p>101 E. Chapman Ave<br>Orange, CA 92866</p>
-				<p>(800) 555-1234</p>
-			</address>
+          </div>
+          <h1>ANSH RETAILS PVT. LTD.</h1>
+          <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4">
+          <h2>INVOCE</h2><br/>
+          <p>9910065715<br/>
+          7011125845<br/>
+          85888954331<br/><br/>
+          anshretails@yahoo.in</p>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-8">
+          <p>Customer Name:<address contenteditable><p>Jonathan Neal</p></address> </p><br/>
+		  <p>Company Name: <address contenteditable><p>Nil</p></address></p><br/><br/>
+		  <p>PostCode: <address contenteditable><p>Nil</p></address></p><br/>
 			<article>
-			<h1>Recipient</h1>
-			<address contenteditable>
-				<p>Some Company<br>c/o Some Guy</p>
-			</address>
-			<table class="meta">
-				<tr>
-					<th><span >Invoice #</span></th>
-					<td><span >{{inNo}}</span></td>
-				</tr>
-				<tr>
-					<th><span >Date</span></th>
-					<td><span >{{date}}</span></td>
-				</tr>
-			</table>
-          
-        </div>
+		  <p>Date: <span>{{date}}</span></p><br/><br/>
+		  <p>Invoice Number: <span>{{inNo}}</span></p><br/>
+		  <p>Thank you for your business.<br/>
+		  Yours sincerely,<br/>
+		  Ansh Retails Pvt. Ltd.
+		  </p>
         <div class="modal-body">
           <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Category</th>
+         <thead>
+         <tr>
+        <th>Description</th>
         <th>Code</th>
         <th>Quantity</th>
         <th>Price</th>
@@ -116,25 +108,32 @@
         <div class="modal-footer">
           		<table class="balance">
 				<tr>
+					<th><span >Shipping charges</span></th>
+					<td><span data-prefix>$</span><span contenteditable></span></td>
+				</tr>
+				<tr>
+					<th><span  >Tax</span></th>
+					<td><span data-prefix>$</span><span contenteditable></span></td>
+				</tr>
+				<tr>
+					<th><span  >Other Charge(s), If any.</span></th>
+					<td><span data-prefix>$</span><span contenteditable></span></td>
+				</tr>
+				<tr>
 					<th><span >Total</span></th>
 					<td><span data-prefix>Rs.</span><span>{{totalamt}}</span></td>
 				</tr>
-				<tr>
-					<th><span >Amount Paid</span></th>
-					<td><span data-prefix>$</span><span contenteditable></span></td>
-				</tr>
-				<tr>
-					<th><span  >Balance Due</span></th>
-					<td><span data-prefix>$</span><span contenteditable></span></td>
-				</tr>
 			</table>
+			</div>
 		</article>
 		<aside>
-			<h1><span >Additional Notes</span></h1>
-			<div >
-				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
-			</div>
+			<hr/>
+				<p>Authorised Stamp</p>		
 		</aside>
+		</div>
+        </div>
+        </div>
+        </div>
         </div>
         <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
 			<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
@@ -142,10 +141,6 @@
       
     </div>
   </div>
-
-</div>
-</div>
-</div>
       
 </body>
 </html>

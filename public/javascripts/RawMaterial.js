@@ -21,7 +21,12 @@ app.config(function($stateProvider,$urlRouterProvider,$compileProvider)
 		}).state('Stock',{
 			name: 'Stock',
 			url:'/Stock',
-			templateUrl:'/assets/html/stocks.html'
+			templateUrl:'/assets/html/Stock.html'
+		})
+		  .state('Sales',{
+			name: 'Sales',
+			url:'/Sales',
+			templateUrl:'/assets/html/Sales.html'
 		});
 	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:application\//);
 	
@@ -55,42 +60,31 @@ app.controller('RMCrtl',function($scope,$http){
   	 }
 	   //d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
 	   /*.................divis js part...................*/
-	   $('#i_1,#i_2,#i_3,#i_4').click(function() {
-		   // make a jQ collection of the DOM element from the event
-		   var $elem = $(this);
-		   // store the background-color
-		   var oldBG = $elem.css('background');
-		   // change the background color to what you want
-		   $elem.css('background', 'linear-gradient(rgb(181, 245, 255),rgb(22, 249, 121),rgb(1, 134, 153))');
-		   // after 1 second, change it back
-		   setTimeout(function() {
-		     $elem.css('background', oldBG);
-		   }, 1000);
-		 }); 
+	   
 	   $("#i_1").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
-		    $(this).parent().css("background", "rgba(255, 150, 71,0.7)");
+		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
+		    $(this).parent().css("background", "rgb(255, 121, 20)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
 		    $(this).parent().css("background","#ff9647");
 		});
 		$("#i_2").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
-		    $(this).parent().css("background", "rgba(186, 248, 255,0.7)");
+		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
+		    $(this).parent().css("background", "rgb(94, 238, 255)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
 		    $(this).parent().css("background","#baf8ff");
 		});
 		$("#i_3").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
-		    $(this).parent().css("background", "rgba(255, 132, 187,0.7)");
+		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
+		    $(this).parent().css("background", "rgb(255, 66, 150)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","##ff84bb");
+		    $(this).parent().css("background","#ff84bb");
 		});
 		$("#i_4").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
-		    $(this).parent().css("background", "rgba(94, 255, 158,0.7)");
+		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
+		    $(this).parent().css("background", "rgb(45, 255, 129)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
 		    $(this).parent().css("background","#5eff9e");
