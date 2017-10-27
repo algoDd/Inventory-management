@@ -16,5 +16,19 @@ app.config(function($stateProvider,$urlRouterProvider)
 		});
 });
 app.controller('RMCrtl',function($scope,$http){
-	$scope.d="gvguy";
+	$scope.items = [];
+	  $scope.newitem = '';
+	  if ($scope.items.length < 10) {
+	      $scope.items.push($scope.items.length);
+	    }
+	  $scope.add = function(){
+	    if ($scope.items.length < 10) {
+	      $scope.items.push($scope.items.length);
+	    }
+	  }
+
+	  $scope.del = function(i){
+	      console.log(i);
+	    $scope.items.splice(i,1);
+	  }
 });
