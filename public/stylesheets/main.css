@@ -1,0 +1,40 @@
+.navbar-inverse{
+	background-color:white !important;
+}
+.navbar{
+	border:none !important;
+}
+.navbar-nav{
+	margin-left:2.5% !important;
+}
+.navbar-inverse .navbar-nav>li>a{
+	font-weight:bold;
+	color:white;
+}
+.navbar-nav>li{
+	margin:30px;
+	font-size:18px;
+	border: 2px solid grey;
+	box-sizing:border-box;
+}
+.navbar-brand{
+	font-weight:bold;
+	padding:30px 5px 5px 30px;
+	font-size:25px;
+}
+.li1{
+	padding: 50px 60px 50px 60px !important;
+	background:green !important;
+}
+.li2{
+	padding:50px 85px 50px 85px !important;
+	background: darkgrey !important;
+}
+.li3{
+	padding:50px 85px 50px 85px !important;
+	background:darkgrey !important;
+}
+.li4{
+	padding:50px 85px 50px 85px !important;
+	background:darkgrey !important;
+}

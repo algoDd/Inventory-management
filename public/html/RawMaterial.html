@@ -5,7 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body ng-controller="RMCrtl">
-<button class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
+<div class="container-fluid">
+<div class="row algn">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+  <ul class="tabs group">
+    <li id="algn" ng-click='add()'><a class="active">Add</a></li>
+    <li><a href="#/two">Update</a></li>
+  </ul>
+  
+  <div id="content" class="effect4">
     <div ng-repeat='item in items' class="form-group" id="field">
           <input type="text" ng-model='name' class="form-control" placeholder="Name"></input>&nbsp{{name}}
             <input type="number" ng-model='quantity' class="form-control" placeholder="Quantity"></input>&nbsp{{quantity}}
@@ -14,5 +22,34 @@
       <button class="btn btn-primary" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp
        <button class="btn btn-success" ng-click='add()'><i class="fa fa-plus-circle"></i></button>
 	</div>
+</div>
+</div>
+</div>
+</div>
+<!--<button class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
+    <div ng-repeat='item in items' class="form-group" id="field">
+          <input type="text" ng-model='name' class="form-control" placeholder="Name"></input>&nbsp{{name}}
+            <input type="number" ng-model='quantity' class="form-control" placeholder="Quantity"></input>&nbsp{{quantity}}
+          <input type="number" ng-model='price' class="form-control" placeholder="Price"></input>&nbsp{{price}}
+        
+      <button class="btn btn-primary" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp
+       <button class="btn btn-success" ng-click='add()'><i class="fa fa-plus-circle"></i></button>
+	</div>
+	-->
+<script>	
+	(function($) {
+
+	var tabs =  $(".tabs li a");
+  
+	tabs.click(function() {
+		var content = this.hash.replace('/','');
+		tabs.removeClass("active");
+		$(this).addClass("active");
+    $("#content").find('p').hide();
+    $(content).fadeIn(200);
+	});
+
+    })(jQuery);
+</script>
 </body>
 </html>
