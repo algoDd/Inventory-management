@@ -25,16 +25,17 @@ row_algn{
 	border-top:none !important;
 	border-left:none !important;
 	border-right:none !important;
-	border-bottom:2px solid black !important;
+	border-bottom:1px solid black !important;
 	box-shadow:none !important;
-	width:50% !important;
+	width:46% !important;
+	background:rgb(226, 226, 224) !important;
 }
 #content {
   max-width: 95%;
   min-height: 80vh;
   padding-bottom:6% !important;
   overflow:auto;
-  margin-top:10% !important;
+  margin-top:1% !important;
   margin-bottom:3% !important;
   margin: 0 auto;
   background: white;
@@ -64,7 +65,7 @@ border-bottom-left-radius: 8px;
   position: relative;
   overflow: hidden;
   margin-left:40%;
-  margin-top:2%;
+  margin-top:6%;
   margin-bottom: -10%;
   transform: translate3d(0, 0, 0);
 }
@@ -160,15 +161,15 @@ body {
   background-attachment: fixed, scroll;
   background-size: 100vw 100vh, cover;
   background-position: center center, 0 0;
-  background-image: -webkit-repeating-linear-gradient(135deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.075) 10%, rgba(255, 255, 255, 0.075) 14%, rgba(255, 255, 255, 0.15) 14%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.075) 17%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0.075) 40%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.075) 60%, rgba(255, 255, 255, 0.075) 66%, rgba(255, 255, 255, 0.15) 66%, rgba(255, 255, 255, 0.075) 70%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%), -webkit-radial-gradient(ellipse farthest-corner, transparent, rgba(0, 0, 0, 0.2) 110%);
-  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.075) 10%, rgba(255, 255, 255, 0.075) 14%, rgba(255, 255, 255, 0.15) 14%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.075) 17%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0.075) 40%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.075) 60%, rgba(255, 255, 255, 0.075) 66%, rgba(255, 255, 255, 0.15) 66%, rgba(255, 255, 255, 0.075) 70%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%), radial-gradient(ellipse farthest-corner, transparent, rgba(0, 0, 0, 0.2) 110%);
+  /*background-image: -webkit-repeating-linear-gradient(135deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.075) 10%, rgba(255, 255, 255, 0.075) 14%, rgba(255, 255, 255, 0.15) 14%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.075) 17%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0.075) 40%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.075) 60%, rgba(255, 255, 255, 0.075) 66%, rgba(255, 255, 255, 0.15) 66%, rgba(255, 255, 255, 0.075) 70%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%), -webkit-radial-gradient(ellipse farthest-corner, transparent, rgba(0, 0, 0, 0.2) 110%);
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.075) 10%, rgba(255, 255, 255, 0.075) 14%, rgba(255, 255, 255, 0.15) 14%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.075) 17%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0.075) 40%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.075) 60%, rgba(255, 255, 255, 0.075) 66%, rgba(255, 255, 255, 0.15) 66%, rgba(255, 255, 255, 0.075) 70%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%), radial-gradient(ellipse farthest-corner, transparent, rgba(0, 0, 0, 0.2) 110%);*/
 }
 
-.nav-dark {
-  background-color: #969696;
+.b_nav {
+   background: linear-gradient(to top,rgb(247, 22, 122),rgb(255, 132, 187));
 }
 .nav-dark .btn-glass {
-  color: black;
+  color: white;
   font-weight:bold;
 }
 nav.btn-bar {
@@ -185,7 +186,10 @@ nav.btn-bar {
   line-height: 1.6;
 
 }
-
+.cros{
+	padding:10px !important;
+	font-size: 30px !important;
+}
 article {
   padding: 0;
   border: 2px solid transparent;
@@ -195,7 +199,7 @@ article {
 }
 *[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
 
-*[contenteditable] { cursor: pointer; }
+*[contenteditable] { cursor: pointer; display: inline-block; }
 
 *[contenteditable]:hover, *[contenteditable]:focus, td:hover *[contenteditable], td:focus *[contenteditable], img.hover { background: #DEF; box-shadow: 0 0 1em 0.5em #DEF; }
 
@@ -203,18 +207,24 @@ span[contenteditable] { display: inline-block; }
 
 /* heading */
 
-h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
+.hd { 
+  font-size: 18px !important;
+    margin-left: 43px;
+    margin-bottom: 15%;
+    font-weight: bold;
+    color: rgb(16, 125, 140); 
+ }
 
-/* table */
+/* table 
 
 table { font-size: 75%; table-layout: fixed; width: 100%; }
 table { border-collapse: separate; border-spacing: 2px; }
 th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
 th, td { border-radius: 0.25em; border-style: solid; }
-th { background: #EEE; border-color: #BBB; }
-td { border-color: #DDD; }
+th { background: cornflowerblue; border-color: blue; }
+td { border-color: blue; }
 
-/* header */
+/* header 
 
 header { margin: 0 0 3em; }
 header:after { clear: both; content: ""; display: table; }
@@ -227,7 +237,7 @@ header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: re
 header img { max-height: 100%; max-width: 100%; }
 header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
 
-/* article */
+/* article 
 
 article, article address, table.meta, table.inventory { margin: 0 0 3em; }
 article:after { clear: both; content: ""; display: table; }
@@ -235,17 +245,17 @@ article h1 { clip: rect(0 0 0 0); position: absolute; }
 
 article address { float: left; font-size: 125%; font-weight: bold; }
 
-/* table meta & balance */
+/* table meta & balance 
 
 table.meta, table.balance { float: right; width: 36%; }
 table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
 
-/* table meta */
+/* table meta 
 
 table.meta th { width: 40%; }
 table.meta td { width: 60%; }
 
-/* table items */
+/* table items 
 
 table.inventory { clear: both; width: 100%; }
 table.inventory th { font-weight: bold; text-align: center; }
@@ -256,7 +266,7 @@ table.inventory td:nth-child(3) { text-align: right; width: 12%; }
 table.inventory td:nth-child(4) { text-align: right; width: 12%; }
 table.inventory td:nth-child(5) { text-align: right; width: 12%; }
 
-/* table balance */
+/* table balance 
 
 table.balance th, table.balance td { width: 50%; }
 table.balance td { text-align: right; }
@@ -316,4 +326,121 @@ tr:hover .cut { opacity: 1; }
 }
 .modal-body{
     overflow-y: auto !important;
+    padding: 25px 10px 0px 3px !important;
+    margin-left:-3px;
+}
+#c1{
+	margin-left:39% !important;
+}
+#c2{
+	margin-left:5% !important;
+}
+.cont {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.cont input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.cont:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.cont input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.cont input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.cont .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+#pd{
+	margin-left:40% !important;
+	margin-top:3% !important;
+	background-color:black !important;
+	border-color: black !important;
+}
+hr{
+    width:85% !important;
+    margin-bottom:8px !important;
+    border-top: 3px solid rgb(16, 125, 140) !important;	
+}
+#h2_head{
+	margin-top:0px !important;
+}
+.r_a{
+	padding-left:10% !important;
+}
+.r_1{
+	font-size:15px !important;
+	padding-right:5px !important;
+}
+.l_a{
+	padding-bottom:75px !important;
+}
+#h_a{
+	width:20% !important;
+	margin-right:10% !important;
+	margin-bottom:10px !important;
+	border-top:2px solid black !important;
+}
+#sign{
+	margin-left:71%;
+	font-size: 15px !important;
+}
+#h_l{
+	margin-bottom: 35px! important;
+	margin-top: 28px! important;
+}
+#th_clr{
+	background:rgb(16, 125, 140) !important;
+	color: white !important;
+}
+#p_clr{
+	color:rgb(16, 125, 140);
+}
+#bill_modal{
+	top: -20px !important;
 }

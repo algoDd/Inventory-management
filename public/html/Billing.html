@@ -7,7 +7,6 @@
 <div class="container-fluid">
 <div class="row row_algn">
 <div class="col-lg-12 col-md-12 col-sm-12">
-<div id="content">
 
 <div class='box_bill'>
   <div class='wave_bill -one_bill'></div>
@@ -15,19 +14,27 @@
   <div class='wave_bill -three_bill'></div>
   <div class='title_bill' ng-click="addb()">Bill</div>
 </div>
-
+<label class="cont" id="c1">Customer
+  <input type="radio" checked="checked" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="c2">Dealer
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label>
+<div id="content">
 <article>
-  <nav class="btn-bar nav-dark">
-    <a href="#" class="btn btn-glass">
+  <nav class="btn-bar nav-dark b_nav" id="b_tab">
+    <a class="btn btn-glass">
       Category
     </a>
-    <a href="#" class="btn btn-glass">
+    <a class="btn btn-glass">
     Code
     </a>
-    <a href="#" class="btn btn-glass">
+    <a class="btn btn-glass">
       Quantity
     </a>
-    <a href="#" class="btn btn-glass">
+    <a class="btn btn-glass">
       Price
     </a>
   </nav>
@@ -61,38 +68,38 @@
     
       <!-- Modal content-->
       <div class="modal-content" id="pdf_content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" data-html2canvas-ignore>&times;</button>
-          <button id="pd" ng-click="exportAsPdf()" data-html2canvas-ignore > Generate Pdf</button>
-          </div>
-          <h1>ANSH RETAILS PVT. LTD.</h1>
+        
+          <button type="button" class="close cros" data-dismiss="modal" data-html2canvas-ignore>&times;</button>
+          <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" data-html2canvas-ignore > Generate Pdf</button>
+          <hr/>
+          <p class="hd">ANSH RETAILS PVT. LTD.</p>
           <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4">
-          <h2>INVOCE</h2><br/>
-          <p>9910065715<br/>
+          <div class="col-lg-4 col-md-4 col-sm-4 r_a">
+          <h2 id="h2_head">INVOCE</h2><br/>
+          <p id="p_clr">9910065715<br/>
           7011125845<br/>
           85888954331<br/><br/>
           anshretails@yahoo.in</p>
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8">
-          <p>Customer Name:<address contenteditable><p>Jonathan Neal</p></address> </p><br/>
-		  <p>Company Name: <address contenteditable><p>Nil</p></address></p><br/><br/>
-		  <p>PostCode: <address contenteditable><p>Nil</p></address></p><br/>
-			<article>
-		  <p>Date: <span>{{date}}</span></p><br/><br/>
-		  <p>Invoice Number: <span>{{inNo}}</span></p><br/>
-		  <p>Thank you for your business.<br/>
+          <div class="col-lg-8 col-md-8 col-sm-8 l_a">
+         <span style="font-weight:bold;"> Customer Name: </span><address contenteditable>Jonathan Neal</address><br/>
+		  <span style="font-weight:bold;">Company Name: </span><address contenteditable>Nil</address><br/><br/>
+		  <span style="font-weight:bold;">PostCode: </span><address contenteditable>Nil</address><br/>
+		  <span style="font-weight:bold;">Date: </span><span>{{date}}</span><br/><br/>
+		  <span>Invoice Number: </span><span>{{inNo}}</span></p><br/>
+		  <span>Thank you for your business.<br/>
 		  Yours sincerely,<br/>
 		  Ansh Retails Pvt. Ltd.
-		  </p>
+		  </span>
+		  
         <div class="modal-body">
           <table class="table table-bordered">
          <thead>
          <tr>
-        <th>Description</th>
-        <th>Code</th>
-        <th>Quantity</th>
-        <th>Price</th>
+        <th id="th_clr">Description</th>
+        <th id="th_clr">Code</th>
+        <th id="th_clr">Quantity</th>
+        <th id="th_clr">Price</th>
       </tr>
     </thead>
     <tbody>
@@ -105,38 +112,42 @@
     </tbody>
   </table>
         </div>
-        <div class="modal-footer">
-          		<table class="balance">
+     
+          		<table class="table">
+          		<tr>
+					<th><span>Sub Total</span></th>
+					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span>{{totalamt}}</span></td>
+				</tr>
 				<tr>
 					<th><span >Shipping charges</span></th>
-					<td><span data-prefix>$</span><span contenteditable></span></td>
+					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span contenteditable ng-model='$crtl.ship_chrg'></span></td>
 				</tr>
 				<tr>
-					<th><span  >Tax</span></th>
-					<td><span data-prefix>$</span><span contenteditable></span></td>
+					<th><span>Tax</span></th>
+					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span contenteditable ng-model='$crtl.tax'></span></td>
 				</tr>
 				<tr>
-					<th><span  >Other Charge(s), If any.</span></th>
-					<td><span data-prefix>$</span><span contenteditable></span></td>
+					<th><span>Other Charge(s), If any.</span></th>
+					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span contenteditable ng-model='$crtl.o_chrg'></span></td>
 				</tr>
 				<tr>
-					<th><span >Total</span></th>
-					<td><span data-prefix>Rs.</span><span>{{totalamt}}</span></td>
+					<th><span>Total</span></th>
+					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span>{{final_amt}}</span></td>
 				</tr>
 			</table>
 			</div>
-		</article>
+		
 		<aside>
-			<hr/>
-				<p>Authorised Stamp</p>		
+			<hr span id="h_a"></span>
+				<span id="sign">Authorised Stamp</span>	
 		</aside>
 		</div>
+		<hr span id="h_l"></span>
         </div>
         </div>
         </div>
         </div>
-        <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-			<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+       
       </div>
       
     </div>
