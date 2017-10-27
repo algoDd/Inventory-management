@@ -282,7 +282,7 @@ app.controller('RMCrtl',function($scope,$http){
 	    }
 		  console.log(i);
 	  }
-	  $scope.exportAsPdf=function(){
+	/*  $scope.exportAsPdf=function(){
 	  var doc = new jsPDF();
 	  var specialElementHandlers = {
 	      '#editor': function (element, renderer) {
@@ -296,8 +296,41 @@ app.controller('RMCrtl',function($scope,$http){
 	      });
 	      doc.save('sample-file.pdf');
 	 
-	}
+	}*/
 
+	  $scope.exportAsPdf=function(){
+		  html2canvas(document.getElementById("pdf_content"), {
+			onrendered: function (canvas) {	
+				
+				var data = canvas.toDataURL("image/png");
+				var docDefinition = {
+						content: [{
+							image: data,
+						    width: 500,
+					      
+				}]
+				};
+				pdfMake.createPdf(docDefinition).download("bill.pdf");
+				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
+				    data = encodedString;
+				});
+			}  
+		  });
+	  }
+	/*  $scope.exportAsPdf=function(){
+		  html2canvas(document.getElementById("pdf_content"), {
+			onrendered: function (canvas) {	
+				var data = new Image();
+			    data = canvas.toDataURL("image/jpeg");
+				var doc = new jsPDF("p","mm","a4");
+			    var width= doc.internal.pageSize.width;
+				var height= doc.internal.pageSize.height;
+				doc.addImage(data,'JPEG',0,0,width,height);
+				doc.save('bill.pdf');
+			
+			}  
+		  });
+	  }*/
 });
 
 
