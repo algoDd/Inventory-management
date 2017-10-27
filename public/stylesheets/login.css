@@ -47,7 +47,7 @@ body {
 }
 @font-face{
 font-family: curv;
-    src: url(Arizonia-Regular.ttf);
+    src: url(/assets/font/Arizonia-Regular.ttf);
 }
 h1{
 	font-family: 'curv' , 'Open Sans';
