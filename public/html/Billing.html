@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body ng-controller="RMcrtl">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<button id="buton" class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
+<div class="effect4" id="content">
+<ul class="ul_algn">
+<li id="li_algn"><a id="a_algn" href="#">Category</a></li>
+<li id="li_algn"><a id="a_algn" href="#">Code</a></li>
+<li id="li_algn"><a id="a_algn" href="#">Quantity</a></li>
+<li id="li_algn"><a id="a_algn" href="#">Price</a></li>
+</ul>
+<div ng-show="one">
+    <div ng-repeat='item in items' class="form-group" id="field">
+          <select ng-model='selected_item' class="form-control" name="item_name">
+          <option value="register" selected>Registers</option>
+          <option value="cover_pg">Cover Page</option>
+          </select>&nbsp
+          <select ng-model='selectedName' ng-options="codes for codes in code_list">
+          </select>
+          <input type="number" ng-model='quantity' class="form-control" placeholder="quantity"></input>&nbsp
+          <input type="number" ng-model='price' class="form-control" placeholder="price"></input>&nbsp
+       <button  class="btn btn-success" ng-click='add($index)'><i class="fa fa-check"></i></button> 
+      <button class="btn btn-primary" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp       
+	</div>
+</div>
+</div>
+<button class="btn btn-info" ng-click='submit()'>Done</button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
