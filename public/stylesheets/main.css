@@ -1,5 +1,5 @@
-.navbar-inverse{
-	background-color:white !important;
+/*.navbar-inverse{
+	background-color:white; !important;
 }
 .navbar{
 	border:none !important;
@@ -14,7 +14,7 @@
 .navbar-nav>li{
 	margin:30px;
 	font-size:18px;
-	border: 2px solid grey;
+	
 	box-sizing:border-box;
 }
 .navbar-brand{
@@ -37,4 +37,119 @@
 .li4{
 	padding:50px 85px 50px 85px !important;
 	background:darkgrey !important;
+}
+#my_div {
+    background: red;
+    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera
+    animation: mymove 5s infinite;
+}
+@keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+}
+*/
+.container_1 {
+  position: relative;
+  margin-left:4%;
+}
+.container_2 {
+  position: relative;
+  margin-left:4%;
+}
+.container_3 {
+  position: relative;
+  margin-left:4%;
+}
+.container_4 {
+  position: relative;
+  margin-left:4%;
+}
+#i_1{
+	background:#ff9647;
+}
+#i_2{
+	background:#baf8ff;
+}
+#i_3{
+	background:#ff84bb;
+}
+#i_4{
+	background:#5eff9e;
+}
+.image {
+  display: block;
+  width: 20%;
+  height: 50%;
+  box-sizing:border-box;
+  border-radius:50%;
+  border: 7px solid #d1d1d1;
+}
+.gl_icn{
+   font-size:128px;
+   padding:48px 10px 48px 10px;
+   margin-left:17%;
+   color:black;
+}
+.gl_icn2{
+   margin-left:22%;
+}
+.gl_icn3{
+   margin-left:32%;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left:100%;
+  border-radius:110%;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.container_1:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+.container_2:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+.container_3:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+.container_4:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+.text {
+  background:cornsilk;
+  white-space: nowrap; 
+  color: black;
+  font-size: 25px;
+  font-weight:bold;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#txt_1{
+	padding: 10px 60px 10px 60px;
+}
+#txt_2{
+	padding: 10px 95px 10px 95px;
+}
+#txt_3{
+	padding: 10px 95px 10px 95px;
+}
+#txt_4{
+	padding: 10px 95px 10px 95px;
+}
+.col_algn{
+	display:flex !important;
+	margin-top: 2%;
 }
