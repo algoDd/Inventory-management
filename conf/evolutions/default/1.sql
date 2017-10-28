@@ -3,6 +3,13 @@
 
 # --- !Ups
 
+create table public.code (
+  id                        serial not null,
+  code                      varchar(255),
+  price                     integer,
+  constraint pk_code primary key (id))
+;
+
 create table public.raw_material (
   id                        serial not null,
   quantity                  integer,
@@ -15,6 +22,8 @@ create table public.raw_material (
 
 
 # --- !Downs
+
+drop table if exists public.code cascade;
 
 drop table if exists public.raw_material cascade;
 

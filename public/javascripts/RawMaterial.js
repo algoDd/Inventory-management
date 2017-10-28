@@ -13,6 +13,10 @@ app.config(function($stateProvider,$urlRouterProvider)
 			name: 'RawMaterial',
 			url:'/RawMaterial',
 			templateUrl:'/assets/html/RawMaterial.html'
+		}).state('Billing',{
+			name: 'Billing',
+			url:'/Billing',
+			templateUrl:'/assets/html/Billing.html'
 		});
 });
 app.controller('RMCrtl',function($scope,$http){
@@ -22,21 +26,11 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.value=false;
 	  $scope.update=false;
 	  var k=0;
+	  $scope.codeCheck="";
+	  $scope.totalamt=0;
 	  $scope.one=true;
 	   $scope.two=false;
-	  (function($) {
-
-			var tabs =  $(".tabs li a");
-		  
-			tabs.click(function() {
-				var content = this.hash.replace('/','');
-				tabs.removeClass("active");
-				$(this).addClass("active");
-		    $("#content").find('p').hide();
-		    $(content).fadeIn(200);
-			});
-
-		    })(jQuery);
+	  
 //	  $scope.rawMat=[{
 //			"name":
 //			"price":
@@ -47,8 +41,8 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.add = function(i){
 		  $scope.value=true;
 		 
-	  
-	      
+		  $scope.vm = this;
+	     if($scope.vm.$crtl!=undefined){ 
 	      if($scope.rawMat.length!=(i))
 		  {   
 	    	  if ($scope.items.length < 10) {
@@ -70,7 +64,7 @@ app.controller('RMCrtl',function($scope,$http){
 	     }else{
 	    	 if ($scope.items.length < 10) {
 			      $scope.items.push(k++);
-			      $scope.vm = this;
+			      
 			      if($scope.items.length!=1){
 			    	  $scope.rawMat.push({
 			    	  "name":$scope.vm.$crtl.name,
@@ -82,7 +76,12 @@ app.controller('RMCrtl',function($scope,$http){
 	     }
 	      
 	    
-	    
+	     }else{
+	    	 if ($scope.items.length < 10) {
+			      $scope.items.push(k++);
+	    	 }
+	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
+	     } 
 	    
 	  }
 	  $scope.tab=function(t)
@@ -91,10 +90,12 @@ app.controller('RMCrtl',function($scope,$http){
 			  {
 			   $scope.one=true;
 			   $scope.two=false;
+			   
 			  }else
 				  {
 				  $scope.one=false;
 				   $scope.two=true;
+				   $scope.value=false;
 				  }
 	  }
 	  $scope.submit = function(){
@@ -119,5 +120,38 @@ app.controller('RMCrtl',function($scope,$http){
 	    }
 		  console.log(i);
 	  }
+	  /*..........................Billing...................................*/
+	  $scope.addb = function(i){
+		 
+	 
+	  if ($scope.items.length < 10) {
+	      $scope.items.push(k++);
 	  
+	  }
+	 }
+	  $scope.calcPrice = function(code){
+		  $scope.vm = this; 
+		  $scope.json={"code":$scope.vm.$crtl.code};
+		  if(code!=$scope.codeCheck){
+			  $scope.codeCheck=code;
+		  $http({
+			   method:"POST",
+			   url:"/api/bill",
+			   data:$scope.json
+		   }).then(function (success){
+			   $scope.rprice=parseInt(success.data);
+			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
+			   $scope.totalamt+= $scope.price;
+		   },function (error){
+
+		   });
+		  }else{
+			  $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
+			  $scope.totalamt+= $scope.price;
+		  }
+	  }
 });
+
+
+
+

@@ -24,3 +24,4 @@ GET /home								controllers.Assets.at(path="/public", file="html/index.html")
 #GET /admin								controllers.Assets.at(path="/public", file="html/admin.html")
 #APIs
 POST /api/rawMaterial					controllers.RawMaterialCrtl.rawMaterial
+POST /api/bill							controllers.BillCrtl.getCode

@@ -19,7 +19,7 @@
   <div ng-show="one">
 <button  class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
     <div ng-repeat='item in items' class="form-group" id="field">
-          <input type="text" ng-model="$crtl.name" class="form-control" placeholder="Name" />{{name}}&nbsp
+          <input type="text" ng-model="$crtl.name" class="form-control" placeholder="Name" />&nbsp
             <input type="number" ng-model='$crtl.quantity' class="form-control" placeholder="Quantity"></input>&nbsp
           <input type="number" ng-model='$crtl.price' class="form-control" placeholder="Price"></input>&nbsp
        <button  class="btn btn-success" ng-click='add($index)'><i class="fa fa-check"></i></button> 
@@ -29,8 +29,7 @@
 	</div>
 </div>
 	<button ng-show="value" class="btn btn-info" ng-click='submit()'>Done</button>
-  <div ng-show="two">
-  	<h1>update</h1>
+  
   </div>
   
 </div>
