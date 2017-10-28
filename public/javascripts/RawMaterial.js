@@ -22,6 +22,21 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.value=false;
 	  $scope.update=false;
 	  var k=0;
+	  $scope.one=true;
+	   $scope.two=false;
+	  (function($) {
+
+			var tabs =  $(".tabs li a");
+		  
+			tabs.click(function() {
+				var content = this.hash.replace('/','');
+				tabs.removeClass("active");
+				$(this).addClass("active");
+		    $("#content").find('p').hide();
+		    $(content).fadeIn(200);
+			});
+
+		    })(jQuery);
 //	  $scope.rawMat=[{
 //			"name":
 //			"price":
@@ -69,6 +84,18 @@ app.controller('RMCrtl',function($scope,$http){
 	    
 	    
 	    
+	  }
+	  $scope.tab=function(t)
+	  {
+		  if(t==1)
+			  {
+			   $scope.one=true;
+			   $scope.two=false;
+			  }else
+				  {
+				  $scope.one=false;
+				   $scope.two=true;
+				  }
 	  }
 	  $scope.submit = function(){
 		  $http({

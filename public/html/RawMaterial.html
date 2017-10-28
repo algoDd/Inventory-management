@@ -4,7 +4,19 @@
 <meta charset="UTF-8">
 
 </head>
+
 <body ng-controller="RMCrtl as $crtl">
+<div class="container-fluid">
+<div class="row algn">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+  
+  <div id="content" class="effect4">
+  <ul class="tabs group">
+    <li><a ng-click="tab(1)" class="active">Add</a></li>
+    <li><a ng-click="tab(2)">Update</a></li>
+  </ul>
+  
+  <div ng-show="one">
 <button  class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
     <div ng-repeat='item in items' class="form-group" id="field">
           <input type="text" ng-model="$crtl.name" class="form-control" placeholder="Name" />{{name}}&nbsp
@@ -15,6 +27,28 @@
        
        
 	</div>
+</div>
 	<button ng-show="value" class="btn btn-info" ng-click='submit()'>Done</button>
+  <div ng-show="two">
+  	<h1>update</h1>
+  </div>
+  
+</div>
+
+</div>
+</div>
+</div>
+<!--<button class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
+    <div ng-repeat='item in items' class="form-group" id="field">
+          <input type="text" ng-model='name' class="form-control" placeholder="Name"></input>&nbsp{{name}}
+            <input type="number" ng-model='quantity' class="form-control" placeholder="Quantity"></input>&nbsp{{quantity}}
+          <input type="number" ng-model='price' class="form-control" placeholder="Price"></input>&nbsp{{price}}
+        
+      <button class="btn btn-primary" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp
+       <button class="btn btn-success" ng-click='add()'><i class="fa fa-plus-circle"></i></button>
+	</div>
+	-->
+
+
 </body>
 </html>
