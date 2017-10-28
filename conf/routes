@@ -21,3 +21,5 @@ GET /home								controllers.Assets.at(path="/public", file="html/index.html")
 #GET /notespot								controllers.Assets.at(path="/public", file="html/upload.html")
 #GET /login								controllers.Assets.at(path="/public", file="html/index.html")
 #GET /admin								controllers.Assets.at(path="/public", file="html/admin.html")
+#APIs
+POST /api/rawMaterial					controllers.RawMaterialCrtl.rawMaterial
