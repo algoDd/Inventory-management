@@ -23,6 +23,9 @@ ANSH RETAILS
 <script src="/assets/javascripts/jquery.min.js"></script>
 <script src="assets/javascripts/bootstrap.min.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
@@ -34,22 +37,23 @@ ANSH RETAILS
  --> 
 <script src="/assets/javascripts/RawMaterial.js" type="text/javascript"></script>
 
+<script src="/assets/javascripts/Billing.js" type="text/javascript"></script>
+<script src="/assets/javascripts/main_color.js" type="text/javascript"></script>
+
    
 </head>
 <body ng-app="RMApp" ng-controller="RMCrtl">
 
-<div id="navbar">
+<!--<div id="navbar">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!--<div class="navbar-header">
       <a class="active navbar-brand" ui-sref="main" href="">Home</a>
-    </div>-->
+    </div>
     <ul class="nav navbar-nav">
-      
-		 <li> <a class="li1" ui-sref="RawMaterial" href="">Raw Material</a></li>
-		 <li> <a class="li2" ui-sref="Stock" href="">Stock</a></li>
-      
-   
+       
+		 <li id="mydiv"><a id="my_div" class="li1" ui-sref="RawMaterial" href="">Raw Material</a> </li>
+		 <li> <a class="li2" ui-sref="Stock" href="">Stock</a></li> 
       <li><a class="li3" ui-sref="Billing" href="">Billing</a></li>
       <li><a class="li4" ui-sref="Sales" href="" >Sales</span></a></li>
       
@@ -58,10 +62,51 @@ ANSH RETAILS
 </nav>
   
       
+</div>-->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col_algn">
+
+<div class="container_1 image" id="i_1" onClick>
+<a ui-sref="RawMaterial">
+<i class="fa fa-cart-arrow-down gl_icn" aria-hidden="true"></i>
+  <div class="overlay">
+    <div class="text" id="txt_1">Raw Material</div>
+  </div>
+  </a>
+</div>
+
+<div class="container_2 image" id="i_2" onClick>
+<a ui-sref="Stock">
+<i class="fa fa-database gl_icn gl_icn2" aria-hidden="true"></i>
+  <div class="overlay">
+    <div class="text" id="txt_2">Stock</div>
+  </div>
+  </a>
+</div>
+
+<div class="container_3 image" id="i_3" onClick>
+<a ui-sref="Billing">
+<i class="fa fa-inr gl_icn gl_icn3" aria-hidden="true"></i>
+  <div class="overlay">
+    <div class="text" id="txt_3">Billing</div>
+  </div>
+  </a>
+</div>
+
+<div class="container_4 image" id="i_4" onClick>
+<a ui-sref="Sales">
+<i class="fa fa-line-chart gl_icn" aria-hidden="true"></i>
+  <div class="overlay">
+    <div class="text" id="txt_4">Sales</div>
+  </div>
+  </a>
+</div>
+
+</div>
+</div>
 </div>
 
 <div id="mainpage" ui-view></div>
- 
-
 </body>
 </html>

@@ -9,31 +9,65 @@
 <div class="container-fluid">
 <div class="row algn">
   <div class="col-lg-12 col-md-12 col-sm-12">
+  <div class='box' ng-click='add()'>
+  <div class='wave -one'></div>
+  <div class='wave -two'></div>
+  <div class='wave -three'></div>
+  <div class='title'>Fill Items</div>
+</div>
   
-  <div id="content" class="effect4">
-  <ul class="tabs group">
+  <div id="content_raw">
+  <!-- <ul class="tabs group">
     <li><a ng-click="tab(1)" class="active">Add</a></li>
     <li><a ng-click="tab(2)">Update</a></li>
-  </ul>
+  </ul>-->
+  
   
   <div ng-show="one">
-<button  class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>
+<!--<button  class="btn btn-success" ng-click='add()'>Add Items<i class="fa fa-plus-circle"></i></button>-->
     <div ng-repeat='item in items' class="form-group" id="field">
           <input type="text" ng-model="$crtl.name" class="form-control" placeholder="Name" />&nbsp
             <input type="number" ng-model='$crtl.quantity' class="form-control" placeholder="Quantity"></input>&nbsp
-          <input type="number" ng-model='$crtl.price' class="form-control" placeholder="Price"></input>&nbsp
+          <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price' class="form-control" id="prc"></input>&nbsp
        <button  class="btn btn-success" ng-click='add($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp
        
        
 	</div>
 </div>
+
 	<button ng-show="value" class="btn btn-info" ng-click='submit()'>Done</button>
   
   </div>
+
+	<!--<button ng-show="value" class="btn btn-info" ng-click='submit()'>Done</button>-->
+
   
 </div>
+   <div class="buttons">
+  <button class="blob-btn">
+    Done
+    <span class="blob-btn__inner">
+      <span class="blob-btn__blobs">
+        <span class="blob-btn__blob"></span>
+        <span class="blob-btn__blob"></span>
+        <span class="blob-btn__blob"></span>
+        <span class="blob-btn__blob"></span>
+      </span>
+    </span>
+  </button>
+  <br/>
+</div>
 
+<svg id="sv_disp" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+      <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+    </filter>
+  </defs>
+</svg>
 </div>
 </div>
 </div>
