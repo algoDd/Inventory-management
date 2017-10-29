@@ -14,8 +14,15 @@ public class BillCrtl extends Controller {
 		String code=body.get("code").asText();
 		CodeModel cmodel=new CodeModel(code);
 		int p =helper.getCode(code,cmodel);
-		String price=String.valueOf(p);
-		return ok(price);
+		if(p!=0)
+		{
+			String price=String.valueOf(p);
+			return ok(price);
+		}else
+		{
+			return badRequest("db error");
+		}
+		
 	
 	}
 }

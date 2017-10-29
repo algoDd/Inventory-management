@@ -23,13 +23,18 @@ app.controller('RMCrtl',function($scope,$http){
 	$scope.items = [];
 	  $scope.newitem = '';
 	  $scope.rawMat=[];
+	  $scope.bill=[];
+	  $scope.bitems=[];
 	  $scope.value=false;
 	  $scope.update=false;
 	  var k=0;
+	  $scope.rprice=0;
 	  $scope.codeCheck="";
 	  $scope.totalamt=0;
+	  $scope.totalRM=0;
 	  $scope.one=true;
 	   $scope.two=false;
+	   $scope.bupdate=false;
 	  
 //	  $scope.rawMat=[{
 //			"name":
@@ -54,6 +59,7 @@ app.controller('RMCrtl',function($scope,$http){
 		    	  	"price":$scope.vm.$crtl.price,
 		      		"quantity":$scope.vm.$crtl.quantity
 		       });
+		    	$scope.totalRM+=($scope.vm.$crtl.price*$scope.vm.$crtl.quantity);  
 	    	  $scope.update=true;
 		    $scope.del((i+1));
 		    
@@ -72,6 +78,7 @@ app.controller('RMCrtl',function($scope,$http){
 			      		"quantity":$scope.vm.$crtl.quantity
 			       });
 			      }
+			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price*$scope.vm.$crtl.quantity);  
 	    	 }
 	     }
 	      
@@ -111,6 +118,7 @@ app.controller('RMCrtl',function($scope,$http){
 	  }
 	  $scope.del= function(i){
 		  if($scope.update==true){
+		  $scope.totalRM =$scope.totalRM -($scope.rawMat[i].price*$scope.rawMat[i].quantity);
 		  $scope.rawMat.splice(i,1);
 		  $scope.update=false;
 		  $scope.items.splice($scope.rawMat.length,1);
@@ -122,12 +130,58 @@ app.controller('RMCrtl',function($scope,$http){
 	  }
 	  /*..........................Billing...................................*/
 	  $scope.addb = function(i){
-		 
-	 
-	  if ($scope.items.length < 10) {
-	      $scope.items.push(k++);
+		  $scope.value=true;
+			 
+		  $scope.vm = this;
+	     if($scope.vm.$crtl!=undefined){ 
+	      if($scope.bill.length!=(i))
+		  {   
+	    	  if ($scope.bitems.length < 10) {
+	    		  $scope.bitems.push(k++);
+		      $scope.vm = this;
+		      if($scope.bitems.length!=1){
+		    	  $scope.bill.splice(i,0,{
+		    	  "code":$scope.vm.$crtl.code,
+		    	  	"price":$scope.vm.$crtl.price,
+		      		"quantity":$scope.vm.$crtl.quantity
+		       });
+		    	  if( $scope.rprice!=0){
+		    	  $scope.totalamt+=($scope.vm.$crtl.quantity* $scope.rprice);
+		    	  }
+		    	  $scope.bupdate=true;
+		    $scope.bdel((i+1));
+		    
+		  }else{
+			  $scope.error="cannot add more then 10";
+		  }
+	    	}
+	     }else{
+	    	 if ($scope.bitems.length < 10) {
+	    		 $scope.bitems.push(k++);
+			      
+			      if($scope.bitems.length!=1){
+			    	  $scope.bill.push({
+			    	  "code":$scope.vm.$crtl.code,
+			    	  	"quantity":$scope.vm.$crtl.quantity,
+			      		"price":$scope.vm.$crtl.price
+			       });
+			      }
+			      if( $scope.rprice!=0){
+			    	  $scope.totalamt+=($scope.vm.$crtl.quantity* $scope.rprice);
+			    	  }
+	    	 }
+	     }
+	      
+	    
+	     }else{
+	    	 if ($scope.bitems.length < 10) {
+	    		 $scope.bitems.push(k++);
+	    	 }
+	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
+	     } 
+	    
 	  
-	  }
+	  
 	 }
 	  $scope.calcPrice = function(code){
 		  $scope.vm = this; 
@@ -141,14 +195,27 @@ app.controller('RMCrtl',function($scope,$http){
 		   }).then(function (success){
 			   $scope.rprice=parseInt(success.data);
 			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
-			   $scope.totalamt+= $scope.price;
+			   
 		   },function (error){
 
 		   });
 		  }else{
 			  $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
-			  $scope.totalamt+= $scope.price;
+			  
 		  }
+	  }
+	  
+	  $scope.bdel= function(i){
+		  if($scope.bupdate==true){
+		  $scope.totalamt =$scope.totalamt -($scope.bill[i].price);
+		  $scope.bill.splice(i,1);
+		  $scope.bupdate=false;
+		  $scope.bitems.splice($scope.bill.length,1);
+	      }else{
+	    	  $scope.bill.splice(i,1);
+	    $scope.bitems.splice(i,1);
+	    }
+		  console.log(i);
 	  }
 });
 

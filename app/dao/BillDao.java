@@ -21,7 +21,7 @@ public class BillDao {
 			
 		}catch(Exception e)
 		{
-			
+			return 0;
 		}
 		return c3;
 	}
