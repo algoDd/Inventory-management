@@ -17,6 +17,10 @@ app.config(function($stateProvider,$urlRouterProvider)
 			name: 'Billing',
 			url:'/Billing',
 			templateUrl:'/assets/html/Billing.html'
+		}).state('Stock',{
+			name: 'Stock',
+			url:'/Stock',
+			templateUrl:'/assets/html/stocks.html'
 		});
 });
 app.controller('RMCrtl',function($scope,$http){
@@ -35,6 +39,19 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.one=true;
 	   $scope.two=false;
 	   $scope.bupdate=false;
+	   /*.................divis js part...................*/
+	   $('#i_1,#i_2,#i_3,#i_4').click(function() {
+		   // make a jQ collection of the DOM element from the event
+		   var $elem = $(this);
+		   // store the background-color
+		   var oldBG = $elem.css('background');
+		   // change the background color to what you want
+		   $elem.css('background', 'linear-gradient(rgb(181, 245, 255),rgb(22, 249, 121),rgb(1, 134, 153))');
+		   // after 1 second, change it back
+		   setTimeout(function() {
+		     $elem.css('background', oldBG);
+		   }, 1000);
+		 }); 
 	  
 //	  $scope.rawMat=[{
 //			"name":
@@ -43,6 +60,13 @@ app.controller('RMCrtl',function($scope,$http){
 //	  }];
 	//$scope.price=[];
 	//$scope.quantity=[];
+	   $scope.invoice=function()
+	   {
+		   var number=Math.floor((Math.random() * 999999) + 10000);
+		   var n=Math.floor((Math.random() * 25) + 1);
+		   var chr = String.fromCharCode(65 + n); 
+		   $scope.inNo="#AR"+n+chr.toString()+number;
+	   }
 	  $scope.add = function(i){
 		  $scope.value=true;
 		 
@@ -141,6 +165,7 @@ app.controller('RMCrtl',function($scope,$http){
 		      $scope.vm = this;
 		      if($scope.bitems.length!=1){
 		    	  $scope.bill.splice(i,0,{
+		    		  "catagory":$scope.vm.$crtl.selected_item,
 		    	  "code":$scope.vm.$crtl.code,
 		    	  	"price":$scope.vm.$crtl.price,
 		      		"quantity":$scope.vm.$crtl.quantity
@@ -161,6 +186,7 @@ app.controller('RMCrtl',function($scope,$http){
 			      
 			      if($scope.bitems.length!=1){
 			    	  $scope.bill.push({
+			    		  "catagory":$scope.vm.$crtl.selected_item,
 			    	  "code":$scope.vm.$crtl.code,
 			    	  	"quantity":$scope.vm.$crtl.quantity,
 			      		"price":$scope.vm.$crtl.price

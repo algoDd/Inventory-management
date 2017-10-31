@@ -15,7 +15,5 @@ public class RawMaterialDAO {
 	 }
 	 return true;
 	}
-	public static Boolean dltMaterial(String name){
-		return false;
-	}
+	
 }

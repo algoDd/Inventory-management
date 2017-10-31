@@ -31,17 +31,5 @@ public class RawMaterialCrtl extends Controller {
 		 }
 		return ok("done");
 	}
-	public Result dltMaterial(){
-		JsonNode body=request().body().asJson();
-		String name=body.get("name").asText();
-		
-		Boolean check=helper.dltMaterial(name);
-		if(check)
-		{
-		return ok("done");
-		}else {
-			return badRequest("error Occured");
-		}
-	 
-	}
+	
 }
