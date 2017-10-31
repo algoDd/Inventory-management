@@ -5,35 +5,147 @@
 </head>
 <body ng-controller="RMCrtl as $crtl">
 <div class="container-fluid">
-<div class="row">
+<div class="row row_algn">
 <div class="col-lg-12 col-md-12 col-sm-12">
-<button id="buton" class="btn btn-success" ng-click='addb()'>Add Items<i class="fa fa-plus-circle"></i></button>
-<div class="effect4" id="content">
-<ul class="ul_algn">
+<div id="content">
+
+<div class='box_bill' ng-click='addb()'>
+  <div class='wave_bill -one_bill'></div>
+  <div class='wave_bill -two_bill'></div>
+  <div class='wave_bill -three_bill'></div>
+  <div class='title_bill'>Bill</div>
+</div>
+
+<!--<ul class="ul_algn">
 <li id="li_algn"><a id="a_algn" href="#">Category</a></li>
 <li id="li_algn"><a id="a_algn" href="#">Code</a></li>
 <li id="li_algn"><a id="a_algn" href="#">Quantity</a></li>
 <li id="li_algn"><a id="a_algn" href="#">Price</a></li>
-</ul>
+</ul>-->
+
+<article>
+  <nav class="btn-bar nav-dark">
+    <a href="#" class="btn btn-glass mrg">
+      Category
+    </a>
+    <a href="#" class="btn btn-glass btn-primary">
+    Code
+    </a>
+    <a href="#" class="btn btn-glass btn-success">
+      Quantity
+    </a>
+    <a href="#" class="btn btn-glass btn-warning">
+      Price
+    </a>
+  </nav>
+</article>
+
 <div ng-show="one">
-    <div ng-repeat='item in bitems' class="form-group" id="field">
-          <select ng-model='$crtl.selected_item' class="form-control" name="item_name">
+    <div ng-repeat='item in bitems' class="form-group" id="field_bill">
+          <select ng-model='$crtl.selected_item' class="form-control frst" name="item_name">
           <option value="" selected>Select Your Product</option>
           <option value="register" selected>Registers</option>
           <option value="cover_pg">Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code' class="form-control" placeholder="Code"></input>&nbsp
+          <input type="text" ng-model='$crtl.code' class="form-control " placeholder="Code"></input>&nbsp
           <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control" placeholder="Quantity"></input>&nbsp
-          <input type="number" ng-model='$crtl.price' class="form-control" placeholder="Price"></input>&nbsp
+          <!--<input type="number" ng-model='$crtl.price' class="form-control" placeholder="Price"></input>&nbsp-->
+          <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price' class="form-control" id="prc"></input>&nbsp
        <button  class="btn btn-success" ng-click='addb($index)'><i class="fa fa-check"></i></button> 
-      <button class="btn btn-primary" ng-click='bdel($index)'><i class="fa fa-close"></i></button>&nbsp       
+      <button class="btn btn-primary b_clr" ng-click='bdel($index)'><i class="fa fa-close"></i></button>&nbsp       
 	</div>
 </div>
 </div>
+
+<button class="btn btn-info gen_butn" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
+
+<!-- Modal -->
+  <div >
+  <div class="modal fade" id="bill_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" id="pdf_content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          <h1>Invoice</h1>
+			<address contenteditable>
+				<p>Jonathan Neal</p>
+				<p>101 E. Chapman Ave<br>Orange, CA 92866</p>
+				<p>(800) 555-1234</p>
+			</address>
+			<article>
+			<h1>Recipient</h1>
+			<address contenteditable>
+				<p>Some Company<br>c/o Some Guy</p>
+			</address>
+			<table class="meta">
+				<tr>
+					<th><span >Invoice #</span></th>
+					<td><span >{{inNo}}</span></td>
+				</tr>
+				<tr>
+					<th><span >Date</span></th>
+					<td><span >{{date}}</span></td>
+				</tr>
+			</table>
+          
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Code</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="bills in bill">
+        <td><span ng-bind="bills.catagory"></span></td>
+        <td><span ng-bind="bills.code"></span></td>
+        <td><span ng-bind="bills.quantity"></span></td>
+        <td><span ng-bind="bills.price"></span></td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        <div class="modal-footer">
+          		<table class="balance">
+				<tr>
+					<th><span >Total</span></th>
+					<td><span data-prefix>Rs.</span><span>{{totalamt}}</span></td>
+				</tr>
+				<tr>
+					<th><span >Amount Paid</span></th>
+					<td><span data-prefix>$</span><span contenteditable></span></td>
+				</tr>
+				<tr>
+					<th><span  >Balance Due</span></th>
+					<td><span data-prefix>$</span><span contenteditable></span></td>
+				</tr>
+			</table>
+		</article>
+		<aside>
+			<h1><span >Additional Notes</span></h1>
+			<div >
+				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
+			</div>
+		</aside>
+		<div id="editor"></div>
+		<button id="pd" ng-click="exportAsPdf()"> Generate Pdf</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 </div>
 </div>
 </div>
 </div>
+      
 </body>
 </html>

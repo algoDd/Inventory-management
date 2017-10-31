@@ -31,7 +31,44 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.bitems=[];
 	  $scope.value=false;
 	  $scope.update=false;
+	  var doc = new jsPDF();
+	  var specialElementHandlers = {
+	      '#editor': function (element, renderer) {
+	          return true;
+	      }
+	  };
+
+	 
+	  $("#i_1").children().focus(function() {
+		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
+		    $(this).parent().css("background", "rgba(255, 150, 71,0.7)");
+		}).blur(function() {
+		    $(this).parent().css("box-shadow","none");
+		    $(this).parent().css("background","#ff9647");
+		});
+		$("#i_2").children().focus(function() {
+		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
+		    $(this).parent().css("background", "rgba(186, 248, 255,0.7)");
+		}).blur(function() {
+		    $(this).parent().css("box-shadow","none");
+		    $(this).parent().css("background","#baf8ff");
+		});
+		$("#i_3").children().focus(function() {
+		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
+		    $(this).parent().css("background", "rgba(255, 132, 187,0.7)");
+		}).blur(function() {
+		    $(this).parent().css("box-shadow","none");
+		    $(this).parent().css("background","##ff84bb");
+		});
+		$("#i_4").children().focus(function() {
+		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
+		    $(this).parent().css("background", "rgba(94, 255, 158,0.7)");
+		}).blur(function() {
+		    $(this).parent().css("box-shadow","none");
+		    $(this).parent().css("background","#5eff9e");
+		});
 	  var k=0;
+	  $scope.date=Date();
 	  $scope.rprice=0;
 	  $scope.codeCheck="";
 	  $scope.totalamt=0;
@@ -155,7 +192,7 @@ app.controller('RMCrtl',function($scope,$http){
 	  /*..........................Billing...................................*/
 	  $scope.addb = function(i){
 		  $scope.value=true;
-			 
+		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined){ 
 	      if($scope.bill.length!=(i))
@@ -165,8 +202,9 @@ app.controller('RMCrtl',function($scope,$http){
 		      $scope.vm = this;
 		      if($scope.bitems.length!=1){
 		    	  $scope.bill.splice(i,0,{
+
 		    		  "catagory":$scope.vm.$crtl.selected_item,
-		    	  "code":$scope.vm.$crtl.code,
+		    		  "code":$scope.vm.$crtl.code,
 		    	  	"price":$scope.vm.$crtl.price,
 		      		"quantity":$scope.vm.$crtl.quantity
 		       });
@@ -186,8 +224,9 @@ app.controller('RMCrtl',function($scope,$http){
 			      
 			      if($scope.bitems.length!=1){
 			    	  $scope.bill.push({
+
 			    		  "catagory":$scope.vm.$crtl.selected_item,
-			    	  "code":$scope.vm.$crtl.code,
+			    		  "code":$scope.vm.$crtl.code,
 			    	  	"quantity":$scope.vm.$crtl.quantity,
 			      		"price":$scope.vm.$crtl.price
 			       });
@@ -243,6 +282,22 @@ app.controller('RMCrtl',function($scope,$http){
 	    }
 		  console.log(i);
 	  }
+	  $scope.exportAsPdf=function(){
+	  var doc = new jsPDF();
+	  var specialElementHandlers = {
+	      '#editor': function (element, renderer) {
+	          return true;
+	      }
+	  };
+	 
+	      doc.fromHTML($('#pdf_content').html(), 15, 15, {
+	          'width': 170,
+	              'elementHandlers': specialElementHandlers
+	      });
+	      doc.save('sample-file.pdf');
+	 
+	}
+
 });
 
 
