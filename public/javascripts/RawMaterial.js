@@ -31,15 +31,31 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.bitems=[];
 	  $scope.value=false;
 	  $scope.update=false;
-	  var doc = new jsPDF();
-	  var specialElementHandlers = {
-	      '#editor': function (element, renderer) {
-	          return true;
-	      }
-	  };
-
-	 
-	  $("#i_1").children().focus(function() {
+	  var k=0;
+	  var d= new Date()
+	  $scope.date=d.toString();
+	  $scope.rprice=0;
+	  $scope.codeCheck="";
+	  $scope.totalamt=0;
+	  $scope.totalRM=0;
+	  $scope.one=true;
+	   $scope.two=false;
+	   $scope.bupdate=false;
+	   //d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+	   /*.................divis js part...................*/
+	   $('#i_1,#i_2,#i_3,#i_4').click(function() {
+		   // make a jQ collection of the DOM element from the event
+		   var $elem = $(this);
+		   // store the background-color
+		   var oldBG = $elem.css('background');
+		   // change the background color to what you want
+		   $elem.css('background', 'linear-gradient(rgb(181, 245, 255),rgb(22, 249, 121),rgb(1, 134, 153))');
+		   // after 1 second, change it back
+		   setTimeout(function() {
+		     $elem.css('background', oldBG);
+		   }, 1000);
+		 }); 
+	   $("#i_1").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px -2px rgba(0,0,0,0.3)");
 		    $(this).parent().css("background", "rgba(255, 150, 71,0.7)");
 		}).blur(function() {
@@ -67,29 +83,7 @@ app.controller('RMCrtl',function($scope,$http){
 		    $(this).parent().css("box-shadow","none");
 		    $(this).parent().css("background","#5eff9e");
 		});
-	  var k=0;
-	  $scope.date=Date();
-	  $scope.rprice=0;
-	  $scope.codeCheck="";
-	  $scope.totalamt=0;
-	  $scope.totalRM=0;
-	  $scope.one=true;
-	   $scope.two=false;
-	   $scope.bupdate=false;
-	   /*.................divis js part...................*/
-	   $('#i_1,#i_2,#i_3,#i_4').click(function() {
-		   // make a jQ collection of the DOM element from the event
-		   var $elem = $(this);
-		   // store the background-color
-		   var oldBG = $elem.css('background');
-		   // change the background color to what you want
-		   $elem.css('background', 'linear-gradient(rgb(181, 245, 255),rgb(22, 249, 121),rgb(1, 134, 153))');
-		   // after 1 second, change it back
-		   setTimeout(function() {
-		     $elem.css('background', oldBG);
-		   }, 1000);
-		 }); 
-	  
+		/*.................divis js part...................*/
 //	  $scope.rawMat=[{
 //			"name":
 //			"price":
@@ -97,6 +91,12 @@ app.controller('RMCrtl',function($scope,$http){
 //	  }];
 	//$scope.price=[];
 	//$scope.quantity=[];
+		
+			  function checkLoginState() {
+				  FB.getLoginStatus(function(response) {
+				    statusChangeCallback(response);
+				  });
+				}
 	   $scope.invoice=function()
 	   {
 		   var number=Math.floor((Math.random() * 999999) + 10000);

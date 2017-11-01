@@ -14,6 +14,7 @@ public class RawMaterialCrtl extends Controller {
 	RawMateriallHelper helper=new RawMateriallHelper();
 	public Result rawMaterial(){
 		JsonNode body=request().body().asJson();
+		
 		List<JsonNode> lname=body.findValues("name");
 		List<JsonNode> lprice=body.findValues("price");
 		List<JsonNode> lquantity=body.findValues("quantity");
