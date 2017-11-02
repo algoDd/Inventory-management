@@ -44,8 +44,8 @@
     <div ng-repeat='item in bitems' class="form-group" id="field_bill">
           <select ng-model='$crtl.selected_item' class="form-control frst" name="item_name">
           <option value="" selected>Select Your Product</option>
-          <option value="register" selected>Registers</option>
-          <option value="cover_pg">Cover Page</option>
+          <option value="Register" selected>Registers</option>
+          <option value="Cover Page">Cover Page</option>
           </select>&nbsp
           <input type="text" ng-model='$crtl.code' class="form-control " placeholder="Code"></input>&nbsp
           <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control" placeholder="Quantity"></input>&nbsp

@@ -5,7 +5,7 @@
 
 create table public.billsales (
   id                        serial not null,
-  pdf                       bytea,
+  pdf                       varchar(255),
   invoice_no                varchar(255),
   total_amt                 integer,
   constraint pk_billsales primary key (id))
@@ -26,6 +26,12 @@ create table public.raw_material (
   constraint pk_raw_material primary key (id))
 ;
 
+create table public.rmtotal (
+  id                        serial not null,
+  rmtotal                   integer,
+  constraint pk_rmtotal primary key (id))
+;
+
 
 
 
@@ -36,4 +42,6 @@ drop table if exists public.billsales cascade;
 drop table if exists public.code cascade;
 
 drop table if exists public.raw_material cascade;
+
+drop table if exists public.rmtotal cascade;
 

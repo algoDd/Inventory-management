@@ -126,7 +126,7 @@ app.controller('RMCrtl',function($scope,$http){
 		    	  	"price":$scope.vm.$crtl.price,
 		      		"quantity":$scope.vm.$crtl.quantity
 		       });
-		    	$scope.totalRM+=($scope.vm.$crtl.price*$scope.vm.$crtl.quantity);  
+		    	$scope.totalRM+=($scope.vm.$crtl.price);  
 	    	  $scope.update=true;
 		    $scope.del((i+1));
 		    
@@ -145,7 +145,7 @@ app.controller('RMCrtl',function($scope,$http){
 			      		"quantity":$scope.vm.$crtl.quantity
 			       });
 			      }
-			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price*$scope.vm.$crtl.quantity);  
+			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price);  
 	    	 }
 	     }
 	      
@@ -182,10 +182,23 @@ app.controller('RMCrtl',function($scope,$http){
 	   },function (error){
 
 	   });
+		  if( $scope.totalRM!=0)
+		{
+		  $http({
+			   method:"POST",
+			   url:"/api/rawTotal",
+			   data:{"rmtotal":$scope.totalRM}
+		   }).then(function (success){
+			   console.log(success.data);
+		   },function (error){
+
+		   });
+		}
 	  }
 	  $scope.del= function(i){
+		 
 		  if($scope.update==true){
-		  $scope.totalRM =$scope.totalRM -($scope.rawMat[i].price*$scope.rawMat[i].quantity);
+		  $scope.totalRM =$scope.totalRM -($scope.rawMat[i].price);
 		  $scope.rawMat.splice(i,1);
 		  $scope.update=false;
 		  $scope.items.splice($scope.rawMat.length,1);
@@ -193,6 +206,10 @@ app.controller('RMCrtl',function($scope,$http){
 	    	  $scope.rawMat.splice(i,1);
 	    $scope.items.splice(i,1);
 	    }
+		  if( $scope.items.length==0)
+			  {
+			  	$scope.value=false;
+			  }
 		  console.log(i);
 	  }
 	  /*..........................Billing...................................*/
