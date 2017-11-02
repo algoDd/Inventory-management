@@ -7,6 +7,7 @@ import com.avaje.ebean.ExpressionList;
 import com.avaje.ebean.Query;
 import com.avaje.ebean.SqlQuery;
 
+import model.BillModel;
 import model.CodeModel;
 import play.mvc.Result;
 
@@ -26,5 +27,13 @@ public class BillDao {
 			return 0;
 		}
 		return c3;
+	}
+	public static Boolean savepdf(BillModel bmodel) {
+		try {
+			Ebean.save(bmodel);
+		}catch(Exception e) {
+			return false;
+		}
+		return true;
 	}
 }

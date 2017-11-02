@@ -1,7 +1,8 @@
 var app=angular.module('RMApp',['ui.router']);
 
-app.config(function($stateProvider,$urlRouterProvider)
+app.config(function($stateProvider,$urlRouterProvider,$compileProvider)
 		{
+	
 	$urlRouterProvider.otherwise('/');
 	$urlRouterProvider.when('/assests/html/upload.html','/');
 	$stateProvider
@@ -22,6 +23,8 @@ app.config(function($stateProvider,$urlRouterProvider)
 			url:'/Stock',
 			templateUrl:'/assets/html/stocks.html'
 		});
+	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:application\//);
+	
 });
 app.controller('RMCrtl',function($scope,$http){
 	$scope.items = [];
@@ -41,6 +44,13 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.one=true;
 	   $scope.two=false;
 	   $scope.bupdate=false;
+	   
+	   if ($scope.items.length < 10) {
+		      $scope.items.push(k++);
+ 	 }
+	   if ($scope.bitems.length < 10) {
+  		 $scope.bitems.push(k++);
+  	 }
 	   //d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
 	   /*.................divis js part...................*/
 	   $('#i_1,#i_2,#i_3,#i_4').click(function() {
@@ -92,17 +102,13 @@ app.controller('RMCrtl',function($scope,$http){
 	//$scope.price=[];
 	//$scope.quantity=[];
 		
-			  function checkLoginState() {
-				  FB.getLoginStatus(function(response) {
-				    statusChangeCallback(response);
-				  });
-				}
 	   $scope.invoice=function()
 	   {
-		   var number=Math.floor((Math.random() * 999999) + 10000);
+		   var number=Math.floor((Math.random() * 999999) + 1000);
 		   var n=Math.floor((Math.random() * 25) + 1);
 		   var chr = String.fromCharCode(65 + n); 
 		   $scope.inNo="#AR"+n+chr.toString()+number;
+		  
 	   }
 	  $scope.add = function(i){
 		  $scope.value=true;
@@ -200,7 +206,7 @@ app.controller('RMCrtl',function($scope,$http){
 	    	  if ($scope.bitems.length < 10) {
 	    		  $scope.bitems.push(k++);
 		      $scope.vm = this;
-		      if($scope.bitems.length!=1){
+		     
 		    	  $scope.bill.splice(i,0,{
 
 		    		  "catagory":$scope.vm.$crtl.selected_item,
@@ -214,15 +220,15 @@ app.controller('RMCrtl',function($scope,$http){
 		    	  $scope.bupdate=true;
 		    $scope.bdel((i+1));
 		    
-		  }else{
-			  $scope.error="cannot add more then 10";
-		  }
-	    	}
+		  
+	    	}else{
+				  $scope.error="cannot add more then 10";
+			  }
 	     }else{
 	    	 if ($scope.bitems.length < 10) {
 	    		 $scope.bitems.push(k++);
 			      
-			      if($scope.bitems.length!=1){
+			     
 			    	  $scope.bill.push({
 
 			    		  "catagory":$scope.vm.$crtl.selected_item,
@@ -230,7 +236,7 @@ app.controller('RMCrtl',function($scope,$http){
 			    	  	"quantity":$scope.vm.$crtl.quantity,
 			      		"price":$scope.vm.$crtl.price
 			       });
-			      }
+			      
 			      if( $scope.rprice!=0){
 			    	  $scope.totalamt+=($scope.vm.$crtl.quantity* $scope.rprice);
 			    	  }
@@ -244,10 +250,26 @@ app.controller('RMCrtl',function($scope,$http){
 	    	 }
 	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
 	     } 
+	  }
 	    
-	  
-	  
-	 }
+//	  $scope.done=function(){
+//		  $scope.invoice();
+//		 
+//	    	  $scope.bill.push({
+//
+//	    		  "catagory":$scope.vm.$crtl.selected_item,
+//	    		  "code":$scope.vm.$crtl.code,
+//	    	  	"quantity":$scope.vm.$crtl.quantity,
+//	      		"price":$scope.vm.$crtl.price
+//	       });
+//	     
+//	      if( $scope.rprice!=0){
+//	    	  $scope.totalamt+=($scope.vm.$crtl.quantity* $scope.rprice);
+//	    	  }
+// 
+//	  }
+//	  
+	 
 	  $scope.calcPrice = function(code){
 		  $scope.vm = this; 
 		  $scope.json={"code":$scope.vm.$crtl.code};
@@ -302,7 +324,8 @@ app.controller('RMCrtl',function($scope,$http){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				
-				var data = canvas.toDataURL("image/png");
+				var data = canvas.toDataURL();
+				
 				var docDefinition = {
 						content: [{
 							image: data,
@@ -312,11 +335,27 @@ app.controller('RMCrtl',function($scope,$http){
 				};
 				pdfMake.createPdf(docDefinition).download("bill.pdf");
 				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
-				    data = encodedString;
+				    $scope.base64data = "data:application/pdf;base64,"+encodedString;
+				    $scope.save();
 				});
 			}  
 		  });
+		 
 	  }
+	  $scope.save=function(){
+		  if( $scope.base64data!=null && $scope.totalamt!=0)
+		  $http({
+			   method:"POST",
+			   url:"/api/billinvoice",
+			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt}
+		   }).then(function (success){
+			   console.log('done');
+			   
+		   },function (error){
+			   console.log('Not done');
+		   });
+	   }
+	  
 	/*  $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	

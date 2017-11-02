@@ -3,6 +3,14 @@
 
 # --- !Ups
 
+create table public.billsales (
+  id                        serial not null,
+  pdf                       bytea,
+  invoice_no                varchar(255),
+  total_amt                 integer,
+  constraint pk_billsales primary key (id))
+;
+
 create table public.code (
   id                        serial not null,
   code                      varchar(255),
@@ -22,6 +30,8 @@ create table public.raw_material (
 
 
 # --- !Downs
+
+drop table if exists public.billsales cascade;
 
 drop table if exists public.code cascade;
 

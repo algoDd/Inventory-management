@@ -3,6 +3,7 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.BillHelper;
+import model.BillModel;
 import model.CodeModel;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -24,5 +25,20 @@ public class BillCrtl extends Controller {
 		}
 		
 	
+	}
+	public Result savepdf() {
+		JsonNode body=request().body().asJson();
+		String pdf=body.get("pdf").asText();
+		String invoice_no=body.get("invoice_no").asText();
+		int total_amt=body.get("total_amt").asInt();
+		BillModel bmodel=new BillModel(pdf,invoice_no,total_amt);
+		Boolean check=helper.savepdf(bmodel);
+		if(check==true)
+		{
+			return ok("done");
+		}else
+		{
+			return badRequest("db error");
+		}
 	}
 }
