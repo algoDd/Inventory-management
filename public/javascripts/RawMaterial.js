@@ -44,7 +44,9 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.one=true;
 	   $scope.two=false;
 	   $scope.bupdate=false;
-	   
+	   $scope.err=false;
+	   $scope.succ=false;
+	   var a=-1;
 	   if ($scope.items.length < 10) {
 		      $scope.items.push(k++);
  	 }
@@ -112,7 +114,15 @@ app.controller('RMCrtl',function($scope,$http){
 	   }
 	  $scope.add = function(i){
 		  $scope.value=true;
-		 
+//		 if(i==-1)
+//			 {
+//			  if(a==-1){
+//			      $scope.items.push(k++);
+//	    	      
+//	    	      }
+//			  a++;
+//    	      return;
+//			 }
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined){ 
 	      if($scope.rawMat.length!=(i))
@@ -179,8 +189,15 @@ app.controller('RMCrtl',function($scope,$http){
 		   data:$scope.rawMat
 	   }).then(function (success){
 		   console.log(success.data);
+		   $scope.err=false;
+		   $scope.succ=true;
+		   $scope.success="Data Was Stored Successfully";
+		   
 	   },function (error){
-
+		   $scope.err=true;
+		   $scope.succ=false;
+		   $scope.error="Uhh!! Error Not Able To Save";
+		  
 	   });
 		  if( $scope.totalRM!=0)
 		{
@@ -191,7 +208,9 @@ app.controller('RMCrtl',function($scope,$http){
 		   }).then(function (success){
 			   console.log(success.data);
 		   },function (error){
-
+			   $scope.err=true;
+			   $scope.succ=false;
+			   $scope.error="Uhh!! Error Occured : Not Able To Save Data";
 		   });
 		}
 	  }
@@ -301,7 +320,9 @@ app.controller('RMCrtl',function($scope,$http){
 			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
 			   
 		   },function (error){
-
+			   $scope.err=true;
+			   $scope.succ=false;
+			   $scope.error="Uhh!! Error Occured : Code Doesn't Exist";
 		   });
 		  }else{
 			  $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
@@ -367,9 +388,10 @@ app.controller('RMCrtl',function($scope,$http){
 			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt}
 		   }).then(function (success){
 			   console.log('done');
-			   
+			   $scope.success="Pdf Generated Successfully"
 		   },function (error){
 			   console.log('Not done');
+			   $scope.error="Uhh!! Error Occured : Please Try Again Later";
 		   });
 	   }
 	  
