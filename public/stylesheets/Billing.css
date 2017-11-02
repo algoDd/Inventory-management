@@ -1,20 +1,22 @@
 #field_bill{
-	max-width: 50%;
-    width: 34%;
-    display: -webkit-box;
+	max-width: 100%;
+    width: 100%;
+    display: flex;
     padding-left: 13%;
-    padding-top:5%;
+    padding-top:2%;
+    padding-bottom:2%;
+    padding-right:1%;
 }
 row_algn{
 	margin-right:35px !important;
 	margin-left:35px !important;
 }
 .frst{
-	margin-left:-54% !important;
+	margin-left:-13% !important;
 }
-.form-control{
-	margin-right:5% !important;
-	width:113% !important;
+.fbill_ctrl{
+	margin-right:1% !important;
+	width:100% !important;
 }
 .f_i{
 	font-size:22px !important;
@@ -28,7 +30,7 @@ row_algn{
 	width:50% !important;
 }
 #content {
-  max-width: 100%;
+  max-width: 95%;
   min-height: 80vh;
   padding-bottom:6% !important;
   overflow:auto;
@@ -163,11 +165,11 @@ body {
 }
 
 .nav-dark {
-  background-color: #444;
+  background-color: #969696;
 }
 .nav-dark .btn-glass {
-  color: rgba(255, 255, 255, 0.7);
-  background-color: rgb(255, 53, 154);
+  color: black;
+  font-weight:bold;
 }
 nav.btn-bar {
   display: flex;
@@ -190,10 +192,6 @@ article {
   border-radius: 2px;
   box-sizing: border-box;
   background-color: white;
-  box-shadow: 0 1ex 1em rgba(0, 0, 0, 0.3);
-}
-.mrg{
-	margin-right:0.75px !important;
 }
 *[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
 

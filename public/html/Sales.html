@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body ng-controller="RMCrtl as $crtl">
+<div class="container-fluid">
+<div class="row row_algn">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div id="content_sale">
+
+<div class='box_sale'>
+  <div class='wave_sale -one_sale'></div>
+  <div class='wave_sale -two_sale'></div>
+  <div class='wave_sale -three_sale'></div>
+  <div class='title_sale' ng-click="">Sales</div>
+</div>
+
+<article>
+  <nav class="btn-bar nav-dark">
+    <a href="#" class="btn btn-glass">
+      Previous Orders
+    </a>
+    <a href="#" class="btn btn-glass">
+    Completed Orders
+    </a>
+    <a href="#" class="btn btn-glass">
+     Total Sales
+    </a>
+  </nav>
+</article>
+
+<div ng-show="one">
+   
+</div>
+
+</div>
+<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+
+</div>
+</div>
+</div>
+      
+</body>
+</html>

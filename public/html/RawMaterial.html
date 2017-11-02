@@ -15,24 +15,40 @@
   <div class='title'  ng-click='add()'>Fill Items</div>
 </div>
   
+ <article>
+  <nav class="btn-bar nav-dark">
+    <a href="#" class="btn btn-glass">
+      Item Name
+    </a>
+    <a href="#" class="btn btn-glass">
+    Quantity
+    </a>
+    <a href="#" class="btn btn-glass">
+     Price
+    </a>
+  </nav>
+</article>
+  
   <div ng-show="one">
-    <div ng-repeat='item in items' class="form-group" id="field">
-          <input type="text" ng-model="$crtl.name" class="form-control f_ctrl" placeholder="Name" />&nbsp
-            <input type="number" ng-model='$crtl.quantity' class="form-control f_ctrl" placeholder="Quantity"></input>&nbsp
-            <input type="number" ng-model='$crtl.price' class="form-control f_ctrl" placeholder="Price"></input>&nbsp
+    <div ng-repeat='item in items' class="form-group div_colr" id="field">
+          <input type="text" ng-model="$crtl.name" class="form-control r1_ctrl" placeholder="Name" />&nbsp
+            <input type="number" ng-model='$crtl.quantity' class="form-control r2_ctrl" placeholder="Quantity"></input>&nbsp
+            <input type="number" ng-model='$crtl.price' class="form-control r3_ctrl" placeholder="Price"></input>&nbsp
          <!--  <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price' class="form-control" id="prc"></input>&nbsp-->
-       <button  class="btn btn-success" ng-click='add($index)'><i class="fa fa-check"></i></button> 
-      <button class="btn btn-primary f_clr" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp<br/>
-       
+       <button  class="btn btn-success b_mrgn" ng-click='add($index)'><i class="fa fa-check"></i></button> 
+      <button class="btn btn-primary b_mrgn f_clr" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp<br/>
+       <button ng-show="value" class="btn btn-info dn_mrgn" ng-click='submit()'>Done</button>
        
 	</div>
 </div>
 
 
-	<button ng-show="value" class="btn btn-info" ng-click='submit()'>Done</button>
+	<!--  <button ng-show="value" class="btn btn-info dn_mrgn" ng-click='submit()'>Done</button>-->
   
   </div>
 
+<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
+			<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
 
   
 </div>
