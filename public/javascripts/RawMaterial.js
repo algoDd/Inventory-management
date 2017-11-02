@@ -318,7 +318,8 @@ app.controller('RMCrtl',function($scope,$http){
 		   }).then(function (success){
 			   $scope.rprice=parseInt(success.data);
 			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
-			   
+			   $scope.err=false;
+			   $scope.succ=false;
 		   },function (error){
 			   $scope.err=true;
 			   $scope.succ=false;
@@ -388,9 +389,13 @@ app.controller('RMCrtl',function($scope,$http){
 			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt}
 		   }).then(function (success){
 			   console.log('done');
+			   $scope.err=false;
+			   $scope.succ=true;
 			   $scope.success="Pdf Generated Successfully"
 		   },function (error){
 			   console.log('Not done');
+			   $scope.err=true;
+			   $scope.succ=false;
 			   $scope.error="Uhh!! Error Occured : Please Try Again Later";
 		   });
 	   }
