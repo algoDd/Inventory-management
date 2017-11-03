@@ -46,7 +46,7 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.date=d.toString();
 	  $scope.rprice=0;
 	  $scope.codeCheck="";
-	  $scope.totalamt=0;
+	  $scope.totalamt=10;
 	  $scope.totalRM=0;
 	  $scope.one=true;
 	   $scope.two=false;
@@ -91,6 +91,9 @@ app.controller('RMCrtl',function($scope,$http){
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
 		    $(this).parent().css("background","#5eff9e");
+		});
+		$('mytabs a').click(function (e){
+			$(this).tab('show');
 		});
 		/*.................divis js part...................*/
 //	  $scope.rawMat=[{
@@ -180,6 +183,8 @@ app.controller('RMCrtl',function($scope,$http){
 				  }
 	  }
 	  $scope.submit = function(){
+		  if($scope.rawMat.length>1)
+		 {
 		  $http({
 		   method:"POST",
 		   url:"/api/rawMaterial",
@@ -196,6 +201,11 @@ app.controller('RMCrtl',function($scope,$http){
 		   $scope.error="Uhh!! Error Not Able To Save";
 		  
 	   });
+		 }else{
+			 $scope.err=true;
+			   $scope.succ=false;
+			   $scope.error="Uhh!! Empty Fields"; 
+		 }
 		  if( $scope.totalRM!=0)
 		{
 		  $http({
@@ -411,6 +421,7 @@ app.controller('RMCrtl',function($scope,$http){
 			}  
 		  });
 	  }*/
+
 	  /*..........................Sales...................................*/
 	  $scope.sadd = function(i){
 		  $scope.value=true;
@@ -475,6 +486,7 @@ app.controller('RMCrtl',function($scope,$http){
 	    }
 		  console.log(i);
 	  }
+
 });
 
 

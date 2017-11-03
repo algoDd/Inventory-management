@@ -3,16 +3,21 @@
 	margin-left:35px !important;
 }
 .dn_mrgn{
-	margin:6px 20px !important;
+	margin-left:92% !important;
+	margin-bottom: 2% !important;
 }
 .div_colr{
+<<<<<<< HEAD
 	//background:yellow;
+=======
+	background:rgb(226, 226, 224);
+>>>>>>> 79ea3591fa388b194eb4c3ae9e7966bad49b8d72
 }
 #content_raw {
   max-width: 100%;
   min-height: 80vh;
   overflow:auto;
-  margin-top:7% !important;
+  margin-top:0% !important;
   margin-bottom:3% !important;
   margin: 0 auto;
   background: white;
@@ -26,6 +31,9 @@
 border-bottom-right-radius: 8px;
 border-bottom-left-radius: 8px;
 }
+.r_nav {
+  background: linear-gradient(to top,rgb(244, 83, 8),rgb(244, 204, 8));
+}
 .box {
   width: 265px;
   height: 300px;
@@ -35,7 +43,7 @@ border-bottom-left-radius: 8px;
   position: relative;
   overflow: hidden;
   margin-left:40%;
-  margin-top:2%;
+  margin-top:6%;
   margin-bottom: -10%;
   transform: translate3d(0, 0, 0);
 }
@@ -114,18 +122,21 @@ border-bottom-left-radius: 8px;
     padding-right:2%;
 }
 .r1_ctrl{
-	margin-left:-5% !important;
-	width:100% !important;
+	margin-left:-8% !important;
+	width:97% !important;
 }
 .r2_ctrl{
 	margin-right:5% !important;
-	margin-left:5% !important;
-	width:100% !important;
+	margin-left:1% !important;
+	width:97% !important;
 }
 .r3_ctrl{
-	margin-right: 1% !important;
-	margin-left:0% !important ;
-	width:60% !important;
+	margin-right: 4% !important;
+	margin-left: -4% !important ;
+	width: 85% !important;
+}
+.r4_ctrl{
+	margin-right:1% !important;
 }
 .b_mrgn{
 	margin:1px !important;

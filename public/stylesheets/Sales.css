@@ -3,7 +3,7 @@
   min-height: 80vh;
   padding-bottom:6% !important;
   overflow:auto;
-  margin-top:10% !important;
+  margin-top:0% !important;
   margin-bottom:3% !important;
   margin: 0 auto;
   background: white;
@@ -26,7 +26,7 @@ border-bottom-left-radius: 8px;
   position: relative;
   overflow: hidden;
   margin-left:40%;
-  margin-top:2%;
+  margin-top:6%;
   margin-bottom: -10%;
   transform: translate3d(0, 0, 0);
 }
@@ -94,4 +94,7 @@ border-bottom-left-radius: 8px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+.sale_nav{
+	 background: linear-gradient(to top,rgb(3, 122, 50),rgb(112, 255, 168));
 }
