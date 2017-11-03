@@ -37,6 +37,8 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.rawMat=[];
 	  $scope.bill=[];
 	  $scope.bitems=[];
+	  $scope.stocks=[];
+	  $scope.sitems=[];
 	  $scope.value=false;
 	  $scope.update=false;
 	  var k=0;
@@ -49,6 +51,7 @@ app.controller('RMCrtl',function($scope,$http){
 	  $scope.one=true;
 	   $scope.two=false;
 	   $scope.bupdate=false;
+	   $scope.supdate=false;
 	   $scope.err=false;
 	   $scope.succ=false;
 	   var a=-1;
@@ -408,6 +411,70 @@ app.controller('RMCrtl',function($scope,$http){
 			}  
 		  });
 	  }*/
+	  /*..........................Sales...................................*/
+	  $scope.sadd = function(i){
+		  $scope.value=true;
+		 	 
+		  $scope.vm = this;
+	     if($scope.vm.$crtl!=undefined){ 
+	      if($scope.stocks.length!=(i))
+		  {   
+	    	  if ($scope.sitems.length < 10) {
+	    		  $scope.sitems.push(k++);
+		      $scope.vm = this;
+		     
+		    	  $scope.stocks.splice(i,0,{
+
+		    		  "catagory":$scope.vm.$crtl.selected_item,
+		    		  "code":$scope.vm.$crtl.code,
+		    	  	
+		      		"quantity":$scope.vm.$crtl.quantity
+		       });
+		    	  
+		    	  $scope.supdate=true;
+		    $scope.sdel((i+1));
+		    
+		  
+	    	}else{
+				  $scope.error="cannot add more then 10";
+			  }
+	     }else{
+	    	 if ($scope.sitems.length < 10) {
+	    		 $scope.sitems.push(k++);
+			      
+			     
+			    	  $scope.stocks.push({
+
+			    		  "catagory":$scope.vm.$crtl.selected_item,
+			    		  "code":$scope.vm.$crtl.code,
+			    	  	"quantity":$scope.vm.$crtl.quantity
+			      		
+			       });
+			      
+			     
+	    	 }
+	     }
+	      
+	    
+	     }else{
+	    	 if ($scope.sitems.length < 10) {
+	    		 $scope.sitems.push(k++);
+	    	 }
+	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
+	     } 
+	  }
+	  $scope.sdel= function(i){
+		  if($scope.supdate==true){
+		  
+		  $scope.stocks.splice(i,1);
+		  $scope.supdate=false;
+		  $scope.sitems.splice($scope.stocks.length,1);
+	      }else{
+	    	  $scope.stocks.splice(i,1);
+	    $scope.sitems.splice(i,1);
+	    }
+		  console.log(i);
+	  }
 });
 
 
