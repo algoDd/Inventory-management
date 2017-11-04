@@ -103,3 +103,144 @@
 	display:flex !important;
 	margin-top: 2%;
 }
+#ovrly1 {
+  position: inherit;
+  bottom: 0;
+  right: 0;
+  left:100%;
+  border-radius:110%;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+  display:none;
+}
+
+.container_1:hover #ovrly1 {
+  width: 100%;
+  left: 0;
+}
+.container_2:hover #ovrly1 {
+  width: 100%;
+  left: 0;
+}
+.container_3:hover #ovrly1 {
+  width: 100%;
+  left: 0;
+}
+.container_4:hover #ovrly1 {
+  width: 100%;
+  left: 0;
+}
+#ovrly2 {
+  position: inherit;
+  bottom: 0;
+  right: 0;
+  left:100%;
+  border-radius:110%;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+  display:none;
+}
+
+.container_1:hover #ovrly2 {
+  width: 100%;
+  left: 0;
+}
+.container_2:hover #ovrly2 {
+  width: 100%;
+  left: 0;
+}
+.container_3:hover #ovrly2 {
+  width: 100%;
+  left: 0;
+}
+.container_4:hover #ovrly2 {
+  width: 100%;
+  left: 0;
+}
+#ovrly3 {
+  position: inherit;
+  bottom: 0;
+  right: 0;
+  left:100%;
+  border-radius:110%;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+  display:none;
+}
+
+.container_1:hover #ovrly3 {
+  width: 100%;
+  left: 0;
+}
+.container_2:hover #ovrly3 {
+  width: 100%;
+  left: 0;
+}
+.container_3:hover #ovrly3 {
+  width: 100%;
+  left: 0;
+}
+.container_4:hover #ovrly3 {
+  width: 100%;
+  left: 0;
+}
+#ovrly4 {
+  position: inherit;
+  bottom: 0;
+  right: 0;
+  left:100%;
+  border-radius:110%;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+  display:none;
+}
+
+.container_1:hover #ovrly4 {
+  width: 100%;
+  left: 0;
+}
+.container_2:hover #ovrly4 {
+  width: 100%;
+  left: 0;
+}
+.container_3:hover #ovrly4 {
+  width: 100%;
+  left: 0;
+}
+.container_4:hover #ovrly4 {
+  width: 100%;
+  left: 0;
+}
+.o_text {
+  background:cornsilk;
+  white-space: nowrap; 
+  color: black;
+  font-size: 25px;
+  font-weight:bold;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#o_txt_1{
+	padding: 10px 45px 10px 45px;
+}
+#o_txt_2{
+	padding: 10px 87px 10px 87px;
+}
+#o_txt_3{
+	padding: 10px 83px 10px 83px;
+}
+#o_txt_4{
+	padding: 10px 87px 10px 87px;
+}

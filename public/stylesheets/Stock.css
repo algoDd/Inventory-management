@@ -120,6 +120,6 @@ border-bottom-left-radius: 8px;
 	background:linear-gradient(to top,rgb(2, 131, 147),rgb(165, 245, 255));
 }
 .stk_clr{
-	background: coral !important;
-    border-color: coral !important;
+	background: red !important;
+    border-color: red !important;
 }

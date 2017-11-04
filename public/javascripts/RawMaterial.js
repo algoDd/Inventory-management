@@ -31,7 +31,7 @@ app.config(function($stateProvider,$urlRouterProvider,$compileProvider)
 	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:application\//);
 	
 });
-app.controller('RMCrtl',function($scope,$http){
+app.controller('RMCrtl',function($scope,$http,$timeout){
 	$scope.items = [];
 	  $scope.newitem = '';
 	  $scope.rawMat=[];
@@ -66,7 +66,7 @@ app.controller('RMCrtl',function($scope,$http){
 		    $(this).parent().css("background", "rgb(255, 121, 20)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#ff9647");
+		    $(this).parent().css("background","#ff9647");	
 		});
 		$("#i_2").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
@@ -92,6 +92,22 @@ app.controller('RMCrtl',function($scope,$http){
 		$('mytabs a').click(function (e){
 			$(this).tab('show');
 		});
+		$(".container_1").on('click', function() {
+			   $("#ovrly1").fadeIn();
+			   $("#ovrly2,#ovrly3,#ovrly4").fadeOut();
+			});
+			$(".container_3").on('click', function() {
+			   $("#ovrly3").fadeIn();
+			   $("#ovrly1,#ovrly2,#ovrly4").fadeOut();
+			});
+			$(".container_2").on('click', function() {
+			   $("#ovrly2").fadeIn();
+			   $("#ovrly1,#ovrly3,#ovrly4").fadeOut();
+			});
+			$(".container_4").on('click', function() {
+			   $("#ovrly4").fadeIn();
+			   $("#ovrly1,#ovrly2,#ovrly3").fadeOut();
+			});
 		/*.................divis js part...................*/
 //	  $scope.rawMat=[{
 //			"name":
@@ -188,10 +204,16 @@ app.controller('RMCrtl',function($scope,$http){
 		   console.log(success.data);
 		   $scope.err=false;
 		   $scope.succ=true;
+		   $timeout(function(){
+			   $scope.succ=false;
+		   },3000);
 		   $scope.success="Data Was Stored Successfully";
 		   
 	   },function (error){
 		   $scope.err=true;
+		   $timeout(function(){
+			   $scope.err=false;
+		   },3000);
 		   $scope.succ=false;
 		   $scope.error="Uhh!! Error Not Able To Save";
 		  
@@ -206,6 +228,9 @@ app.controller('RMCrtl',function($scope,$http){
 			   console.log(success.data);
 		   },function (error){
 			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Uhh!! Error Occured : Not Able To Save Data";
 		   });
@@ -255,7 +280,7 @@ app.controller('RMCrtl',function($scope,$http){
 		    
 		  
 	    	}else{
-				  $scope.error="cannot add more then 10";
+				  $scope.error="cannot add more than 10";
 			  }
 	     }else{
 	    	 if ($scope.bitems.length < 10) {
@@ -312,12 +337,15 @@ app.controller('RMCrtl',function($scope,$http){
 			   method:"POST",
 			   url:"/api/bill",
 			   data:$scope.json
-		   }).then(function (success){
+		   }).then(function (success){			  
 			   $scope.rprice=parseInt(success.data);
 			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
 			   
 		   },function (error){
 			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Uhh!! Error Occured : Code Doesn't Exist";
 		   });
@@ -339,23 +367,9 @@ app.controller('RMCrtl',function($scope,$http){
 	    }
 		  console.log(i);
 	  }
-	/*  $scope.exportAsPdf=function(){
-	  var doc = new jsPDF();
-	  var specialElementHandlers = {
-	      '#editor': function (element, renderer) {
-	          return true;
-	      }
-	  };
-	 
-	      doc.fromHTML($('#pdf_content').html(), 15, 15, {
-	          'width': 170,
-	              'elementHandlers': specialElementHandlers
-	      });
-	      doc.save('sample-file.pdf');
-	 
-	}*/
 
-	  $scope.exportAsPdf=function(){
+
+	/*  $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				
@@ -376,7 +390,7 @@ app.controller('RMCrtl',function($scope,$http){
 			}  
 		  });
 		 
-	  }
+	  }*/
 	  $scope.save=function(){
 		  if( $scope.base64data!=null && $scope.totalamt!=0)
 		  $http({
@@ -385,14 +399,22 @@ app.controller('RMCrtl',function($scope,$http){
 			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt}
 		   }).then(function (success){
 			   console.log('done');
+			   $scope.succ=true;
+			   $timeout(function(){
+				   $scope.succ=false;
+			   },3000);
 			   $scope.success="Pdf Generated Successfully"
 		   },function (error){
 			   console.log('Not done');
+			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.error="Uhh!! Error Occured : Please Try Again Later";
 		   });
 	   }
 	  
-	/*  $scope.exportAsPdf=function(){
+	/* $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				var data = new Image();
@@ -400,13 +422,38 @@ app.controller('RMCrtl',function($scope,$http){
 				var doc = new jsPDF("p","mm","a4");
 			    var width= doc.internal.pageSize.width;
 				var height= doc.internal.pageSize.height;
-				doc.addImage(data,'JPEG',0,0,width,height);
+				doc.internal.scaleFactor = 3;
+				doc.addImage(data,'JPEG',25,15);
 				doc.save('bill.pdf');
 			
 			}  
 		  });
-	  }*/
-	  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg;
+	  }
+	  $scope.final_amt=0;
+	  $scope.f_total=function(){
+		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
+	  */
+	  $scope.exportAsPdf=function(){
+		  html2canvas(document.getElementById("pdf_content"), {
+			onrendered: function (canvas) {	
+				var data = new Image();
+				var ctx =data;
+				ctx.webkitImageSmoothingEnabled = true;
+	            ctx.mozImageSmoothingEnabled = true;
+	            ctx.imageSmoothingEnabled = true;
+	            ctx.imageSmoothingQuality = "high";
+
+			    data = canvas.toDataURL("image/jpeg",1.0);
+				var doc = new jsPDF("p","mm","a4");
+			    var width= doc.internal.pageSize.width;
+				var height= doc.internal.pageSize.height;
+				doc.internal.scaleFactor = 3;
+				doc.addImage(data,'JPEG',25,15,(width*.72),(height*.92),undefined,'FAST');
+				doc.save('bill.pdf');
+				
+			}  
+		  });
+	  }
 });
 
 

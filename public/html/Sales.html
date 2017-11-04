@@ -18,7 +18,7 @@
 <div id="content_sale">
 <article>
   <nav class="btn-bar nav-dark sale_nav" id="mytabs">
-    <a data-toggle="tab" data-target="#menu1" class="btn btn-glass">
+    <a data-toggle="tab" data-target="#menu1" class="btn btn-glass currentLink">
       Previous Orders
     </a>
     <a data-toggle="tab" data-target="#menu2" class="btn btn-glass">
@@ -47,11 +47,22 @@ hjjjjjjjjjjjjjj
 </div>
 </div>
 </div>
-<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+<!-- <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>-->
 
 </div>
 </div>
 </div>  
 </body>
+<script>
+$(document).ready(function(){
+
+    $('.sale_nav a').click(function(){
+
+        $('.sale_nav a').removeClass('currentLink').filter(this).addClass('currentLink');
+
+    });
+
+});
+</script>
 </html>

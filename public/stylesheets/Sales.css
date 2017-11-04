@@ -98,3 +98,7 @@ border-bottom-left-radius: 8px;
 .sale_nav{
 	 background: linear-gradient(to top,rgb(3, 122, 50),rgb(112, 255, 168));
 }
+.currentLink{
+	color: black !important;
+	background:linear-gradient(to top,rgb(176, 255, 124),rgb(220, 255, 124)) !important;
+}

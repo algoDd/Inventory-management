@@ -135,8 +135,8 @@ border-bottom-left-radius: 8px;
   padding: 0;
 }
 .b_clr{
-	background:coral !important;
-	border-color: coral !important;
+	background:red !important;
+	border-color: red !important;
 }
 body {
     overflow-y: scroll; 
@@ -271,7 +271,7 @@ table.inventory td:nth-child(5) { text-align: right; width: 12%; }
 table.balance th, table.balance td { width: 50%; }
 table.balance td { text-align: right; }
 
-/* aside */
+/* aside 
 
 aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
 aside h1 { border-color: #999; border-bottom-style: solid; }
@@ -422,12 +422,20 @@ hr{
 }
 #h_a{
 	width:20% !important;
-	margin-right:10% !important;
-	margin-bottom:10px !important;
+	margin-left:65px !important;
+	border-top:2px solid black !important;
+}
+#h_s{
+	width:20% !important;
+    margin-left: 158px !important;
 	border-top:2px solid black !important;
 }
 #sign{
-	margin-left:71%;
+	margin-left:12%;
+	font-size: 15px !important;
+}
+#stamp{
+	margin-left:39%;
 	font-size: 15px !important;
 }
 #h_l{
@@ -443,4 +451,16 @@ hr{
 }
 #bill_modal{
 	top: -20px !important;
+}
+#logo_img{
+	width: 18%;
+    margin-top: -85px;
+    margin-left: 45px;
+    margin-bottom: 8px;
+}
+#lines{
+	display:flex;
+}
+#wrds{
+	display:flex;
 }
