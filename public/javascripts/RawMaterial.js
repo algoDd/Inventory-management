@@ -44,7 +44,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.date=d.toString();
 	  $scope.rprice=0;
 	  $scope.codeCheck="";
-	  $scope.totalamt=10;
+	  $scope.totalamt=0;
 	  $scope.totalRM=0;
 	  $scope.one=true;
 	   $scope.two=false;
@@ -63,31 +63,31 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   
 	   $("#i_1").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(255, 121, 20)");
+		    $(this).parent().css("background", "rgb(0, 138, 181)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#ff9647");	
+		    $(this).parent().css("background","linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181))");	
 		});
 		$("#i_2").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(94, 238, 255)");
+		    $(this).parent().css("background", "rgb(188, 1, 32)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#baf8ff");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32))");
 		});
 		$("#i_3").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(255, 66, 150)");
+		    $(this).parent().css("background", "rgb(108, 186, 0)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#ff84bb");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0))");
 		});
 		$("#i_4").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(45, 255, 129)");
+		    $(this).parent().css("background", "rgb(242, 214, 4)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#5eff9e");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4))");
 		});
 		$('mytabs a').click(function (e){
 			$(this).tab('show');
