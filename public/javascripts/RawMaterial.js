@@ -37,6 +37,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.rawMat=[];
 	  $scope.bill=[];
 	  $scope.bitems=[];
+	  $scope.stocks=[];
+	  $scope.sitems=[];
 	  $scope.value=false;
 	  $scope.update=false;
 	  var k=0;
@@ -46,9 +48,11 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.codeCheck="";
 	  $scope.totalamt=0;
 	  $scope.totalRM=0;
+	  $scope.totalPricePerRm=0;
 	  $scope.one=true;
 	   $scope.two=false;
 	   $scope.bupdate=false;
+	   $scope.supdate=false;
 	   $scope.err=false;
 	   $scope.succ=false;
 	   var a=-1;
@@ -57,6 +61,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
  	 }
 	   if ($scope.bitems.length < 10) {
   		 $scope.bitems.push(k++);
+  	 }
+	   if ($scope.sitems.length < 10) {
+  		 $scope.sitems.push(k++);
   	 }
 	   //d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
 	   /*.................divis js part...................*/
@@ -125,21 +132,15 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   $scope.inNo="#AR"+n+chr.toString()+number;
 		  
 	   }
+	  
 	  $scope.add = function(i){
 		  $scope.value=true;
-//		 if(i==-1)
-//			 {
-//			  if(a==-1){
-//			      $scope.items.push(k++);
-//	    	      
-//	    	      }
-//			  a++;
-//    	      return;
-//			 }
+		  
 		  $scope.vm = this;
-	     if($scope.vm.$crtl!=undefined){ 
-	      if($scope.rawMat.length!=(i))
-		  {   
+		  if($scope.vm.$crtl!=undefined){
+	       if($scope.vm.$crtl.name!=undefined&&$scope.vm.$crtl.price!=undefined&&$scope.vm.$crtl.quantity!=undefined){ 
+	       if($scope.rawMat.length!=(i))
+		   {   
 	    	  if ($scope.items.length < 10) {
 		      $scope.items.push(k++);
 		      $scope.vm = this;
@@ -149,7 +150,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		    	  	"price":$scope.vm.$crtl.price,
 		      		"quantity":$scope.vm.$crtl.quantity
 		       });
-		    	$scope.totalRM+=($scope.vm.$crtl.price);  
+		    	$scope.totalRM+=($scope.vm.$crtl.price); 
+		    	
 	    	  $scope.update=true;
 		    $scope.del((i+1));
 		    
@@ -168,17 +170,25 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			      		"quantity":$scope.vm.$crtl.quantity
 			       });
 			      }
-			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price);  
+			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price); 
+			      
 	    	 }
 	     }
 	      
 	    
 	     }else{
-	    	 if ($scope.items.length < 10) {
-			      $scope.items.push(k++);
-	    	 }
-	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
-	     } 
+	    	 
+	    	 $scope.error="cannot add More Rows untill you fill out all columns";
+	    	 $scope.err=true;
+	     }
+		}else{
+			$scope.error="cannot add More Rows untill you fill out all columns";
+	    	 $scope.err=true;
+	    	 if($scope.sitems.length==0)
+    		 {
+    		 $scope.sitems.push(k++);
+    		 }
+		 }
 	    
 	  }
 	  $scope.tab=function(t)
@@ -196,6 +206,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				  }
 	  }
 	  $scope.submit = function(){
+		  if($scope.rawMat.length>1)
+		 {
 		  $http({
 		   method:"POST",
 		   url:"/api/rawMaterial",
@@ -218,6 +230,11 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   $scope.error="Uhh!! Error Not Able To Save";
 		  
 	   });
+		 }else{
+			 $scope.err=true;
+			   $scope.succ=false;
+			   $scope.error="Uhh!! Empty Fields"; 
+		 }
 		  if( $scope.totalRM!=0)
 		{
 		  $http({
@@ -254,6 +271,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  console.log(i);
 	  }
 	  /*..........................Billing...................................*/
+	  
 	  $scope.addb = function(i){
 		  $scope.value=true;
 		 	 
@@ -340,7 +358,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   }).then(function (success){			  
 			   $scope.rprice=parseInt(success.data);
 			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
-			   
+			   $scope.err=false;
+			   $scope.succ=false;
 		   },function (error){
 			   $scope.err=true;
 			   $timeout(function(){
@@ -399,17 +418,21 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt}
 		   }).then(function (success){
 			   console.log('done');
+
 			   $scope.succ=true;
 			   $timeout(function(){
 				   $scope.succ=false;
 			   },3000);
+
 			   $scope.success="Pdf Generated Successfully"
 		   },function (error){
 			   console.log('Not done');
 			   $scope.err=true;
+
 			   $timeout(function(){
 				   $scope.err=false;
 			   },3000);
+
 			   $scope.error="Uhh!! Error Occured : Please Try Again Later";
 		   });
 	   }
@@ -428,11 +451,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			
 			}  
 		  });
-	  }
+
+	  }*/
 	  $scope.final_amt=0;
 	  $scope.f_total=function(){
 		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
-	  */
+	  }
 	  $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
@@ -454,6 +478,132 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 	  }
+
+	  /*..........................Sales...................................*/
+	  $scope.sadd = function(i){
+		  $scope.value=true;
+		 	 
+		  $scope.vm = this;
+	     if($scope.vm.$crtl!=undefined){ 
+	    	 if($scope.vm.$crtl.name!=undefined&&$scope.vm.$crtl.price!=undefined&&$scope.vm.$crtl.quantity!=undefined){
+	      if($scope.stocks.length!=(i))
+		  {   
+	    	  if ($scope.sitems.length < 10) {
+	    		  $scope.sitems.push(k++);
+		      $scope.vm = this;
+		     
+		    	  $scope.stocks.splice(i,0,{
+
+		    		  "catagory":$scope.vm.$crtl.selected_item,
+		    		  "code":$scope.vm.$crtl.code,
+		    	  	
+		      		"quantity":$scope.vm.$crtl.quantity
+		       });
+		    	  
+		    	  $scope.supdate=true;
+		    $scope.sdel((i+1));
+		    
+		  
+	    	}else{
+				  $scope.error="cannot add more then 10";
+			  }
+	     }else{
+	    	 if ($scope.sitems.length < 10) {
+	    		 $scope.sitems.push(k++);
+			      
+			     
+			    	  $scope.stocks.push({
+
+			    		  "catagory":$scope.vm.$crtl.selected_item,
+			    		  "code":$scope.vm.$crtl.code,
+			    	  	"quantity":$scope.vm.$crtl.quantity
+			      		
+			       });
+			      
+			     
+	    	 }
+	     }
+	      
+	    
+	     }else{
+	    	 if ($scope.sitems.length < 10) {
+	    		 $scope.sitems.push(k++);
+	    	 }
+	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
+	     }
+	    }else{
+	    	$scope.error="cannot add More Rows untill you fill out all columns";
+	    	 $scope.err=true;
+	    	 if($scope.sitems.length==0)
+	    		 {
+	    		 $scope.sitems.push(k++);
+	    		 }
+	    }
+	  }
+	  $scope.sdel= function(i){
+		  if($scope.supdate==true){
+		  
+		  $scope.stocks.splice(i,1);
+		  $scope.supdate=false;
+		  $scope.sitems.splice($scope.stocks.length,1);
+	      }else{
+	    	  $scope.stocks.splice(i,1);
+	    $scope.sitems.splice(i,1);
+	    }
+		  console.log(i);
+	  }
+	  $scope.Ssubmit = function(){
+		  if($scope.stocks.length>=1)
+		 {
+		  $http({
+		   method:"POST",
+		   url:"/api/stocks",
+		   data:$scope.stocks
+	   }).then(function (success){
+		   console.log(success.data);
+		   $scope.err=false;
+		   $scope.succ=true;
+		   $scope.success="Data Was Stored Successfully";
+		   
+	   },function (error){
+		   $scope.err=true;
+		   $scope.succ=false;
+		   $scope.error="Uhh!! Error Not Able To Save";
+		  
+	   });
+		 }else{
+			 $scope.err=true;
+			   $scope.succ=false;
+			   $scope.error="Uhh!! Empty Fields"; 
+		 }
+		  
+	  }
+	  $scope.checkcode = function(code){
+		  $scope.vm = this; 
+		  $scope.json={"code":$scope.vm.$crtl.code};
+		  
+		  $http({
+			   method:"POST",
+			   url:"/api/bill",
+			   data:$scope.json
+		   }).then(function (success){
+			   
+			   $scope.err=false;
+			   $scope.succ=false;
+		   },function (error){
+			   console.log(error.data);
+			   $scope.selected_item="";
+			   $scope.err=true;
+			   $scope.succ=false;
+			   $scope.error="Uhh!! Error Occured : Code Doesn't Exist";
+		   });
+		  
+	  }
+
+
+	  
+	 
+
 });
 
 

@@ -1,6 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import helpers.BillHelper;
 import model.BillModel;
@@ -15,11 +16,12 @@ public class BillCrtl extends Controller {
 		JsonNode body=request().body().asJson();
 		String code=body.get("code").asText();
 		CodeModel cmodel=new CodeModel(code);
-		int p =helper.getCode(code,cmodel);
-		if(p!=0)
+		ObjectNode category =helper.getCode(code,cmodel);
+		if(category!=null)
 		{
-			String price=String.valueOf(p);
-			return ok(price);
+//			String c=category.get("Category").asText();
+//			int price
+			return ok(category);
 		}else
 		{
 			return badRequest("db error");

@@ -35,14 +35,17 @@
   <div ng-show="one">
     <div ng-repeat='item in items' class="form-group div_colr" id="field">
           <input type="text" ng-model="$crtl.name" class="form-control r1_ctrl" placeholder="Name" />&nbsp
-            <input type="number" ng-model='$crtl.quantity' class="form-control r2_ctrl" placeholder="Quantity"></input>&nbsp
-            <input type="number" ng-model='$crtl.price' class="form-control r3_ctrl" placeholder="Price"></input>&nbsp
-         <i class="fa f_i fa-inr"></i><input type="number" class="form-control r4_ctrl" id="prc" value="{{totalamt}}"></input>&nbsp
+            <input type="number" ng-model='$crtl.quantity' class="form-control r2_ctrl" placeholder="Quantity" id="a"></input>&nbsp
+            <input type="number"  ng-model='$crtl.price' class="form-control r3_ctrl" placeholder="Price" id="b"></input>&nbsp
+         <i class="fa f_i fa-inr"></i></i><input type="text" class="form-control r4_ctrl" value="{{$crtl.quantity*$crtl.price}}" id="prc"></input>&nbsp
+        
        <button  class="btn btn-success b_mrgn" ng-click='add($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary b_mrgn f_clr" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp<br/>
       
        
 	</div>
+	 
+         
 </div>
 
 
