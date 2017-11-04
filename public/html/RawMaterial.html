@@ -14,6 +14,8 @@
   <div class='wave -three'></div>
   <div class='title'  ng-click='add()'>Fill Items</div>
 </div>
+<div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
+<div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
  <div id="content_raw"> 
  <article>
   <nav class="btn-bar nav-dark r_nav">
@@ -31,12 +33,11 @@
     </a>
   </nav>
 </article>
-  
   <div ng-show="one">
     <div ng-repeat='item in items' class="form-group div_colr" id="field">
-          <input type="text" ng-model="$crtl.name" class="form-control r1_ctrl" placeholder="Name" />&nbsp
-            <input type="number" ng-model='$crtl.quantity' class="form-control r2_ctrl" placeholder="Quantity" id="a"></input>&nbsp
-            <input type="number"  ng-model='$crtl.price' class="form-control r3_ctrl" placeholder="Price" id="b"></input>&nbsp
+          <input type="text" ng-model="$crtl.name" class="form-control r1_ctrl" placeholder="Name" required/>&nbsp
+            <input type="number" ng-model='$crtl.quantity' class="form-control r2_ctrl" placeholder="Quantity" id="a" required></input>&nbsp
+            <input type="number"  ng-model='$crtl.price' class="form-control r3_ctrl" placeholder="Price" id="b" required></input>&nbsp
          <i class="fa f_i fa-inr"></i></i><input type="text" class="form-control r4_ctrl" value="{{$crtl.quantity*$crtl.price}}" id="prc"></input>&nbsp
         
        <button  class="btn btn-success b_mrgn" ng-click='add($index)'><i class="fa fa-check"></i></button> 

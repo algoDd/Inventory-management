@@ -180,10 +180,16 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	    	 
 	    	 $scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	     }
 		}else{
 			$scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	    	 if($scope.sitems.length==0)
     		 {
     		 $scope.sitems.push(k++);
@@ -232,6 +238,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   });
 		 }else{
 			 $scope.err=true;
+			 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Uhh!! Empty Fields"; 
 		 }
@@ -387,17 +396,26 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  console.log(i);
 	  }
 
-
-	/*  $scope.exportAsPdf=function(){
+    
+	      $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				
-				var data = canvas.toDataURL();
-				
+				var data = canvas.toDataURL("image/jpeg",1.0);
+				var ctx=data;
+				ctx.webkitImageSmoothingEnabled = true;
+	            ctx.mozImageSmoothingEnabled = true;
+	            ctx.imageSmoothingEnabled = true;
+	            ctx.imageSmoothingQuality = "high";
+	            
 				var docDefinition = {
 						content: [{
 							image: data,
-						    width: 500,
+						    width:500,
+						
+						 
+						   
+				           
 					      
 				}]
 				};
@@ -409,7 +427,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 		 
-	  }*/
+	  }
 	  $scope.save=function(){
 		  if( $scope.base64data!=null && $scope.totalamt!=0)
 		  $http({
@@ -436,12 +454,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.error="Uhh!! Error Occured : Please Try Again Later";
 		   });
 	   }
-	  
-	/* $scope.exportAsPdf=function(){
+	 /* 
+	 $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				var data = new Image();
-			    data = canvas.toDataURL("image/jpeg");
+			    data = canvas.toDataURL("image/jpeg",1.0);
 				var doc = new jsPDF("p","mm","a4");
 			    var width= doc.internal.pageSize.width;
 				var height= doc.internal.pageSize.height;
@@ -452,12 +470,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 
-	  }*/
+	  }
 	  $scope.final_amt=0;
 	  $scope.f_total=function(){
 		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
 	  }
-	  $scope.exportAsPdf=function(){
+	  */
+	 /* $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				var data = new Image();
@@ -472,12 +491,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			    var width= doc.internal.pageSize.width;
 				var height= doc.internal.pageSize.height;
 				doc.internal.scaleFactor = 3;
-				doc.addImage(data,'JPEG',25,15,(width*.72),(height*.92),undefined,'FAST');
+				doc.addImage(data,'JPEG',25,15,(width*.72),(height*.72),undefined,'FAST');
 				doc.save('bill.pdf');
 				
 			}  
 		  });
-	  }
+	  }*/
 
 	  /*..........................Sales...................................*/
 	  $scope.sadd = function(i){
@@ -534,6 +553,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	    }else{
 	    	$scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	    	 if($scope.sitems.length==0)
 	    		 {
 	    		 $scope.sitems.push(k++);
@@ -563,16 +585,25 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   console.log(success.data);
 		   $scope.err=false;
 		   $scope.succ=true;
+		   $timeout(function(){
+			   $scope.succ=false;
+		   },3000);
 		   $scope.success="Data Was Stored Successfully";
 		   
 	   },function (error){
 		   $scope.err=true;
+		   $timeout(function(){
+			   $scope.err=false;
+		   },3000);
 		   $scope.succ=false;
 		   $scope.error="Uhh!! Error Not Able To Save";
 		  
 	   });
 		 }else{
 			 $scope.err=true;
+			 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Uhh!! Empty Fields"; 
 		 }
@@ -594,6 +625,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   console.log(error.data);
 			   $scope.selected_item="";
 			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Uhh!! Error Occured : Code Doesn't Exist";
 		   });

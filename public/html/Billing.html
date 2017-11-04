@@ -15,13 +15,15 @@
   <div class='title_bill' ng-click="addb()">Bill</div>
 </div>
 <label class="cont" id="c1">Customer
-  <input type="radio" checked="checked" name="radio">
+  <input type="radio" checked="checked" name="radio" required>
   <span class="checkmark"></span>
 </label>
 <label class="cont" id="c2">Dealer
-  <input type="radio" name="radio">
+  <input type="radio" name="radio" required>
   <span class="checkmark"></span>
 </label>
+<div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
+<div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
 <div id="content">
 <article>
   <nav class="btn-bar nav-dark b_nav" id="b_tab">
@@ -42,26 +44,23 @@
 
 <div ng-show="one">
     <div ng-repeat='item in bitems' class="form-group div_colr" id="field_bill">
-          <select ng-model='$crtl.selected_item' class="form-control frst fbill_ctrl" name="item_name">
+          <select ng-model='$crtl.selected_item' class="form-control frst fbill_ctrl" name="item_name" required>
           <option value="" selected>Select Your Product</option>
           <option value="Register" selected>Registers</option>
           <option value="Cover Page">Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code"></input>&nbsp
-          <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity"></input>&nbsp
-          <!--<input type="number" ng-model='$crtl.price' class="form-control" placeholder="Price"></input>&nbsp-->
-          <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price'  class="form-control fbill_ctrl" id="prc"></input>&nbsp
+          <input type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code" required></input>&nbsp
+          <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity" required></input>&nbsp
+          <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price'  class="form-control fbill_ctrl" id="prc" required></input>&nbsp
        <button  class="btn btn-success c_clr" ng-click='addb($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary b_clr" ng-click='bdel($index)'><i class="fa fa-close"></i></button>&nbsp       
 	</div>
 </div>
 
 </div>
-<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+
 <button class="btn btn-info gen_butn" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
-<!--<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>-->
+
 
 <!-- Modal -->
   <div class="modal fade" id="bill_modal" role="dialog">

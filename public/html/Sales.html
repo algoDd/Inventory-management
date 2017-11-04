@@ -15,9 +15,11 @@
   <div class='wave_sale -three_sale'></div>
   <div class='title_sale' ng-click="">Sales</div>
 </div>
+<div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
+<div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
 <div id="content_sale">
 <article>
-  <nav class="btn-bar nav-dark sale_nav" id="mytabs">
+  <nav class="btn-bar nav-dark sale_nav nav-tabs"  id="mytabs">
     <a data-toggle="tab" data-target="#menu1" class="btn btn-glass currentLink">
       Previous Orders
     </a>
