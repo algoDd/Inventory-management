@@ -36,7 +36,7 @@ border-bottom-left-radius: 8px;
   position: absolute;
   top: 0%;
   left: 50%;
-  background: linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4));
+  background: linear-gradient(to top,rgb(241, 238, 3),rgb(255, 253, 119));
   width: 450px;
   height: 330px;
   margin-left: -250px;
@@ -85,18 +85,14 @@ border-bottom-left-radius: 8px;
   text-shadow: 0 1px 0 rgba(black, .1);
   text-indent: .3em;
 }
-@keyframes drift {
-  from { transform: rotate(0deg); }
-  from { transform: rotate(360deg); }
-}
-////
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 .sale_nav{
-	 background: linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4));
+	 background: linear-gradient(to top,rgb(241, 238, 3),rgb(255, 253, 119));
 }
 .currentLink{
 	color: black !important;

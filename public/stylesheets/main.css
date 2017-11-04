@@ -1,6 +1,6 @@
 .container_1 {
   position: relative;
-  margin-left:4%;
+  margin-left:12%;
 }
 .container_2 {
   position: relative;
@@ -15,36 +15,37 @@
   margin-left:4%;
 }
 #i_1{
-	background: linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181));
+	background: linear-gradient(to top,rgb(51, 161, 196),rgb(184, 234, 249));
 }
 #i_2{
-	background:linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32));
+	background:linear-gradient(to top,rgb(224, 2, 39),rgb(255, 102, 127));
 }
 #i_3{
-	background:linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0));
+	background:linear-gradient(to top,rgb(134, 206, 35),rgb(176, 255, 127));
 }
 #i_4{
-	background:linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4));
+	background:linear-gradient(to top,rgb(241, 238, 3),rgb(255, 253, 119));
 }
 .image {
   display: block;
-  width: 20%;
+  width: 16%;
   height: 50%;
   box-sizing:border-box;
   border-radius:50%;
   border: 7px solid #bababa;
+  margin-top:-1%;
 }
 .gl_icn{
-   font-size:128px;
-   padding:48px 10px 48px 10px;
-   margin-left:17%;
+   font-size:100px;
+   padding:30px 5px 30px 5px;
+   margin-left:20%;
    color:white;
 }
 .gl_icn2{
-   margin-left:24%;
+   margin-left:25%;
 }
 .gl_icn3{
-   margin-left:32%;
+   margin-left:35%;
 }
 .overlay {
   position: absolute;
@@ -78,7 +79,7 @@
   background:cornsilk;
   white-space: nowrap; 
   color: black;
-  font-size: 25px;
+  font-size: 21px;
   font-weight:bold;
   position: absolute;
   overflow: hidden;
@@ -88,16 +89,16 @@
   -ms-transform: translate(-50%, -50%);
 }
 #txt_1{
-	padding: 10px 60px 10px 60px;
+	padding: 5px 60px 5px 60px;
 }
 #txt_2{
-	padding: 10px 95px 10px 95px;
+	padding: 5px 95px 5px 95px;
 }
 #txt_3{
-	padding: 10px 95px 10px 95px;
+	padding: 5px 95px 5px 95px;
 }
 #txt_4{
-	padding: 10px 95px 10px 95px;
+	padding: 5px 95px 5px 95px;
 }
 .col_algn{
 	display:flex !important;
@@ -223,7 +224,7 @@
   background:cornsilk;
   white-space: nowrap; 
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   font-weight:bold;
   position: absolute;
   overflow: hidden;
@@ -233,14 +234,14 @@
   -ms-transform: translate(-50%, -50%);
 }
 #o_txt_1{
-	padding: 10px 45px 10px 45px;
+	padding: 5px 32px 5px 32px;
 }
 #o_txt_2{
-	padding: 10px 87px 10px 87px;
+	padding: 5px 65px 5px 65px;
 }
 #o_txt_3{
-	padding: 10px 83px 10px 83px;
+	padding: 5px 65px 5px 65px;
 }
 #o_txt_4{
-	padding: 10px 87px 10px 87px;
+	padding: 5px 67px 5px 67px;
 }
