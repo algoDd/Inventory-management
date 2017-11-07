@@ -15,6 +15,7 @@ create table public.code (
   id                        serial not null,
   code                      varchar(255),
   price                     integer,
+  category                  varchar(255),
   constraint pk_code primary key (id))
 ;
 
@@ -32,6 +33,14 @@ create table public.rmtotal (
   constraint pk_rmtotal primary key (id))
 ;
 
+create table public.stock (
+  id                        serial not null,
+  quantity                  integer,
+  code                      varchar(255),
+  category                  varchar(255),
+  constraint pk_stock primary key (id))
+;
+
 
 
 
@@ -44,4 +53,6 @@ drop table if exists public.code cascade;
 drop table if exists public.raw_material cascade;
 
 drop table if exists public.rmtotal cascade;
+
+drop table if exists public.stock cascade;
 

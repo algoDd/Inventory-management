@@ -19,6 +19,14 @@ public class CodeModel extends Model {
 		String code;
 		@Column(name="price")
 		int price;
+		@Column(name="category")
+		String category;
+		public String getCategory() {
+			return category;
+		}
+		public void setCategory(String category) {
+			this.category = category;
+		}
 		public String getCode() {
 			return code;
 		}
@@ -37,7 +45,7 @@ public class CodeModel extends Model {
 		public CodeModel(String code) {
 			
 			this.code=code;
-			this.price=price;
+			
 		}
 		public static Finder<String,CodeModel> find=new Finder<>(String.class,CodeModel.class);
 	}

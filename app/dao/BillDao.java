@@ -6,28 +6,35 @@ import com.avaje.ebean.Ebean;
 import com.avaje.ebean.ExpressionList;
 import com.avaje.ebean.Query;
 import com.avaje.ebean.SqlQuery;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import model.BillModel;
 import model.CodeModel;
 import model.RmtotalModel;
+import play.libs.Json;
 import play.mvc.Result;
 
 public class BillDao {
 	
-	public static int getCode(String code,CodeModel cmodel) {
-		int c3=0;
+	public static ObjectNode getCode(String code,CodeModel cmodel) {
+		int c3=0;String category="";
+		ObjectNode j=Json.newObject();
 		try {
 			//String code=cmodel.getCode();
-			List<CodeModel> c=cmodel.find.select("price").where().eq("code",code).findList();
+			List<CodeModel> c=cmodel.find.select("price,category").where().eq("code",code).findList();
 		//	Query a=c;
 			CodeModel c1=c.get(0);
 			c3=c1.getPrice();
+			category=c1.getCategory();
 			
+			j.put("price", c3);
+			j.put("Category",category);
 		}catch(Exception e)
 		{
-			return 0;
+			return null;
 		}
-		return c3;
+		return j;
 	}
 	public static Boolean savepdf(BillModel bmodel) {
 		try {

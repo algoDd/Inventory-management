@@ -48,14 +48,15 @@
           <option value="Register" selected>Registers</option>
           <option value="Cover Page">Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code' class="form-control fc2" placeholder="Code"></input>&nbsp
-          <input type="number" ng-model='$crtl.quantity' class="form-control fc3" placeholder="Quantity"></input>&nbsp
+          <input type="text" ng-model='$crtl.code'  class="form-control fc2" placeholder="Code"></input>&nbsp
+          <input type="number" ng-model='$crtl.quantity' ng-change="checkcode($crtl.code)" class="form-control fc3" placeholder="Quantity"></input>&nbsp
          
        <button  class="btn btn-success" ng-click='sadd($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary stk_clr" ng-click='sdel($index)'><i class="fa fa-close"></i></button>&nbsp       
 	</div>
+	 
 </div>
-
+<button ng-show="value" class="btn btn-info dn_mrgn" ng-click='Ssubmit()'>Done</button>
 </div>
 <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
 <div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
