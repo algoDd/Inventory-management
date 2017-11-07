@@ -453,6 +453,31 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  });
 
 	  }*/
+	  $scope.final_amt=0;
+	  $scope.f_total=function(){
+		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
+	  }
+	  $scope.exportAsPdf=function(){
+		  html2canvas(document.getElementById("pdf_content"), {
+			onrendered: function (canvas) {	
+				var data = new Image();
+				var ctx =data;
+				ctx.webkitImageSmoothingEnabled = true;
+	            ctx.mozImageSmoothingEnabled = true;
+	            ctx.imageSmoothingEnabled = true;
+	            ctx.imageSmoothingQuality = "high";
+
+			    data = canvas.toDataURL("image/jpeg",1.0);
+				var doc = new jsPDF("p","mm","a4");
+			    var width= doc.internal.pageSize.width;
+				var height= doc.internal.pageSize.height;
+				doc.internal.scaleFactor = 3;
+				doc.addImage(data,'JPEG',25,15,(width*.72),(height*.92),undefined,'FAST');
+				doc.save('bill.pdf');
+				
+			}  
+		  });
+	  }
 
 	  /*..........................Sales...................................*/
 	  $scope.sadd = function(i){
@@ -577,31 +602,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 
 
 	  
-	  $scope.final_amt=0;
-	  $scope.f_total=function(){
-		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
-	  }
-	  $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				var data = new Image();
-				var ctx =data;
-				ctx.webkitImageSmoothingEnabled = true;
-	            ctx.mozImageSmoothingEnabled = true;
-	            ctx.imageSmoothingEnabled = true;
-	            ctx.imageSmoothingQuality = "high";
-
-			    data = canvas.toDataURL("image/jpeg",1.0);
-				var doc = new jsPDF("p","mm","a4");
-			    var width= doc.internal.pageSize.width;
-				var height= doc.internal.pageSize.height;
-				doc.internal.scaleFactor = 3;
-				doc.addImage(data,'JPEG',25,15,(width*.72),(height*.92),undefined,'FAST');
-				doc.save('bill.pdf');
-				
-			}  
-		  });
-	  }
+	 
 
 });
 
