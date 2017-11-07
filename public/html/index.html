@@ -13,8 +13,9 @@ ANSH RETAILS
 <link href="/assets/stylesheets/Billing.css" rel="stylesheet" type="text/css">
 <link href="/assets/stylesheets/Stock.css" rel="stylesheet" type="text/css">
 <link href="/assets/stylesheets/Sales.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+<!--  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
 <script src="/assets/javascripts/jquery.min.js"></script>
 <script src="assets/javascripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
@@ -40,11 +41,14 @@ ANSH RETAILS
 <div class="container-fluid">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col_algn">
-<div class="container_1 image" id="i_1">
+<div class="container_1 image" id="i_1" name="ovrly">
 <a ui-sref="RawMaterial">
 <i class="fa fa-cart-arrow-down gl_icn" aria-hidden="true"></i>
   <div class="overlay">
     <div class="text" id="txt_1">Raw Material</div>
+  </div>
+  <div id="ovrly1">
+    <span class="o_text" id="o_txt_1">Raw Material</span>
   </div>
   </a>
 </div>
@@ -55,6 +59,9 @@ ANSH RETAILS
   <div class="overlay">
     <div class="text" id="txt_3">Billing</div>
   </div>
+  <div id="ovrly3">
+    <span class="o_text" id="o_txt_3">Billing</span>
+  </div>
   </a>
 </div>
 
@@ -64,6 +71,9 @@ ANSH RETAILS
   <div class="overlay">
     <div class="text" id="txt_2">Stock</div>
   </div>
+  <div id="ovrly2">
+    <span class="o_text" id="o_txt_2">Stock</span>
+  </div>
   </a>
 </div>
 
@@ -72,6 +82,9 @@ ANSH RETAILS
 <i class="fa fa-line-chart gl_icn" aria-hidden="true"></i>
   <div class="overlay">
     <div class="text" id="txt_4">Sales</div>
+  </div>
+  <div id="ovrly4">
+    <span class="o_text" id="o_txt_4">Sales</span>
   </div>
   </a>
 </div>
@@ -83,6 +96,8 @@ ANSH RETAILS
 <fb:login-button show-faces="true" max-rows="1" size="large"></fb:login-button>
 <div id="status">
 </div>
+<div  class="alert alert-success"  role="success" ng-show="succ" style="margin-top:15px; margin-bottom:-36px !important">{{success}}</div>
+<div  id ="divID" class="alert alert-danger" role="alert" ng-show="err" style="margin-top:15px; margin-bottom:-36px !important">{{error}}</div>
 <div id="mainpage" ui-view></div>
 </body>
 </html>

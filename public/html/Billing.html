@@ -60,8 +60,8 @@
 <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
 <div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
 <button class="btn btn-info gen_butn" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
-<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+<!--<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>-->
 
 <!-- Modal -->
   <div class="modal fade" id="bill_modal" role="dialog">
@@ -74,9 +74,10 @@
           <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" data-html2canvas-ignore > Generate Pdf</button>
           <hr/>
           <p class="hd">ANSH RETAILS PVT. LTD.</p>
+          <img id="logo_img" src="/assets/images/logo.jpeg"/>
           <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 r_a">
-          <h2 id="h2_head">INVOCE</h2><br/>
+          <h2 id="h2_head">INVOICE</h2><br/>
           <p id="p_clr">9910065715<br/>
           7011125845<br/>
           85888954331<br/><br/>
@@ -117,31 +118,34 @@
           		<table class="table">
           		<tr>
 					<th><span>Sub Total</span></th>
-					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span>{{totalamt}}</span></td>
+					<td><span data-prefix>INR<span>{{totalamt}}</span></td>
 				</tr>
 				<tr>
 					<th><span >Shipping charges</span></th>
-					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span contenteditable ng-model='$crtl.ship_chrg'></span></td>
+					<td><span data-prefix>INR<span contenteditable ng-model='$crtl.ship_chrg'></span></td>
 				</tr>
 				<tr>
 					<th><span>Tax</span></th>
-					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span contenteditable ng-model='$crtl.tax'></span></td>
+					<td>INR<span contenteditable  ng-model='$crtl.tax'></span></td>
 				</tr>
 				<tr>
 					<th><span>Other Charge(s), If any.</span></th>
-					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span contenteditable ng-model='$crtl.o_chrg'></span></td>
+					<td>INR<span contenteditable ng-model='$crtl.o_chrg'></span></td>
 				</tr>
 				<tr>
 					<th><span>Total</span></th>
-					<td><span data-prefix><i class="fa r_i fa-inr"></i></span><span>{{final_amt}}</span></td>
+					<td>INR<span>{{finlamt}}</span></td>
 				</tr>
 			</table>
 			</div>
-		
-		<aside>
-			<hr span id="h_a"></span>
-				<span id="sign">Authorised Stamp</span>	
-		</aside>
+			</div>
+			<div id="lines">	
+			<hr id="h_a"/>
+				<hr id="h_s"/>				
+		</div>
+		<div id="wrds">	
+			<span id="sign">Authorised Sign</span>
+				<span id="stamp">Authorised Stamp</span>				
 		</div>
 		<hr span id="h_l"></span>
         </div>
@@ -153,6 +157,5 @@
       
     </div>
   </div>
-      
 </body>
 </html>

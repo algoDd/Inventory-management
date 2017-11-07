@@ -7,11 +7,9 @@
 	margin-bottom: 2% !important;
 }
 .div_colr{
-<<<<<<< HEAD
-	//background:yellow;
-=======
+
 	background:rgb(226, 226, 224);
->>>>>>> 79ea3591fa388b194eb4c3ae9e7966bad49b8d72
+
 }
 #content_raw {
   max-width: 100%;
@@ -150,8 +148,8 @@ border-bottom-left-radius: 8px;
     clear: both;
 }
 .f_clr{
-	background:coral !important;
-	border-color: coral !important;
+	background:red !important;
+	border-color: red !important;
 }
 .dn_buton{
 	margin-left:20px !important;

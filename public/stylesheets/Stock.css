@@ -120,6 +120,7 @@ border-bottom-left-radius: 8px;
 	background:linear-gradient(to top,rgb(2, 131, 147),rgb(165, 245, 255));
 }
 .stk_clr{
+
 	background: coral !important;
     border-color: coral !important;
 }
@@ -148,4 +149,8 @@ border-bottom-left-radius: 8px;
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
+
+	background: red !important;
+    border-color: red !important;
+
 }
