@@ -57,8 +57,9 @@
 </div>
 
 </div>
-<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>
+<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;"><strong>Success! </strong>{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;"><strong>Error! </strong>{{error}}</div>
+<div class="alert alert-warning" ng-show="war" style="margin-top:10px;"><strong>Warning! </strong>{{warning}}</div>
 <button class="btn btn-info gen_butn" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
 <!--<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
 <div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>-->

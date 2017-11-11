@@ -30,3 +30,4 @@ POST /api/bill							controllers.BillCrtl.getCode
 POST /api/billinvoice					controllers.BillCrtl.savepdf
 POST /api/rawTotal						controllers.BillCrtl.savetotal
 POST /api/stocks						controllers.StockCrtl.savestock
+POST /api/check						controllers.StockCrtl.update

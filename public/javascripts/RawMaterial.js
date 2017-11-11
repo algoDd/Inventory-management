@@ -55,6 +55,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   $scope.supdate=false;
 	   $scope.err=false;
 	   $scope.succ=false;
+	   $scope.war=false;
 	   var a=-1;
 	   if ($scope.items.length < 10) {
 		      $scope.items.push(k++);
@@ -124,14 +125,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	//$scope.price=[];
 	//$scope.quantity=[];
 		
-	   $scope.invoice=function()
-	   {
-		   var number=Math.floor((Math.random() * 999999) + 1000);
-		   var n=Math.floor((Math.random() * 25) + 1);
-		   var chr = String.fromCharCode(65 + n); 
-		   $scope.inNo="#AR"+n+chr.toString()+number;
-		  
-	   }
+	  
 	  
 	  $scope.add = function(i){
 		  $scope.value=true;
@@ -271,14 +265,53 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  console.log(i);
 	  }
 	  /*..........................Billing...................................*/
-	  
+	  $scope.invoice=function()
+	   {
+		   var number=Math.floor((Math.random() * 999999) + 1000);
+		   var n=Math.floor((Math.random() * 25) + 1);
+		   var chr = String.fromCharCode(65 + n); 
+		   $scope.inNo="#AR"+n+chr.toString()+number;
+		   
+	   }
+	  $scope.stockcheck=function(code,quan)
+	  {
+		  $http({
+			   method:"POST",
+			   url:"/api/check",
+			   data:{"code":code,"quantity":quan}
+		   }).then(function (success){			  
+			  
+			   $scope.err=false;
+			   if(success.data=="ok"){
+				   $scope.succ=false;
+				   
+			   }else
+				   {
+				   $timeout(function(){
+					   $scope.war=false;
+				   },6000);
+				    $scope.war=true;
+				    $scope.warning=success.data;
+				   }
+			   
+		   },function (error){
+			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },6000);
+			   $scope.succ=false;
+			   $scope.error=error.data;
+		   });
+	  }
 	  $scope.addb = function(i){
 		  $scope.value=true;
 		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined){ 
+	    	 $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity); 
 	      if($scope.bill.length!=(i))
 		  {   
+	    	  
 	    	  if ($scope.bitems.length < 10) {
 	    		  $scope.bitems.push(k++);
 		      $scope.vm = this;
@@ -312,6 +345,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			    	  	"quantity":$scope.vm.$crtl.quantity,
 			      		"price":$scope.vm.$crtl.price
 			       });
+			    	  
 			      
 			      if( $scope.rprice!=0){
 			    	  $scope.totalamt+=($scope.vm.$crtl.quantity* $scope.rprice);
@@ -321,9 +355,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	      
 	    
 	     }else{
-	    	 if ($scope.bitems.length < 10) {
-	    		 $scope.bitems.push(k++);
-	    	 }
+	    	 $scope.error="cannot add More Rows untill you fill out all columns";
+	    	 $scope.err=true;
+	    	 if($scope.sitems.length==0)
+    		 {
+    		 $scope.sitems.push(k++);
+    		 }
 	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
 	     } 
 	  }
@@ -356,7 +393,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   url:"/api/bill",
 			   data:$scope.json
 		   }).then(function (success){			  
-			   $scope.rprice=parseInt(success.data);
+			   $scope.rprice=parseInt(success.data.price);
 			   $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
 			   $scope.err=false;
 			   $scope.succ=false;
@@ -366,7 +403,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				   $scope.err=false;
 			   },3000);
 			   $scope.succ=false;
-			   $scope.error="Uhh!! Error Occured : Code Doesn't Exist";
+			   $scope.error="Code Doesn't Exist";
 		   });
 		  }else{
 			  $scope.vm.$crtl.price=$scope.vm.$crtl.quantity * $scope.rprice ;
@@ -388,7 +425,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  }
 
 
-	/*  $scope.exportAsPdf=function(){
+	  $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				
@@ -401,7 +438,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 					      
 				}]
 				};
-				pdfMake.createPdf(docDefinition).download("bill.pdf");
+				pdfMake.createPdf(docDefinition);
 				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
 				    $scope.base64data = "data:application/pdf;base64,"+encodedString;
 				    $scope.save();
@@ -409,7 +446,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 		 
-	  }*/
+	  }
 	  $scope.save=function(){
 		  if( $scope.base64data!=null && $scope.totalamt!=0)
 		  $http({
@@ -433,7 +470,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				   $scope.err=false;
 			   },3000);
 
-			   $scope.error="Uhh!! Error Occured : Please Try Again Later";
+			   $scope.error="Please Try Again Later";
 		   });
 	   }
 	  
@@ -479,13 +516,14 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  });
 	  }
 
-	  /*..........................Sales...................................*/
+	  /*..........................Stock...................................*/
 	  $scope.sadd = function(i){
 		  $scope.value=true;
 		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined){ 
-	    	 if($scope.vm.$crtl.name!=undefined&&$scope.vm.$crtl.price!=undefined&&$scope.vm.$crtl.quantity!=undefined){
+	    	 if($scope.vm.$crtl.code!=undefined&&$scope.vm.$crtl.selected_item!=undefined&&$scope.vm.$crtl.quantity!=undefined)
+	    	 {
 	      if($scope.stocks.length!=(i))
 		  {   
 	    	  if ($scope.sitems.length < 10) {
@@ -526,9 +564,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	      
 	    
 	     }else{
-	    	 if ($scope.sitems.length < 10) {
+	    	 $scope.error="cannot add More Rows untill you fill out all columns";
+	    	 $scope.err=true;
+	    	 if($scope.sitems.length==0)
+	    		 {
 	    		 $scope.sitems.push(k++);
-	    	 }
+	    		 }
 	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
 	     }
 	    }else{
@@ -568,13 +609,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   },function (error){
 		   $scope.err=true;
 		   $scope.succ=false;
-		   $scope.error="Uhh!! Error Not Able To Save";
+		   $scope.error="Not Able To Save";
 		  
 	   });
 		 }else{
 			 $scope.err=true;
 			   $scope.succ=false;
-			   $scope.error="Uhh!! Empty Fields"; 
+			   $scope.error="Empty Fields"; 
 		 }
 		  
 	  }
@@ -595,7 +636,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.selected_item="";
 			   $scope.err=true;
 			   $scope.succ=false;
-			   $scope.error="Uhh!! Error Occured : Code Doesn't Exist";
+			   $scope.error="Code Doesn't Exist";
 		   });
 		  
 	  }
