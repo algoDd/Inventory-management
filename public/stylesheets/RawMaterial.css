@@ -7,13 +7,11 @@
 	margin-bottom: 2% !important;
 }
 .div_colr{
-
-	background:rgb(226, 226, 224);
-
+	background:rgb(178, 178, 176);
 }
 #content_raw {
   max-width: 100%;
-  min-height: 80vh;
+  height: 55vh;
   overflow:auto;
   margin-top:0% !important;
   margin-bottom:3% !important;
@@ -30,19 +28,19 @@ border-bottom-right-radius: 8px;
 border-bottom-left-radius: 8px;
 }
 .r_nav {
-  background: linear-gradient(to top,rgb(244, 83, 8),rgb(244, 204, 8));
+  background: linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181));
 }
 .box {
   width: 265px;
-  height: 300px;
+  height: 280px;
   border-radius: 5px;
   box-shadow: 0 2px 30px rgba(black, .2);
   background: lighten(#f0f4c3, 10%);
   position: relative;
   overflow: hidden;
   margin-left:40%;
-  margin-top:6%;
-  margin-bottom: -10%;
+  margin-top:3%;
+  margin-bottom: -9%;
   transform: translate3d(0, 0, 0);
 }
 
@@ -51,9 +49,9 @@ border-bottom-left-radius: 8px;
   position: absolute;
   top: 0%;
   left: 50%;
-  background: linear-gradient(to top,rgb(244, 83, 8),rgb(244, 204, 8));
+  background: linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181));
   width: 450px;
-  height: 360px;
+  height: 330px;
   margin-left: -250px;
   margin-top: -250px;
   transform-origin: 50% 48%;
@@ -122,22 +120,31 @@ border-bottom-left-radius: 8px;
 .r1_ctrl{
 	margin-left:-8% !important;
 	width:97% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .r2_ctrl{
 	margin-right:5% !important;
 	margin-left:1% !important;
 	width:97% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .r3_ctrl{
 	margin-right: 4% !important;
 	margin-left: -4% !important ;
 	width: 85% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .r4_ctrl{
 	margin-right:1% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .b_mrgn{
 	margin:1px !important;
+	background-color: rgb(23, 211, 2) !important;
 }
 .group:before,
 .group:after {

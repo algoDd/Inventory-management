@@ -26,6 +26,8 @@
   <div class='wave_stock -three_stock'></div>
   <div class='title_stock' ng-click='sadd()'>Stock</div>
 </div>
+<div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
+<div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
 <div id="content_stock">
 <article>
   <nav class="btn-bar nav-dark stock_nav">
@@ -43,15 +45,15 @@
 
 <div ng-show="one">
     <div ng-repeat='item in sitems' class="form-group div_colr" id="field_stock">
-          <select ng-model='$crtl.selected_item' class="form-control fc1" name="item_name">
+          <select ng-model='$crtl.selected_item' class="form-control fc1" name="item_name" required>
           <option value="" selected>Select Your Product</option>
           <option value="Register" selected>Registers</option>
           <option value="Cover Page">Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code'  class="form-control fc2" placeholder="Code"></input>&nbsp
-          <input type="number" ng-model='$crtl.quantity' ng-change="checkcode($crtl.code)" class="form-control fc3" placeholder="Quantity"></input>&nbsp
+          <input type="text" ng-model='$crtl.code'  class="form-control fc2" placeholder="Code" required></input>&nbsp
+          <input type="number" ng-model='$crtl.quantity' ng-change="checkcode($crtl.code)" class="form-control fc3" placeholder="Quantity" required></input>&nbsp
          
-       <button  class="btn btn-success" ng-click='sadd($index)'><i class="fa fa-check"></i></button> 
+       <button  class="btn btn-success sc_clr" ng-click='sadd($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary stk_clr" ng-click='sdel($index)'><i class="fa fa-close"></i></button>&nbsp       
 	</div>
 	 

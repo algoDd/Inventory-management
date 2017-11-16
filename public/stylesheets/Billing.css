@@ -17,9 +17,14 @@ row_algn{
 .fbill_ctrl{
 	margin-right:1% !important;
 	width:100% !important;
+	font-size:17px !important;
+	color:black !important;
 }
 .f_i{
 	font-size:22px !important;
+}
+.c_clr{
+	background-color: rgb(23, 211, 2) !important;
 }
 #prc{
 	border-top:none !important;
@@ -27,12 +32,15 @@ row_algn{
 	border-right:none !important;
 	border-bottom:1px solid black !important;
 	box-shadow:none !important;
-	width:46% !important;
-	background:rgb(226, 226, 224) !important;
+	width:37% !important;
+	background:rgb(178, 178, 176) !important;
+	font-weight: bold !important;
+    font-size: 25px !important;
+    color: black !important;
 }
 #content {
   max-width: 95%;
-  min-height: 80vh;
+  height: 50vh;
   padding-bottom:6% !important;
   overflow:auto;
   margin-top:1% !important;
@@ -58,15 +66,15 @@ border-bottom-left-radius: 8px;
 }
 .box_bill {
   width: 265px;
-  height: 300px;
+  height: 285px;
   border-radius: 5px;
   box-shadow: 0 2px 30px rgba(black, .2);
   background: lighten(#f0f4c3, 10%);
   position: relative;
   overflow: hidden;
   margin-left:40%;
-  margin-top:6%;
-  margin-bottom: -10%;
+  margin-top:3%;
+  margin-bottom: -11%;
   transform: translate3d(0, 0, 0);
 }
 
@@ -75,9 +83,9 @@ border-bottom-left-radius: 8px;
   position: absolute;
   top: 0%;
   left: 50%;
-  background: linear-gradient(to top,rgb(247, 22, 122),rgb(255, 132, 187));
+  background: linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0));
   width: 450px;
-  height: 360px;
+  height: 330px;
   margin-left: -250px;
   margin-top: -250px;
   transform-origin: 50% 48%;
@@ -166,7 +174,7 @@ body {
 }
 
 .b_nav {
-   background: linear-gradient(to top,rgb(247, 22, 122),rgb(255, 132, 187));
+   background: linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0));
 }
 .nav-dark .btn-glass {
   color: white;
@@ -214,69 +222,6 @@ span[contenteditable] { display: inline-block; }
     font-weight: bold;
     color: rgb(16, 125, 140); 
  }
-
-/* table 
-
-table { font-size: 75%; table-layout: fixed; width: 100%; }
-table { border-collapse: separate; border-spacing: 2px; }
-th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
-th, td { border-radius: 0.25em; border-style: solid; }
-th { background: cornflowerblue; border-color: blue; }
-td { border-color: blue; }
-
-/* header 
-
-header { margin: 0 0 3em; }
-header:after { clear: both; content: ""; display: table; }
-
-header h1 { background: #000; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
-header address { float: left; font-size: 75%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
-header address p { margin: 0 0 0.25em; }
-header span, header img { display: block; float: right; }
-header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
-header img { max-height: 100%; max-width: 100%; }
-header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
-
-/* article 
-
-article, article address, table.meta, table.inventory { margin: 0 0 3em; }
-article:after { clear: both; content: ""; display: table; }
-article h1 { clip: rect(0 0 0 0); position: absolute; }
-
-article address { float: left; font-size: 125%; font-weight: bold; }
-
-/* table meta & balance 
-
-table.meta, table.balance { float: right; width: 36%; }
-table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
-
-/* table meta 
-
-table.meta th { width: 40%; }
-table.meta td { width: 60%; }
-
-/* table items 
-
-table.inventory { clear: both; width: 100%; }
-table.inventory th { font-weight: bold; text-align: center; }
-
-table.inventory td:nth-child(1) { width: 26%; }
-table.inventory td:nth-child(2) { width: 38%; }
-table.inventory td:nth-child(3) { text-align: right; width: 12%; }
-table.inventory td:nth-child(4) { text-align: right; width: 12%; }
-table.inventory td:nth-child(5) { text-align: right; width: 12%; }
-
-/* table balance 
-
-table.balance th, table.balance td { width: 50%; }
-table.balance td { text-align: right; }
-
-/* aside 
-
-aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
-aside h1 { border-color: #999; border-bottom-style: solid; }
-
-/* javascript */
 
 .add, .cut
 {
@@ -463,4 +408,12 @@ hr{
 }
 #wrds{
 	display:flex;
+}
+#s_m{
+margin-top:5px; 
+margin-bottom:10px !important
+}
+#e_m{
+margin-top:5px; 
+margin-bottom:10px !important
 }

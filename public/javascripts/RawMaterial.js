@@ -41,8 +41,11 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.sitems=[];
 	  $scope.value=false;
 	  $scope.update=false;
+	  $scope.bills=[];
+	  $scope.billsCompleted=[];
 	  var k=0;
-	  var d= new Date()
+	  var date= new Date();
+	  var d=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate());
 	  $scope.date=d.toString();
 	  $scope.rprice=0;
 	  $scope.codeCheck="";
@@ -56,7 +59,10 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   $scope.err=false;
 	   $scope.succ=false;
 	   $scope.war=false;
+	   $scope.BillTotal=0;
+	   $scope.RawTotal=0;
 	   var a=-1;
+	   
 	   if ($scope.items.length < 10) {
 		      $scope.items.push(k++);
  	 }
@@ -71,31 +77,31 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   
 	   $("#i_1").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(255, 121, 20)");
+		    $(this).parent().css("background", "rgb(0, 138, 181)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#ff9647");	
+		    $(this).parent().css("background","linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181))");	
 		});
 		$("#i_2").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(94, 238, 255)");
+		    $(this).parent().css("background", "rgb(188, 1, 32)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#baf8ff");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32))");
 		});
 		$("#i_3").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(255, 66, 150)");
+		    $(this).parent().css("background", "rgb(108, 186, 0)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#ff84bb");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0))");
 		});
 		$("#i_4").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(45, 255, 129)");
+		    $(this).parent().css("background", "rgb(242, 214, 4)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","#5eff9e");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4))");
 		});
 		$('mytabs a').click(function (e){
 			$(this).tab('show');
@@ -144,7 +150,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		    	  	"price":$scope.vm.$crtl.price,
 		      		"quantity":$scope.vm.$crtl.quantity
 		       });
-		    	$scope.totalRM+=($scope.vm.$crtl.price); 
+		    	$scope.totalRM+=($scope.vm.$crtl.price*$scope.vm.$crtl.quantity); 
 		    	
 	    	  $scope.update=true;
 		    $scope.del((i+1));
@@ -164,7 +170,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			      		"quantity":$scope.vm.$crtl.quantity
 			       });
 			      }
-			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price); 
+			      $scope.totalRM=$scope.totalRM+($scope.vm.$crtl.price*$scope.vm.$crtl.quantity); 
 			      
 	    	 }
 	     }
@@ -174,10 +180,16 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	    	 
 	    	 $scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	     }
 		}else{
 			$scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	    	 if($scope.sitems.length==0)
     		 {
     		 $scope.sitems.push(k++);
@@ -200,7 +212,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				  }
 	  }
 	  $scope.submit = function(){
-		  if($scope.rawMat.length>1)
+		  if($scope.rawMat.length>=1)
 		 {
 		  $http({
 		   method:"POST",
@@ -213,7 +225,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   $timeout(function(){
 			   $scope.succ=false;
 		   },3000);
-		   $scope.success="Data Was Stored Successfully";
+		   $scope.success="Data Was Stored Successfully!! REDIRECTING TO THE MAIN PAGE";
 		   
 	   },function (error){
 		   $scope.err=true;
@@ -224,28 +236,37 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   $scope.error="Uhh!! Error Not Able To Save";
 		  
 	   });
+		  if( $scope.totalRM!=0)
+			{
+			  $http({
+				   method:"POST",
+				   url:"/api/rawTotal",
+				   data:{"rmtotal":$scope.totalRM}
+			   }).then(function (success){
+				   console.log(success.data);
+				   $timeout(function(){
+					   window.location="/";
+				   },2000);
+				   
+			   },function (error){
+				   $scope.err=true;
+				   $timeout(function(){
+					   $scope.err=false;
+				   },3000);
+				   $scope.succ=false;
+				   $scope.error="Uhh!! Error Occured : Not Able To Save Data";
+			   });
+			}
+		  
 		 }else{
 			 $scope.err=true;
-			   $scope.succ=false;
-			   $scope.error="Uhh!! Empty Fields"; 
-		 }
-		  if( $scope.totalRM!=0)
-		{
-		  $http({
-			   method:"POST",
-			   url:"/api/rawTotal",
-			   data:{"rmtotal":$scope.totalRM}
-		   }).then(function (success){
-			   console.log(success.data);
-		   },function (error){
-			   $scope.err=true;
-			   $timeout(function(){
+			 $timeout(function(){
 				   $scope.err=false;
 			   },3000);
 			   $scope.succ=false;
-			   $scope.error="Uhh!! Error Occured : Not Able To Save Data";
-		   });
-		}
+			   $scope.error="Uhh!! Empty Fields"; 
+		 }
+		 
 	  }
 	  $scope.del= function(i){
 		 
@@ -280,13 +301,15 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   url:"/api/check",
 			   data:{"code":code,"quantity":quan}
 		   }).then(function (success){			  
-			  
+			   $scope.StockError=false;
 			   $scope.err=false;
-			   if(success.data=="ok"){
+			   if(success.data=="done"){
 				   $scope.succ=false;
+				   
 				   
 			   }else
 				   {
+				   $scope.StockError=true;
 				   $timeout(function(){
 					   $scope.war=false;
 				   },6000);
@@ -298,9 +321,10 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.err=true;
 			   $timeout(function(){
 				   $scope.err=false;
-			   },6000);
+			   },10000);
 			   $scope.succ=false;
 			   $scope.error=error.data;
+			   $scope.StockError=true;
 		   });
 	  }
 	  $scope.addb = function(i){
@@ -425,34 +449,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  }
 
 
-	  $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				
-				var data = canvas.toDataURL();
-				
-				var docDefinition = {
-						content: [{
-							image: data,
-						    width: 500,
-					      
-				}]
-				};
-				pdfMake.createPdf(docDefinition);
-				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
-				    $scope.base64data = "data:application/pdf;base64,"+encodedString;
-				    $scope.save();
-				});
-			}  
-		  });
-		 
-	  }
 	  $scope.save=function(){
+		  
 		  if( $scope.base64data!=null && $scope.totalamt!=0)
 		  $http({
 			   method:"POST",
 			   url:"/api/billinvoice",
-			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt}
+			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt,"date":$scope.date,"status":"P"}//,"name":$scope.pdfname
 		   }).then(function (success){
 			   console.log('done');
 
@@ -462,6 +465,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   },3000);
 
 			   $scope.success="Pdf Generated Successfully"
+				   $timeout(function(){
+					   window.location="/";
+				   },2000);
 		   },function (error){
 			   console.log('Not done');
 			   $scope.err=true;
@@ -473,12 +479,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.error="Please Try Again Later";
 		   });
 	   }
-	  
-	/* $scope.exportAsPdf=function(){
+	 /* 
+	 $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
 				var data = new Image();
-			    data = canvas.toDataURL("image/jpeg");
+			    data = canvas.toDataURL("image/jpeg",1.0);
 				var doc = new jsPDF("p","mm","a4");
 			    var width= doc.internal.pageSize.width;
 				var height= doc.internal.pageSize.height;
@@ -489,11 +495,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 
-	  }*/
+	  }
 	  $scope.final_amt=0;
 	  $scope.f_total=function(){
 		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
 	  }
+	  */
+	  
 	  $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
 			onrendered: function (canvas) {	
@@ -505,12 +513,22 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	            ctx.imageSmoothingQuality = "high";
 
 			    data = canvas.toDataURL("image/jpeg",1.0);
-				var doc = new jsPDF("p","mm","a4");
+//			    var encodedString=data.slice(22);
+//			    $scope.base64data = "data:application/pdf;base64"+encodedString;
+			   // console.log(data);
+				var doc = new jsPDF("p","pt","letter");
 			    var width= doc.internal.pageSize.width;
 				var height= doc.internal.pageSize.height;
 				doc.internal.scaleFactor = 3;
-				doc.addImage(data,'JPEG',25,15,(width*.72),(height*.92),undefined,'FAST');
-				doc.save('bill.pdf');
+				doc.addImage(data,'JPEG',25,15);
+				//doc.save('bill.pdf');
+				$scope.base64data=doc.output('datauri');
+				//console.log(data2);
+				
+				//$scope.pdfname=document.getElementById("pdfname").value;
+				//$scope.getname();
+				//$scope.exporturi();
+				$scope.save();
 				
 			}  
 		  });
@@ -575,6 +593,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	    }else{
 	    	$scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	    	 if($scope.sitems.length==0)
 	    		 {
 	    		 $scope.sitems.push(k++);
@@ -604,16 +625,25 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   console.log(success.data);
 		   $scope.err=false;
 		   $scope.succ=true;
+		   $timeout(function(){
+			   $scope.succ=false;
+		   },3000);
 		   $scope.success="Data Was Stored Successfully";
 		   
 	   },function (error){
 		   $scope.err=true;
+		   $timeout(function(){
+			   $scope.err=false;
+		   },3000);
 		   $scope.succ=false;
 		   $scope.error="Not Able To Save";
 		  
 	   });
 		 }else{
 			 $scope.err=true;
+			 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Empty Fields"; 
 		 }
@@ -635,14 +665,86 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   console.log(error.data);
 			   $scope.selected_item="";
 			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.succ=false;
 			   $scope.error="Code Doesn't Exist";
 		   });
 		  
 	  }
 
-
+	  /*..........................sales...................................*/
 	  
+	 
+	  $scope.getpdf=function(status){
+		  var a=status;
+		  $http({
+			   method:"GET",
+			   url:"/api/pdfdetails"+"/"+a
+			   
+		   }).then(function (success){
+			   console.log(success.data);
+			   if(status=="P")
+				   {
+				   $scope.bills=success.data;
+				   }else{
+					   $scope.billsCompleted=success.data;
+				   }
+			   
+			   $scope.err=false;
+			   $scope.succ=false;
+		   },function (error){
+			   console.log(error.data);
+//			   $scope.selected_item="";
+//			   $scope.err=true;
+//			   $timeout(function(){
+//				   $scope.err=false;
+//			   },3000);
+//			   $scope.succ=false;
+//			   $scope.error="Code Doesn't Exist";
+		   });
+	  }
+	 $scope.prev=function(i)
+	 {
+		 
+		 //todo api to update status and calc sales
+		 $http({
+			   method:"POST",
+			   url:"/api/update",
+			   data:{"inVoice":$scope.bills[i].inVoice}
+		   }).then(function (success){
+			   console.log(success.data);
+			   $scope.getpdf("P");
+			   $scope.err=false;
+			   $scope.succ=false;
+		   },function (error){
+			   console.log(error.data);
+		   });
+		 
+		 
+	 }
+	 $scope.getMonthSales=function(){
+		
+		 var date1=document.getElementById('date1').value;
+		 var date2=document.getElementById('date2').value;
+		 $http({
+			   method:"POST",
+			   url:"/api/getSales",
+			   data:{"date1":date1,"date2":date2}
+		   }).then(function (success){
+			   console.log(success.data);
+			   $scope.BillTotal=success.data.BillTotal;
+			   $scope.RawTotal=success.data.RawTotal;
+			   $scope.salesBwDates=$scope.BillTotal+$scope.RawTotal;
+			   $scope.err=false;
+			   $scope.succ=false;
+		   },function (error){
+			   console.log(error.data);
+			   $scope.err=true;
+			   $scope.error="Something Wrong Please Check The Dates"
+		   });
+	 }
 	 
 
 });

@@ -1,5 +1,6 @@
 package helpers;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import dao.BillDao;
@@ -20,6 +21,18 @@ public class BillHelper {
 	}
 	public Boolean savetotal(RmtotalModel rmodel) {
 		Boolean check =BillDao.savetotal(rmodel);
+		return check;
+	}
+	public ArrayNode getpdf(String status) {
+		ArrayNode pdf =BillDao.getpdf(status);
+		return pdf;
+	}
+	public Boolean update(String inVoice) {
+		Boolean check =BillDao.update(inVoice);
+		return check;
+	}
+	public ObjectNode getSales(String date1,String date2) {
+		ObjectNode check =BillDao.getSales(date1,date2);
 		return check;
 	}
 }

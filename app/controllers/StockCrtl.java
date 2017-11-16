@@ -39,12 +39,12 @@ public class StockCrtl extends Controller{
 	}
 	public Result update() {
 		JsonNode body=request().body().asJson();
-		String code=body.get("code").asText();
+		String code=body.get("code").asText().toUpperCase();
 		int quantity=body.get("quantity").asInt();
 		StockModel smodel=new StockModel(quantity,code);
 		String check =helper.update(smodel);
 		if(check=="no code exist") {
-			 return badRequest("Code Doesn't Exist In Stocks Please Check Your Code And Try Again");
+			 return badRequest("NO Stocks Left Please Try Another Code");
 			}else if(check.contains("Stocks are less then required amount stock =")){
 				return badRequest(check);
 			}else {

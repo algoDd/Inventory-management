@@ -1,6 +1,6 @@
 #content_stock {
   max-width: 95%;
-  min-height: 80vh;
+  height: 50vh;
   padding-bottom:6% !important;
   overflow:auto;
   margin-top:0% !important;
@@ -19,26 +19,28 @@ border-bottom-left-radius: 8px;
 }
 .box_stock {
   width: 265px;
-  height: 300px;
+  height: 285px;
   border-radius: 5px;
   box-shadow: 0 2px 30px rgba(black, .2);
   background: lighten(#f0f4c3, 10%);
   position: relative;
   overflow: hidden;
   margin-left:40%;
-  margin-top:6%;
+  margin-top:3%;
   margin-bottom: -10%;
   transform: translate3d(0, 0, 0);
 }
-
+.sc_clr{
+	background-color: rgb(23, 211, 2) !important;
+}
 .wave_stock {
   opacity: .7;
   position: absolute;
   top: 0%;
   left: 50%;
-  background: linear-gradient(to top,rgb(2, 131, 147),rgb(165, 245, 255));
+  background: linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32));
   width: 450px;
-  height: 360px;
+  height: 350px;
   margin-left: -250px;
   margin-top: -250px;
   transform-origin: 50% 48%;
@@ -107,17 +109,23 @@ border-bottom-left-radius: 8px;
 .fc1{
 	margin-left:4% !important;
 	width:100% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .fc2{
 	margin-left:4% !important;
 	width:100% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .fc3{
 	margin-left:5% !important;
 	width:67% !important;
+	color:black !important;
+	font-size:17px !important;
 }
 .stock_nav{
-	background:linear-gradient(to top,rgb(2, 131, 147),rgb(165, 245, 255));
+	background:linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32));
 }
 .stk_clr{
 

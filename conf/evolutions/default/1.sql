@@ -8,6 +8,8 @@ create table public.billsales (
   pdf                       varchar(255),
   invoice_no                varchar(255),
   total_amt                 integer,
+  date                      varchar(255),
+  status                    varchar(255),
   constraint pk_billsales primary key (id))
 ;
 

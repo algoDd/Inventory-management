@@ -15,16 +15,16 @@
   margin-left:4%;
 }
 #i_1{
-	background:#ff9647;
+	background: linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181));
 }
 #i_2{
-	background:#baf8ff;
+	background:linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32));
 }
 #i_3{
-	background:#ff84bb;
+	background:linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0));
 }
 #i_4{
-	background:#5eff9e;
+	background:linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4));
 }
 .image {
   display: block;
@@ -38,10 +38,10 @@
    font-size:128px;
    padding:48px 10px 48px 10px;
    margin-left:17%;
-   color:black;
+   color:white;
 }
 .gl_icn2{
-   margin-left:22%;
+   margin-left:24%;
 }
 .gl_icn3{
    margin-left:32%;
