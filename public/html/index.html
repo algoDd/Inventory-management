@@ -29,7 +29,7 @@ ANSH RETAILS
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <link href="https://fonts.googleapis.com/css?family=Courgette|Josefin+Sans|Lobster" rel="stylesheet">
-
+<script src="http://kendo.cdn.telerik.com/2017.3.1026/js/kendo.all.min.js"></script>
 <script src="/assets/javascripts/RawMaterial.js" type="text/javascript"></script>
 
 </head>
@@ -43,7 +43,7 @@ ANSH RETAILS
 <i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
 </div>
 </a>
-<a ui-sref="Billing">
+<a ui-sref="Billing" ng-init="checkgen()">
 <div class="links2"><i class="fa fa-inr " aria-hidden="true"></i>&nbsp<span>Billing</span>
 <i class="fa fa-angle-right" id="activepg2" aria-hidden="true"></i>
 </div>
@@ -54,7 +54,7 @@ ANSH RETAILS
 <i class="fa fa-angle-right" id="activepg3" aria-hidden="true"></i>
 </div>
   </a>
-<a ui-sref="Sales">
+<a ui-sref="Sales"  ng-init="getpdf('P')">
 <div class="links4"><i class="fa fa-line-chart" aria-hidden="true">&nbsp</i><span>Sales</span>
 <i class="fa fa-angle-right" id="activepg4" aria-hidden="true"></i>
 </div>
@@ -75,38 +75,46 @@ ANSH RETAILS
 <div id="s_srch">
     <input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Code,Invoice.." />
     </div>
- <button type="button" class="btn btn-info btn-lg stok_mdl" data-toggle="modal" data-target="#stock_modal" ng-click='invoice()'>Stocks</button>
+   
+   <button class="btn btn-info stok_butn" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">View Stock</button> 
+   
    <div class="modal fade" id="stock_modal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
+  
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Stocks</h4>
-        </div>
-        <div class="modal-body">
-          <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-      <tr>
-        <td>Firstname</td>
-        <td>Lastname</td>
-        <td>Email</td>
-      </tr>
-    </tbody>
-  </table>
+          <button type="button" class="close stok_close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title stok_m_t">Stock</h4>
+        <div class="modal-body stok_m_body">
+          
+    <table class="table stok_m_table">
+        <thead>
+    <tr class="stok_r1">
+    <th id="stok_1">Code</th>
+    <th>Quantity</th>
+    </tr>
+    </thead>
+    	<tr>
+    	<td>
+    	<div ng-repeat='stock in stocks' class="form-group " ng-class-even="'odd'" id="field_stock">
+    	<ul id="stok_algn">
+             <li>
+              <span id="s_d">{{stock.code}}</span>
+              <span id="st_d">{{stock.quantity}}</span>
+              </li>
+             </ul>  
+    	</div>
+    	</td>
+    	</tr> 	
+    </table>
+    
         </div>
       </div>
       
     </div>
   </div>
-</div>
-
+    
+  </div>
 <div class="col-md-2">
 <div class="cube">
 	<div class="flippety">
@@ -124,6 +132,7 @@ ANSH RETAILS
 <div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
 <div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
 <div id="mainpage" ui-view>
+
 <div id="wlcm">
 <p>
   WELCOME TO
@@ -132,7 +141,7 @@ ANSH RETAILS
   </span>
   &mdash; Stock Management System &mdash;
 </p>
-<h2 id="wlcm_b">Managed By <h2/><br/><h3 id="wlcm_by"> WebIntellects <img class="i_web" src="/assets/images/w_logo.jpeg"/></h3>
+<h2 id="wlcm_b">Managed By </h2><br/><h id="wlcm_by"> WebIntellects <img class="i_web" src="/assets/images/w_logo.jpeg"/></h3>
 </div>
 </div>
 </div>

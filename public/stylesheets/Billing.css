@@ -265,7 +265,7 @@ tr:hover .cut { opacity: 1; }
 .modal-dialog{
     overflow-y: initial !important
 }
-.modal-body{
+.bill_modal_body{
     overflow-y: auto !important;
     padding: 25px 10px 0px 3px !important;
     margin-left:-3px;
@@ -408,4 +408,11 @@ hr{
 }
 #pdf_content{
 	height: 155vh;
+}
+.k-pdf-export #pd 
+{ 
+	display: none;
+ }
+.k-pdf-export .close{
+	display: none;
 }

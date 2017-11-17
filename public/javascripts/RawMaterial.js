@@ -43,6 +43,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.update=false;
 	  $scope.bills=[];
 	  $scope.billsCompleted=[];
+	  $scope.stocks=[];
 	  var k=0;
 	  var date= new Date();
 	  var d=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate());
@@ -80,19 +81,19 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		});
 		$(".links1").on('click', function() {
 			   $("#r1,#activepg").fadeIn();
-			   $("#b1,#st1,#s1,#s_srch,#activepg2,#activepg3,#activepg4").hide();
+			   $("#b1,#st1,#s1,#s_srch,#activepg2,#activepg3,#activepg4,.stok_butn").hide();
 			});
 			$(".links2").on('click', function() {
 			   $("#b1,#activepg2").fadeIn();
-			   $("#r1,#st1,#s1,#s_srch,#activepg,#activepg3,#activepg4").hide();
+			   $("#r1,#st1,#s1,#s_srch,#activepg,#activepg3,#activepg4,.stok_butn").hide();
 			});
 			$(".links3").on('click', function() {
-			   $("#st1,#activepg3").fadeIn();
+			   $("#st1,#activepg3,.stok_butn").fadeIn();
 			   $("#r1,#b1,#s1,#activepg2,#s_srch,#activepg,#activepg4").hide();
 			});
 			$(".links4").on('click', function() {
 			   $("#s1,#s_srch,#activepg4").fadeIn();
-			   $("#r1,#b1,#st1,#activepg2,#activepg3,#activepg").hide();
+			   $("#r1,#b1,#st1,#activepg2,#activepg3,#activepg,.stok_butn").hide();
 			});
 		/*.................divis js part...................*/
 //	  $scope.rawMat=[{
@@ -283,7 +284,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				   $scope.StockError=true;
 				   $timeout(function(){
 					   $scope.war=false;
-				   },6000);
+				   },10000);
 				    $scope.war=true;
 				    $scope.warning=success.data;
 				   }
@@ -296,6 +297,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.succ=false;
 			   $scope.error=error.data;
 			   $scope.StockError=true;
+			   
 		   });
 	  }
 	  $scope.addb = function(i){
@@ -354,7 +356,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	    	 $scope.err=true;
 	    	 $timeout(function(){
 				   $scope.err=false;
-			   },3000);
+			   },10000);
 	    	 if($scope.sitems.length==0)
     		 {
     		 $scope.sitems.push(k++);
@@ -424,38 +426,11 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 
 
     
-	      $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				
-				var data = canvas.toDataURL("image/jpeg",1.0);
-				var ctx=data;
-				ctx.webkitImageSmoothingEnabled = true;
-	            ctx.mozImageSmoothingEnabled = true;
-	            ctx.imageSmoothingEnabled = true;
-	            ctx.imageSmoothingQuality = "high";
 	   
-				var docDefinition = {
-						content: [{
-							image: data,
-						    width:500,
-						  				      
-				}]
-				};
-				pdfMake.createPdf(docDefinition);
-				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
-				    $scope.base64data = "data:application/pdf;base64,"+encodedString;
-				    $scope.save();
-				});
-			}  
-		  });
-		 
-		 
-	  }
 
 	  $scope.save=function(){
 		  
-		  if( $scope.base64data!=null && $scope.totalamt!=0)
+		  if( $scope.base64data!=null && $scope.totalamt!=0){
 		  $http({
 			   method:"POST",
 			   url:"/api/billinvoice",
@@ -463,69 +438,80 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   }).then(function (success){
 			   console.log('done');
 
-			   $scope.succ=true;
+			   $scope.suc=true;
 			   $timeout(function(){
-				   $scope.succ=false;
+				   $scope.suc=false;
 			   },3000);
 
-			   $scope.success="Pdf Generated Successfully"
+			   $scope.s="Pdf Generated Successfully"
 				   $timeout(function(){
 					   window.location="/";
 				   },2000);
 		   },function (error){
 			   console.log('Not done');
-			   $scope.err=true;
-
+			   $scope.er=true;
+			   $scope.dis=true;
 			   $timeout(function(){
-				   $scope.err=false;
+				   $scope.er=false;
+				   $scope.dis=false;
+			   },6000);
+
+			   $scope.e="Please Try Again Later";
+		   });
+		  }else{
+			  $scope.er=true;
+			   $scope.dis=true;
+			   $timeout(function(){
+				   $scope.er=false;
+				   $scope.dis=false;
+				   $("#bill_modal").modal("hide");
 			   },3000);
 
-			   $scope.error="Please Try Again Later";
-		   });
+			   $scope.e="Fill The Datails First";
+		  }
 	   }
-	 /* 
-	  $scope.final_amt=0;
-	  $scope.f_total=function(){
-		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
-	  }
-<<<<<<< HEAD
-=======
-	  */
+	$scope.checkgen=function(){
+	  if($scope.totalamt!=0)
+		  {
+		  $scope.StockError=false;
+		  }else{
+			  $scope.err=true;
+			   $scope.StockError=true;
+			   $timeout(function(){
+				   $scope.err=false;
+				   $scope.dis=false;
+				   
+			   },3000);
 
-	  
+			   $scope.error="Fill The Datails First";
+		  }
+	}
 	  $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				var data = new Image();
-				var ctx =data;
-				ctx.webkitImageSmoothingEnabled = true;
-	            ctx.mozImageSmoothingEnabled = true;
-	            ctx.imageSmoothingEnabled = true;
-	            ctx.imageSmoothingQuality = "high";
+//		  
+		  
+		  var draw = kendo.drawing;
 
-			    data = canvas.toDataURL("image/jpeg",1.0);
-
-			    console.log(data);
-				var doc = new jsPDF("l","mm","a4");
-//			    var encodedString=data.slice(22);
-//			    $scope.base64data = "data:application/pdf;base64"+encodedString;
-			   // console.log(data);
-				var doc = new jsPDF("p","pt","letter");
-			    //var width= doc.internal.pageSize.width;
-				//var height= doc.internal.pageSize.height;
-				doc.internal.scaleFactor = 1;
-				doc.addImage(data,'JPEG',80,40);
-				doc.save('bill.pdf');
-				$scope.base64data=doc.output('datauri');
-				//console.log(data2);
-				
-				//$scope.pdfname=document.getElementById("pdfname").value;
-				//$scope.getname();
-				//$scope.exporturi();
-				$scope.save();
-				
-			}  
-		  });
+	        draw.drawDOM($("#pdf_content"), {
+	            
+	            paperSize: "A4",
+	            margin: "0.25cm",
+	            scale: 0.7,
+	            keepTogether: ".prevent-split"
+	        })
+	        .then(function(root) {
+	            return draw.exportPDF(root);
+	        })
+	        .done(function(data) {
+	        	$scope.base64data=data;
+	        	 console.log($scope.base64data);
+	            kendo.saveAs({
+	                dataURI: data,
+	                fileName: "bill.pdf"
+	            });
+	        });
+	        $scope.save();
+		  
+		  
 	  }
 	  
 
@@ -671,11 +657,32 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   });
 		  
 	  }
+	 
+	  $scope.getStock=function()
+	  {
+		  
+		  $http({
+			  method:"GET",
+			  url:"/api/getStocks"
+		  }).then(function(success){
+			  console.log(success.data);
+			  $scope.stocks=success.data;
+		  },function(error){
+			  console.log(error.data);
+			  $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
+			   $scope.succ=false;
+			  $scope.error=error.data;
+		  });
+	  }
 
 	  /*..........................sales...................................*/
 	  
 	 
 	  $scope.getpdf=function(status){
+		 
 		  var a=status;
 		  $http({
 			   method:"GET",

@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import model.BillModel;
 import model.CodeModel;
 import model.RmtotalModel;
+import model.StockModel;
 import play.libs.Json;
 import play.mvc.Result;
 
@@ -107,6 +108,7 @@ public class BillDao {
 	public static ObjectNode getSales(String date1,String date2) {
 		ObjectNode j=Json.newObject();
 		try {
+			
 			String query="select sum(total_amt) from billsales as total where date >=:date1 AND date <= :date2 ";
 			SqlQuery s=Ebean.createSqlQuery(query).setParameter("date1", date1).setParameter("date2",date2);
 			List<SqlRow> rows=s.findList();

@@ -34,3 +34,4 @@ POST /api/check							controllers.StockCrtl.update
 GET /api/pdfdetails/:status				controllers.BillCrtl.getpdf(status:String)
 POST /api/update						controllers.BillCrtl.update
 POST /api/getSales						controllers.BillCrtl.getSales
+GET /api/getStocks						controllers.StockCrtl.getStocks

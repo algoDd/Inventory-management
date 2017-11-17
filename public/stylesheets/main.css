@@ -12,20 +12,16 @@
    
 }
 .logo {
-	margin-bottom:20%;
-	border-bottom:1px solid grey;
-    margin-top: -1%;
-  	
-	text-align: center;
-	color: white;
-	font-family: 'Lobster', cursive;
+	padding-top: 20px;
+    text-align: center;
+     color: white;
+     font-family: 'Lobster', cursive;
+    margin-bottom: 10%;
+
 }
 .i_h{
-	height:106px;
-	width:164px;
-	margin-top:25px;
-	margin-bottom:25px;
-	border-radius: 8%;
+	height: 100%;
+    width: 100%;
 }
 .links1 {
 	padding-top: 10%;
@@ -209,7 +205,7 @@ margin-bottom:20px !important
 /* Rotate the cube */
 .cube:hover {
 	-webkit-transform: rotateX(90deg);
-	transform: rotateX(90deg); /* Text bleed at 90º */
+	transform: rotateX(90deg); /* Text bleed at 90ï¿½ */
 }
 .lgot{
 	color:white !important;
@@ -374,9 +370,49 @@ margin-bottom:20px !important
 #logo_h{
 	font-size:30px !important;
 	color:white;
+	margin-top: 0px !important;
 }
-.stok_mdl{
-	margin-left: 50%;
-	margin-top: 10px;
-	margin-bottom: -10px;
+.stok_butn{
+	margin-left: 40%;
+    margin-top: 10px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    display:none;
+}
+.stok_close{
+	font-size:30px !important;
+	padding-right: 5px !important;
+}
+.stok_m_t{
+	text-align:center !important;
+	padding-top:12px !important;
+	font-family: Lobster !important;
+	font-size: 26px !important;
+}
+.stok_m_body{
+	overflow-y: auto !important; 
+    padding: 15px 10px 0px 3px !important;
+    margin-left: -3px;
+}
+.stok_m_table{
+	margin-bottom: 0px !important;
+	margin-left: 4px !important;
+}
+#stok_r1{
+	display:block;
+	font-size: 15px;	
+}
+#stok_1{
+	padding-left: 125px !important;
+	padding-right: 205px !important;
+}
+#stok_algn{
+	list-style-type: none !important;
+}
+#s_d{
+	margin-left: 105px;
+}
+#st_d{
+	margin-left: 190px;
 }

@@ -53,7 +53,7 @@
 </div>
 
 
-<button class="btn btn-info gen_butn" ng-disabled="StockError" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
+<button class="btn btn-info gen_butn" ng-disabled="StockError" ng-click='billinvoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
 
 
 <!-- Modal -->
@@ -62,9 +62,11 @@
     
       <!-- Modal content-->
       <div class="modal-content" id="pdf_content">
-        
-          <button type="button" class="close cros" data-dismiss="modal" data-html2canvas-ignore>&times;</button>
-          <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" data-html2canvas-ignore> Generate Pdf</button>
+        <div class="alert alert-success" role="success" ng-show="suc" id="s_m"><strong>Success! </strong>{{s}}</div>
+<!-- <div class="alert alert-danger" role="alert" ng-show="er" id="s_m"><strong>Error! </strong>{{e}}</div>
+<div class="alert alert-warning" role="alert" ng-show="wa" id="s_m"><strong>Warning! </strong>{{w}}</div>-->
+          <button type="button" class="close cros " data-dismiss="modal" >&times;</button>
+          <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" > Generate Pdf</button>
           <hr/>
           <p class="hd">ANSH RETAILS PVT. LTD.</p>
           <img id="logo_img" src="/assets/images/logo.jpeg"/>
@@ -87,7 +89,7 @@
 		  Ansh Retails Pvt. Ltd.
 		  </span>
 		  
-        <div class="modal-body">
+        <div class="modal-body bill_modal_body prevent-split">
           <table class="table table-bordered">
          <thead>
          <tr>
@@ -98,7 +100,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="bills in bill">
+      <tr ng-repeat="bills in bill" >
         <td><span ng-bind="bills.catagory"></span></td>
         <td><span ng-bind="bills.code"></span></td>
         <td><span ng-bind="bills.quantity"></span></td>
@@ -108,7 +110,7 @@
   </table>
         </div>
      
-          		<table class="table">
+          		<table class="table prevent-split">
           		<tr>
 					<th><span>Sub Total</span></th>
 					<td><span data-prefix>INR<span>{{totalamt}}</span></td>
@@ -132,11 +134,11 @@
 			</table>
 			</div>
 			</div>
-			<div id="lines">	
+			<div id="lines" class="prevent-split">	
 			<hr id="h_a"/>
 				<hr id="h_s"/>				
 		</div>
-		<div id="wrds">	
+		<div id="wrds"  class="prevent-split">	
 			<span id="sign">Authorised Sign</span>
 				<span id="stamp">Authorised Stamp</span>				
 		</div>

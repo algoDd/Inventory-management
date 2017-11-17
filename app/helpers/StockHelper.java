@@ -1,5 +1,8 @@
 package helpers;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import dao.StockDao;
 import model.StockModel;
 import play.mvc.Result;
@@ -10,5 +13,8 @@ public class StockHelper {
 	}
 	public String update(StockModel smodel) {
 		return StockDao.update(smodel);
+	}
+	public ArrayNode getStocks() {
+		return StockDao.getStocks();
 	}
 }
