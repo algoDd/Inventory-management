@@ -167,11 +167,11 @@ a:focus #activepg4{
 	border-bottom:1px solid grey;
 	margin-top: 2%;
     width: 100%;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
 }
 #s_m{
-margin-top:10px; 
-margin-bottom:3px !important
+margin-top:5px; 
+margin-bottom:20px !important
 }
 .cube {
 	width: 40%;
@@ -293,7 +293,7 @@ margin-bottom:3px !important
 #s_srch{
 	margin-top:15px;
 	margin-left: 230px;
-	
+	display:none;
 }
 #wlcm{
   min-height:84vh;
@@ -319,13 +319,25 @@ margin-bottom:3px !important
 	text-transform: uppercase;
   letter-spacing: .1em;
   display: inline-block;
-  border: 4px double darkred;
+  border-width: 4px 0;
+  padding: 10px;
+  border-top: 4px double darkred;
+  border-bottom: 4px double darkred;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+#wlcm_b{
+	text-transform: uppercase;
+  letter-spacing: .1em;
+  display: inline-block;
   border-width: 4px 0;
   padding: 10px;
   position: absolute;
-  top: 70%;
-  left: 50%;
-  width: 40em;
+  top: 65%;
+  left: 90%;
   margin: 0 0 0 -20em;
 }
 #wlcm p span {
@@ -357,6 +369,14 @@ margin-bottom:3px !important
   }
 }
 .i_web{
-	height:105px;
-	border-radius: 50%;
+	height:50px;
+}
+#logo_h{
+	font-size:30px !important;
+	color:white;
+}
+.stok_mdl{
+	margin-left: 50%;
+	margin-top: 10px;
+	margin-bottom: -10px;
 }

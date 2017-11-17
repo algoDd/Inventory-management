@@ -36,7 +36,7 @@ ANSH RETAILS
 <body ng-app="RMApp" ng-controller="RMCrtl">
 <div class="col-md-2 navbar">
 <div class="logo">
-<h3 style="font-size:30px !important;">Ansh Retails</h3>
+<h3 id="logo_h">Ansh Retails</h3>
 </div>
 <a ui-sref="RawMaterial">
 <div class="links1"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp<span>Raw Material</span>
@@ -75,23 +75,54 @@ ANSH RETAILS
 <div id="s_srch">
     <input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Code,Invoice.." />
     </div>
-<div class="alert alert-success" role="success" ng-show="succ" id="s_m"><strong>Success! </strong>{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
-<div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
+ <button type="button" class="btn btn-info btn-lg stok_mdl" data-toggle="modal" data-target="#stock_modal" ng-click='invoice()'>Stocks</button>
+   <div class="modal fade" id="stock_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Stocks</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+      <tr>
+        <td>Firstname</td>
+        <td>Lastname</td>
+        <td>Email</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </div>
+
 <div class="col-md-2">
 <div class="cube">
 	<div class="flippety">
 	<i class="fa fa-user-circle lgot" aria-hidden="true"></i>	
 	</div>
 	<div class="flop">
-		<h2 id="l_out">Logout</h2>
+		<h2 id="l_out"><a href="#"></a>Logout</a></h2>
 	</div>
 </div>
 </div>
 </div>
 <div class="topbar">
 </div>
+<div class="alert alert-success" role="success" ng-show="succ" id="s_m"><strong>Success! </strong>{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
+<div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
 <div id="mainpage" ui-view>
 <div id="wlcm">
 <p>
@@ -101,7 +132,7 @@ ANSH RETAILS
   </span>
   &mdash; Stock Management System &mdash;
 </p>
-<h3 id="wlcm_by">Managed By - WebIntellects <img class="i_web" src="/assets/images/web_logo.jpeg"/></h3>
+<h2 id="wlcm_b">Managed By <h2/><br/><h3 id="wlcm_by"> WebIntellects <img class="i_web" src="/assets/images/w_logo.jpeg"/></h3>
 </div>
 </div>
 </div>
