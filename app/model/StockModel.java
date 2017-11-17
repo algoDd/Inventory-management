@@ -12,7 +12,7 @@ import play.db.ebean.Model;
 @Table(name="public.stock")
 public class StockModel extends Model {
 	
-		
+	
 		@Id
 			int id;
 		@Column(name="quantity")
@@ -30,6 +30,18 @@ public class StockModel extends Model {
 				this.code = code;
 			}
 			
+			public int getQuantity() {
+			return quantity;
+		}
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+		public String getCategory() {
+			return category;
+		}
+		public void setCategory(String category) {
+			this.category = category;
+		}
 			public int getId() {
 				return id;
 			}	
@@ -38,6 +50,13 @@ public class StockModel extends Model {
 				this.code=code;
 				this.quantity=quantity;
 				this.category=category;
+				
+			}
+			public StockModel( int quantity,String code) {
+				
+				this.code=code;
+				this.quantity=quantity;
+				
 				
 			}
 			public static Finder<String,StockModel> find=new Finder<>(String.class,StockModel.class);

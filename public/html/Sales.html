@@ -17,13 +17,14 @@
 </div>
 <div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
 <div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
+<!-- 
 <div id="content_sale">
 <article>
   <nav class="btn-bar nav-dark sale_nav nav-tabs"  id="mytabs">
-    <a data-toggle="tab" data-target="#menu1" class="btn btn-glass currentLink">
+    <a data-toggle="tab" ng-click="getpdf('P')" data-target="#menu1" class="btn btn-glass currentLink">
       Previous Orders
     </a>
-    <a data-toggle="tab" data-target="#menu2" class="btn btn-glass">
+    <a data-toggle="tab" ng-click="getpdf('C')" data-target="#menu2" class="btn btn-glass">
     Completed Orders
     </a>
     <a data-toggle="tab" data-target="#menu3" class="btn btn-glass">
@@ -34,29 +35,177 @@
 <div class="tab-content">
 <div id="menu1" class="tab-pane fade">
 <div>
-HIIIIIIIIIII   
+<input type="text" ng-model="searchP" placeholder="search">
+ <div ng-repeat='bill in bills | filter:searchP' class="form-group div_colr" id="field_bill">
+             <ul>
+             <li>
+              <span>{{bill.date}}</span>
+              <span>{{bill.inVoice}}</span>
+              
+              <br>
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              <button class="btn btn-warning" ng-click="prev($index)"><i class="fa fa-check"></i></button>
+             </li>
+             </ul>  
+ </div> 
 </div>
 </div>
 <div id="menu2" class="tab-pane fade">
 <div>
-JJJIIIIIIIIIIIIII   
+<input type="text" ng-model="search" placeholder="search">
+<div ng-repeat="bill in billsCompleted | filter:search" class="form-group div_colr" id="field_bill">
+              <ul>
+             <li>
+              <span>{{bill.date}}</span>
+              <span>{{bill.inVoice}}</span>
+              
+              <br>
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              
+             </li>
+             </ul>  
+ </div> 
 </div>
 </div>
 <div id="menu3" class="tab-pane fade">
 <div>
-hjjjjjjjjjjjjjj   
+From:<input type="date" id="date1" ng-model="date1" >
+To:<input type="date" id="date2" ng-model="date2" >
+<button class="btn btn-warning" ng-click="getMonthSales()"><i class="fa fa-check"></i></button>
+<br>
+</div>
+Bill:{{BillTotal}}
+<br>
+Raw Material:{{RawTotal}}
+<br>
+----------------
+<br>
+Total:{{salesBwDates}}
 </div>
 </div>
 </div>
+-->
+<ul class="tabs" role="tablist">
+    <li>
+        <input type="radio" name="tabs" id="tab1" checked />
+        <label for="tab1"  role="tab"  aria-selected="true"  aria-controls="panel1" tabindex="0" ng-click="getpdf('P')">Previous Orders</label>
+        <div id="tab-content1" 
+             class="tab-content" 
+             role="tabpanel" 
+             aria-labelledby="description" 
+             aria-hidden="false">
+          <div class="cntnt">
+<input type="text" ng-model="searchP" placeholder="search">
+ <div ng-repeat='bill in bills | filter:searchP' class="form-group div_colr" id="field_bill">
+             <ul>
+             <li>
+             
+              <span id="b_d_c">Date:</span><span id="b_d">{{bill.date}}</span>
+              <span id="b_d_c">Invoice No.:</span><span id="i_d">{{bill.inVoice}}</span>
+             
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              <button class="btn btn-warning c_clr" ng-click="prev($index)"><i class="fa fa-check c_clr"></i></button>
+             </li>
+             </ul>  
+ </div> 
 </div>
-<!-- <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>-->
+        </div>
+    </li>
+  
+    <li>
+        <input type="radio" name="tabs" id="tab2" />
+        <label for="tab2"
+               role="tab" 
+               aria-selected="false" 
+               aria-controls="panel2" 
+               tabindex="0" ng-click="getpdf('C')">Completed Orders</label>
+        <div id="tab-content2" 
+             class="tab-content"
+             role="tabpanel" 
+             aria-labelledby="specification" 
+             aria-hidden="true">
+          <div>
+<input type="text" ng-model="search" placeholder="search">
+<div ng-repeat="bill in billsCompleted | filter:search" class="form-group div_colr" id="field_bill">
+              <ul>
+             <li>
+             <span id="b_d_c">Date:</span> <span id="b_d2">{{bill.date}}</span>
+              <span id="b_d_c">Invoice No.:</span><span id="i_d2">{{bill.inVoice}}</span>
+              
+             
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              
+             </li>
+             </ul>  
+ </div> 
+</div>
+        </div>
+    </li>
+	
+	<li>
+        <input type="radio" name="tabs" id="tab3" />
+        <label for="tab3"
+               role="tab" 
+               aria-selected="false" 
+               aria-controls="panel2" 
+               tabindex="0">Total Orders</label>
+   <!--     <div id="tab-content2" 
+             class="tab-content"
+             role="tabpanel" 
+             aria-labelledby="specification" 
+             aria-hidden="true">
+           <div>
+From:<input type="date" id="date1" ng-model="date1" >
+To:<input type="date" id="date2" ng-model="date2" >
+<button class="btn btn-warning c_clr" ng-click="getMonthSales()"><i class="fa fa-check c_clr"></i></button>
+<br>
+</div>
+Bill :<input type="text" value="{{BillTotal}}" >
+<br>
+Raw Material :<input type="text" value="{{RawTotal}}" >
+<br>
+<hr/>
+<br>
+Total :<input type="text" value="{{salesBwDates}}" >
+        </div> -->
+                <div id="tab-content2" 
+             class="tab-content"
+             role="tabpanel" 
+             aria-labelledby="specification" 
+             aria-hidden="true">
+<div class="row algn_2">
+<div class="col-lg-2 col-md-2">
+<p>From</p><br/>
+
+<p>Bill</p><br/>
+
+<p>Raw Material</p><br/>
+
+<p>Total</p><br/>
+</div>
+<div class="col-lg-10 col-md-10">
+<input class="t_in" type="date" id="date1" ng-model="date1" >
+To:<input class="t_in" type="date" id="date2" ng-model="date2" >
+<button class="btn btn-warning c_clr" ng-click="getMonthSales()"><i class="fa fa-check c_clr"></i></button>
+<br/><br/>
+<input class="t_in t_b" type="text" value="{{BillTotal}}" ><br/><br/>
+<input class="t_in" type="text" value="{{RawTotal}}" ><br/><br/>
+<input class="t_in" type="text" value="{{salesBwDates}}" ><br/>
+</div>
+</div>
+        </div>
+    </li>
+</ul>
+
+<br style="clear: both;" />
 
 </div>
 </div>
 </div>  
 </body>
+<!-- 
 <script>
+
 $(document).ready(function(){
 
     $('.sale_nav a').click(function(){
@@ -66,5 +215,5 @@ $(document).ready(function(){
     });
 
 });
-</script>
+</script>-->
 </html>

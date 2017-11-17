@@ -22,8 +22,10 @@
   <input type="radio" name="radio" required>
   <span class="checkmark"></span>
 </label>
-<div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
-<div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
+<div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;"><strong>Success! </strong>{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;"><strong>Error! </strong>{{error}}</div>
+<div class="alert alert-warning" role="alert" ng-show="war" style="margin-top:10px;"><strong>Warning! </strong>{{warning}}</div>
+
 <div id="content">
 <article>
   <nav class="btn-bar nav-dark b_nav" id="b_tab">
@@ -59,11 +61,12 @@
 
 </div>
 
-<button class="btn btn-info gen_butn" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
+
+<button class="btn btn-info gen_butn" ng-disabled="StockError" ng-click='invoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
 
 
 <!-- Modal -->
-  <div class="modal fade" id="bill_modal" role="dialog">
+  <div class="modal fade" id="bill_modal" role="dialog" > 
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -83,7 +86,7 @@
           anshretails@yahoo.in</p>
           </div>
           <div class="col-lg-8 col-md-8 col-sm-8 l_a">
-         <span style="font-weight:bold;"> Customer Name: </span><address contenteditable>Jonathan Neal</address><br/>
+         <span style="font-weight:bold;"> Customer Name: </span><address  contenteditable><span ng-model='pdfname' id="pdfn"></span></address><br/>
 		  <span style="font-weight:bold;">Company Name: </span><address contenteditable>Nil</address><br/><br/>
 		  <span style="font-weight:bold;">PostCode: </span><address contenteditable>Nil</address><br/>
 		  <span style="font-weight:bold;">Date: </span><span>{{date}}</span><br/><br/>

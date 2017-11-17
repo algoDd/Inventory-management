@@ -245,3 +245,14 @@
 #o_txt_4{
 	padding: 5px 67px 5px 67px;
 }
+.lgot{
+	margin-top: -1.5% !important;
+	margin-left:8% !important;
+	border: 3px solid darkblue !important;
+	box-shadow: 2px 2px grey !important;
+	color: darkorange !important;
+	box-sizing: border-box !important;
+	display: inline-table !important;
+	border-radius: 50% !important;
+	font-size: 35px !important;
+}

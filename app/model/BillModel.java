@@ -18,7 +18,28 @@ public class BillModel extends Model{
 		String invoice_no;	
 		@Column(name="total_amt")
 		int total_amt;
+		@Column(name="date")
+		String date;
+		@Column(name="status")
+		String status;
+		public String getStatus() {
+			return status;
+		}
+
+
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+
+
+		public String getDate() {
+			return date;
+		}
+
 		
+
 		public int getId() {
 			return id;
 		}
@@ -41,10 +62,15 @@ public class BillModel extends Model{
 		public void setTotal_amt(int total_amt) {
 			this.total_amt = total_amt;
 		}
-		public BillModel(String pdf, String invoice_no, int total_amt) {
+		public BillModel(String pdf, String invoice_no, int total_amt ,String date,String status) {
 			this.pdf=pdf;
 			this.invoice_no=invoice_no;
 			this.total_amt=total_amt;
+			this.date=date;
+			this.status=status;
+		}
+		public void setDate(String date) {
+			this.date = date;
 		}
 		public static Finder<String,BillModel> find=new Finder<>(String.class,BillModel.class);
 	}
