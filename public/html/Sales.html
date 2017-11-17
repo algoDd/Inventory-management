@@ -29,10 +29,12 @@
     <tr class="tbl_r1">
     <th id="hp_1">Date</th>
     <th>Invoice Number</th>
+    <th id="d_th">Download Pdf</th>
     </tr>
     </thead>
     <tr>
     <td>
+   
     <div ng-repeat='bill in bills | filter:searchP' class="form-group" id="field_bill">
              <ul style="width:90% !important;">
              <li>
@@ -56,12 +58,15 @@
     <tr class="tbl_r1">
     <th id="hp_2">Date</th>
     <th>Invoice Number</th>
+    <th id="d_th">Download Pdf</th>
     </tr>
     </thead>
     <tr>
     <td>
-   
-      <div ng-repeat="bill in billsCompleted | filter:search" class="form-group" id="field_bill">
+     
+      
+      
+      <div ng-repeat="bill in billsCompleted | filter:searchP" class="form-group" id="field_bill">
               <ul style="width:90%!important;">
              <li>
             
