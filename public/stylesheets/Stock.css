@@ -1,5 +1,5 @@
 #content_stock {
-  max-width: 95%;
+  max-width: 90%;
   height: 55vh;
   padding-bottom:6% !important;
   overflow:auto;
@@ -24,7 +24,8 @@
 }
 .sc_clr{
 	background-color: rgb(23, 211, 2) !important;
-	padding:4px 12px !important;
+	padding:4px 10px !important;
+	border-color:rgb(23, 211, 2) !important;
 }
 .wave_stock {
   opacity: .7;
@@ -118,7 +119,12 @@
 }
 
 .stk_clr{
-    padding:4px 12px !important;
+    padding:4px 10px !important;
 	background: red !important;
     border-color: red !important;
+    margin-left:2px;
+}
+.s_dn_mrgn{
+	margin-left:91% !important;
+	margin-bottom: 2% !important;
 }

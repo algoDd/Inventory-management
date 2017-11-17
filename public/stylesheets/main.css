@@ -245,18 +245,6 @@
 #o_txt_4{
 	padding: 5px 67px 5px 67px;
 }
-.lgot{
-	
-	float:right;
-	border: 3px solid darkblue !important;
-	box-shadow: 2px 2px grey !important;
-	color: darkorange !important;
-	box-sizing: border-box !important;
-	display: inline-table !important;
-	border-radius: 50% !important;
-	font-size: 35px !important;
-}
-
 .navbar {
 	background-color: #1f2b3c;
     box-shadow:2px 2px 5px grey;
@@ -270,51 +258,82 @@
    
 }
 .logo {
-	margin-bottom:5%;
+	margin-bottom:20%;
 	border-bottom:1px solid grey;
-	
+    margin-top: -1%;
+  	
 	text-align: center;
 	color: white;
 	font-family: 'Lobster', cursive;
+}
+.i_h{
+	height:106px;
+	width:164px;
+	margin-top:25px;
+	margin-bottom:25px;
+	border-radius: 8%;
 }
 .links1 {
 	padding-top: 10%;
 	text-decoration:none;
 display:block;
-font-size: 20px;
+font-size: 18px;
     text-align: left;
    padding-left:5%;
 border-bottom: 1px solid rgba(128, 128, 128, 0.23);
 margin-top: 20%;
 padding-bottom: 10%;
-	}
+background-size: 200% 100%;
+background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
+transition: background-position 1s;
+}
+.links1:hover{
+	background-position: -100% 0;
+}
 .links2 {
 	padding-top: 10%;
 	text-decoration:none;
-	font-size: 20px;
+	font-size: 18px;
     text-align: left;
      padding-left:5%;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.23);
 	padding-bottom: 10%;
+	background-size: 200% 100%;
+background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
+transition: background-position 1s;
+}
+.links2:hover{
+	background-position: -100% 0;
 }
 .links3 {
 	padding-top: 10%;
 	text-decoration:none;
-	font-size: 20px;
+	font-size: 18px;
     text-align: left;
      padding-left:5%;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.23);
 	padding-bottom: 10%;
+	background-size: 200% 100%;
+background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
+transition: background-position 1s;
+}
+.links3:hover{
+	background-position: -100% 0;
 }
 .links4 {
 	padding-top: 10%;
 	text-decoration:none;
 	 padding-left:5%;
-	font-size: 20px;
+	font-size: 18px;
     text-align: left;
-	
+	background-size: 200% 100%;
+background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
+transition: background-position 1s;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.23);
 	padding-bottom: 10%;
+}
+.links4:hover{
+	background-position: -100% 0;
 }
 .navbar a {
 	 display:block;
@@ -329,7 +348,7 @@ padding-bottom: 10%;
 }
 .navbar a:hover {
 	
-    background-color: rgb(56, 219, 166);
+    
     color: black ; 
     text-decoration: none;
     opacity:1;
@@ -341,15 +360,221 @@ padding-bottom: 10%;
 	float:right;
     color: white;
     visibility:visible;
-    padding-right: 5%;
+    padding:3px 10px;
+    border-radius: 60%;
+    background:black;
+    margin-right:6px;
 }
 a:focus #activepg{
 	color:black;
+	background:white;
 	padding-right: 5%;
+	font-weight:bold;
 }
 .topbar {
 	border-bottom:1px solid grey;
 	margin-top: 2%;
     width: 100%;
     margin-bottom: 3%;
+}
+#s_m{
+margin-top:10px; 
+margin-bottom:3px !important
+}
+.cube {
+	width: 40%;
+	float: right;
+	text-align: center;
+	margin: 4px 10px;
+	height: 34px;
+
+	-webkit-transition: -webkit-transform .33s;
+	transition: transform .33s; /* Animate the transform properties */
+
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d; /* <-NB */
+}
+
+/* The two faces of the cube */
+.flippety,.flop {
+	background: #1f2b3c;
+	box-shadow: 2px 2px 5px grey;
+	height: 50px;
+	border-radius: 5px;
+}
+
+/* Position the faces */
+.flippety {
+	-webkit-transform: translateZ(100px);
+	transform: translateZ(100px);
+}
+
+.flop {
+	-webkit-transform: rotateX(-90deg) translateZ(-100px);
+	transform: rotateX(-90deg) translateZ(-60px);
+}
+
+/* Rotate the cube */
+.cube:hover {
+	-webkit-transform: rotateX(90deg);
+	transform: rotateX(90deg); /* Text bleed at 90º */
+}
+.lgot{
+	color:white !important;
+	font-size:30px !important;
+	padding-top:8px !important;
+}
+#l_out{
+	color:white !important;
+	padding-top:15px !important;
+	font-size: 15px !important;
+}
+
+.rotate{
+    -moz-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.rotate.down{
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+#r1{
+	color:black;
+	display:none;
+	font-family:lobster;
+	font-size:25px;
+	padding-top:10px;
+}
+.slide-right{
+	overflow:hidden;
+	animation: 1s slide-right;
+	}
+@keyframes slide-right{
+	from{
+	margin-left: -5%;
+	width:300%;
+	}
+	to{
+	margin-left: 0%;
+	width:100%;
+	}
+}
+#b1{
+	color:black;
+	display:none;
+	font-family:lobster;
+	font-size:25px;
+	padding-top:10px;
+	}
+#st1{
+	color:black;
+	display:none;
+	font-family:lobster;
+	font-size:25px;
+	padding-top:10px;
+	}
+#s1{
+	color:black;
+	display:none;
+	font-family:lobster;
+	font-size:25px;
+	padding-top:10px;
+	}
+.d_t{
+	display:flex !important;
+}
+.i_cntnt{
+	background:yellow;
+	height:55vh;
+	width:50%;
+}
+#try{
+	display: flex;
+	width: 50%;
+}
+.s_srch{
+	width: 230px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('http://www.free-icons-download.net/images/search-icon-23710.png');
+    background-position: 5px 5px; 
+    background-repeat: no-repeat;
+    padding: 5px 10px 5px 35px;
+    background-size:20px;
+    
+}
+#s_srch{
+	margin-top:15px;
+	margin-left: 230px;
+	display:none;
+}
+
+
+#wlcm{
+  min-height:84vh;
+  font: bold 1.2em/1.5 "Neuton";
+  color: darkred;
+  text-align: center;
+  margin: 0;
+}
+p {
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  font-sie: 20px;
+  display: inline-block;
+  /*border: 4px double rgba(255, 255, 255, 0.25);*/
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+#wlcm_by{
+	text-transform: uppercase;
+  letter-spacing: .2em;
+  display: inline-block;
+  border: 4px double darkred;
+  border-width: 4px 0;
+  padding: 1.1em 0em;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+p span {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: .25em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
