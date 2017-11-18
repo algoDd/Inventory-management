@@ -77,31 +77,31 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   
 	   $("#i_1").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(0, 138, 181)");
+		    $(this).parent().css("background", "rgb(51, 161, 196)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(0, 1, 86),rgb(0, 138, 181))");	
+		    $(this).parent().css("background","linear-gradient(to top,rgb(51, 161, 196),rgb(184, 234, 249))");	
 		});
 		$("#i_2").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(188, 1, 32)");
+		    $(this).parent().css("background", "rgb(224, 2, 39)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(79, 0, 13),rgb(188, 1, 32))");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(224, 2, 39),rgb(255, 102, 127))");
 		});
 		$("#i_3").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(108, 186, 0)");
+		    $(this).parent().css("background", "rgb(134, 206, 35)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(0, 56, 10),rgb(108, 186, 0))");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(134, 206, 35),rgb(176, 255, 127))");
 		});
 		$("#i_4").children().focus(function() {
 		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(242, 214, 4)");
+		    $(this).parent().css("background", "rgb(241, 238, 3)");
 		}).blur(function() {
 		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(163, 144, 0),rgb(242, 214, 4))");
+		    $(this).parent().css("background","linear-gradient(to top,rgb(241, 238, 3),rgb(255, 253, 119))");
 		});
 		$('mytabs a').click(function (e){
 			$(this).tab('show');
@@ -379,13 +379,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	      
 	    
 	     }else{
-	    	 $scope.error="cannot add More Rows untill you fill out all columns";
+	    	 $scope.error="cannot add More Rows until you fill out all columns";
 	    	 $scope.err=true;
 	    	 if($scope.sitems.length==0)
     		 {
     		 $scope.sitems.push(k++);
     		 }
-	    	 //$scope.error="cannot add More Rows untill you fill out all columns";
+	    	 //$scope.error="cannot add More Rows until you fill out all columns";
 	     } 
 	  }
 	    
@@ -449,6 +449,36 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  }
 
 
+    
+	      $scope.exportAsPdf=function(){
+		  html2canvas(document.getElementById("pdf_content"), {
+			onrendered: function (canvas) {	
+				
+				var data = canvas.toDataURL("image/jpeg",1.0);
+				var ctx=data;
+				ctx.webkitImageSmoothingEnabled = true;
+	            ctx.mozImageSmoothingEnabled = true;
+	            ctx.imageSmoothingEnabled = true;
+	            ctx.imageSmoothingQuality = "high";
+	   
+				var docDefinition = {
+						content: [{
+							image: data,
+						    width:500,
+						  				      
+				}]
+				};
+				pdfMake.createPdf(docDefinition);
+				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
+				    $scope.base64data = "data:application/pdf;base64,"+encodedString;
+				    $scope.save();
+				});
+			}  
+		  });
+		 
+	  }
+
+
 	  $scope.save=function(){
 		  
 		  if( $scope.base64data!=null && $scope.totalamt!=0)
@@ -480,27 +510,14 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   });
 	   }
 	 /* 
-	 $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				var data = new Image();
-			    data = canvas.toDataURL("image/jpeg",1.0);
-				var doc = new jsPDF("p","mm","a4");
-			    var width= doc.internal.pageSize.width;
-				var height= doc.internal.pageSize.height;
-				doc.internal.scaleFactor = 3;
-				doc.addImage(data,'JPEG',25,15);
-				doc.save('bill.pdf');
-			
-			}  
-		  });
-
-	  }
 	  $scope.final_amt=0;
 	  $scope.f_total=function(){
 		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
 	  }
+<<<<<<< HEAD
+=======
 	  */
+
 	  
 	  $scope.exportAsPdf=function(){
 		  html2canvas(document.getElementById("pdf_content"), {
@@ -513,6 +530,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	            ctx.imageSmoothingQuality = "high";
 
 			    data = canvas.toDataURL("image/jpeg",1.0);
+
+			    console.log(data);
+				var doc = new jsPDF("p","mm","a4");
 //			    var encodedString=data.slice(22);
 //			    $scope.base64data = "data:application/pdf;base64"+encodedString;
 			   // console.log(data);
