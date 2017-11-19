@@ -8,13 +8,6 @@
 <div class="row row_algn">
 <div class="col-lg-12 col-md-12 col-sm-12">
 
-
-<div class='box_sale'>
-  <div class='wave_sale -one_sale'></div>
-  <div class='wave_sale -two_sale'></div>
-  <div class='wave_sale -three_sale'></div>
-  <div class='title_sale' ng-click="">Sales</div>
-</div>
 <div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
 <div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
 <!-- 
@@ -85,6 +78,7 @@ Total:{{salesBwDates}}
 </div>
 </div>
 -->
+<input type="text" id="searchit" ng-model="searchP" placeholder="search">
 <ul class="tabs" role="tablist">
     <li>
         <input type="radio" name="tabs" id="tab1" checked />
@@ -95,8 +89,8 @@ Total:{{salesBwDates}}
              aria-labelledby="description" 
              aria-hidden="false">
           <div class="cntnt">
-<input type="text" ng-model="searchP" placeholder="search">
- <div ng-repeat='bill in bills | filter:searchP' class="form-group div_colr" id="field_bill">
+
+ <div ng-repeat='bill in bills | filter:searchP' class="form-group" id="field_bill">
              <ul>
              <li>
              
@@ -125,8 +119,8 @@ Total:{{salesBwDates}}
              aria-labelledby="specification" 
              aria-hidden="true">
           <div>
-<input type="text" ng-model="search" placeholder="search">
-<div ng-repeat="bill in billsCompleted | filter:search" class="form-group div_colr" id="field_bill">
+
+<div ng-repeat="bill in billsCompleted | filter:search" class="form-group" id="field_bill">
               <ul>
              <li>
              <span id="b_d_c">Date:</span> <span id="b_d2">{{bill.date}}</span>

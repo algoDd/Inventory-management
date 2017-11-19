@@ -20,12 +20,6 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
 
 
-<div class='box_stock'>
-  <div class='wave_stock -one_stock'></div>
-  <div class='wave_stock -two_stock'></div>
-  <div class='wave_stock -three_stock'></div>
-  <div class='title_stock' ng-click='sadd()'>Stock</div>
-</div>
 <div  class="alert alert-success"  role="success" ng-show="succ" id="s_m">{{success}}</div>
 <div  class="alert alert-danger" role="alert" ng-show="err" id="e_m">{{error}}</div>
 <div id="content_stock">
@@ -44,7 +38,7 @@
 </article>
 
 <div ng-show="one">
-    <div ng-repeat='item in sitems' class="form-group div_colr" id="field_stock">
+    <div ng-repeat='item in sitems' class="form-group " ng-class-even="'odd'" id="field_stock">
           <select ng-model='$crtl.selected_item' class="form-control fc1" name="item_name" required>
           <option value="" selected>Select Your Product</option>
           <option value="Register" selected>Registers</option>

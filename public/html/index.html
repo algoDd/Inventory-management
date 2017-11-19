@@ -27,7 +27,7 @@ ANSH RETAILS
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-
+<link href="https://fonts.googleapis.com/css?family=Courgette|Josefin+Sans|Lobster" rel="stylesheet">
 
 <!-- ui routing 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -37,66 +37,45 @@ ANSH RETAILS
 
 </head>
 <body ng-app="RMApp" ng-controller="RMCrtl">
-
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col_algn">
-<div class="container_1 image" id="i_1" name="ovrly">
-<a ui-sref="RawMaterial">
-<i class="fa fa-cart-arrow-down gl_icn" aria-hidden="true"></i>
-  <div class="overlay">
-    <div class="text" id="txt_1">Raw Material</div>
-  </div>
-  <div id="ovrly1">
-    <span class="o_text" id="o_txt_1">Raw Material</span>
-  </div>
-  </a>
-</div>
-
-<div class="container_3 image" id="i_3">
-<a ui-sref="Billing">
-<i class="fa fa-inr gl_icn gl_icn3" aria-hidden="true"></i>
-  <div class="overlay">
-    <div class="text" id="txt_3">Billing</div>
-  </div>
-  <div id="ovrly3">
-    <span class="o_text" id="o_txt_3">Billing</span>
-  </div>
-  </a>
-</div>
-
-<div class="container_2 image" id="i_2">
-<a ui-sref="Stock">
-<i class="fa fa-database gl_icn gl_icn2" aria-hidden="true"></i>
-  <div class="overlay">
-    <div class="text" id="txt_2">Stock</div>
-  </div>
-  <div id="ovrly2">
-    <span class="o_text" id="o_txt_2">Stock</span>
-  </div>
-  </a>
-</div>
-
-<div class="container_4 image" id="i_4">
-<a ui-sref="Sales">
-<i class="fa fa-line-chart gl_icn" aria-hidden="true"></i>
-  <div class="overlay">
-    <div class="text" id="txt_4">Sales</div>
-  </div>
-  <div id="ovrly4">
-    <span class="o_text" id="o_txt_4">Sales</span>
-  </div>
-  </a>
-</div>
+<div>
 <i class="fa fa-user-circle lgot" aria-hidden="true"></i>
 </div>
+<div class="col-md-2 navbar">
+<div class="logo">
+<h3>ANSH RETAILS</h3>
 </div>
+<a ui-sref="RawMaterial">
+<div class="links1" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp<span>Raw Material</span>
+<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
 </div>
 
-<fb:login-button show-faces="true" max-rows="1" size="large"></fb:login-button>
-<div id="status">
+</a>
+<a ui-sref="Billing">
+<div class="links2"><i class="fa fa-inr " aria-hidden="true"></i>&nbsp<span>Billing</span>
+<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+</div>
+</a>
+
+<a ui-sref="Stock">
+<div class="links3"><i class="fa fa-database" ></i>&nbsp<span>Stock</span>
+<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+</div>
+  </a>
+<a ui-sref="Sales">
+<div class="links4"><i class="fa fa-line-chart" aria-hidden="true">&nbsp</i><span>Sales</span>
+<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
 </div>
 
+  </a>
+</div>
+
+
+<div class="col-md-10">
+<div class="topbar">
+
+</div>
 <div id="mainpage" ui-view></div>
+</div>
+
 </body>
 </html>

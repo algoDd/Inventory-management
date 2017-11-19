@@ -6,9 +6,13 @@
 	margin-left:92% !important;
 	margin-bottom: 2% !important;
 }
-.div_colr{
-	background:rgb(178, 178, 176);
+.divcolr{
+	
 }
+.odd { 
+	background-color: #ebebeb;
+	 }
+
 #content_raw {
   max-width: 100%;
   height: 55vh;
@@ -17,19 +21,9 @@
   margin-bottom:3% !important;
   margin: 0 auto;
   background: white;
--webkit-box-shadow: 2px 8px 25px 2px rgba(0,0,0,0.3);
-   	   -moz-box-shadow: 2px 8px 25px 2px rgba(0,0,0,0.3);
-   	        box-shadow: 2px 8px 25px 2px rgba(0,0,0,0.3);
-  -webkit-border-bottom-right-radius: 8px;
--webkit-border-bottom-left-radius: 8px;
--moz-border-radius-bottomright: 8px;
--moz-border-radius-bottomleft: 8px;
-border-bottom-right-radius: 8px;
-border-bottom-left-radius: 8px;
+
 }
-.r_nav {
-  background: linear-gradient(to top,rgb(51, 161, 196),rgb(184, 234, 249));
-}
+
 .box {
   width: 270px;
   height: 240px;

@@ -7,15 +7,7 @@
   margin-bottom:2% !important;
   margin: 0 auto;
   background: white;
--webkit-box-shadow: 2px 8px 25px 2px rgba(0,0,0,0.3);
-   	   -moz-box-shadow: 2px 8px 25px 2px rgba(0,0,0,0.3);
-   	        box-shadow: 2px 8px 25px 2px rgba(0,0,0,0.3);
-  -webkit-border-bottom-right-radius: 8px;
--webkit-border-bottom-left-radius: 8px;
--moz-border-radius-bottomright: 8px;
--moz-border-radius-bottomleft: 8px;
-border-bottom-right-radius: 8px;
-border-bottom-left-radius: 8px;
+
 }
 .box_stock {
   width: 270px;
@@ -124,9 +116,7 @@ border-bottom-left-radius: 8px;
 	font-size:15px !important;
 	height:30px !important;
 }
-.stock_nav{
-	background:linear-gradient(to top,rgb(224, 2, 39),rgb(255, 102, 127));
-}
+
 .stk_clr{
     padding:4px 12px !important;
 	background: red !important;

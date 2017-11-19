@@ -131,8 +131,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	//$scope.price=[];
 	//$scope.quantity=[];
 		
-	  
-	  
+			
 	  $scope.add = function(i){
 		  $scope.value=true;
 		  
