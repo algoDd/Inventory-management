@@ -380,6 +380,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	     }else{
 	    	 $scope.error="cannot add More Rows until you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	    	 if($scope.sitems.length==0)
     		 {
     		 $scope.sitems.push(k++);
@@ -603,6 +606,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	     }else{
 	    	 $scope.error="cannot add More Rows untill you fill out all columns";
 	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 	    	 if($scope.sitems.length==0)
 	    		 {
 	    		 $scope.sitems.push(k++);
@@ -761,6 +767,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   },function (error){
 			   console.log(error.data);
 			   $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
 			   $scope.error="Something Wrong Please Check The Dates"
 		   });
 	 }

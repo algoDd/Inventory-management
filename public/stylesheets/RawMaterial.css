@@ -3,18 +3,12 @@
 	margin-left:35px !important;
 }
 .dn_mrgn{
-	margin-left:92% !important;
+	margin-left:93% !important;
 	margin-bottom: 2% !important;
 }
-.divcolr{
-	
-}
-.odd { 
-	background-color: #ebebeb;
-	 }
 
 #content_raw {
-  max-width: 100%;
+  max-width: 90%;
   height: 55vh;
   overflow:auto;
   margin-top:0% !important;
@@ -101,14 +95,14 @@
 	max-width: 100%;
     width: 100%;
     display: flex;
-    padding-left: 9%;
+    padding-left: 8%;
     padding-top:1%;
     padding-bottom:1%;
-    padding-right:2%;
+    padding-right:0%;
 }
 .r1_ctrl{
 	margin-left:-8% !important;
-	width:97% !important;
+	width:85% !important;
 	color:black !important;
 	font-size:15px !important;
 	height:30px !important;
@@ -116,13 +110,13 @@
 .r2_ctrl{
 	margin-right:5% !important;
 	margin-left:1% !important;
-	width:97% !important;
+	width:85% !important;
 	color:black !important;
 	font-size:15px !important;
 	height:30px !important;
 }
 .r3_ctrl{
-	margin-right: 4% !important;
+	margin-right: 3% !important;
 	margin-left: -4% !important ;
 	width: 85% !important;
 	color:black !important;
@@ -130,15 +124,15 @@
 	height:30px !important;
 }
 .r4_ctrl{
-	margin-right:1% !important;
+	margin-right:-1px !important;
 	color:black !important;
 	font-size:15px !important;
 	height:30px !important;
 }
-.b_mrgn{
-	margin:1px !important;
+.r_clr{
 	background-color: rgb(23, 211, 2) !important;
-	padding:4px 12px !important;
+	padding:4px 9px !important;
+	border-color:rgb(23, 211, 2) !important;
 }
 .group:before,
 .group:after {
@@ -151,7 +145,8 @@
 .f_clr{
 	background:red !important;
 	border-color: red !important;
-	padding:4px 12px !important;
+	padding:4px 9px !important;
+	margin-left: 2px !important;
 }
 .dn_buton{
 	margin-left:20px !important;
@@ -159,4 +154,15 @@
 }
 body {
     overflow-y: scroll; 
+}
+#prc{
+	border-top:none !important;
+	border-left:none !important;
+	border-right:none !important;
+	border-bottom:1px solid black !important;
+	box-shadow:none !important;
+	width:46% !important;
+	font-weight: bold !important;
+    font-size: 18px !important;
+    color: black !important;
 }

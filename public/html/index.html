@@ -37,45 +37,97 @@ ANSH RETAILS
 
 </head>
 <body ng-app="RMApp" ng-controller="RMCrtl">
-<div>
-<i class="fa fa-user-circle lgot" aria-hidden="true"></i>
-</div>
 <div class="col-md-2 navbar">
 <div class="logo">
-<h3>ANSH RETAILS</h3>
+<img class="i_h" src="/assets/images/logo.jpeg"/>
 </div>
 <a ui-sref="RawMaterial">
-<div class="links1" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp<span>Raw Material</span>
-<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+<div class="links1"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp<span>Raw Material</span>
+<i class="fa fa-angle-right rotate" id="activepg" aria-hidden="true"></i>
 </div>
-
 </a>
 <a ui-sref="Billing">
 <div class="links2"><i class="fa fa-inr " aria-hidden="true"></i>&nbsp<span>Billing</span>
-<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+<i class="fa fa-angle-right rotate" id="activepg" aria-hidden="true"></i>
 </div>
 </a>
 
 <a ui-sref="Stock">
 <div class="links3"><i class="fa fa-database" ></i>&nbsp<span>Stock</span>
-<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+<i class="fa fa-angle-right rotate" id="activepg" aria-hidden="true"></i>
 </div>
   </a>
 <a ui-sref="Sales">
 <div class="links4"><i class="fa fa-line-chart" aria-hidden="true">&nbsp</i><span>Sales</span>
-<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+<i class="fa fa-angle-right rotate" id="activepg" aria-hidden="true"></i>
 </div>
 
   </a>
-</div>
 
+</div>
 
 <div class="col-md-10">
+<div class="row">
+<div class="col-md-10 d_t">
+<div id="try">
+<div id="r1" class="slide-right">| Raw Materials</div>
+<div id="b1" class="slide-right">| Billing</div>
+<div id="st1" class="slide-right">| Stock</div>
+<div id="s1" class="slide-right">| Sales</div>
+</div>
+<div id="s_srch">
+<input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Code,Invoice.." />
+</div>
+<div class="alert alert-success" role="success" ng-show="succ" id="s_m"><strong>Success! </strong>{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
+<div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
+</div>
+<div class="col-md-2">
+<div class="cube">
+	<div class="flippety">
+	<i class="fa fa-user-circle lgot" aria-hidden="true"></i>	
+	</div>
+	<div class="flop">
+		<h2 id="l_out">Logout</h2>
+	</div>
+</div>
+</div>
+</div>
 <div class="topbar">
-
 </div>
-<div id="mainpage" ui-view></div>
+<div id="mainpage" ui-view>
+<div id="wlcm">
+<p>
+  WELCOME TO
+  <span>
+    ANSH RETAILS
+  </span>
+  &mdash; Stock Management System &mdash;
+</p>
+<h3 id="wlcm_by">Managed By - WebIntellects</h3>
 </div>
-
+</div>
+</div>
+<script>
+$(".rotate").click(function(){
+ $(this).toggleClass("down")  ; 
+})
+$(".links1").on('click', function() {
+   $("#r1").fadeIn();
+   $("#b1,#st1,#s1,#s_srch").hide();
+});
+$(".links2").on('click', function() {
+   $("#b1").fadeIn();
+   $("#r1,#st1,#s1,#s_srch").hide();
+});
+$(".links3").on('click', function() {
+   $("#st1").fadeIn();
+   $("#r1,#b1,#s1,#s_srch").hide();
+});
+$(".links4").on('click', function() {
+   $("#s1,#s_srch").fadeIn();
+   $("#r1,#b1,#st1").hide();
+});
+</script>
 </body>
 </html>
