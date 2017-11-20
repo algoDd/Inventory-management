@@ -20,7 +20,7 @@ public class StockCrtl extends Controller{
 		List<JsonNode> lcatagory=body.findValues("catagory");
 		List<JsonNode> lquantity=body.findValues("quantity");
 		for(int i=0;i<lcode.size();++i) {
-		String code=lcode.get(i).asText();
+		String code=lcode.get(i).asText().toUpperCase();
 		int quantity=lquantity.get(i).asInt();
 		String category=lcatagory.get(i).asText();
 		StockModel smodel=new StockModel(quantity,code,category);
