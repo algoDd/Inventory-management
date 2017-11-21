@@ -369,7 +369,7 @@ hr{
 }
 #h_s{
 	width:20% !important;
-    margin-left: 158px !important;
+    margin-left: 227px !important;
 	border-top:2px solid black !important;
 }
 #sign{
@@ -405,6 +405,7 @@ hr{
 }
 #wrds{
 	display:flex;
-}.btn:active {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+}
+#pdf_content{
+	height: 155vh;
+}

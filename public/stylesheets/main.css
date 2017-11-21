@@ -1,250 +1,4 @@
-.container_1 {
-  position: relative;
-  margin-left:12%;
-}
-.container_2 {
-  position: relative;
-  margin-left:4%;
-}
-.container_3 {
-  position: relative;
-  margin-left:4%;
-}
-.container_4 {
-  position: relative;
-  margin-left:4%;
-}
-#i_1{
-	background: linear-gradient(to top,rgb(51, 161, 196),rgb(184, 234, 249));
-}
-#i_2{
-	background:linear-gradient(to top,rgb(224, 2, 39),rgb(255, 102, 127));
-}
-#i_3{
-	background:linear-gradient(to top,rgb(134, 206, 35),rgb(176, 255, 127));
-}
-#i_4{
-	background:linear-gradient(to top,rgb(241, 238, 3),rgb(255, 253, 119));
-}
-.image {
-  display: block;
-  width: 16%;
-  height: 50%;
-  box-sizing:border-box;
-  border-radius:50%;
-  border: 7px solid #bababa;
-  margin-top:-1%;
-}
-.gl_icn{
-   font-size:100px;
-   padding:30px 5px 30px 5px;
-   margin-left:20%;
-   color:white;
-}
-.gl_icn2{
-   margin-left:25%;
-}
-.gl_icn3{
-   margin-left:35%;
-}
-.overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left:100%;
-  border-radius:110%;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-}
 
-.container_1:hover .overlay {
-  width: 100%;
-  left: 0;
-}
-.container_2:hover .overlay {
-  width: 100%;
-  left: 0;
-}
-.container_3:hover .overlay {
-  width: 100%;
-  left: 0;
-}
-.container_4:hover .overlay {
-  width: 100%;
-  left: 0;
-}
-.text {
-  background:cornsilk;
-  white-space: nowrap; 
-  color: black;
-  font-size: 21px;
-  font-weight:bold;
-  position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-#txt_1{
-	padding: 5px 60px 5px 60px;
-}
-#txt_2{
-	padding: 5px 95px 5px 95px;
-}
-#txt_3{
-	padding: 5px 95px 5px 95px;
-}
-#txt_4{
-	padding: 5px 95px 5px 95px;
-}
-.col_algn{
-	
-	
-}
-#ovrly1 {
-  position: inherit;
-  bottom: 0;
-  right: 0;
-  left:100%;
-  border-radius:110%;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-  display:none;
-}
-
-.container_1:hover #ovrly1 {
-  width: 100%;
-  left: 0;
-}
-.container_2:hover #ovrly1 {
-  width: 100%;
-  left: 0;
-}
-.container_3:hover #ovrly1 {
-  width: 100%;
-  left: 0;
-}
-.container_4:hover #ovrly1 {
-  width: 100%;
-  left: 0;
-}
-#ovrly2 {
-  position: inherit;
-  bottom: 0;
-  right: 0;
-  left:100%;
-  border-radius:110%;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-  display:none;
-}
-
-.container_1:hover #ovrly2 {
-  width: 100%;
-  left: 0;
-}
-.container_2:hover #ovrly2 {
-  width: 100%;
-  left: 0;
-}
-.container_3:hover #ovrly2 {
-  width: 100%;
-  left: 0;
-}
-.container_4:hover #ovrly2 {
-  width: 100%;
-  left: 0;
-}
-#ovrly3 {
-  position: inherit;
-  bottom: 0;
-  right: 0;
-  left:100%;
-  border-radius:110%;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-  display:none;
-}
-
-.container_1:hover #ovrly3 {
-  width: 100%;
-  left: 0;
-}
-.container_2:hover #ovrly3 {
-  width: 100%;
-  left: 0;
-}
-.container_3:hover #ovrly3 {
-  width: 100%;
-  left: 0;
-}
-.container_4:hover #ovrly3 {
-  width: 100%;
-  left: 0;
-}
-#ovrly4 {
-  position: inherit;
-  bottom: 0;
-  right: 0;
-  left:100%;
-  border-radius:110%;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-  display:none;
-}
-
-.container_1:hover #ovrly4 {
-  width: 100%;
-  left: 0;
-}
-.container_2:hover #ovrly4 {
-  width: 100%;
-  left: 0;
-}
-.container_3:hover #ovrly4 {
-  width: 100%;
-  left: 0;
-}
-.container_4:hover #ovrly4 {
-  width: 100%;
-  left: 0;
-}
-.o_text {
-  background:cornsilk;
-  white-space: nowrap; 
-  color: black;
-  font-size: 20px;
-  font-weight:bold;
-  position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-#o_txt_1{
-	padding: 5px 32px 5px 32px;
-}
-#o_txt_2{
-	padding: 5px 65px 5px 65px;
-}
-#o_txt_3{
-	padding: 5px 65px 5px 65px;
-}
-#o_txt_4{
-	padding: 5px 67px 5px 67px;
-}
 .navbar {
 	background-color: #1f2b3c;
     box-shadow:2px 2px 5px grey;
@@ -349,19 +103,57 @@ transition: background-position 1s;
     text-decoration: none;
     opacity:1;
 }
-
-
-
 #activepg {
 	float:right;
     color: white;
-    visibility:visible;
     padding:3px 10px;
     border-radius: 60%;
-    background:black;
+    display:none;
+    margin-right:6px;
+}
+#activepg2 {
+	float:right;
+    color: white;
+    padding:3px 10px;
+    display:none;
+    border-radius: 60%;
+    margin-right:6px;
+}
+#activepg3 {
+	float:right;
+    color: white;
+    padding:3px 10px;
+    border-radius: 60%;
+    display:none;
+    margin-right:6px;
+}
+#activepg4 {
+	float:right;
+    color: white;
+    display:none;
+    padding:3px 10px;
+    border-radius: 60%;
     margin-right:6px;
 }
 a:focus #activepg{
+	color:black;
+	background:white;
+	padding-right: 5%;
+	font-weight:bold;
+}
+a:focus #activepg2{
+	color:black;
+	background:white;
+	padding-right: 5%;
+	font-weight:bold;
+}
+a:focus #activepg3{
+	color:black;
+	background:white;
+	padding-right: 5%;
+	font-weight:bold;
+}
+a:focus #activepg4{
 	color:black;
 	background:white;
 	padding-right: 5%;
@@ -426,17 +218,6 @@ margin-bottom:3px !important
 	font-size: 15px !important;
 }
 
-.rotate{
-    -moz-transition: all 0.5s linear;
-    -webkit-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-}
-
-.rotate.down{
-    -moz-transform:rotate(360deg);
-    -webkit-transform:rotate(360deg);
-    transform:rotate(360deg);
-}
 #r1{
 	color:black;
 	display:none;
@@ -508,23 +289,20 @@ margin-bottom:3px !important
 #s_srch{
 	margin-top:15px;
 	margin-left: 230px;
-	display:none;
+	
 }
-
-
 #wlcm{
   min-height:84vh;
   font: bold 1.2em/1.5 "Neuton";
-  color: darkred;
+  color: #1f2b3c;
   text-align: center;
   margin: 0;
 }
-p {
+#wlcm p {
   text-transform: uppercase;
   letter-spacing: .5em;
   font-sie: 20px;
   display: inline-block;
-  /*border: 4px double rgba(255, 255, 255, 0.25);*/
   border-width: 4px 0;
   padding: 1.5em 0em;
   position: absolute;
@@ -535,18 +313,18 @@ p {
 }
 #wlcm_by{
 	text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .1em;
   display: inline-block;
   border: 4px double darkred;
   border-width: 4px 0;
-  padding: 1.1em 0em;
+  padding: 10px;
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 50%;
   width: 40em;
   margin: 0 0 0 -20em;
 }
-p span {
+#wlcm p span {
   font: 700 4em/1 "Oswald", sans-serif;
   letter-spacing: 0;
   padding: .25em 0 .325em;
@@ -573,4 +351,8 @@ p span {
   100% {
     background-position: 100% 50%;
   }
+}
+.i_web{
+	height:105px;
+	border-radius: 50%;
 }

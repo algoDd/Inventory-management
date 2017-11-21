@@ -75,52 +75,24 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   //d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
 	   /*.................divis js part...................*/
 	   
-	   $("#i_1").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(51, 161, 196)");
-		}).blur(function() {
-		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(51, 161, 196),rgb(184, 234, 249))");	
-		});
-		$("#i_2").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(224, 2, 39)");
-		}).blur(function() {
-		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(224, 2, 39),rgb(255, 102, 127))");
-		});
-		$("#i_3").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(134, 206, 35)");
-		}).blur(function() {
-		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(134, 206, 35),rgb(176, 255, 127))");
-		});
-		$("#i_4").children().focus(function() {
-		    $(this).parent().css("box-shadow", "0px 3px 25px 0px rgb(150, 149, 148)");
-		    $(this).parent().css("background", "rgb(241, 238, 3)");
-		}).blur(function() {
-		    $(this).parent().css("box-shadow","none");
-		    $(this).parent().css("background","linear-gradient(to top,rgb(241, 238, 3),rgb(255, 253, 119))");
-		});
 		$('mytabs a').click(function (e){
 			$(this).tab('show');
 		});
-		$(".container_1").on('click', function() {
-			   $("#ovrly1").fadeIn();
-			   $("#ovrly2,#ovrly3,#ovrly4").fadeOut();
+		$(".links1").on('click', function() {
+			   $("#r1,#activepg").fadeIn();
+			   $("#b1,#st1,#s1,#s_srch,#activepg2,#activepg3,#activepg4").hide();
 			});
-			$(".container_3").on('click', function() {
-			   $("#ovrly3").fadeIn();
-			   $("#ovrly1,#ovrly2,#ovrly4").fadeOut();
+			$(".links2").on('click', function() {
+			   $("#b1,#activepg2").fadeIn();
+			   $("#r1,#st1,#s1,#s_srch,#activepg,#activepg3,#activepg4").hide();
 			});
-			$(".container_2").on('click', function() {
-			   $("#ovrly2").fadeIn();
-			   $("#ovrly1,#ovrly3,#ovrly4").fadeOut();
+			$(".links3").on('click', function() {
+			   $("#st1,#activepg3").fadeIn();
+			   $("#r1,#b1,#s1,#activepg2,#s_srch,#activepg,#activepg4").hide();
 			});
-			$(".container_4").on('click', function() {
-			   $("#ovrly4").fadeIn();
-			   $("#ovrly1,#ovrly2,#ovrly3").fadeOut();
+			$(".links4").on('click', function() {
+			   $("#s1,#s_srch,#activepg4").fadeIn();
+			   $("#r1,#b1,#st1,#activepg2,#activepg3,#activepg").hide();
 			});
 		/*.................divis js part...................*/
 //	  $scope.rawMat=[{
@@ -478,8 +450,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 		 
+		 
 	  }
-
 
 	  $scope.save=function(){
 		  
@@ -534,16 +506,16 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			    data = canvas.toDataURL("image/jpeg",1.0);
 
 			    console.log(data);
-				var doc = new jsPDF("p","mm","a4");
+				var doc = new jsPDF("l","mm","a4");
 //			    var encodedString=data.slice(22);
 //			    $scope.base64data = "data:application/pdf;base64"+encodedString;
 			   // console.log(data);
 				var doc = new jsPDF("p","pt","letter");
-			    var width= doc.internal.pageSize.width;
-				var height= doc.internal.pageSize.height;
-				doc.internal.scaleFactor = 3;
-				doc.addImage(data,'JPEG',25,15);
-				//doc.save('bill.pdf');
+			    //var width= doc.internal.pageSize.width;
+				//var height= doc.internal.pageSize.height;
+				doc.internal.scaleFactor = 1;
+				doc.addImage(data,'JPEG',80,40);
+				doc.save('bill.pdf');
 				$scope.base64data=doc.output('datauri');
 				//console.log(data2);
 				
@@ -555,6 +527,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			}  
 		  });
 	  }
+	  
 
 	  /*..........................Stock...................................*/
 	  $scope.sadd = function(i){
