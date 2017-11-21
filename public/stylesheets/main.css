@@ -258,20 +258,16 @@
    
 }
 .logo {
-	margin-bottom:20%;
-	border-bottom:1px solid grey;
-    margin-top: -1%;
-  	
-	text-align: center;
-	color: white;
-	font-family: 'Lobster', cursive;
+	margin-top: -1%;
+    /* text-align: center; */
+    /* color: white; */
+    /* font-family: 'Lobster', cursive; */
+    margin-bottom: 10%;
+
 }
 .i_h{
-	height:106px;
-	width:164px;
-	margin-top:25px;
-	margin-bottom:25px;
-	border-radius: 8%;
+	height: 100%;
+    width: 100%;
 }
 .links1 {
 	padding-top: 10%;
@@ -417,7 +413,7 @@ margin-bottom:3px !important
 /* Rotate the cube */
 .cube:hover {
 	-webkit-transform: rotateX(90deg);
-	transform: rotateX(90deg); /* Text bleed at 90º */
+	transform: rotateX(90deg); /* Text bleed at 90ï¿½ */
 }
 .lgot{
 	color:white !important;
