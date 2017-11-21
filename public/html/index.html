@@ -75,9 +75,7 @@ ANSH RETAILS
 <div id="s_srch">
     <input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Code,Invoice.." />
     </div>
-<div class="alert alert-success" role="success" ng-show="succ" id="s_m"><strong>Success! </strong>{{success}}</div>
-<div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
-<div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
+
 </div>
 <div class="col-md-2">
 <div class="cube">
@@ -92,7 +90,11 @@ ANSH RETAILS
 </div>
 <div class="topbar">
 </div>
+<div class="alert alert-success" role="success" ng-show="succ" id="s_m"><strong>Success! </strong>{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
+<div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
 <div id="mainpage" ui-view>
+
 <div id="wlcm">
 <p>
   WELCOME TO

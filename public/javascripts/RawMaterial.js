@@ -43,6 +43,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.update=false;
 	  $scope.bills=[];
 	  $scope.billsCompleted=[];
+	  $scope.stocks=[];
 	  var k=0;
 	  var date= new Date();
 	  var d=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate());
@@ -670,6 +671,26 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.error="Code Doesn't Exist";
 		   });
 		  
+	  }
+	 
+	  $scope.getStock=function()
+	  {
+		  
+		  $http({
+			  method:"GET",
+			  url:"/api/getStocks"
+		  }).then(function(success){
+			  console.log(success.data);
+			  $scope.stocks=success.data;
+		  },function(error){
+			  console.log(error.data);
+			  $scope.err=true;
+			   $timeout(function(){
+				   $scope.err=false;
+			   },3000);
+			   $scope.succ=false;
+			  $scope.error=error.data;
+		  });
 	  }
 
 	  /*..........................sales...................................*/

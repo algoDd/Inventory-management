@@ -5,7 +5,8 @@ import java.util.List;
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.SqlUpdate;
 import com.fasterxml.jackson.databind.JsonNode;
-
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import helpers.StockHelper;
 import model.StockModel;
@@ -52,5 +53,14 @@ public class StockCrtl extends Controller{
 				return ok(check);
 			}
 				
+	}
+	public Result getStocks() {
+		ArrayNode check =helper.getStocks();
+		if(check==null)
+		  {
+			return badRequest("No Stocks");
+		 
+		  }else
+			  return ok(check);
 	}
 }

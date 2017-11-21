@@ -4,9 +4,13 @@ import java.util.List;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.SqlUpdate;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import model.CodeModel;
 import model.StockModel;
+import play.libs.Json;
+import play.mvc.Result;
 
 public class StockDao {
 	public static Boolean savestock(StockModel smodel) {
@@ -66,6 +70,22 @@ public class StockDao {
 			return "db error";
 		}
 		return "done";
+	}
+	public static ArrayNode getStocks() {
+		ArrayNode arr=Json.newArray();
+		try {
+			List<StockModel> stock=StockModel.find.all();
+			for(int i=0;i<stock.size();++i)
+			{
+				ObjectNode j=Json.newObject();
+				j.put("code",stock.get(i).getCode() );
+				j.put("quantity",stock.get(i).getQuantity() );
+				arr.add(j);
+			}
+		}catch(Exception e) {
+			return null;
+		}
+		return arr;
 	}
 
 }

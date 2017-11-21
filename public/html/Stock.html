@@ -15,6 +15,21 @@
 <meta charset="UTF-8">
 </head>
 <body ng-controller="RMCrtl as $crtl">
+<button class="btn btn-info" ng-click="getStock()">View Stocks</button>
+<div>
+    <div ng-repeat='stock in stocks' class="form-group " ng-class-even="'odd'" id="field_stock">
+    <table>
+    	<tr>
+    	<th>Code</th>
+    	<th>&nbsp&nbspQuantity</th>
+    	</tr>
+    	<tr>
+    	<td>{{stock.code}}</td>
+    	<td>&nbsp&nbsp{{stock.quantity}}</td>
+    	</tr>  	
+    </table>
+    </div>
+    </div>
 <div class="container-fluid">
 <div class="row row_algn">
 <div class="col-lg-12 col-md-12 col-sm-12">
