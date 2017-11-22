@@ -87,7 +87,7 @@
 		  Ansh Retails Pvt. Ltd.
 		  </span>
 		  
-        <div class="modal-body">
+        <div class="modal-body prevent-split">
           <table class="table table-bordered">
          <thead>
          <tr>
@@ -98,7 +98,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="bills in bill">
+      <tr ng-repeat="bills in bill" >
         <td><span ng-bind="bills.catagory"></span></td>
         <td><span ng-bind="bills.code"></span></td>
         <td><span ng-bind="bills.quantity"></span></td>
@@ -108,7 +108,7 @@
   </table>
         </div>
      
-          		<table class="table">
+          		<table class="table prevent-split">
           		<tr>
 					<th><span>Sub Total</span></th>
 					<td><span data-prefix>INR<span>{{totalamt}}</span></td>
@@ -132,11 +132,11 @@
 			</table>
 			</div>
 			</div>
-			<div id="lines">	
+			<div id="lines" class="prevent-split">	
 			<hr id="h_a"/>
 				<hr id="h_s"/>				
 		</div>
-		<div id="wrds">	
+		<div id="wrds"  class="prevent-split">	
 			<span id="sign">Authorised Sign</span>
 				<span id="stamp">Authorised Stamp</span>				
 		</div>

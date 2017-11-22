@@ -467,7 +467,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	            
 	            paperSize: "A4",
 	            margin: "0.25cm",
-	            scale: 0.7
+	            scale: 0.7,
+	            keepTogether: ".prevent-split"
 	        })
 	        .then(function(root) {
 	            return draw.exportPDF(root);
