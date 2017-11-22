@@ -425,34 +425,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 
 
     
-	      $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				
-				var data = canvas.toDataURL("image/jpeg",1.0);
-				var ctx=data;
-				ctx.webkitImageSmoothingEnabled = true;
-	            ctx.mozImageSmoothingEnabled = true;
-	            ctx.imageSmoothingEnabled = true;
-	            ctx.imageSmoothingQuality = "high";
 	   
-				var docDefinition = {
-						content: [{
-							image: data,
-						    width:500,
-						  				      
-				}]
-				};
-				pdfMake.createPdf(docDefinition);
-				$scope.base_64= pdfMake.createPdf(docDefinition).getBase64(function(encodedString) {
-				    $scope.base64data = "data:application/pdf;base64,"+encodedString;
-				    $scope.save();
-				});
-			}  
-		  });
-		 
-		 
-	  }
 
 	  $scope.save=function(){
 		  
@@ -484,49 +457,28 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.error="Please Try Again Later";
 		   });
 	   }
-	 /* 
-	  $scope.final_amt=0;
-	  $scope.f_total=function(){
-		  $scope.final_amt=$scope.totalamt+$scope.ship_chrg+$scope.tax_+$scope.o_chrg; 
-	  }
-<<<<<<< HEAD
-=======
-	  */
-
+	
 	  
 	  $scope.exportAsPdf=function(){
-		  html2canvas(document.getElementById("pdf_content"), {
-			onrendered: function (canvas) {	
-				var data = new Image();
-				var ctx =data;
-				ctx.webkitImageSmoothingEnabled = true;
-	            ctx.mozImageSmoothingEnabled = true;
-	            ctx.imageSmoothingEnabled = true;
-	            ctx.imageSmoothingQuality = "high";
+//		  
+		  var draw = kendo.drawing;
 
-			    data = canvas.toDataURL("image/jpeg",1.0);
-
-			    console.log(data);
-				var doc = new jsPDF("l","mm","a4");
-//			    var encodedString=data.slice(22);
-//			    $scope.base64data = "data:application/pdf;base64"+encodedString;
-			   // console.log(data);
-				var doc = new jsPDF("p","pt","letter");
-			    //var width= doc.internal.pageSize.width;
-				//var height= doc.internal.pageSize.height;
-				doc.internal.scaleFactor = 1;
-				doc.addImage(data,'JPEG',80,40);
-				doc.save('bill.pdf');
-				$scope.base64data=doc.output('datauri');
-				//console.log(data2);
-				
-				//$scope.pdfname=document.getElementById("pdfname").value;
-				//$scope.getname();
-				//$scope.exporturi();
-				$scope.save();
-				
-			}  
-		  });
+	        draw.drawDOM($("#pdf_content"), {
+	            
+	            paperSize: "A4",
+	            margin: "0.25cm",
+	            scale: 0.7
+	        })
+	        .then(function(root) {
+	            return draw.exportPDF(root);
+	        })
+	        .done(function(data) {
+	            kendo.saveAs({
+	                dataURI: data,
+	                fileName: "bill.pdf"
+	            });
+	        });
+		  
 	  }
 	  
 
