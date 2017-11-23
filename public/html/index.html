@@ -43,7 +43,7 @@ ANSH RETAILS
 <i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
 </div>
 </a>
-<a ui-sref="Billing">
+<a ui-sref="Billing" ng-init="checkgen()">
 <div class="links2"><i class="fa fa-inr " aria-hidden="true"></i>&nbsp<span>Billing</span>
 <i class="fa fa-angle-right" id="activepg2" aria-hidden="true"></i>
 </div>
@@ -54,7 +54,7 @@ ANSH RETAILS
 <i class="fa fa-angle-right" id="activepg3" aria-hidden="true"></i>
 </div>
   </a>
-<a ui-sref="Sales">
+<a ui-sref="Sales"  ng-init="getpdf('P')">
 <div class="links4"><i class="fa fa-line-chart" aria-hidden="true">&nbsp</i><span>Sales</span>
 <i class="fa fa-angle-right" id="activepg4" aria-hidden="true"></i>
 </div>

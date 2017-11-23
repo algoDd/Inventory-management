@@ -284,7 +284,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				   $scope.StockError=true;
 				   $timeout(function(){
 					   $scope.war=false;
-				   },6000);
+				   },10000);
 				    $scope.war=true;
 				    $scope.warning=success.data;
 				   }
@@ -297,6 +297,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.succ=false;
 			   $scope.error=error.data;
 			   $scope.StockError=true;
+			   
 		   });
 	  }
 	  $scope.addb = function(i){
@@ -355,7 +356,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	    	 $scope.err=true;
 	    	 $timeout(function(){
 				   $scope.err=false;
-			   },3000);
+			   },10000);
 	    	 if($scope.sitems.length==0)
     		 {
     		 $scope.sitems.push(k++);
@@ -429,7 +430,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 
 	  $scope.save=function(){
 		  
-		  if( $scope.base64data!=null && $scope.totalamt!=0)
+		  if( $scope.base64data!=null && $scope.totalamt!=0){
 		  $http({
 			   method:"POST",
 			   url:"/api/billinvoice",
@@ -437,30 +438,57 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   }).then(function (success){
 			   console.log('done');
 
-			   $scope.succ=true;
+			   $scope.suc=true;
 			   $timeout(function(){
-				   $scope.succ=false;
+				   $scope.suc=false;
 			   },3000);
 
-			   $scope.success="Pdf Generated Successfully"
+			   $scope.s="Pdf Generated Successfully"
 				   $timeout(function(){
 					   window.location="/";
 				   },2000);
 		   },function (error){
 			   console.log('Not done');
-			   $scope.err=true;
-
+			   $scope.er=true;
+			   $scope.dis=true;
 			   $timeout(function(){
-				   $scope.err=false;
+				   $scope.er=false;
+				   $scope.dis=false;
+			   },6000);
+
+			   $scope.e="Please Try Again Later";
+		   });
+		  }else{
+			  $scope.er=true;
+			   $scope.dis=true;
+			   $timeout(function(){
+				   $scope.er=false;
+				   $scope.dis=false;
+				   $("#bill_modal").modal("hide");
 			   },3000);
 
-			   $scope.error="Please Try Again Later";
-		   });
+			   $scope.e="Fill The Datails First";
+		  }
 	   }
-	
-	  
+	$scope.checkgen=function(){
+	  if($scope.totalamt!=0)
+		  {
+		  $scope.StockError=false;
+		  }else{
+			  $scope.err=true;
+			   $scope.StockError=true;
+			   $timeout(function(){
+				   $scope.err=false;
+				   $scope.dis=false;
+				   
+			   },3000);
+
+			   $scope.error="Fill The Datails First";
+		  }
+	}
 	  $scope.exportAsPdf=function(){
 //		  
+		  
 		  var draw = kendo.drawing;
 
 	        draw.drawDOM($("#pdf_content"), {
@@ -474,11 +502,15 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	            return draw.exportPDF(root);
 	        })
 	        .done(function(data) {
+	        	$scope.base64data=data;
+	        	 console.log($scope.base64data);
 	            kendo.saveAs({
 	                dataURI: data,
 	                fileName: "bill.pdf"
 	            });
 	        });
+	        $scope.save();
+		  
 		  
 	  }
 	  
@@ -650,6 +682,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  
 	 
 	  $scope.getpdf=function(status){
+		 
 		  var a=status;
 		  $http({
 			   method:"GET",

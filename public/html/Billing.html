@@ -62,7 +62,9 @@
     
       <!-- Modal content-->
       <div class="modal-content" id="pdf_content">
-        
+        <div class="alert alert-success" role="success" ng-show="suc" id="s_m"><strong>Success! </strong>{{s}}</div>
+<div class="alert alert-danger" role="alert" ng-show="er" id="s_m"><strong>Error! </strong>{{e}}</div>
+<div class="alert alert-warning" role="alert" ng-show="wa" id="s_m"><strong>Warning! </strong>{{w}}</div>
           <button type="button" class="close cros" data-dismiss="modal" data-html2canvas-ignore>&times;</button>
           <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" data-html2canvas-ignore > Generate Pdf</button>
           <hr/>
