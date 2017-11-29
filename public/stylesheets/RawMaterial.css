@@ -1,3 +1,51 @@
+@media (min-width:360px) and (max-width:480px){
+	.btn-glass{
+	padding: 0.8em 2px !important;
+	font-size: 10px !important;
+	}
+	.dn_mrgn{
+	margin-left: 88% !important;
+	padding: 2px 4px!important;
+	font-size: 11px !important;
+	}
+	.r1_ctrl{
+	width:247% !important;
+	font-size:13px !important;
+	height:25px !important;
+	padding: 6px 8px !important;
+	}
+	.r2_ctrl{
+    margin-right: -3% !important;
+    margin-left: 0% !important;
+    width: 163% !important;
+    font-size: 13px !important;
+    height: 25px !important;
+	}
+	.r3_ctrl{
+	margin-right: 1% !important;
+    margin-left: 3% !important;
+   width: 130% !important;
+    font-size: 13px !important;
+    height: 25px !important;
+	}
+	#prc{
+	width: 118% !important;
+	font-size: 16px !important;
+	}
+	.r_clr{
+	padding: 0px 2px !important;
+	font-size: 10px !important;
+	}
+	.f_clr{
+	padding: 0px 2px !important;
+	font-size: 10px;
+	}
+	#content_raw{
+	margin-top: 4% !important;
+	min-height:77vh;
+	}
+}
+
 .algn{
 	margin-right:35px !important;
 	margin-left:35px !important;
@@ -9,87 +57,13 @@
 
 #content_raw {
   max-width: 90%;
-  height: 55vh;
+  min-height: 80vh;
   overflow:auto;
-  margin-top:0% !important;
+  margin-top:0% ;
   margin-bottom:3% !important;
   margin: 0 auto;
   background: white;
 
-}
-
-.box {
-  width: 270px;
-  height: 240px;
-  border-radius: 5px;
-  box-shadow: 0 2px 30px rgba(black, .2);
-  background: lighten(#f0f4c3, 10%);
-  position: relative;
-  overflow: hidden;
-  margin-left:40%;
-  margin-top:2%;
-  margin-bottom: -13%;
-  transform: translate3d(0, 0, 0);
-}
-
-.wave {
-  opacity: .7;
-  position: absolute;
-  top: -15%;
-  left: 50%;
-  background: linear-gradient(to top,rgb(51, 161, 196),rgb(184, 234, 249));
-  width: 450px;
-  height: 276px;
-  margin-left: -250px;
-  margin-top: -250px;
-  transform-origin: 50% 48%;
-  border-radius: 34%;
-  animation: drift 9000ms infinite linear;
-}
-
-.wave.-three {
-  animation: drift 11000ms infinite linear;
-}
-
-.wave.-two {
-  animation: drift 12000ms infinite linear;
-  opacity: .1;
-}
-
-.box:after {
-  content: '';
-  display: block;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
-  z-index: 11;
-  transform: translate3d(0, 0, 0);
-}
-
-.title {
-  position: relative;
-  left: 0;
-  top: -122px;
-  width: 100%;
-  z-index: 1;
-  line-height: 300px;
-  text-align: center;
-  transform: translate3d(0, 0, 0);
-  color: black;
-  text-transform: uppercase;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: .4em;
-  font-size: 22px;
-  text-shadow: 0 1px 0 rgba(black, .1);
-  text-indent: .3em;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 #field{
 	max-width: 100%;
@@ -101,37 +75,37 @@
     padding-right:0%;
 }
 .r1_ctrl{
-	margin-left:-8% !important;
-	width:85% !important;
+	margin-left:-8% ;
+	max-width:85% ;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	max-height:30px ;
 }
 .r2_ctrl{
-	margin-right:5% !important;
-	margin-left:1% !important;
-	width:85% !important;
+	margin-right:5% ;
+	margin-left:1% ;
+	max-width:85%;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	max-height:30px ;
 }
 .r3_ctrl{
-	margin-right: 3% !important;
-	margin-left: -4% !important ;
-	width: 85% !important;
+	margin-right: 3% ;
+	margin-left: -4%  ;
+	max-width: 85% ;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	max-height:30px ;
 }
 .r4_ctrl{
-	margin-right:-1px !important;
+	margin-right:-1px ;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	max-height:30px ;
 }
 .r_clr{
 	background-color: rgb(23, 211, 2) !important;
-	padding:4px 9px !important;
+	padding:4px 9px ;
 	border-color:rgb(23, 211, 2) !important;
 }
 .group:before,
@@ -145,7 +119,7 @@
 .f_clr{
 	background:red !important;
 	border-color: red !important;
-	padding:4px 9px !important;
+	padding:4px 9px ;
 	margin-left: 2px !important;
 }
 .dn_buton{
@@ -161,8 +135,8 @@ body {
 	border-right:none !important;
 	border-bottom:1px solid black !important;
 	box-shadow:none !important;
-	width:46% !important;
+	width:46% ;
 	font-weight: bold !important;
-    font-size: 18px !important;
+    font-size: 18px ;
     color: black !important;
 }

@@ -1,3 +1,44 @@
+@media (min-width:360px) and (max-width:480px)
+{
+	#content_stock{
+	min-height: 77vh !important;
+	max-width: 100% !important;
+	margin-top: 2% !important;
+	}
+	.s_dn_mrgn{
+	margin-left: 86% !important;
+	padding: 2px 3px !important;
+	font-size: 12px !important;
+	}
+	.fc1{
+	max-width: 382% !important;
+	font-size: 13px !important;
+	padding: 3px 3px !important;
+	height: 25px !important;
+	}
+	.fc2{
+	margin-left : 0% !important;
+	max-width: 280% !important;
+	font-size: 13px !important;
+	height:25px !important;
+	}
+	.fc3{
+	margin-left: 0% !important;
+    max-width: 242% !important;
+    font-size: 13px !important;
+    height: 25px !important;
+	}
+	.sc_clr{
+	padding: 4px 4px !important;
+	font-size: 10px !important;
+	}
+	.stk_clr{
+	margin-right: -7px !important;
+	margin-left: 1px !important;
+	padding: 4px 4px !important;
+	font-size: 10px !important;
+	}
+}
 #content_stock {
   max-width: 90%;
   height: 55vh;
@@ -11,7 +52,7 @@
 }
 .sc_clr{
 	background-color: rgb(23, 211, 2) !important;
-	padding:4px 10px !important;
+	padding:4px 10px ;
 	border-color:rgb(23, 211, 2) !important;
 }
 
@@ -26,28 +67,28 @@
 }
 .fc1{
 	margin-left:4% !important;
-	width:100% !important;
+	max-width:100% ;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	height:30px ;
 }
 .fc2{
 	margin-left:4% !important;
-	width:100% !important;
+	max-width:100% ;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	height:30px ;
 }
 .fc3{
 	margin-left:5% !important;
-	width:67% !important;
+	max-width:67% ;
 	color:black !important;
-	font-size:15px !important;
-	height:30px !important;
+	font-size:15px ;
+	height:30px ;
 }
 
 .stk_clr{
-    padding:4px 10px !important;
+    padding:4px 10px ;
 	background: red !important;
     border-color: red !important;
     margin-left:2px;

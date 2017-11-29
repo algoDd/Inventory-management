@@ -143,7 +143,7 @@ label {
   position: relative;
   padding: 50px;
   max-width: 90%;
-  min-height: 60vh;
+  min-height: 80vh;
 }
 .tabs input[name="tab-control"] {
   display: none;
@@ -299,22 +299,23 @@ label {
   }
 }
 #hp_1{
-	padding-left:105px !important;
-	padding-right:210px !important;
+	padding-left:70px !important;
+	padding-right:150px !important;
 }
 
 #b_d{
-	margin-left: -55px;
+	margin-left: -105px;
 }
 #i_d{
-	margin-left: 190px;
-	margin-right: 23%;
+	margin-left: 125px;
+	margin-right: 102px;
 }
 #dwnldLnk{
-	margin-right: 20px;
+	margin-right: 5px;
 }
 .algn_2{
 	margin-top: 70px !important;
+	
 }
 .t_algn{
 	padding-left: 30px !important;
@@ -347,18 +348,128 @@ th{
 	border-bottom:none !important;
 }
 #hp_2{
-	padding-left: 125px !important;
-	padding-right: 185px !important;
+	padding-left: 70px !important;
+	padding-right: 180px !important;
 }
 #sales_hr{
-	margin-left: -110px !important;
-	margin-right: -80px !important;
+	margin-left: -23px !important;
+	margin-right: -90px !important;
 	width: 200% !important;
 	margin-top: 0px !important;
 	margin-bottom: -20px !important;
 	border-top: 1px solid #eee !important;
 }
-
+#sale_algn{
+	display: block !important;
+}
+.sl_al{
+	padding-top: 15px !important;
+}
 #d_th{
-	padding-left:135px !important;
+	padding-left:130px !important;
+}
+#ul_cls{
+	max-width: 90%;
+}
+@media (min-width:360px) and (max-width:480px){
+	.tabs ul{
+	margin-top: 18px;
+	margin-bottom:5px;
+	}
+	#ul_cls{
+	max-width: 100%;
+	}
+	#field_bill{
+	padding-left: 5%;
+	}
+	.tabs ul li{
+	font-size:11px;
+	width:53%;
+	padding:0px;
+	}
+	.tabs ul li label{
+	font-size: 12px;
+	}
+	.tabs .slider{
+	width:25%;
+	}
+	.tabs .slider .indicator{
+	max-width:100%;
+	height:2px;
+	}
+	.tabs .content{
+	margin-top: 30px;
+	}
+	.table{
+	max-width:100%;
+	}
+	.tbl_r1{
+	font-size: 13px;
+	}
+	#hp_1{
+	padding-left: 20px !important;
+	padding-right: 17px !important;
+	}
+	#d_th{
+	padding-left: 15px !important;
+	}
+	#b_d{
+	margin-left: -6px;
+	padding-right: 17px;
+	}
+	tabs ul li{
+	font-size: 12px;
+	}
+	#i_d{
+	padding-right: 15px;
+	margin-left: 0px;
+	margin-right:0px;
+	}
+	#dwnldLnk{
+	margin-right: 0px;
+	}
+	.c_clr{
+	padding: 2px 2px;
+	font-size: 10px;
+	}
+	.tabs{
+	left: 0%;
+	padding:0px;
+	max-width:100%;
+	}
+	#sales_hr{
+	margin-left:0px !important;
+	margin-right: 0px !important;
+	width: 100%;
+	}
+	#b_d2{
+	margin-left: -13px !important;
+	}
+	#i_d2{
+	margin-left: 15px !important;
+	margin-right: 25px !important;
+	}
+	#hp_2{
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	}
+	.algn_2{
+	display: flex;
+	}
+	.t2_algn{
+	padding-left: 0px !important;
+	}
+	.t_in{
+	width: 38%;
+	padding: 2px 3px !important;
+	}
+	.t_in_b{
+	margin-top: 6px !important;
+	}
+	.t_in_r{
+	margin-top: 10px !important;
+	}
+	.t_in_t{
+	margin-top: 18px !important;
+	}
 }

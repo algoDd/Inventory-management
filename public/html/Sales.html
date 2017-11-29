@@ -35,8 +35,8 @@
     <tr>
     <td>
    
-    <div ng-repeat='bill in bills | filter:searchP' class="form-group" id="field_bill">
-             <ul style="width:90% !important;">
+    <div ng-repeat='bill in bills | filter:searchP' class="form-group" id="field_bill sale_algn">
+             <ul id="ul_cls">
              <li>
              
               <span id="b_d">{{bill.date}}</span>
@@ -66,8 +66,8 @@
      
       
       
-      <div ng-repeat="bill in billsCompleted | filter:searchP" class="form-group" id="field_bill">
-              <ul style="width:90%!important;">
+      <div ng-repeat="bill in billsCompleted | filter:searchP" class="form-group sl_al" id="field_bill sale_algn">
+              <ul id="ul_cls">
              <li>
             
              <span id="b_d2">{{bill.date}}</span>
@@ -84,7 +84,7 @@
  </section>
     <section>
      <div class="row algn_2">
-<div class="col-lg-2 col-md-2 t_algn">
+<div class="col-lg-2 col-md-2 col-sm-2 t_algn">
 <p>From</p><br/>
 
 <p>Bill</p><br/>
@@ -93,14 +93,14 @@
 
 <p>Total</p><br/>
 </div>
-<div class="col-lg-10 col-md-10 t2_algn">
+<div class="col-lg-10 col-md-10 col-sm-10 t2_algn">
 <input class="t_in" type="date" id="date1" ng-model="date1" >
 To:<input class="t_in" type="date" id="date2" ng-model="date2" >
 <button class="btn btn-success c_clr" ng-click="getMonthSales()"><i class="fa fa-check c_clr"></i></button>
 <br/><br/>
-<input class="t_in" type="text" value="{{BillTotal}}" ><br/><br/>
-<input class="t_in" type="text" value="{{RawTotal}}" ><br/><br/>
-<input class="t_in" type="text" value="{{salesBwDates}}" ><br/>
+<input class="t_in t_in_b" type="text" value="{{BillTotal}}" ><br/><br/>
+<input class="t_in t_in_r" type="text" value="{{RawTotal}}" ><br/><br/>
+<input class="t_in t_in_t" type="text" value="{{salesBwDates}}" ><br/>
 </div>
 </div>
    </section>

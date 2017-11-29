@@ -1,3 +1,97 @@
+@media (min-width:360px) and (max-width:480px){
+	.btn-glass{
+	padding: 0.8em 3px !important;
+	font-size: 10px !important;
+	}
+	.hd{
+	font-size: 16px!important;
+	margin-left: 77px;
+	}
+	.r_a{
+	display:flex;
+	}
+	#h2_head{
+	font-size: 17px !important;
+	padding-left: 20px;
+	}
+	#p_clr{
+	padding-left: 10px;
+	}
+	.l_a{
+	padding-left: 40px;
+	}
+	#h_a{
+	margin-left: 36px!important;
+	}
+	#sign{
+	margin-left: 12% !important;
+	}
+	#h_s{
+	margin-left: 135px!important;
+	}
+	#logo_img{
+	height:0%;
+	width:30% !important;
+	margin-top: -20px !important;
+	margin-left: -9px !important;
+	}
+	.f_i{
+	font-size: 16px !important;
+	}
+	#c1{
+	margin-left: 19% !important;
+    margin-top: 3% !important;
+	}
+	.cont{
+	font-size: 14px !important;
+	}
+	.checkmark{
+	height:20px !important;
+	width:20px !important;
+	}
+	.cont .checkmark:after{
+	top:7px !important;
+	left:7px !important;
+	width:6px !important;
+	height:6px !important;
+	}
+	#content{
+	max-width: 100% !important;
+	min-height:65vh !important;
+	margin-bottom:-2% !important;
+	}
+	.fbill_ctrl{
+	margin-right: 0% !important;
+	font-size: 13px !important;
+	height: 25px !important;
+	max-width:85% !important;
+	padding: 4px 3px !important;
+	}
+	.frst{
+	margin-left: -4% !important;
+	}
+	#prc_b{
+	width: 40% ! important;
+	font-size: 16px !important;
+	}
+	.bl_clr{
+	padding: 4px 3px !important;
+	margin-right: 2px !important;
+	margin-left: -9px !important;
+	font-size: 10px !important;
+	}
+	.b_clr{
+	margin-right: -4px !important;
+	padding: 4px 3px !important;
+	font-size: 10px !important;
+	}
+	.gen_butn{
+	margin-left: 30% !important;
+	padding: 10px 10px 10px 10px !important;
+	max-width: 45% !important;
+	font-size: 17px !important;
+	}
+}
 #field_bill{
 	max-width: 100%;
     width: 100%;
@@ -7,30 +101,26 @@
     padding-bottom:1%;
     padding-right:0%;
 }
-row_algn{
-	margin-right:35px !important;
-	margin-left:35px !important;
-}
 .frst{
-	margin-left:-13% !important;
+	margin-left:-13% ;
 }
 .fbill_ctrl{
 	margin-right:1% !important;
-	width:95% !important;
-	font-size:15px !important;
+	max-width:95%;
+	font-size:15px ;
 	color:black !important;
-	height:30px !important;
+	height:30px ;
 }
 .f_i{
-	font-size:22px !important;
+	font-size:22px;
 	margin-top: 4px !important;
 }
 .bl_clr{
-	margin-left:-9px !important;
-	margin-right: 2px !important;
+	margin-left:-9px ;
+	margin-right: 2px ;
 	background-color:rgb(23, 211, 2) !important;
 	border-color:rgb(23, 211, 2) !important;
-	padding: 4px 7px !important;
+	padding: 4px 7px;
 }
 #prc_b{
 	border-top:none !important;
@@ -38,110 +128,33 @@ row_algn{
 	border-right:none !important;
 	border-bottom:1px solid black !important;
 	box-shadow:none !important;
-	width:50% !important;
+	width:50% ;
 	font-weight: bold !important;
-    font-size: 18px !important;
+    font-size: 18px ;
     color: black !important;
 }
 #content {
   max-width: 96%;
-  height: 55vh;
+  height: 68vh;
   padding-bottom:6% !important;
   overflow:auto;
   margin-top:1% !important;
-  margin-bottom:6% !important;
+  margin-bottom:6%;
   margin: 0 auto;
   background: white;
 
 }
 .gen_butn{
-	margin-left:43% !important;
-	margin-bottom:2% !important;
-	padding:15px 0px 15px 0px !important;
-	width:14% !important;
-	font-size: 20px !important;
-}
-.box_bill {
-  width: 270px;
-  height: 240px;
-  border-radius: 5px;
-  box-shadow: 0 2px 30px rgba(black, .2);
-  background: lighten(#f0f4c3, 10%);
-  position: relative;
-  overflow: hidden;
-  margin-left:40%;
-  margin-top:2%;
-  margin-bottom: -13%;
-  transform: translate3d(0, 0, 0);
-}
-
-.wave_bill {
-  opacity: .7;
-  position: absolute;
-  top: -15%;
-  left: 50%;
-  background: linear-gradient(to top,rgb(134, 206, 35),rgb(176, 255, 127));
-  width: 450px;
-  height: 276px;
-  margin-left: -250px;
-  margin-top: -250px;
-  transform-origin: 50% 48%;
-  border-radius: 34%;
-  animation: drift 9000ms infinite linear;
-}
-
-.wave_bill.-three_bill {
-  animation: drift 11000ms infinite linear;
-}
-
-.wave_bill.-two_bill {
-  animation: drift 12000ms infinite linear;
-  opacity: .1;
-}
-
-.box_bill:after {
-  content: '';
-  display: block;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
-  z-index: 11;
-  transform: translate3d(0, 0, 0);
-}
-
-.title_bill{
-  position: relative;
-  left: 0;
-  top: -122px;
-  width: 100%;
-  z-index: 1;
-  line-height: 300px;
-  text-align: center;
-  transform: translate3d(0, 0, 0);
-  color: black;
-  text-transform: uppercase;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: .4em;
-  font-size: 22px;
-  text-shadow: 0 1px 0 rgba(black, .1);
-  text-indent: .3em;
-}
-@keyframes drift {
-  from { transform: rotate(0deg); }
-  from { transform: rotate(360deg); }
-}
-////
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	margin-left:43% ;
+	margin-bottom:0% !important;
+	padding:15px 0px 15px 0px ;
+	min-width:19% ;
+	font-size: 20px ;
 }
 .b_clr{
 	background:red !important;
 	border-color: red !important;
-	padding: 4px 7px !important;
+	padding: 4px 7px ;
 }
 body {
     overflow-y: scroll; 
@@ -213,8 +226,8 @@ span[contenteditable] { display: inline-block; }
 
 .hd { 
   font-size: 18px !important;
-    margin-left: 43px;
-    margin-bottom: 15%;
+    margin-left: 55px;
+    margin-bottom: 45px;
     font-weight: bold;
     color: rgb(16, 125, 140); 
  }
@@ -271,7 +284,7 @@ tr:hover .cut { opacity: 1; }
     margin-left:-3px;
 }
 #c1{
-	margin-left:38% !important;
+	margin-left:38%;
 }
 #c2{
 	margin-left:5% !important;
@@ -343,7 +356,7 @@ tr:hover .cut { opacity: 1; }
 	background-color:black !important;
 	border-color: black !important;
 }
-hr{
+#hr_top{
     width:85% !important;
     margin-left: 7% !important;
     margin-bottom:8px !important;
@@ -351,6 +364,10 @@ hr{
 }
 #h2_head{
 	margin-top:0px !important;
+	font-size: 28px;
+}
+address{
+	margin-bottom:0px !important;
 }
 .r_a{
 	padding-left:10% !important;
@@ -364,16 +381,16 @@ hr{
 }
 #h_a{
 	width:20% !important;
-	margin-left:65px !important;
+	margin-left:120px ;
 	border-top:2px solid black !important;
 }
 #h_s{
 	width:20% !important;
-    margin-left: 227px !important;
+    margin-left: 154px ;
 	border-top:2px solid black !important;
 }
 #sign{
-	margin-left:12%;
+	margin-left:17%;
 	font-size: 15px !important;
 }
 #stamp{
@@ -395,10 +412,13 @@ hr{
 	top: -20px !important;
 }
 #logo_img{
-	width: 18%;
-    margin-top: -85px;
-    margin-left: 45px;
+	width: 80%;
+    margin-top: -20px;
+    margin-left: -5px;
     margin-bottom: 8px;
+}
+.b_tbl{
+	width:95% !important;
 }
 #lines{
 	display:flex;
@@ -413,6 +433,19 @@ hr{
 { 
 	display: none;
  }
+.k-pdf-export .modal-content
+{ 
+	border: none !important;
+ }
 .k-pdf-export .close{
 	display: none;
+}
+.invoc_in{
+	height:25px !important;
+	width:60%;
+	margin-top: -5px;
+	border: none;
+}
+#bil_b{
+	display:flex;
 }

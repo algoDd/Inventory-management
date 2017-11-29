@@ -494,7 +494,10 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	        draw.drawDOM($("#pdf_content"), {
 	            
 	            paperSize: "A4",
-	            margin: "0.25cm",
+	            /*margin: "0.25cm",*/
+	            margin: {
+	            	top: "2cm"
+	            },
 	            scale: 0.7,
 	            keepTogether: ".prevent-split"
 	        })
@@ -514,6 +517,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  
 	  }
 	  
+	 /* $scope.finalamt=function(){
+		  var ship_chrg = Number($scope.$crtl.chrg || 0);
+		  var tax = Number($scope.$tax || 0);
+		  var o_chrg = Number($scope.$o.chrg || 0);
+		  $scope.finalamt= ship_chrg+tax+o_chrg+totalamt;
+	  }
+	  */
 
 	  /*..........................Stock...................................*/
 	  $scope.sadd = function(i){

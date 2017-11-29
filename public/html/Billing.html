@@ -5,7 +5,7 @@
 </head>
 <body ng-controller="RMCrtl as $crtl">
 <div class="container-fluid">
-<div class="row row_algn">
+<div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12">
 
 
@@ -42,7 +42,7 @@
           <option value="Register" selected>Registers</option>
           <option value="Cover Page">Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code" required></input>&nbsp
+          <input type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code" required autocomplete></input>&nbsp
           <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity" required></input>&nbsp
           <i class="fa f_i fa-inr"></i><input type="number" ng-model='$crtl.price'  class="form-control fbill_ctrl" id="prc_b" required></input>&nbsp
        <button  class="btn btn-success bl_clr" ng-click='addb($index)'><i class="fa fa-check"></i></button> 
@@ -67,22 +67,23 @@
 <div class="alert alert-warning" role="alert" ng-show="wa" id="s_m"><strong>Warning! </strong>{{w}}</div>-->
           <button type="button" class="close cros " data-dismiss="modal" >&times;</button>
           <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" > Generate Pdf</button>
-          <hr/>
+          <hr id="hr_top"/>
           <p class="hd">ANSH RETAILS PVT. LTD.</p>
-          <img id="logo_img" src="/assets/images/logo.jpeg"/>
+          
           <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 r_a">
+          <div class="col-lg-4 col-md-4 col-sm-2 r_a">
+          <img id="logo_img" src="/assets/images/logo.jpeg"/>
           <h2 id="h2_head">INVOICE</h2><br/>
           <p id="p_clr">9910065715<br/>
           7011125845<br/>
           85888954331<br/><br/>
           anshretails@yahoo.in</p>
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 l_a">
+          <div class="col-lg-8 col-md-8 col-sm-10 l_a">
          <span style="font-weight:bold;"> Customer Name: </span><address  contenteditable><span ng-model='pdfname' id="pdfn"></span></address><br/>
 		  <span style="font-weight:bold;">Company Name: </span><address contenteditable>Nil</address><br/><br/>
 		  <span style="font-weight:bold;">PostCode: </span><address contenteditable>Nil</address><br/>
-		  <span style="font-weight:bold;">Date: </span><span>{{date}}</span><br/><br/>
+		  <span style="font-weight:bold;">Date: </span><span>{{date}}</span><br/>
 		  <span>Invoice Number: </span><span>{{inNo}}</span></p><br/>
 		  <span>Thank you for your business.<br/>
 		  Yours sincerely,<br/>
@@ -90,7 +91,7 @@
 		  </span>
 		  
         <div class="modal-body bill_modal_body prevent-split">
-          <table class="table table-bordered">
+          <table class="table table-bordered b_tbl">
          <thead>
          <tr>
         <th id="th_clr">Description</th>
@@ -110,26 +111,26 @@
   </table>
         </div>
      
-          		<table class="table prevent-split">
+          		<table class="table prevent-split b_tbl">
           		<tr>
 					<th><span>Sub Total</span></th>
-					<td><span data-prefix>INR<span>{{totalamt}}</span></td>
+					<td><span data-prefix>INR</span>&nbsp<span>{{totalamt}}</span></td>
 				</tr>
 				<tr>
 					<th><span >Shipping charges</span></th>
-					<td><span data-prefix>INR<span contenteditable ng-model='$crtl.ship_chrg'></span></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" ng-model='$crtl.ship_chrg' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Tax</span></th>
-					<td>INR<span contenteditable  ng-model='$crtl.tax'></span></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" ng-model='$crtl.tax' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Other Charge(s), If any.</span></th>
-					<td>INR<span contenteditable ng-model='$crtl.o_chrg'></span></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Total</span></th>
-					<td>INR<span>{{finlamt}}</span></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" class="form-control invoc_in" value="{{finalamt}}"/></td>
 				</tr>
 			</table>
 			</div>
@@ -142,7 +143,7 @@
 			<span id="sign">Authorised Sign</span>
 				<span id="stamp">Authorised Stamp</span>				
 		</div>
-		<hr span id="h_l"></span>
+
         </div>
         </div>
         </div>
