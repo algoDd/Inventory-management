@@ -115,8 +115,8 @@ ANSH RETAILS
   
 </div>
 
-<div class="col-md-10">
-<div class="row">
+<div class="col-md-10 c_algn">
+<div class="row r_algn">
 
 <div class="col-md-10 col-sm-10 d_t col-xs-10">
 <div id="try">
@@ -126,10 +126,19 @@ ANSH RETAILS
 <div id="s1" class="slide-right">| Sales</div>
 </div>
 <div id="s_srch">
-    <input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Code,Invoice.." />
+    <input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Invoice.." />
     </div>
    
-   <button class="btn btn-info stok_butn" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">View Stock</button> 
+   <!--<button class="btn btn-info stok_butn" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">View Stock</button>
+   <div class="cubes" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">
+	<div class="flippetys">
+	<i class="fa fa-cart-arrow-down lgots" aria-hidden="true"></i>	
+	</div>
+	<div class="flops" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">
+		<h2 id="l_outs"><a href="#"></a>View Stock</a></h2>
+	</div>
+</div>-->
+
    
    <div class="modal fade" id="stock_modal" role="dialog">
     <div class="modal-dialog">
@@ -158,12 +167,22 @@ ANSH RETAILS
     
   </div>
 <div class="col-md-2 col-sm-2 col-xs-2">
+<!-- 
 <div class="cube">
 	<div class="flippety">
 	<i class="fa fa-user-circle lgot" aria-hidden="true"></i>	
 	</div>
 	<div class="flop">
 		<h2 id="l_out"><a href="#"></a>Logout</a></h2>
+	</div>
+</div>
+-->
+<div class="cubes" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">
+	<div class="flippetys" >
+	<i class="fa fa-cart-arrow-down lgots" aria-hidden="true"></i>	
+	</div>
+	<div class="flops">
+		<h2 id="l_outs">View Stock</h2>
 	</div>
 </div>
 </div>

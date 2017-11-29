@@ -1,33 +1,44 @@
 @media (min-width:360px) and (max-width:480px){
 	.btn-glass{
-	padding: 0.8em 3px !important;
+	padding: 0.8em 2px !important;
 	font-size: 10px !important;
+	}
+	#stamp{
+	margin-left: 60% !important;
+	}
+	#pd{
+	margin-left: 32% !important;
 	}
 	.hd{
 	font-size: 16px!important;
-	margin-left: 77px;
+	margin-left: 67px !important;
+	}
+	#bold_b{
+	font-size: 12px !important;
+	}
+	#thnk_b{
+	font-size: 13px !important;
 	}
 	.r_a{
 	display:flex;
 	}
 	#h2_head{
-	font-size: 17px !important;
-	padding-left: 20px;
+	font-size: 16px !important;
+	padding-left: 30px;
 	}
 	#p_clr{
 	padding-left: 10px;
+	font-size: 12px;
 	}
 	.l_a{
 	padding-left: 40px;
 	}
-	#h_a{
-	margin-left: 36px!important;
-	}
-	#sign{
-	margin-left: 12% !important;
-	}
 	#h_s{
-	margin-left: 135px!important;
+	margin-left: 216px!important;
+	width:25% !important;
+	}
+	.modal-content{
+	overflow-x: auto;
 	}
 	#logo_img{
 	height:0%;
@@ -57,7 +68,7 @@
 	}
 	#content{
 	max-width: 100% !important;
-	min-height:65vh !important;
+	min-height:72vh !important;
 	margin-bottom:-2% !important;
 	}
 	.fbill_ctrl{
@@ -87,7 +98,7 @@
 	}
 	.gen_butn{
 	margin-left: 30% !important;
-	padding: 10px 10px 10px 10px !important;
+	padding: 5px 10px 5px 10px !important;
 	max-width: 45% !important;
 	font-size: 17px !important;
 	}
@@ -113,7 +124,7 @@
 }
 .f_i{
 	font-size:22px;
-	margin-top: 4px !important;
+	margin-top: 4px ;
 }
 .bl_clr{
 	margin-left:-9px ;
@@ -135,7 +146,7 @@
 }
 #content {
   max-width: 96%;
-  height: 68vh;
+  min-height: 72vh;
   padding-bottom:6% !important;
   overflow:auto;
   margin-top:1% !important;
@@ -225,7 +236,7 @@ span[contenteditable] { display: inline-block; }
 /* heading */
 
 .hd { 
-  font-size: 18px !important;
+  font-size: 18px ;
     margin-left: 55px;
     margin-bottom: 45px;
     font-weight: bold;
@@ -350,6 +361,9 @@ tr:hover .cut { opacity: 1; }
 	border-radius: 50%;
 	background: white;
 }
+#bold_b{
+	font-weight:bold;
+}
 #pd{
 	margin-left:40% !important;
 	margin-top:3% !important;
@@ -361,6 +375,13 @@ tr:hover .cut { opacity: 1; }
     margin-left: 7% !important;
     margin-bottom:8px !important;
     border-top: 3px solid rgb(16, 125, 140) !important;	
+}
+.modal-content{
+	overflow-y:auto;
+}
+.r_algn{
+	margin-left: 0px !important;
+	margin-right: 0px !important;
 }
 #h2_head{
 	margin-top:0px !important;
@@ -379,22 +400,13 @@ address{
 .l_a{
 	padding-bottom:75px !important;
 }
-#h_a{
-	width:20% !important;
-	margin-left:120px ;
-	border-top:2px solid black !important;
-}
 #h_s{
-	width:20% !important;
-    margin-left: 154px ;
+	width:20% ;
+	margin-left:405px ;
 	border-top:2px solid black !important;
-}
-#sign{
-	margin-left:17%;
-	font-size: 15px !important;
 }
 #stamp{
-	margin-left:39%;
+	margin-left:68%;
 	font-size: 15px !important;
 }
 #h_l{
@@ -440,12 +452,135 @@ address{
 .k-pdf-export .close{
 	display: none;
 }
+.k-pdf-export .invoc_in{
+    border: none !important;
+	box-shadow: none !important;
+}
 .invoc_in{
 	height:25px !important;
 	width:60%;
 	margin-top: -5px;
-	border: none;
+	box-shadow: none !important;
 }
 #bil_b{
 	display:flex;
+}
+@media (min-width:320px) and (max-width:359px){
+	.btn-glass{
+	padding: 0.8em 2px !important;
+	font-size: 9px !important;
+	margin-left:0px !important;
+	}
+	#pd{
+	margin-left: 32% !important;
+	margin-top: 4% !important;
+	padding: 6px 8px !important;
+	}
+	#hr_top{
+	margin-left: 8% !important;
+	}
+	.hd{
+	font-size: 15px!important;
+	margin-left: 65px;
+	}
+	.r_a{
+	display:flex;
+	}
+	#h2_head{
+	font-size: 15px !important;
+	padding-left: 16px;
+	}
+	#bold_b{
+	font-size:12px;
+	}
+	#thnk_b{
+	font-size:12px;
+	}
+	#p_clr{
+	padding-left: 10px;
+	font-size:11px;
+	}
+	.l_a{
+	padding-left: 40px;
+	}
+	#h_s{
+	margin-left: 168px!important;
+	width:35% !important;
+	}
+	#stamp{
+	margin-left: 53%;
+	font-size: 15px !important;
+	}
+	#logo_img{
+	height:0%;
+	width:30% !important;
+	margin-top: -13px !important;
+	margin-left: -9px !important;
+	}
+	.f_i{
+	font-size: 15px !important;
+	}
+	#c1{
+	margin-left: 18% !important;
+    margin-top: 3% !important;
+	}
+	.cont{
+	font-size: 14px !important;
+	}
+	.checkmark{
+	height:20px !important;
+	width:20px !important;
+	}
+	.cont .checkmark:after{
+	top:7px !important;
+	left:7px !important;
+	width:6px !important;
+	height:6px !important;
+	}
+	#content{
+	max-width: 100% !important;
+	min-height:72vh !important;
+	margin-bottom:-11% !important;
+	margin-top: 4% !important;
+	}
+	.fbill_ctrl{
+	margin-right: 0% !important;
+	font-size: 11px !important;
+	height: 23px !important;
+	max-width:260% !important;
+	padding: 4px 2px !important;
+	}
+	.frst{
+	margin-left: -10% !important;
+	}
+	#prc_b{
+	width: 33% ! important;
+	font-size: 14px !important;
+	}
+	.bl_clr{
+	padding: 4px 2px !important;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	font-size: 10px !important;
+	}
+	.b_clr{
+	margin-right: 0px !important;
+	padding: 4px 2px !important;
+	font-size: 10px !important;
+	}
+	.gen_butn{
+	margin-left: 28% !important;
+	padding: 5px 10px 5px 10px !important;
+	max-width: 45% !important;
+	font-size: 17px !important;
+	margin-top: 8% !important;
+	}
+		.c_algn{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+.r_algn{
+	margin-left:0px !important;
+	margin-right: 0px !important;
+}
 }

@@ -81,19 +81,19 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		});
 		$(".links1").on('click', function() {
 			   $("#r1,#activepg").fadeIn();
-			   $("#b1,#st1,#s1,#s_srch,#activepg2,#activepg3,#activepg4,.stok_butn").hide();
+			   $("#b1,#st1,#s1,#s_srch,#activepg2,#activepg3,#activepg4,.cubes").hide();
 			});
 			$(".links2").on('click', function() {
 			   $("#b1,#activepg2").fadeIn();
-			   $("#r1,#st1,#s1,#s_srch,#activepg,#activepg3,#activepg4,.stok_butn").hide();
+			   $("#r1,#st1,#s1,#s_srch,#activepg,#activepg3,#activepg4,.cubes").hide();
 			});
 			$(".links3").on('click', function() {
-			   $("#st1,#activepg3,.stok_butn").fadeIn();
+			   $("#st1,#activepg3,.cubes").fadeIn();
 			   $("#r1,#b1,#s1,#activepg2,#s_srch,#activepg,#activepg4").hide();
 			});
 			$(".links4").on('click', function() {
 			   $("#s1,#s_srch,#activepg4").fadeIn();
-			   $("#r1,#b1,#st1,#activepg2,#activepg3,#activepg,.stok_butn").hide();
+			   $("#r1,#b1,#st1,#activepg2,#activepg3,#activepg,.cubes").hide();
 			});
 		/*.................divis js part...................*/
 //	  $scope.rawMat=[{

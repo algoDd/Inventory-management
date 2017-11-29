@@ -140,3 +140,64 @@ body {
     font-size: 18px ;
     color: black !important;
 }
+@media (min-width:320px) and (max-width:359px){
+	.btn-glass{
+	padding: 0.8em 1px !important;
+	font-size: 8px !important;
+	}
+	.dn_mrgn{
+	margin-left: 88% !important;
+	padding: 2px 4px!important;
+	font-size: 11px !important;
+	}
+	.r1_ctrl{
+	width:350% !important;
+	font-size:11px !important;
+	height:20px !important;
+	padding: 4px 6px !important;
+	}
+	.r2_ctrl{
+    margin-right: 0% !important;
+    margin-left: 0% !important;
+    width: 280% !important;
+    font-size: 11px !important;
+    height: 20px !important;
+    padding:4px 6px !important;
+	}
+	.r3_ctrl{
+	margin-right: 0% !important;
+    margin-left: 0% !important;
+   width: 185% !important;
+    font-size: 11px !important;
+    height: 20px !important;
+    padding: 4px 6px !important;
+	}
+	#prc{
+	width: 118% !important;
+	font-size: 13px !important;
+	height: 22px !important;
+	}
+	.r_clr{
+	padding: 0px 2px !important;
+	font-size: 10px !important;
+	}
+	.f_clr{
+	padding: 0px 2px !important;
+	font-size: 10px;
+	}
+	#content_raw{
+	margin-top: 5% !important;
+	}
+	.f_i{
+	font-size: 18px !important;
+	margin-top: 2px !important;
+	}
+		.c_algn{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+.r_algn{
+	margin-right:0px !important;
+	margin-left: 0px !important;
+}
+}

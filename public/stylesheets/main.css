@@ -309,7 +309,7 @@ margin-bottom:20px !important
     background-repeat: no-repeat;
     padding: 5px 10px 5px 35px;
     background-size:20px;
-    
+    margin-right: -54px !important;
 }
 #s_srch{
 	margin-top:15px;
@@ -397,7 +397,7 @@ margin-bottom:20px !important
 	color:white;
 	margin-top: 0px !important;
 }
-.stok_butn{
+/*.stok_butn{
 	margin-left: 40% ;
     margin-top: 10px ;
     padding: 10px 30px;
@@ -405,6 +405,7 @@ margin-bottom:20px !important
     font-weight: bold;
     display:none;
 }
+*/
 .stok_close{
 	font-size:30px !important;
 	padding-right: 5px !important;
@@ -423,7 +424,7 @@ margin-bottom:20px !important
 #stok_head{
 	float: left;
     padding-right: 185px;
-    padding-left: 137px;
+    padding-left: 93px;
 }
 .stok_cntnt{
 	list-style-type:none;
@@ -431,7 +432,7 @@ margin-bottom:20px !important
 }
 #stok_cntnt{
 	float: left;
-    padding-left: 115px;
+    padding-left: 72px;
     padding-right: 188px;
 }
 #line{
@@ -439,7 +440,7 @@ margin-bottom:20px !important
 	margin-top: 10px !important;
 	margin-bottom:10px !important;
 	width: 70%;
-	margin-left: 70px;
+	margin-left: 42px;
 }
 @media (min-width:360px) and (max-width:480px)
 {
@@ -540,23 +541,28 @@ a:focus #activepg4{
 }
 #r1{
 	font-size: 19px;
+	margin-left: -24px !important;
 }
 #b1{
 	font-size: 19px;
+	margin-left: -24px !important;
 }
 #st1{
 	font-size: 19px;
+	margin-left: -24px !important;
 }
 #s1{
 	font-size: 19px;
+	margin-left: -24px !important;
 }
-  .stok_butn{
+ /* .stok_butn{
   margin-left: 30% !important;
   margin-top: 5px !important;
   font-size: 13px !important;
   padding: 9px 12px !important ;
   display:none;
   }
+  */
 #s_srch{
 	margin-top:10px;
 	margin-left: 90px;
@@ -567,6 +573,7 @@ a:focus #activepg4{
 	background-position: 5px 5px;
 	padding: 5px 0px 5px 27px;
 	background-size: 18px;
+	margin-right: -67px !important;
 }
 #wlcm{
 	font: bold 0.7em/1.5 "Neuton";
@@ -764,5 +771,132 @@ a:focus #activepg4{
 }
 .cube{
 	width: 100%;
+}
+}
+.cubes {
+	width: 60%;
+	margin-left: 68%;
+	float: right;
+	text-align: center;
+	margin: 4px 10px;
+	height: 34px;
+	display:none;
+	-webkit-transition: -webkit-transform .33s;
+	transition: transform .33s; /* Animate the transform properties */
+
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d; /* <-NB */
+}
+
+/* The two faces of the cube */
+.flippetys,.flops {
+	background: #1f2b3c;
+	box-shadow: 2px 2px 5px grey;
+	height: 50px;
+	border-radius: 5px;
+}
+
+/* Position the faces */
+.flippetys {
+	-webkit-transform: translateZ(100px);
+	transform: translateZ(100px);
+}
+
+.flops {
+	-webkit-transform: rotateX(-90deg) translateZ(-100px);
+	transform: rotateX(-90deg) translateZ(-60px);
+}
+
+/* Rotate the cube */
+.cubes:hover {
+	-webkit-transform: rotateX(90deg);
+	transform: rotateX(90deg); /* Text bleed at 90� */
+}
+.lgots{
+	color:white !important;
+	font-size:30px !important;
+	padding-top:8px !important;
+}
+#l_outs{
+	color:white !important;
+	padding-top:15px !important;
+	font-size: 15px !important;
+}
+@media (min-width:320px) and (max-width:359px){
+.logo{
+	padding-top: 0px;
+	padding-left:0px;
+}
+#logo_h{
+	font-size:21px !important;
+	margin-top: -2px !important;
+}
+#wlcm_p{
+	top:21%;
+	left:65%;
+	width:30em;
+}
+#wlcm{
+	font: bold 0.7em/1.5 "Neuton";
+}
+#wlcm_b{
+	top:65%;
+	left:198%;
+}
+#wlcm_by{
+	top:77%;
+	left: 66%;
+	width:30em;
+}
+.links1{
+	padding-top:5%;
+	padding-bottom:5%;
+	margin-top:0%;
+}
+.links2{
+	padding-top:5%;
+	padding-bottom:5%;
+	margin-top:0%;
+}
+.links3{
+	padding-top:5%;
+	padding-bottom:5%;
+	margin-top:0%;
+}
+.links4{
+	padding-top:5%;
+	padding-bottom:5%;
+	margin-top:0%;
+}
+#r1{
+	font-size:15px;
+	margin-left: -9px !important;
+}
+#b1{
+	font-size:15px;
+	margin-left: -9px !important;
+}
+#s1{
+	font-size:15px;
+	margin-left: -9px !important;
+}
+#st1{
+	font-size:15px;
+	margin-left: -9px !important;
+}
+.stok_head{
+	display:flex;
+}
+#stok_head{
+	padding-right:115px;
+	padding-left:0px;
+}
+#stok_cntnt{
+	padding-left:0px;
+	padding-right: 96px;
+}
+#line{
+	width:90%;
+	margin-left: -6px;
 }
 }

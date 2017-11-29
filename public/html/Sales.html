@@ -30,6 +30,7 @@
     <th id="hp_1">Date</th>
     <th>Invoice Number</th>
     <th id="d_th">Download Pdf</th>
+    <th id="d_th">Checked</th>
     </tr>
     </thead>
     <tr>
@@ -58,7 +59,7 @@
     <tr class="tbl_r1">
     <th id="hp_2">Date</th>
     <th>Invoice Number</th>
-    <th id="d_th">Download Pdf</th>
+    <th id="c_th">Download Pdf</th>
     </tr>
     </thead>
     <tr>
@@ -72,7 +73,7 @@
             
              <span id="b_d2">{{bill.date}}</span>
              <span id="i_d2">{{bill.inVoice}}</span>
-              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              <a  id='dwnldLnk d_d2'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
               
              </li>
              <hr id="sales_hr"/>
