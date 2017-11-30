@@ -114,23 +114,23 @@
           		<table class="table prevent-split b_tbl">
           		<tr>
 					<th><span>Sub Total</span></th>
-					<td><span data-prefix>INR</span>&nbsp<span>{{totalamt}}</span></td>
+					<td><span data-prefix>INR</span>&nbsp&nbsp&nbsp<span>{{totalamt}}</span></td>
 				</tr>
 				<tr>
 					<th><span >Shipping charges</span></th>
-					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" ng-model='$crtl.ship_chrg' class="form-control invoc_in"/></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.ship_chrg' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Tax</span></th>
-					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" ng-model='$crtl.tax' class="form-control invoc_in"/></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.tax' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Other Charge(s), If any.</span></th>
-					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-change="modalcalc()" ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Total</span></th>
-					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="text" class="form-control invoc_in" value="{{finalamt}}"/></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" class="form-control invoc_in" value="{{finalamt}}"/></td>
 				</tr>
 			</table>
 			</div>

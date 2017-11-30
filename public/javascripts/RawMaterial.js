@@ -266,8 +266,22 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   $scope.inNo="#AR"+n+chr.toString()+number;
 		   
 	   }
-	  $scope.stockcheck=function(code,quan)
+	  $scope.stockcheck=function(code,quan,category)
 	  {
+		  var cate=code.slice(3,5);
+		  if(cate=="cp"&&category=="Cover Page")
+			  {
+			  	
+			  		 $scope.checkc=true;	
+			  		
+			  }else if(cate=="rs"&&category=="Register")
+				  {
+				  $scope.checkc=true;	
+				  }else{
+					  $scope.checkc=false;	
+					  return ;
+				  }
+		  
 		  $http({
 			   method:"POST",
 			   url:"/api/check",
@@ -299,13 +313,15 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   $scope.StockError=true;
 			   
 		   });
+		  
 	  }
 	  $scope.addb = function(i){
 		  $scope.value=true;
 		 	 
 		  $scope.vm = this;
-	     if($scope.vm.$crtl!=undefined){ 
-	    	 $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity); 
+	     if($scope.vm.$crtl!=undefined&&$scope.vm.$crtl.code!=undefined&&$scope.vm.$crtl.quantity!=undefined){ 
+	    	 $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity,$scope.vm.$crtl.selected_item); 
+	      if($scope.checkc==true){
 	      if($scope.bill.length!=(i))
 		  {   
 	    	  
@@ -352,7 +368,15 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	      
 	    
 	     }else{
-	    	 $scope.error="cannot add More Rows until you fill out all columns";
+	    	 $scope.error="Category and code doesn't Match";
+	    	 $scope.err=true;
+	    	 $timeout(function(){
+				   $scope.err=false;
+			   },10000);
+	      }
+	     }
+	      else{
+	    	 $scope.error="cannot add More Rows until you fill out first three columns";
 	    	 $scope.err=true;
 	    	 $timeout(function(){
 				   $scope.err=false;
@@ -362,7 +386,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
     		 $scope.sitems.push(k++);
     		 }
 	    	 //$scope.error="cannot add More Rows until you fill out all columns";
-	     } 
+	     }
+	    
 	  }
 	    
 //	  $scope.done=function(){
@@ -471,6 +496,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  }
 	   }
 	$scope.checkgen=function(){
+		$scope.invoice();
 	  if($scope.totalamt!=0)
 		  {
 		  $scope.StockError=false;
@@ -524,7 +550,10 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  $scope.finalamt= ship_chrg+tax+o_chrg+totalamt;
 	  }
 	  */
-
+	  $scope.modalcalc=function(){
+		  $scope.vm=this;
+		  $scope.finalamt=$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg;
+	  }
 	  /*..........................Stock...................................*/
 	  $scope.sadd = function(i){
 		  $scope.value=true;
