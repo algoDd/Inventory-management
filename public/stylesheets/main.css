@@ -14,6 +14,7 @@
   .sidebar-nav .navbar li {
     float: none;
     display: block;
+    margin-bottom: -20px !important;
   }
   .sidebar-nav .navbar li a {
     padding-top: 12px;
@@ -49,7 +50,7 @@
     width: 100%;
 }
 .links1 {
-	padding-top: 10%;
+	padding-top: 15%;
 	text-decoration:none;
 display:block;
 font-size: 18px;
@@ -57,7 +58,7 @@ font-size: 18px;
    padding-left:5%;
 border-bottom: 1px solid rgba(128, 128, 128, 0.23);
 margin-top: 20%;
-padding-bottom: 10%;
+padding-bottom: 15%;
 background-size: 200% 100%;
 background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
 transition: background-position 1s;
@@ -66,13 +67,13 @@ transition: background-position 1s;
 	background-position: -100% 0;
 }
 .links2 {
-	padding-top: 10%;
+	padding-top: 15%;
 	text-decoration:none;
 	font-size: 18px;
     text-align: left;
      padding-left:5%;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.23);
-	padding-bottom: 10%;
+	padding-bottom: 15%;
 	background-size: 200% 100%;
 background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
 transition: background-position 1s;
@@ -81,13 +82,13 @@ transition: background-position 1s;
 	background-position: -100% 0;
 }
 .links3 {
-	padding-top: 10%;
+	padding-top: 15%;
 	text-decoration:none;
 	font-size: 18px;
     text-align: left;
      padding-left:5%;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.23);
-	padding-bottom: 10%;
+	padding-bottom: 15%;
 	background-size: 200% 100%;
 background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
 transition: background-position 1s;
@@ -96,7 +97,7 @@ transition: background-position 1s;
 	background-position: -100% 0;
 }
 .links4 {
-	padding-top: 10%;
+	padding-top: 15%;
 	text-decoration:none;
 	 padding-left:5%;
 	font-size: 18px;
@@ -105,7 +106,7 @@ transition: background-position 1s;
 background-image: linear-gradient(to right, transparent 50%, rgb(56, 219, 166) 50%);
 transition: background-position 1s;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.23);
-	padding-bottom: 10%;
+	padding-bottom: 15%;
 }
 .links4:hover{
 	background-position: -100% 0;
@@ -483,29 +484,33 @@ margin-bottom:20px !important
 	padding-top:0px;
 	padding-bottom:0px;
 }
+.navbar-collapse{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
 .links1{
-	padding-top:3%;
+	padding-top:5%;
 	color:white;
-	padding-bottom:3%;
-	margin-top:10%;
+	padding-bottom:5%;
+	margin-top:-2%;
 }
 .links2{
-	padding-top:3%;
+	padding-top:5%;
 	color:white;
-	padding-bottom:3%;
-	margin-top:10%;
+	padding-bottom:5%;
+	margin-top:0%;
 }
 .links3{
-	padding-top:3%;
+	padding-top:5%;
 	color:white;
-	padding-bottom:3%;
-	margin-top:10%;
+	padding-bottom:5%;
+	margin-top:0%;
 }
 .links4{
-	padding-top:3%;
+	padding-top:5%;
 	color:white;
-	margin-top:10%;
-	padding-bottom:3%;
+	margin-top:0%;
+	padding-bottom:5%;
 }
 a:focus #activepg{
 	padding-right: 3%;
@@ -823,6 +828,13 @@ a:focus #activepg4{
 	font-size: 15px !important;
 }
 @media (min-width:320px) and (max-width:359px){
+.nav>li{
+	margin-top: -20px !important;
+}
+.navbar-collapse{
+	padding-right:0px !important;
+	padding-left:0px !important;
+}
 .logo{
 	padding-top: 0px;
 	padding-left:0px;
@@ -898,5 +910,40 @@ a:focus #activepg4{
 #line{
 	width:90%;
 	margin-left: -6px;
+}
+a:focus #activepg{
+	padding-right: 3%;
+}
+#activepg {
+	padding: 3px 9px;
+}
+a:focus #activepg2{
+	padding-right: 3%;
+}
+#activepg2 {
+	padding: 3px 9px;
+}
+a:focus #activepg3{
+	padding-right: 3%;
+}
+#activepg3 {
+	padding: 3px 9px;
+}
+a:focus #activepg4{
+	padding-right: 3%;
+}
+#activepg4 {
+	padding: 3px 9px;
+}
+#s_srch{
+	margin-left: 93px;
+	margin-right: -54px;
+}
+.s_srch{
+	width:110px;
+	font-size:11px;
+	background-size:15px;
+	padding: 5px 10px 5px 23px;
+	margin-right:0px !important;
 }
 }

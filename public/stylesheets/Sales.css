@@ -215,9 +215,9 @@ th{
 	padding-right: 195px !important;
 }
 #sales_hr{
-	margin-left: -23px !important;
-	margin-right: -40px !important;
-	width: 200% !important;
+	margin-left: -9px !important;
+	margin-right: -8px !important;
+	width: 150% !important;
 	margin-top: 0px !important;
 	margin-bottom: -20px !important;
 	border-top: 1px solid #cecece !important;
@@ -369,7 +369,10 @@ th{
 	height:2px;
 	}
 	.tabs .content{
-	margin-top: 30px;
+	margin-top: 18px;
+	}
+	.tabs{
+	min-height:68vh;
 	}
 	.table{
 	max-width:100%;

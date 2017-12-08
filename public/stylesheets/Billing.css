@@ -68,7 +68,7 @@
 	}
 	#content{
 	max-width: 100% !important;
-	min-height:72vh !important;
+	min-height:66vh !important;
 	margin-bottom:-2% !important;
 	}
 	.fbill_ctrl{
@@ -131,7 +131,7 @@
 	margin-right: 2px ;
 	background-color:rgb(23, 211, 2) !important;
 	border-color:rgb(23, 211, 2) !important;
-	padding: 4px 7px;
+	padding: 4px 5px;
 }
 #prc_b{
 	border-top:none !important;
@@ -146,7 +146,7 @@
 }
 #content {
   max-width: 96%;
-  min-height: 72vh;
+  min-height: 68vh;
   padding-bottom:6% !important;
   overflow:auto;
   margin-top:1% !important;
@@ -165,7 +165,8 @@
 .b_clr{
 	background:red !important;
 	border-color: red !important;
-	padding: 4px 7px ;
+	padding: 4px 5px ;
+	margin-right: -3px;
 }
 body {
     overflow-y: scroll; 
@@ -539,7 +540,7 @@ address{
 	}
 	#content{
 	max-width: 100% !important;
-	min-height:72vh !important;
+	min-height:66vh !important;
 	margin-bottom:-11% !important;
 	margin-top: 4% !important;
 	}
@@ -551,7 +552,7 @@ address{
 	padding: 4px 2px !important;
 	}
 	.frst{
-	margin-left: -10% !important;
+	margin-left: -3% !important;
 	}
 	#prc_b{
 	width: 33% ! important;
