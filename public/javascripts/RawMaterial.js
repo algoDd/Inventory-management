@@ -540,12 +540,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	        .done(function(data) {
 	        	$scope.base64data=data;
 	        	 console.log($scope.base64data);
+	        	 $scope.save();
 	            kendo.saveAs({
 	                dataURI: data,
 	                fileName: "bill.pdf"
 	            });
 	        });
-	        $scope.save();
+	        
 		  
 		  
 	  }
@@ -559,7 +560,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  */
 	  $scope.modalcalc=function(){
 		  $scope.vm=this;
-		  $scope.finalamt=$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg;
+		  $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg;
 	  }
 	  /*..........................Stock...................................*/
 	  $scope.sadd = function(i){
