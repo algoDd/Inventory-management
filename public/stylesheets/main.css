@@ -628,18 +628,22 @@ a:focus #activepg4{
 	padding-top:3%;
 	margin-top:0%;
 	padding-bottom:3%;
+	color: white;
 }
 .links2{
 	padding-top:3%;
 	padding-bottom:3%;
+	color: white;
 }
 .links3{
 	padding-top:3%;
 	padding-bottom:3%;
+	color: white;
 }
 .links4{
 	padding-top:3%;
 	padding-bottom:3%;
+	color: white;
 }
 a:focus #activepg{
 	padding-right: 2%;
@@ -729,18 +733,22 @@ a:focus #activepg4{
   padding-top: 3%;
   padding-bottom:3%;
   margin-top: 0%;
+  color: white;
   }
   .links2{
   padding-top: 3%;
   padding-bottom:3%;
+  color: white;
   }
   .links3{
   padding-top: 3%;
+  color: white;
   padding-bottom:3%;
   }
   .links4{
   padding-top: 3%;
   padding-bottom:3%;
+  color: white;
   }
   a:focus #activepg{
 	padding-right: 2%;
@@ -868,21 +876,25 @@ a:focus #activepg4{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 .links2{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 .links3{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 .links4{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 #r1{
 	font-size:15px;
