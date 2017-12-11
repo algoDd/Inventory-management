@@ -10,11 +10,11 @@
 
 
 <label class="cont" id="c1">Customer
-  <input type="radio" checked="checked" name="radio" required>
+  <input type="radio" checked="checked" ng-click="dealer('N')" name="radio"required>
   <span class="checkmark"></span>
 </label>
-<label class="cont" id="c2">Dealer
-  <input type="radio" name="radio" required>
+<label  class="cont" id="c2">Dealer
+  <input type="radio" ng-click="dealer('Y')" name="radio" required>
   <span class="checkmark"></span>
 </label>
 <div id="content">
@@ -128,6 +128,13 @@
 					<th><span>Other Charge(s), If any.</span></th>
 					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-change="modalcalc()" ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
 				</tr>
+				
+				<tr ng-show="IsVisible">
+					<th><span>Deal Discount</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" class="form-control invoc_in"/></td>
+				</tr>
+		
+				<tr>
 				<tr>
 					<th><span>Total</span></th>
 					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" class="form-control invoc_in" value="{{finalamt}}"/></td>
@@ -153,4 +160,5 @@
     </div>
   </div>
 </body>
+
 </html>

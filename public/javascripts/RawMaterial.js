@@ -258,6 +258,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  console.log(i);
 	  }
 	  /*..........................Billing...................................*/
+
+	  $scope.IsVisible = false;
+      $scope.dealer = function (value) {
+          //If DIV is visible it will be hidden and vice versa.
+          $scope.IsVisible = value == "Y";
+      }
+	  
 	  $scope.invoice=function()
 	   {
 		   var number=Math.floor((Math.random() * 999999) + 1000);
