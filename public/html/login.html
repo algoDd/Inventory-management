@@ -8,6 +8,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="assets/javascripts/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
 <link rel="stylesheet" href="/assets/stylesheets/login.css">
 <script src="/assets/javascripts/login.js"></script>
 </head>
@@ -20,18 +22,18 @@
     <div class="col-lg-4 col-md-4 col-sm-4 hgt colr2">
         <div class="card card-container">
             <span class="glyphicon glyphicon-user icn"></span></p>
-            <form class="form-signin">
+            <form class="form-signin" onSubmit="return false;">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" ng-model="u_name" name="u_name" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" ng-model="u_name" name="u_name" class="form-control" placeholder="Email address" required autofocus autocomplete="off">
                 <input type="password" ng-model="u_pass" name="u_pass" class="form-control" placeholder="Password" required>
                 <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input id="rememberMe" type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin log_bttn" type="submit" ng-click="login()">Login</button>
             </form>
-            <a href="#" class="forgot-password">
+            <a href="#" class="forgot-password" ng-model="forgot_pass" ng-click="forgot()">
                 Forgot the password?
             </a>
         </div>

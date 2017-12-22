@@ -3,7 +3,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                          controllers.Assets.at(path="/public", file="html/index.html")
+GET     /                          controllers.Assets.at(path="/public", file="html/login.html")
 
 
 # An example controller showing how to use dependency injection
@@ -16,11 +16,13 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #Routes
 GET  /RawMaterial						controllers.Assets.at(path="/public", file="html/index.html")
 GET  /Billing						    controllers.Assets.at(path="/public", file="html/index.html")
-#GET /index								controllers.Assets.at(path="/public", file="html/index.html")
-GET /home								controllers.Assets.at(path="/public", file="html/index.html")
+GET /index								controllers.Assets.at(path="/public", file="html/index.html")
+#GET /home								controllers.Assets.at(path="/public", file="html/index.html")
 #GET /contact							controllers.Assets.at(path="/public", file="html/index.html")
 #GET /notespot								controllers.Assets.at(path="/public", file="html/upload.html")
 #GET /login								controllers.Assets.at(path="/public", file="html/index.html")
 #GET /admin								controllers.Assets.at(path="/public", file="html/admin.html")
 #APIs
 POST /api/rawMaterial					controllers.RawMaterialCrtl.rawMaterial
+POST   /api/login						controllers.LoginCtrl.login
+POST /api/forgot						controllers.LoginCtrl.forgotPassword
