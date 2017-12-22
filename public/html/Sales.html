@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body ng-controller="RMCrtl as $crtl">
+<div class="container-fluid">
+<div class="row row_algn">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="tabs">
+
+  <input type="radio" id="tab1" name="tab-control" checked>
+  <input type="radio" id="tab2" name="tab-control">
+  <input type="radio" id="tab3" name="tab-control">
+  
+  <ul>
+    <li title="Previous Orders" ng-click="getpdf('P')"><label for="tab1" role="button"><span>Previous Orders</span></label></li>
+    <li title="Completed Orders" ng-click="getpdf('C')"><label for="tab2" role="button"><br><span>Completed Orders</span></label></li>
+    <li title="Total Orders"><label for="tab3" role="button"><span>Total Orders</span></label></li>
+  </ul>
+
+  <div class="slider">
+    <div class="indicator"></div>
+  </div>
+  <div class="content">
+    <section>
+    <table class="table">
+    <thead>
+    <tr class="tbl_r1">
+    <th id="hp_1">Date</th>
+    <th>Invoice Number</th>
+    <th id="d_th">Download Pdf</th>
+    <th id="d_th">Checked</th>
+    </tr>
+    </thead>
+    <tr>
+    <td>
+   
+    <div ng-repeat='bill in bills | filter:searchP' class="form-group" id="field_bill sale_algn">
+             <ul id="ul_cls">
+             <li>
+             
+              <span id="b_d">{{bill.date}}</span>
+              <span id="i_d">{{bill.inVoice}}</span>
+             
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              <button class="btn btn-success c_clr" ng-click="prev($index)"><i class="fa fa-check c_clr"></i></button>
+             </li>
+              <hr id="sales_hr" />
+             </ul>  
+ </div>
+ </td>
+ </tr>
+ </table>
+    </section>
+    <section>
+    <table class="table">
+    <thead>
+    <tr class="tbl_r1">
+    <th id="hp_2">Date</th>
+    <th>Invoice Number</th>
+    <th id="c_th">Download Pdf</th>
+    </tr>
+    </thead>
+    <tr>
+    <td>
+     
+      
+      
+      <div ng-repeat="bill in billsCompleted | filter:searchP" class="form-group sl_al" id="field_bill sale_algn">
+              <ul id="ul_cls l_cls">
+             <li>
+            
+             <span id="b_d2">{{bill.date}}</span>
+             <span id="i_d2">{{bill.inVoice}}</span>
+              <a  id='dwnldLnk d_d2'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              
+             </li>
+             <hr id="sales_hr"/>
+             </ul>  
+ </div> 
+ </td>
+ </tr>
+ </table>
+ </section>
+    <section>
+     <div class="row algn_2">
+<div class="col-lg-2 col-md-2 col-sm-2 t_algn">
+<p>From</p><br/>
+
+<p>Bill</p><br/>
+
+<p>Raw Material</p><br/>
+
+<p>Total</p><br/>
+</div>
+<div class="col-lg-10 col-md-10 col-sm-10 t2_algn">
+<input class="t_in" type="date" id="date1" ng-model="date1" >
+To:<input class="t_in" type="date" id="date2" ng-model="date2" >
+<button class="btn btn-success c_clr" ng-click="getMonthSales()"><i class="fa fa-check c_clr"></i></button>
+<br/><br/>
+<input class="t_in t_in_b" type="text" value="{{BillTotal}}" ><br/><br/>
+<input class="t_in t_in_r" type="text" value="{{RawTotal}}" ><br/><br/>
+<input class="t_in t_in_t" type="text" value="{{salesBwDates}}" ><br/>
+</div>
+</div>
+   </section>
+  </div>
+</div>
+
+
+<!-- 
+<input type="text" id="searchit" ng-model="searchP" placeholder="search">
+<ul class="tabs" role="tablist">
+    <li>
+        <input type="radio" name="tabs" id="tab1" checked />
+        <label for="tab1"  role="tab"  aria-selected="true"  aria-controls="panel1" tabindex="0" ng-click="getpdf('P')">Previous Orders</label>
+        <div id="tab-content1" 
+             class="tab-content" 
+             role="tabpanel" 
+             aria-labelledby="description" 
+             aria-hidden="false">
+          <div class="cntnt">
+
+ <div ng-repeat='bill in bills | filter:searchP' class="form-group" id="field_bill">
+             <ul>
+             <li>
+             
+              <span id="b_d_c">Date:</span><span id="b_d">{{bill.date}}</span>
+              <span id="b_d_c">Invoice No.:</span><span id="i_d">{{bill.inVoice}}</span>
+             
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              <button class="btn btn-warning c_clr" ng-click="prev($index)"><i class="fa fa-check c_clr"></i></button>
+             </li>
+             </ul>  
+ </div> 
+</div>
+        </div>
+    </li>
+  
+    <li>
+        <input type="radio" name="tabs" id="tab2" />
+        <label for="tab2"
+               role="tab" 
+               aria-selected="false" 
+               aria-controls="panel2" 
+               tabindex="0" ng-click="getpdf('C')">Completed Orders</label>
+        <div id="tab-content2" 
+             class="tab-content"
+             role="tabpanel" 
+             aria-labelledby="specification" 
+             aria-hidden="true">
+          <div>
+
+<div ng-repeat="bill in billsCompleted | filter:search" class="form-group" id="field_bill">
+              <ul>
+             <li>
+             <span id="b_d_c">Date:</span> <span id="b_d2">{{bill.date}}</span>
+              <span id="b_d_c">Invoice No.:</span><span id="i_d2">{{bill.inVoice}}</span>
+              
+             
+              <a  id='dwnldLnk'  href={{bill.pdf}} download="AnshRetails.pdf">Download Pdf</a> 
+              
+             </li>
+             </ul>  
+ </div> 
+</div>
+        </div>
+    </li>
+	
+	<li>
+        <input type="radio" name="tabs" id="tab3" />
+        <label for="tab3"
+               role="tab" 
+               aria-selected="false" 
+               aria-controls="panel2" 
+               tabindex="0">Total Orders</label>
+                <div id="tab-content2" 
+             class="tab-content"
+             role="tabpanel" 
+             aria-labelledby="specification" 
+             aria-hidden="true">
+<div class="row algn_2">
+<div class="col-lg-2 col-md-2">
+<p>From</p><br/>
+
+<p>Bill</p><br/>
+
+<p>Raw Material</p><br/>
+
+<p>Total</p><br/>
+</div>
+<div class="col-lg-10 col-md-10">
+<input class="t_in" type="date" id="date1" ng-model="date1" >
+To:<input class="t_in" type="date" id="date2" ng-model="date2" >
+<button class="btn btn-warning c_clr" ng-click="getMonthSales()"><i class="fa fa-check c_clr"></i></button>
+<br/><br/>
+<input class="t_in t_b" type="text" value="{{BillTotal}}" ><br/><br/>
+<input class="t_in" type="text" value="{{RawTotal}}" ><br/><br/>
+<input class="t_in" type="text" value="{{salesBwDates}}" ><br/>
+</div>
+</div>
+        </div>
+    </li>
+</ul>
+-->
+<br style="clear: both;" />
+
+</div>
+</div>
+</div>  
+</body>
+<!-- 
+<script>
+
+$(document).ready(function(){
+
+    $('.sale_nav a').click(function(){
+
+        $('.sale_nav a').removeClass('currentLink').filter(this).addClass('currentLink');
+
+    });
+
+});
+</script>-->
+</html>

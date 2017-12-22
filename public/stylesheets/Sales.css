@@ -1,0 +1,461 @@
+.tabs {
+  left: 3%;
+  position: relative;
+  padding: 50px;
+  max-width: 90%;
+  min-height: 80vh;
+}
+.tabs input[name="tab-control"] {
+  display: none;
+}
+.btn:active{
+	box-shadow: none !important;
+	webkit-box-shadow: none !important;
+}
+.tabs .content section h2,
+.tabs ul li label {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 18px;
+  color: #428BFF;
+}
+.tabs ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.tabs ul li {
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 25%;
+  padding: 0 10px;
+  text-align: center;
+}
+.tabs ul li label {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: darkgrey;
+  font-size:21px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.tabs ul li label br {
+  display: none;
+}
+.tabs ul li label:hover, .tabs ul li label:focus, .tabs ul li label:active {
+  outline: 0;
+  color: #bec5cf;
+}
+.tabs .slider {
+  position: relative;
+  width: 25%;
+  -webkit-transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+  transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+}
+.tabs .slider .indicator {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 4px;
+  background: black;
+  border-radius: 1px;
+}
+.tabs .content {
+  margin-top: 40px;
+}
+.tabs .content section {
+  display: none;
+  -webkit-animation-name: content;
+          animation-name: content;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  line-height: 1.4;
+}
+
+.tabs input[name="tab-control"]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+  cursor: default;
+  color: black;
+}
+.tabs input[name="tab-control"]:nth-of-type(1):checked ~ .slider {
+  -webkit-transform: translateX(15%);
+          transform: translateX(15%);
+}
+.tabs input[name="tab-control"]:nth-of-type(1):checked ~ .content > section:nth-child(1) {
+  display: block;
+}
+.tabs input[name="tab-control"]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+  cursor: default;
+  color: black;
+}
+.tabs input[name="tab-control"]:nth-of-type(2):checked ~ .slider {
+  -webkit-transform: translateX(150%);
+          transform: translateX(150%);
+}
+.tabs input[name="tab-control"]:nth-of-type(2):checked ~ .content > section:nth-child(2) {
+  display: block;
+}
+.tabs input[name="tab-control"]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label {
+  cursor: default;
+  color: black;
+}
+.tabs input[name="tab-control"]:nth-of-type(3):checked ~ .slider {
+  -webkit-transform: translateX(285%);
+          transform: translateX(285%);
+}
+.tabs input[name="tab-control"]:nth-of-type(3):checked ~ .content > section:nth-child(3) {
+  display: block;
+}
+@-webkit-keyframes content {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes content {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+#hp_1{
+	padding-left:70px !important;
+	padding-right:150px !important;
+}
+
+#b_d{
+	margin-left: -45px;
+}
+#i_d{
+	margin-left: 140px;
+	margin-right: 140px;
+}
+#dwnldLnk{
+	margin-right: 135px;
+}
+.algn_2{
+	margin-top: 70px !important;
+	
+}
+.t_algn{
+	padding-left: 30px !important;
+}
+.t2_algn{
+	padding-left: 67px !important;
+}
+.t_algn p{
+	font-size: 15px !important;
+	font-weight:bold !important;
+}
+.t_in{
+	border: 1px solid black !important;
+	padding: 2px 5px !important;
+}
+.c_clr{
+	background-color:rgb(23, 211, 2) !important;
+}
+#b_d2{
+	margin-left: -80px!important;
+}
+#i_d2{
+	margin-left: 180px !important;
+	margin-right: 165px !important;
+}
+#d_d2{
+	margin-right: 0px !important;
+}
+.tbl_r1{
+	display: block;
+}
+th{
+	border-bottom:none !important;
+}
+#hp_2{
+	padding-left: 110px !important;
+	padding-right: 195px !important;
+}
+#sales_hr{
+	margin-left: -9px !important;
+	margin-right: -8px !important;
+	width: 150% !important;
+	margin-top: 0px !important;
+	margin-bottom: -20px !important;
+	border-top: 1px solid #cecece !important;
+}
+#sale_algn{
+	display: block !important;
+}
+.sl_al{
+	padding-top: 15px !important;
+}
+#d_th{
+	padding-left:130px !important;
+}
+#c_th{
+	padding-left:160px !important;
+}
+#ul_cls{
+	max-width: 100%;
+	padding-top: 18px;
+}
+@media (min-width:360px) and (max-width:480px){
+	.tabs ul{
+	margin-top: 18px;
+	margin-bottom:5px;
+	}
+	#ul_cls{
+	max-width: 100%;
+	padding-top: 10px;
+	}
+	#l_cls{
+	padding-top:0px !important;
+	}
+	#field_bill{
+	padding-left: 5%;
+	}
+	.tabs ul li{
+	font-size:11px;
+	width:53%;
+	padding:0px;
+	}
+	.tabs ul li label{
+	font-size: 12px;
+	}
+	.tabs .slider{
+	width:25%;
+	}
+	.tabs .slider .indicator{
+	max-width:100%;
+	height:2px;
+	}
+	.tabs .content{
+	margin-top: 30px;
+	}
+	.table{
+	max-width:100%;
+	}
+	.tbl_r1{
+	font-size: 9px;
+	}
+	#hp_1{
+	padding-left: 20px !important;
+	padding-right: 17px !important;
+	}
+	#d_th{
+	padding-left: 15px !important;
+	}
+	#b_d{
+	margin-left: -29px;
+	padding-right: 5px;
+	}
+	tabs ul li{
+	font-size: 12px;
+	}
+	#i_d{
+	padding-right: 15px;
+	margin-left: 0px;
+	margin-right:0px;
+	}
+	#dwnldLnk{
+	margin-right: 30px;
+	}
+	.c_clr{
+	padding: 2px 2px;
+	font-size: 10px;
+	}
+	.tabs{
+	left: 0%;
+	padding:0px;
+	max-width:100%;
+	}
+	#sales_hr{
+	margin-left:0px !important;
+	margin-right: 0px !important;
+	width: 100%;
+	}
+	#b_d2{
+	margin-left: -13px !important;
+	}
+	#i_d2{
+	margin-left: 15px !important;
+	margin-right: 25px !important;
+	}
+	#hp_2{
+	padding-left: 35px !important;
+	padding-right: 36px !important;
+	}
+	#c_th{
+	padding-left: 30px !important;
+	}
+	.algn_2{
+	display: flex;
+	}
+	.t2_algn{
+	padding-left: 0px !important;
+	}
+	.t_in{
+	width: 38%;
+	padding: 2px 3px !important;
+	}
+	.t_in_b{
+	margin-top: 6px !important;
+	}
+	.t_in_r{
+	margin-top: 10px !important;
+	}
+	.t_in_t{
+	margin-top: 18px !important;
+	}
+}
+@media (min-width:320px) and (max-width:359px){
+.tabs ul{
+	margin-top: 18px;
+	margin-bottom:5px;
+	}
+	#ul_cls{
+	max-width: 100%;
+	}
+	#field_bill{
+	padding-left: 5%;
+	}
+	.tabs ul li{
+	font-size:11px;
+	width:53%;
+	padding:0px;
+	}
+	.tabs ul li label{
+	font-size: 12px;
+	}
+	.tabs .slider{
+	width:25%;
+	}
+	.tabs .slider .indicator{
+	max-width:100%;
+	height:2px;
+	}
+	.tabs .content{
+	margin-top: 18px;
+	}
+	.tabs{
+	min-height:68vh;
+	}
+	.table{
+	max-width:100%;
+	}
+	.tbl_r1{
+	font-size: 9px;
+	}
+	#hp_1{
+	padding-left: 20px !important;
+	padding-right: 17px !important;
+	}
+	#d_th{
+	padding-left: 15px !important;
+	}
+	#b_d{
+	margin-left: -20px;
+	padding-right: 5px;
+	}
+	tabs ul li{
+	font-size: 12px;
+	}
+	#i_d{
+	padding-right: 15px;
+	margin-left: 0px;
+	margin-right:0px;
+	}
+	#dwnldLnk{
+	margin-right: 24px;
+	}
+	.c_clr{
+	padding: 2px 2px;
+	font-size: 10px;
+	}
+	.tabs{
+	left: 0%;
+	padding:0px;
+	max-width:100%;
+	}
+	#sales_hr{
+	margin-left:0px !important;
+	margin-right: 0px !important;
+	width: 100%;
+	}
+	#b_d2{
+	margin-left: -13px !important;
+	}
+	#i_d2{
+	margin-left: 15px !important;
+	margin-right: 25px !important;
+	}
+	#hp_2{
+	padding-left: 35px !important;
+	padding-right: 36px !important;
+	}
+	#c_th{
+	padding-left: 30px !important;
+	}
+	.algn_2{
+	display: flex;
+	}
+	.t2_algn{
+	padding-left: 0px !important;
+	}
+	.t_in{
+	width: 38%;
+	padding: 2px 3px !important;
+	}
+	.t_in_b{
+	margin-top: 6px !important;
+	}
+	.t_in_r{
+	margin-top: 10px !important;
+	}
+	.t_in_t{
+	margin-top: 18px !important;
+	}
+}

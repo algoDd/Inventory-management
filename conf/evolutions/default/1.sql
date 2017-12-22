@@ -3,6 +3,7 @@
 
 # --- !Ups
 
+
 create table public.login (
   id                        bigserial not null,
   usernm                    varchar(255),
@@ -11,22 +12,18 @@ create table public.login (
   lastlogin                 date,
   name                      varchar(255),
   constraint pk_login primary key (id))
-;
-
-create table public.raw_material (
-  id                        serial not null,
-  quantity                  integer,
-  price                     integer,
-  name                      varchar(255),
-  constraint pk_raw_material primary key (id))
-;
-
-
-
-
+;  
 # --- !Downs
 
+
 drop table if exists public.login cascade;
+drop table if exists public.billsales cascade;
+
+drop table if exists public.code cascade;
 
 drop table if exists public.raw_material cascade;
+
+drop table if exists public.rmtotal cascade;
+
+drop table if exists public.stock cascade;
 
