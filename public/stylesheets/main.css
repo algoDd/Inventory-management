@@ -195,55 +195,48 @@ a:focus #activepg4{
 margin-top:5px; 
 margin-bottom:20px !important
 }
-.cube {
-	width: 40%;
-	float: right;
-	text-align: center;
-	margin: 4px 10px;
-	height: 34px;
-
-	-webkit-transition: -webkit-transform .33s;
-	transition: transform .33s; /* Animate the transform properties */
-
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d; /* <-NB */
-}
-
-/* The two faces of the cube */
-.flippety,.flop {
+.flippety {
 	background: #1f2b3c;
 	box-shadow: 2px 2px 5px grey;
 	height: 50px;
 	border-radius: 5px;
-}
-
-/* Position the faces */
-.flippety {
-	-webkit-transform: translateZ(100px);
-	transform: translateZ(100px);
-}
-
-.flop {
-	-webkit-transform: rotateX(-90deg) translateZ(-100px);
-	transform: rotateX(-90deg) translateZ(-60px);
-}
-
-/* Rotate the cube */
-.cube:hover {
-	-webkit-transform: rotateX(90deg);
-	transform: rotateX(90deg); /* Text bleed at 90� */
+	width:65px;
+	margin-top:7px;
+	margin-bottom:-10px;
+	float:right;
 }
 .lgot{
 	color:white !important;
-	font-size:30px !important;
-	padding-top:8px !important;
+	font-size:25px !important;
+	padding-top:2px !important;
+	padding-left:20px !important;
 }
 #l_out{
 	color:white !important;
-	padding-top:15px !important;
+	padding-left:8px !important;
 	font-size: 15px !important;
 }
-
+.flippetys {
+	background: #1f2b3c;
+	box-shadow: 2px 2px 5px grey;
+	height: 50px;
+	border-radius: 5px;
+	width:77px;
+	margin-top:7px;
+	margin-bottom:-10px;
+	margin-left:-25px;
+}
+.lgots{
+	color:white !important;
+	font-size:26px !important;
+	padding-top:2px !important;
+	padding-left:25px;
+}
+#l_outs{
+	color:white !important;
+	padding-left:5px !important;
+	font-size: 14px !important;
+}
 #r1{
 	color:black;
 	display:none;
@@ -333,8 +326,8 @@ margin-bottom:20px !important
   padding: 1.5em 0em;
   position: absolute;
   top: 30%;
-  left: 50%;
-  width: 40em;
+  left: 60%;
+  width: 33em;
   margin: 0 0 0 -20em;
 }
 #wlcm_by{
@@ -530,18 +523,34 @@ a:focus #activepg4{
 	padding-right: 3%;
 	padding-left: 3%;
 }
-.cube{
-	width: 150%;
-	margin: 3px 0px;
-}
-.flippety{
-	height: 40px;
+.flippety {
+	height: 36px;
+	width:50px;
+	margin-top:4px;
+	margin-bottom:-2px;
 }
 .lgot{
-	font-size: 25px !important;
+	font-size:18px !important;
+	padding-left:17px !important;
 }
 #l_out{
-	padding-top:10px !important;
+	font-size: 12px !important;
+}
+.flippetys {
+	height: 36px;
+	width:77px;
+	margin-top:4px;
+	margin-bottom:-2px;
+	margin-left:-100px;
+}
+.lgots{
+	font-size:21px !important;
+	padding-top:0px !important;
+	padding-left:27px;
+}
+#l_outs{
+	padding-left:12px !important;
+	font-size: 11px !important;
 }
 #try{
 	width:60%;
@@ -610,15 +619,37 @@ a:focus #activepg4{
 	font-size: 25px !important;
 	margin-top: -5px !important;
 }
-.cube{
-	width: 55%;
-	margin: 4px -4px;
+.flippety {
+	height: 48px;
+	width:65px;
+	margin-top:4px;
+	margin-bottom:-2px;
 }
 .lgot{
-	font-size: 25px !important;
+	font-size:25px !important;
+	padding-top:2px !important;
+	padding-left:20px !important;
 }
-.flippety{
-	height:40px;
+#l_out{
+	padding-left:8px !important;
+	font-size: 15px !important;
+}
+.flippetys {
+	height: 48px;
+	width:77px;
+	margin-top:4px;
+	margin-bottom:-2px;
+	margin-left:-111px;
+}
+.lgots{
+	font-size:26px !important;
+	padding-top:2px !important;
+	padding-left:25px;
+}
+#l_outs{
+	color:white !important;
+	padding-left:5px !important;
+	font-size: 14px !important;
 }
 .navbar-nav>li>a{
 	padding-right:0px !important;
@@ -723,12 +754,39 @@ a:focus #activepg4{
   font-size: 25px!important;
   margin-top: -5px !important;
   }
-  .cube{
-  margin: 4px -4px;
-  }
-  .flippety{
-  height:46px;
-  }
+  .flippety {
+	height: 50px;
+	border-radius: 5px;
+	width:65px;
+	margin-top:7px;
+	margin-bottom:-10px;
+}
+.lgot{
+	font-size:25px !important;
+	padding-top:2px !important;
+	padding-left:20px !important;
+}
+#l_out{
+	padding-left:8px !important;
+	font-size: 15px !important;
+}
+.flippetys {
+	height: 50px;
+	width:77px;
+	margin-top:7px;
+	margin-bottom:-10px;
+	margin-left:-65px;
+}
+.lgots{
+	font-size:26px !important;
+	padding-top:2px !important;
+	padding-left:25px;
+}
+#l_outs{
+	color:white !important;
+	padding-left:5px !important;
+	font-size: 14px !important;
+}
   .links1{
   padding-top: 3%;
   padding-bottom:3%;
@@ -784,58 +842,35 @@ a:focus #activepg4{
 	left:57%;
 	width:35em;
 }
-.cube{
-	width: 100%;
+.flippety {
+	height: 36px;
+	width:50px;
+	margin-top:4px;
+	margin-bottom:-2px;
 }
+.lgot{
+	font-size:18px !important;
+	padding-left:17px !important;
 }
-.cubes {
-	width: 60%;
-	margin-left: 68%;
-	float: right;
-	text-align: center;
-	margin: 4px 10px;
-	height: 34px;
-	display:none;
-	-webkit-transition: -webkit-transform .33s;
-	transition: transform .33s; /* Animate the transform properties */
-
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d; /* <-NB */
+#l_out{
+	font-size: 12px !important;
 }
-
-/* The two faces of the cube */
-.flippetys,.flops {
-	background: #1f2b3c;
-	box-shadow: 2px 2px 5px grey;
-	height: 50px;
-	border-radius: 5px;
-}
-
-/* Position the faces */
 .flippetys {
-	-webkit-transform: translateZ(100px);
-	transform: translateZ(100px);
-}
-
-.flops {
-	-webkit-transform: rotateX(-90deg) translateZ(-100px);
-	transform: rotateX(-90deg) translateZ(-60px);
-}
-
-/* Rotate the cube */
-.cubes:hover {
-	-webkit-transform: rotateX(90deg);
-	transform: rotateX(90deg); /* Text bleed at 90� */
+	height: 36px;
+	width:77px;
+	margin-top:4px;
+	margin-bottom:-2px;
+	margin-left:-100px;
 }
 .lgots{
-	color:white !important;
-	font-size:30px !important;
-	padding-top:8px !important;
+	font-size:21px !important;
+	padding-top:0px !important;
+	padding-left:23px;
 }
 #l_outs{
-	color:white !important;
-	padding-top:15px !important;
-	font-size: 15px !important;
+	padding-left:5px !important;
+	font-size: 11px !important;
+}
 }
 @media (min-width:320px) and (max-width:359px){
 .nav>li{
@@ -961,5 +996,34 @@ a:focus #activepg4{
 	background-size:15px;
 	padding: 5px 10px 5px 23px;
 	margin-right:0px !important;
+}
+.flippety {
+	height: 36px;
+	width:50px;
+	margin-top:4px;
+	margin-bottom:-2px;
+}
+.lgot{
+	font-size:18px !important;
+	padding-left:17px !important;
+}
+#l_out{
+	font-size: 12px !important;
+}
+.flippetys {
+	height: 36px;
+	width:65px;
+	margin-top:4px;
+	margin-bottom:-2px;
+	margin-left:-100px;
+}
+.lgots{
+	font-size:21px !important;
+	padding-top:0px !important;
+	padding-left:23px;
+}
+#l_outs{
+	padding-left:5px !important;
+	font-size: 11px !important;
 }
 }

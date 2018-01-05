@@ -14,7 +14,7 @@
   <input type="radio" id="tab3" name="tab-control">
   
   <ul>
-    <li title="Previous Orders" ng-click="getpdf('P')"><label for="tab1" role="button"><span>Previous Orders</span></label></li>
+    <li title="Previous Orders" ng-click="getpdf('P')"><label for="tab1" role="button"><span>Current Orders</span></label></li>
     <li title="Completed Orders" ng-click="getpdf('C')"><label for="tab2" role="button"><br><span>Completed Orders</span></label></li>
     <li title="Total Orders"><label for="tab3" role="button"><span>Total Orders</span></label></li>
   </ul>
@@ -88,11 +88,11 @@
 <div class="col-lg-2 col-md-2 col-sm-2 t_algn">
 <p>From</p><br/>
 
-<p>Bill</p><br/>
+<p>Bill Amount</p><br/>
 
-<p>Raw Material</p><br/>
+<p>RM Cost</p><br/>
 
-<p>Total</p><br/>
+<p>Total Profit</p><br/>
 </div>
 <div class="col-lg-10 col-md-10 col-sm-10 t2_algn">
 <input class="t_in" type="date" id="date1" ng-model="date1" >
@@ -104,10 +104,17 @@ To:<input class="t_in" type="date" id="date2" ng-model="date2" >
 <input class="t_in t_in_t" type="text" value="{{salesBwDates}}" ><br/>
 </div>
 </div>
+<div class="c100 p25">
+                    <span>{{percent}}</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
    </section>
   </div>
 </div>
-
+ 
 
 <!-- 
 <input type="text" id="searchit" ng-model="searchP" placeholder="search">

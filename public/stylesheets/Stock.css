@@ -39,16 +39,6 @@
 	padding: 4px 3px !important;
 	font-size: 9px !important;
 	}
-	.cubes{
-	margin-right: 3px !important;
-	width: 150%;
-	}
-	.flippetys{
-	height: 40px;
-	}
-	.lgots{
-	padding-top: 3px !important;
-	}
 }
 .btn:active{
 	box-shadow: none !important;
@@ -153,17 +143,5 @@
 	margin-left: 1px !important;
 	padding: 4px 3px !important;
 	font-size: 10px !important;
-	}
-	.cubes{
-	margin-right: -3px !important;
-	width: 206%;
-	margin-bottom: -2px !important;
-	}
-	.flippetys{
-	height: 33px;
-	}
-	.lgots{
-	padding-top: 3px !important;
-	font-size: 25px !important;
 	}
 }

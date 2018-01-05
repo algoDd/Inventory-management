@@ -179,6 +179,7 @@
 }
 .algn_2{
 	margin-top: 70px !important;
+	margin-bottom:20px;
 	
 }
 .t_algn{
@@ -197,6 +198,7 @@
 }
 .c_clr{
 	background-color:rgb(23, 211, 2) !important;
+	    margin-top: 2%;
 }
 #b_d2{
 	margin-left: -80px!important;
@@ -333,6 +335,10 @@ th{
 	}
 	.algn_2{
 	display: flex;
+	margin-top:55px !important;
+	}
+	.t_algn p {
+    font-size: 13px !important;
 	}
 	.t2_algn{
 	padding-left: 0px !important;
@@ -441,6 +447,13 @@ th{
 	}
 	.algn_2{
 	display: flex;
+	margin-top:40px !important;
+	}
+	.t_algn{
+	padding-left: 18px !important;
+	}
+	.t_algn p {
+    font-size: 12px !important;
 	}
 	.t2_algn{
 	padding-left: 0px !important;

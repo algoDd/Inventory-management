@@ -53,9 +53,7 @@
 <div ng-show="one">
     <div ng-repeat='item in sitems' class="form-group " ng-class-even="'odd'" id="field_stock">
           <select ng-model='$crtl.selected_item' class="form-control fc1" name="item_name" required>
-          <option value="" selected>Select Your Product</option>
-          <option value="Register" selected>Registers</option>
-          <option value="Cover Page">Cover Page</option>
+          <option value="" selected>Registers</option>
           </select>&nbsp
           <input type="text" ng-model='$crtl.code'  class="form-control fc2" placeholder="Code" required></input>&nbsp
           <input type="number" ng-model='$crtl.quantity' ng-change="checkcode($crtl.code)" class="form-control fc3" placeholder="Quantity" required></input>&nbsp

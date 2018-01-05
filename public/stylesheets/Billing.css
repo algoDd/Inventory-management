@@ -43,6 +43,13 @@
 	.r_a{
 	display:flex;
 	}
+	.head_1{
+	margin-left:0%;
+	}
+	.type_row {
+    padding-top: 10px;
+    padding-left: 15px;
+	}
 	#h2_head{
 	font-size: 16px !important;
 	padding-left: 30px;
@@ -71,12 +78,22 @@
 	font-size: 16px !important;
 	}
 	#c1{
-	margin-left: 19% !important;
+	margin-left: 0% !important;
     margin-top: 3% !important;
 	}
 	.cont{
-	font-size: 14px !important;
+	font-size: 12px !important;
+	padding-left:25px;
 	}
+	#blank {
+    margin-left: 28% !important;
+    }
+    #c4 {
+    margin-left: 30% !important;
+    }
+    #c5 {
+    margin-left: 0% !important;
+    }
 	.checkmark{
 	height:20px !important;
 	width:20px !important;
@@ -89,7 +106,7 @@
 	}
 	#content{
 	max-width: 100% !important;
-	min-height:66vh !important;
+    min-height: 55vh;
 	margin-bottom:-2% !important;
 	}
 	.fbill_ctrl{
@@ -168,11 +185,11 @@
     margin-right: 0% !important;
 }
 #content {
-  max-width: 100%;
-  min-height: 68vh;
+  max-width: 96%;
+ min-height: 55vh;
   padding-bottom:6% !important;
   overflow:auto;
-  margin-top:1% !important;
+  margin-top:4% !important;
   margin-bottom:6%;
   margin: 0 auto;
   background: white;
@@ -321,11 +338,32 @@ tr:hover .cut { opacity: 1; }
     padding: 25px 10px 0px 3px !important;
     margin-left:-3px;
 }
+.head_1{
+	margin-left:5%;
+}
 #c1{
-	margin-left:38%;
+	margin-left:2%;
 }
 #c2{
 	margin-left:5% !important;
+}
+.type_row{
+	padding-top:25px;
+	}
+#rule{
+	margin-left:2%;
+}
+#blank{
+	margin-left:4%;
+}
+#c3{
+	margin-left:2%;
+}
+#c4,#c5{
+	margin-left: 10%;
+}
+label{
+	display:inline;
 }
 .cont {
     display: inline-block;
@@ -438,6 +476,7 @@ address{
 #stamp{
 	margin-left:68%;
 	font-size: 15px !important;
+	border-top:3px solid black;
 }
 #h_l{
 	margin-bottom: 35px! important;
@@ -572,25 +611,42 @@ address{
 	font-size: 15px !important;
 	}
 	#c1{
-	margin-left: 18% !important;
+	margin-left: 0% !important;
     margin-top: 3% !important;
 	}
+	#blank {
+    margin-left: 27%;
+    }
+    .type_row{
+    padding-left:15px;
+    padding-top:10px;
+    }
+    #c4{
+    margin-left:40%;
+    }
+    #c5{
+    margin-left:0%;
+    }
 	.cont{
-	font-size: 14px !important;
+	font-size: 10px !important;
+	padding-left:18px;
+	}
+	#rule {
+    margin-left: 0%;
 	}
 	.checkmark{
-	height:20px !important;
-	width:20px !important;
+	height:15px !important;
+	width:15px !important;
 	}
 	.cont .checkmark:after{
-	top:7px !important;
-	left:7px !important;
+	top:4px !important;
+	left:5px !important;
 	width:6px !important;
 	height:6px !important;
 	}
 	#content{
 	max-width: 100% !important;
-	min-height:66vh !important;
+	min-height:55vh !important;
 	margin-bottom:-11% !important;
 	margin-top: 4% !important;
 	}
@@ -635,4 +691,7 @@ address{
 	margin-left:0px !important;
 	margin-right: 0px !important;
 }
+   .head_1{
+   margin-left:0%;
+   }
 }
