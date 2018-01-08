@@ -7,14 +7,35 @@
 <div class="container-fluid">
 <div class="row r_algn">
 <div class="col-lg-12 col-md-12 col-sm-12 c_algn">
-
-
+<b>Type :</b>
+<label class="cont" id="rule">Ruled Spiral
+  <input id="ruled" type="radio" checked="checked" name="radio1" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="blank">Blank Spiral
+  <input type="radio"id="blank" name="radio1" required>
+  <span class="checkmark"></span>
+</label><br>
+<b>Selling To :</b>
 <label class="cont" id="c1">Customer
-  <input type="radio" checked="checked" name="radio" required>
+  <input id="cust" type="radio" checked="checked" name="radio2" required>
   <span class="checkmark"></span>
 </label>
 <label class="cont" id="c2">Dealer
-  <input type="radio" name="radio" required>
+  <input type="radio"id="deal" checked="checked" name="radio2" required>
+  <span class="checkmark"></span>
+</label><br>
+<b>Registers :</b>
+<label class="cont" id="c3">200
+  <input id="r200" type="radio" name="radio3" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="c4">300
+  <input type="radio"id="r300" name="radio3" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="c5">500
+  <input id="r500" type="radio" name="radio3" required>
   <span class="checkmark"></span>
 </label>
 <div id="content">
@@ -38,12 +59,10 @@
 <div ng-show="one">
     <div ng-repeat='item in bitems' class="form-group" ng-class-even="'odd'" id="field_bill">
           <select ng-model='$crtl.selected_item' class="form-control frst fbill_ctrl" name="item_name" required>
-          <option value="" selected>Select Your Product</option>
-          <option value="Register" selected>Registers</option>
-          <option value="Cover Page">Cover Page</option>
+          <option value="" selected>Cover Page</option>
           </select>&nbsp
-          <input type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code" required autocomplete></input>&nbsp
-          <input type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity" required></input>&nbsp
+          <input autocomplete="on" type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code" required autocomplete></input>&nbsp
+          <input autocomplete="on" type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity" required></input>&nbsp
           <i class="fa f_i fa-inr"></i><input type="number" value="{{$crtl.price}}"  class="form-control fbill_ctrl" id="prc_b" required></input>&nbsp
        <button  class="btn btn-success bl_clr" ng-click='addb($index)'><i class="fa fa-check"></i></button> 
       <button class="btn btn-primary b_clr" ng-click='bdel($index)'><i class="fa fa-close"></i></button>&nbsp       
@@ -95,6 +114,7 @@
          <thead>
          <tr>
         <th id="th_clr">Description</th>
+        <th id="th_clr">No Of Pages</th>
         <th id="th_clr">Code</th>
         <th id="th_clr">Quantity</th>
         <th id="th_clr">Price</th>
@@ -102,7 +122,8 @@
     </thead>
     <tbody>
       <tr ng-repeat="bills in bill" >
-        <td><span ng-bind="bills.catagory"></span></td>
+        <td><span>Register</span></td>
+        <td><span>{{noOfPages}}</span></td>
         <td><span ng-bind="bills.code"></span></td>
         <td><span ng-bind="bills.quantity"></span></td>
         <td><span ng-bind="bills.price"></span></td>
@@ -113,7 +134,7 @@
      
           		<table class="table prevent-split b_tbl">
           		<tr>
-					<th><span>Sub Total</span></th>
+					<th><span>Cover Page Cost</span></th>
 					<td><span data-prefix>INR</span>&nbsp&nbsp&nbsp<span>{{totalamt}}</span></td>
 				</tr>
 				<tr>
@@ -135,10 +156,7 @@
 			</table>
 			</div>
 			</div>
-			<div id="lines" class="prevent-split">	
 			
-				<hr id="h_s"/>				
-		</div>
 		<div id="wrds"  class="prevent-split">	
 				<span id="stamp">Authorised Stamp</span>				
 		</div>

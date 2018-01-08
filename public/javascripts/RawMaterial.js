@@ -45,6 +45,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  $scope.billsCompleted=[];
 	  $scope.stocks=[];
 	  var k=0;
+	  $scope.noOfPages=0;
+	  $scope.percent="0%";
 	  var date= new Date();
 	  var d=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate());
 	  $scope.date=d.toString();
@@ -63,7 +65,28 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	   $scope.BillTotal=0;
 	   $scope.RawTotal=0;
 	   var a=-1;
-	   
+	  /* $http({
+		   method:"GET",
+		   url:"/api/scarap	",
+		  
+	   }).then(function (success){
+		   console.log(success.data);
+		   $scope.err=false;
+		   $scope.succ=true;
+		   $timeout(function(){
+			   $scope.succ=false;
+		   },3000);
+		   $scope.success="Data Was Stored Successfully!! REDIRECTING TO THE MAIN PAGE";
+		   
+	   },function (error){
+		   $scope.err=true;
+		   $timeout(function(){
+			   $scope.err=false;
+		   },3000);
+		   $scope.succ=false;
+		   $scope.error="Uhh!! Error Not Able To Save";
+		  
+	   });*/
 	   if ($scope.items.length < 10) {
 		      $scope.items.push(k++);
  	 }
@@ -320,7 +343,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined&&$scope.vm.$crtl.code!=undefined&&$scope.vm.$crtl.quantity!=undefined){ 
-	    	 $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity,$scope.vm.$crtl.selected_item); 
+	    	 $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity,"Cover Page"); 
 	      if($scope.checkc==true){
 	      if($scope.bill.length!=(i))
 		  {   
@@ -368,7 +391,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	      
 	    
 	     }else{
-	    	 $scope.error="Category and code doesn't Match";
+	    	 $scope.error="Please Enter A Valid Code";
 	    	 $scope.err=true;
 	    	 $timeout(function(){
 				   $scope.err=false;
@@ -553,7 +576,78 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 	  */
 	  $scope.modalcalc=function(){
 		  $scope.vm=this;
-		  $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg;
+		  
+		  var retail1 = document.getElementById("deal").checked;
+		  var retail2 = document.getElementById("cust").checked;
+		  var type1 = document.getElementById("ruled").checked;
+		  var type2 = document.getElementById("blank").checked;
+		  var regi1 = document.getElementById("r200").checked;   
+		  var regi2 = document.getElementById("r300").checked;
+		  var regi3 = document.getElementById("r500").checked;
+		  if(type1){
+			  console.log("ruled");
+			   if(retail1){
+				   console.log("dealer");
+				   if(regi1)
+					   {
+					   console.log("200" + "%"+$scope.finalamt);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+40;
+					   $scope.noOfPages=200;
+					   }else if(regi2){
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+55;
+						   $scope.noOfPages=300;
+					   }else{
+						   $scope.noOfPages=500;
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+90;
+					   }
+			   }else{
+				   if(regi1)
+				   {
+					   $scope.noOfPages=200;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+45;
+				   }else if(regi2){
+					   $scope.noOfPages=300;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+65; 
+				   }else{
+					   $scope.noOfPages=500;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+100;
+				   }
+			   }
+		  }else{
+			  if(retail1){
+				   if(regi1)
+					   {
+					   $scope.noOfPages=200;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+35;
+					   }else if(regi2){
+						   $scope.noOfPages=300;
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+50;
+					   }else{
+						   $scope.noOfPages=500;
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+85;
+					   }
+			   }else{
+				   if(regi1)
+				   {
+					   $scope.noOfPages=200;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+40;
+				   }else if(regi2){
+					   $scope.noOfPages=300;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+60;
+				   }else{
+					   $scope.noOfPages=500;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+95;  
+				   }
+			   }
+		  }
+		  
+		  
+			
+		/*  else{
+			  $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg;
+		  }*/
+		 
+		  
 	  }
 	  /*..........................Stock...................................*/
 	  $scope.sadd = function(i){
@@ -561,7 +655,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined){ 
-	    	 if($scope.vm.$crtl.code!=undefined&&$scope.vm.$crtl.selected_item!=undefined&&$scope.vm.$crtl.quantity!=undefined)
+	    	 if($scope.vm.$crtl.code!=undefined&&scope.vm.$crtl.quantity!=undefined)
 	    	 {
 	      if($scope.stocks.length!=(i))
 		  {   
@@ -781,7 +875,8 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   console.log(success.data);
 			   $scope.BillTotal=success.data.BillTotal;
 			   $scope.RawTotal=success.data.RawTotal;
-			   $scope.salesBwDates=$scope.BillTotal+$scope.RawTotal;
+			   $scope.salesBwDates=Math.abs($scope.BillTotal-$scope.RawTotal);
+			   $scope.percent=Math.round(( $scope.salesBwDates/($scope.RawTotal))*100) +"%";
 			   $scope.err=false;
 			   $scope.succ=false;
 		   },function (error){

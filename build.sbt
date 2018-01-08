@@ -45,6 +45,6 @@ libraryDependencies  ++= Seq(
  "com.opencsv" % "opencsv" % "3.8",
  "log4j" % "log4j" % "1.2.14"
 )
+libraryDependencies += "nz.ac.waikato.cms.weka" % "weka-dev" % "3.7.10"
 libraryDependencies += "org.apache.commons" % "commons-math3" % "3.5"
 libraryDependencies += "com.google.code.maven-play-plugin.org.playframework" % "play" % "1.2.6.1"
-libraryDependencies += "nz.ac.waikato.cms.weka" % "weka-dev" % "3.7.10"
