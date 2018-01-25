@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body ng-controller="RMCrtl as $crtl">
+<div class="container-fluid">
+<div class="row r_algn">
+<div class="col-lg-12 col-md-12 col-sm-12 c_algn">
+<b>Type :</b>
+<label class="cont" id="rule">Ruled Spiral
+  <input id="ruled" type="radio" checked="checked" name="radio1" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="blank">Blank Spiral
+  <input type="radio"id="blank" name="radio1" required>
+  <span class="checkmark"></span>
+</label><br>
+<b>Selling To :</b>
+<label class="cont" id="c1">Customer
+  <input id="cust" type="radio" checked="checked" name="radio2" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="c2">Dealer
+  <input type="radio"id="deal" checked="checked" name="radio2" required>
+  <span class="checkmark"></span>
+</label><br>
+<b>Registers :</b>
+<label class="cont" id="c3">200
+  <input id="r200" type="radio" name="radio3" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="c4">300
+  <input type="radio"id="r300" name="radio3" required>
+  <span class="checkmark"></span>
+</label>
+<label class="cont" id="c5">500
+  <input id="r500" type="radio" name="radio3" required>
+  <span class="checkmark"></span>
+</label>
+<div id="content">
+<article>
+  <nav class="btn-bar nav-dark b_nav" id="b_tab">
+    <a class="btn btn-glass">
+      Category
+    </a>
+    <a class="btn btn-glass">
+    Code
+    </a>
+    <a class="btn btn-glass">
+      Quantity
+    </a>
+    <a class="btn btn-glass">
+      Price
+    </a>
+  </nav>
+</article>
+
+<div ng-show="one">
+    <div ng-repeat='item in bitems' class="form-group" ng-class-even="'odd'" id="field_bill">
+          <select ng-model='$crtl.selected_item' class="form-control frst fbill_ctrl" name="item_name" required>
+          <option value="" selected>Cover Page</option>
+          </select>&nbsp
+          <input autocomplete="on" type="text" ng-model='$crtl.code' class="form-control fbill_ctrl " placeholder="Code" required autocomplete></input>&nbsp
+          <input autocomplete="on" type="number" ng-model='$crtl.quantity'  ng-change="calcPrice($crtl.code)" class="form-control fbill_ctrl" placeholder="Quantity" required></input>&nbsp
+          <i class="fa f_i fa-inr"></i><input type="number" value="{{$crtl.price}}"  class="form-control fbill_ctrl" id="prc_b" required></input>&nbsp
+       <button  class="btn btn-success bl_clr" ng-click='addb($index)'><i class="fa fa-check"></i></button> 
+      <button class="btn btn-primary b_clr" ng-click='bdel($index)'><i class="fa fa-close"></i></button>&nbsp       
+	</div>
+</div>
+
+</div>
+
+
+<button class="btn btn-info gen_butn" ng-disabled="StockError" ng-click='billinvoice()' data-toggle="modal" data-target="#bill_modal">Generate Bill</button>
+
+
+<!-- Modal -->
+  <div class="modal fade" id="bill_modal" role="dialog" > 
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" id="pdf_content">
+        <div class="alert alert-success" role="success" ng-show="suc" id="s_m"><strong>Success! </strong>{{s}}</div>
+<!-- <div class="alert alert-danger" role="alert" ng-show="er" id="s_m"><strong>Error! </strong>{{e}}</div>
+<div class="alert alert-warning" role="alert" ng-show="wa" id="s_m"><strong>Warning! </strong>{{w}}</div>-->
+          <button type="button" class="close cros " data-dismiss="modal" >&times;</button>
+          <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" > Generate Pdf</button>
+          <hr id="hr_top"/>
+          <p class="hd">ANSH RETAILS PVT. LTD.</p>
+          
+          <div class="row r_algn">
+          <div class="col-lg-4 col-md-4 col-sm-2 r_a">
+          <img id="logo_img" src="/assets/images/logo.jpeg"/>
+          <h2 id="h2_head">INVOICE</h2><br/>
+          <p id="p_clr">9910065715<br/>
+          7011125845<br/>
+          85888954331<br/><br/>
+          anshretails@yahoo.in</p>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-10 l_a">
+         <span id="bold_b"> Customer Name: </span><address  contenteditable><span ng-model='pdfname' id="pdfn"></span></address><br/>
+		  <span id="bold_b">Company Name: </span><address contenteditable>Nil</address><br/><br/>
+		  <span id="bold_b">PostCode: </span><address contenteditable>Nil</address><br/>
+		  <span id="bold_b">Date: </span><span>{{date}}</span><br/>
+		  <span id="bold_b">Invoice Number: </span><span>{{inNo}}</span></p><br/>
+		  <span id="thnk_b">Thank you for your business.<br/>
+		  Yours sincerely,<br/>
+		  Ansh Retails Pvt. Ltd.
+		  </span>
+		  
+        <div class="modal-body bill_modal_body prevent-split">
+          <table class="table table-bordered b_tbl">
+         <thead>
+         <tr>
+        <th id="th_clr">Description</th>
+        <th id="th_clr">No Of Pages</th>
+        <th id="th_clr">Code</th>
+        <th id="th_clr">Quantity</th>
+        <th id="th_clr">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="bills in bill" >
+        <td><span>Register</span></td>
+        <td><span>{{noOfPages}}</span></td>
+        <td><span ng-bind="bills.code"></span></td>
+        <td><span ng-bind="bills.quantity"></span></td>
+        <td><span ng-bind="bills.price"></span></td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+     
+          		<table class="table prevent-split b_tbl">
+          		<tr>
+					<th><span>Cover Page Cost</span></th>
+					<td><span data-prefix>INR</span>&nbsp&nbsp&nbsp<span>{{totalamt}}</span></td>
+				</tr>
+				<tr>
+					<th><span >Shipping charges</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.ship_chrg' class="form-control invoc_in"/></td>
+				</tr>
+				<tr>
+					<th><span>Tax</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.tax' class="form-control invoc_in"/></td>
+				</tr>
+				<tr>
+					<th><span>Other Charge(s), If any.</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-change="modalcalc()" ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
+				</tr>
+				<tr>
+					<th><span>Total</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" class="form-control invoc_in" value="{{finalamt}}"/></td>
+				</tr>
+			</table>
+			</div>
+			</div>
+			
+		<div id="wrds"  class="prevent-split">	
+				<span id="stamp">Authorised Stamp</span>				
+		</div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

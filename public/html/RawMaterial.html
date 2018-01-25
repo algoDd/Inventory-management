@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body ng-controller="RMCrtl as $crtl">
+ <div id="content_raw"> 
+ <article>
+  <nav class="btn-bar nav-dark r_nav">
+    <a  class="btn btn-glass">
+      Item Name
+    </a>
+    <a  class="btn btn-glass">
+    Quantity
+    </a>
+    <a  class="btn btn-glass">
+     Price
+    </a>
+    <a  class="btn btn-glass">
+     Total Amount
+    </a>
+  </nav>
+</article>
+  <div ng-show="one">
+    <div ng-repeat='item in items' ng-class-even="'odd'" class="form-group divcolr" id="field">
+          <input type="text" ng-model="$crtl.name" class="form-control r1_ctrl" placeholder="Name" required/>&nbsp
+            <input type="number" ng-model='$crtl.quantity' class="form-control r2_ctrl" placeholder="Quantity" id="a" required></input>&nbsp
+            <input type="number"  ng-model='$crtl.price' class="form-control r3_ctrl"  placeholder="Price" id="b" required></input>&nbsp
+         <i class="fa f_i fa-inr"></i></i><input type="text" class="form-control r4_ctrl" value="{{$crtl.quantity*$crtl.price}}" id="prc"></input>&nbsp
+        
+       <button  class="btn btn-success r_clr" ng-click='add($index)'><i class="fa fa-check"></i></button> 
+      <button class="btn btn-primary  f_clr" ng-click='del($index)'><i class="fa fa-close"></i></button>&nbsp<br/>
+      
+	</div>
+	 
+         
+</div>
+
+
+	 <button ng-show="value" class="btn btn-info dn_mrgn" ng-click='submit()'>Done</button>
+  
+  </div>
+
+<!-- <div class="alert alert-success" role="success" ng-show="succ" style="margin-top:10px;">{{success}}</div>
+			<div class="alert alert-danger" role="alert" ng-show="err" style="margin-top:10px;">{{error}}</div>-->
+
+  
+
+
+
+</div>
+</body>
+</html>

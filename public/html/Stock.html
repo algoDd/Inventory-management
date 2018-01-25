@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body ng-controller="RMCrtl as $crtl">
+<div class="container-fluid">
+<div class="row row_algn">
+<div class="col-lg-12 col-md-12 col-sm-12">
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body ng-controller="RMCrtl as $crtl">
+<!-- 
+<button class="btn btn-info" ng-click="getStock()">View Stocks</button>
+<div>
+    <div ng-repeat='stock in stocks' class="form-group " ng-class-even="'odd'" id="field_stock">
+    <table>
+    	<tr>
+    	<th>Code</th>
+    	<th>&nbsp&nbspQuantity</th>
+    	</tr>
+    	<tr>
+    	<td>{{stock.code}}</td>
+    	<td>&nbsp&nbsp{{stock.quantity}}</td>
+    	</tr>  	
+    </table>
+    </div>
+    </div>
+ -->
+<div class="container-fluid">
+<div class="row row_algn">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div id="content_stock">
+<article>
+  <nav class="btn-bar nav-dark stock_nav">
+    <a class="btn btn-glass">
+      Category
+    </a>
+    <a class="btn btn-glass">
+    Code
+    </a>
+    <a class="btn btn-glass">
+      Quantity
+    </a>
+  </nav>
+</article>
+
+<div ng-show="one">
+    <div ng-repeat='item in sitems' class="form-group " ng-class-even="'odd'" id="field_stock">
+          <select ng-model='$crtl.selected_item' class="form-control fc1" name="item_name" required>
+          <option value="" selected>Registers</option>
+          </select>&nbsp
+          <input type="text" ng-model='$crtl.code'  class="form-control fc2" placeholder="Code" required></input>&nbsp
+          <input type="number" ng-model='$crtl.quantity' ng-change="checkcode($crtl.code)" class="form-control fc3" placeholder="Quantity" required></input>&nbsp
+         
+       <button  class="btn btn-success sc_clr" ng-click='sadd($index)'><i class="fa fa-check"></i></button> 
+      <button class="btn btn-primary stk_clr" ng-click='sdel($index)'><i class="fa fa-close"></i></button>&nbsp       
+	</div>
+	 
+</div>
+<button ng-show="value" class="btn btn-info s_dn_mrgn" ng-click='Ssubmit()'>Done</button>
+</div>
+
+</div>
+</div>
+</div>      
+</body>
+</html>

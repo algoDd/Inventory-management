@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+ANSH RETAILS
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/assets/stylesheets/main.css" rel="stylesheet" type="text/css">
+<link href="/assets/stylesheets/RawMaterial.css" rel="stylesheet" type="text/css">
+<link href="/assets/stylesheets/Billing.css" rel="stylesheet" type="text/css">
+<link href="/assets/stylesheets/Stock.css" rel="stylesheet" type="text/css">
+<link href="/assets/stylesheets/Sales.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/assets/stylesheets/circle.css">
+<!--  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+<script src="/assets/javascripts/jquery.min.js"></script>
+<script src="assets/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/pdfmake.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/vfs_fonts.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<link href="https://fonts.googleapis.com/css?family=Courgette|Josefin+Sans|Lobster" rel="stylesheet">
+<script src="http://kendo.cdn.telerik.com/2017.3.1026/js/kendo.all.min.js"></script>
+<script src="/assets/javascripts/RawMaterial.js" type="text/javascript"></script>
+
+</head>
+<body ng-app="RMApp" ng-controller="RMCrtl">
+<div class="col-md-2 navbar">
+
+<div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand">
+           <div class="logo">
+		<h3 id="logo_h">Ansh Retails</h3>
+		</div>
+         </span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav navbar-nav">
+          <li>
+           <a ui-sref="RawMaterial">
+        <div class="links1"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp<span>Raw Material</span>
+<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+</div>
+</a>
+<li>
+<a ui-sref="Billing" ng-init="checkgen()">
+<div class="links2"><i class="fa fa-inr " aria-hidden="true"></i>&nbsp<span>Billing</span>
+<i class="fa fa-angle-right" id="activepg2" aria-hidden="true"></i>
+</div>
+</a>
+<li>
+<a ui-sref="Stock">
+<div class="links3"><i class="fa fa-database" ></i>&nbsp<span>Stock</span>
+<i class="fa fa-angle-right" id="activepg3" aria-hidden="true"></i>
+</div>
+  </a>
+<li>
+<a ui-sref="Sales"  ng-init="getpdf('P')">
+<div class="links4"><i class="fa fa-line-chart" aria-hidden="true">&nbsp</i><span>Sales</span>
+<i class="fa fa-angle-right" id="activepg4" aria-hidden="true"></i>
+</div>
+
+  </a>
+<li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<!--  
+<div class="logo">
+<h3 id="logo_h">Ansh Retails</h3>
+</div>
+<a ui-sref="RawMaterial">
+<div class="links1"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp<span>Raw Material</span>
+<i class="fa fa-angle-right" id="activepg" aria-hidden="true"></i>
+</div>
+</a>
+<a ui-sref="Billing" ng-init="checkgen()">
+<div class="links2"><i class="fa fa-inr " aria-hidden="true"></i>&nbsp<span>Billing</span>
+<i class="fa fa-angle-right" id="activepg2" aria-hidden="true"></i>
+</div>
+</a>
+
+<a ui-sref="Stock">
+<div class="links3"><i class="fa fa-database" ></i>&nbsp<span>Stock</span>
+<i class="fa fa-angle-right" id="activepg3" aria-hidden="true"></i>
+</div>
+  </a>
+<a ui-sref="Sales"  ng-init="getpdf('P')">
+<div class="links4"><i class="fa fa-line-chart" aria-hidden="true">&nbsp</i><span>Sales</span>
+<i class="fa fa-angle-right" id="activepg4" aria-hidden="true"></i>
+</div>
+
+  </a>-->
+ 
+  
+</div>
+
+<div class="col-md-10 c_algn">
+<div class="row r_algn">
+
+<div class="col-md-10 col-sm-10 d_t col-xs-10">
+<div id="try">
+<div id="r1" class="slide-right">| Raw Materials</div>
+<div id="b1" class="slide-right">| Billing</div>
+<div id="st1" class="slide-right">| Stock</div>
+<div id="s1" class="slide-right">| Sales</div>
+</div>
+<div id="s_srch">
+    <input type="text" id="searchit" class="s_srch" ng-model="searchP" placeholder="Search by Invoice.." />
+    </div>
+   
+   <!--<button class="btn btn-info stok_butn" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">View Stock</button>
+   <div class="cubes" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">
+	<div class="flippetys">
+	<i class="fa fa-cart-arrow-down lgots" aria-hidden="true"></i>	
+	</div>
+	<div class="flops" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">
+		<h2 id="l_outs"><a href="#"></a>View Stock</a></h2>
+	</div>
+</div>-->
+
+   
+   <div class="modal fade" id="stock_modal" role="dialog">
+    <div class="modal-dialog">
+    
+  
+      <div class="modal-content">
+          <button type="button" class="close stok_close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title stok_m_t">Stock</h4>
+        <div class="modal-body">
+    <ul class="stok_head">
+    <li id="stok_head">Code</li>
+    <li>Quantity</li>
+    </ul>
+    <div ng-repeat='stock in stocks' class="form-group " ng-class-even="'odd'">
+    <ul class="stok_cntnt">
+    <li id="stok_cntnt">{{stock.code}}</li>
+    <li>{{stock.quantity}}</li>
+    <hr id="line">
+    </ul>
+    </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
+  </div>
+<div class="col-md-2 col-sm-2 col-xs-2">
+<!-- 
+<div class="cube">
+	<div class="flippety">
+	<i class="fa fa-user-circle lgot" aria-hidden="true"></i>	
+	</div>
+	<div class="flop">
+		<h2 id="l_out"><a href="#"></a>Logout</a></h2>
+	</div>
+</div>
+-->
+<div class="cubes" data-toggle="modal" data-target="#stock_modal" ng-click="getStock()">
+	<div class="flippetys" >
+	<i class="fa fa-cart-arrow-down lgots" aria-hidden="true"></i>	
+	</div>
+	<div class="flops">
+		<h2 id="l_outs">View Stock</h2>
+	</div>
+</div>
+</div>
+</div>
+<div class="topbar">
+</div>
+<div class="alert alert-success" role="success" ng-show="succ" id="s_m"><strong>Success! </strong>{{success}}</div>
+<div class="alert alert-danger" role="alert" ng-show="err" id="s_m"><strong>Error! </strong>{{error}}</div>
+<div class="alert alert-warning" role="alert" ng-show="war" id="s_m"><strong>Warning! </strong>{{warning}}</div>
+<div id="mainpage" ui-view>
+
+<div id="wlcm">
+<p>
+  WELCOME TO
+  <span>
+    ANSH RETAILS
+  </span>
+  &mdash; Stock Management System &mdash;
+</p>
+<h2 id="wlcm_b">Managed By- </h2><br/><h id="wlcm_by"> WebIntellects <img class="i_web" src="/assets/images/w_logo.jpeg"/></h3>
+</div>
+
+</div>
+</div>
+</body>
+</html>
