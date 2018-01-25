@@ -10,7 +10,7 @@ libraryDependencies  ++= Seq(
  cache,
  javaJpa,
  javaWs,
- "org.postgresql" % "postgresql" % "9.3-1102-jdbc41",
+ "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
  "com.amazonaws" % "aws-java-sdk-ses" % "1.11.8",
  "com.amazonaws" % "aws-java-sdk-iam" % "1.11.8",
  "commons-net" % "commons-net" % "3.5",
