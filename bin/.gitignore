@@ -1,4 +1,6 @@
+/application.conf
+/evolutions/
+/logback.xml
+/routes
 /controllers/
 /model/
-/dao/
-/helpers/

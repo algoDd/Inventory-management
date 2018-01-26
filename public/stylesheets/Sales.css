@@ -8,6 +8,10 @@
 .tabs input[name="tab-control"] {
   display: none;
 }
+.btn:active{
+	box-shadow: none !important;
+	webkit-box-shadow: none !important;
+}
 .tabs .content section h2,
 .tabs ul li label {
   font-family: "Montserrat";
@@ -237,6 +241,7 @@ th{
 }
 #ul_cls{
 	max-width: 100%;
+	padding-top: 18px;
 }
 @media (min-width:360px) and (max-width:480px){
 	.tabs ul{
@@ -245,6 +250,10 @@ th{
 	}
 	#ul_cls{
 	max-width: 100%;
+	padding-top: 10px;
+	}
+	#l_cls{
+	padding-top:0px !important;
 	}
 	#field_bill{
 	padding-left: 5%;

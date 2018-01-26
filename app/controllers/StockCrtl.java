@@ -23,7 +23,7 @@ public class StockCrtl extends Controller{
 		for(int i=0;i<lcode.size();++i) {
 		String code=lcode.get(i).asText().toUpperCase();
 		int quantity=lquantity.get(i).asInt();
-		String category=lcatagory.get(i).asText();
+		String category="Register";
 		StockModel smodel=new StockModel(quantity,code,category);
 		Boolean check =helper.savestock(smodel);
 		if(check==false)

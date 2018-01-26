@@ -18,6 +18,7 @@
 </label><br>
 <b>Selling To :</b>
 <label class="cont" id="c1">Customer
+
   <input id="cust" type="radio" checked="checked" name="radio2" required>
   <span class="checkmark"></span>
 </label>
@@ -27,7 +28,7 @@
 </label><br>
 <b>Registers :</b>
 <label class="cont" id="c3">200
-  <input id="r200" type="radio" name="radio3" required>
+  <input id="r200" type="radio" checked="checked" name="radio3" required>
   <span class="checkmark"></span>
 </label>
 <label class="cont" id="c4">300
@@ -82,10 +83,10 @@
       <!-- Modal content-->
       <div class="modal-content" id="pdf_content">
         <div class="alert alert-success" role="success" ng-show="suc" id="s_m"><strong>Success! </strong>{{s}}</div>
-<!-- <div class="alert alert-danger" role="alert" ng-show="er" id="s_m"><strong>Error! </strong>{{e}}</div>
-<div class="alert alert-warning" role="alert" ng-show="wa" id="s_m"><strong>Warning! </strong>{{w}}</div>-->
+   <div class="alert alert-danger" role="alert" ng-show="er" id="s_m"><strong>Error! </strong>{{e}}</div>
+<div class="alert alert-warning" role="alert" ng-show="wa" id="s_m"><strong>Warning! </strong>{{w}}</div>
           <button type="button" class="close cros " data-dismiss="modal" >&times;</button>
-          <button class="btn btn-info" id="pd" ng-click="exportAsPdf()" > Generate Pdf</button>
+          <button class="btn btn-info" id="pd" ng-disabled="genError" ng-click="exportAsPdf()" > Generate Pdf</button>
           <hr id="hr_top"/>
           <p class="hd">ANSH RETAILS PVT. LTD.</p>
           
@@ -124,7 +125,7 @@
       <tr ng-repeat="bills in bill" >
         <td><span>Register</span></td>
         <td><span>{{noOfPages}}</span></td>
-        <td><span ng-bind="bills.code"></span></td>
+        <td><span>{{code235}}</span></td>
         <td><span ng-bind="bills.quantity"></span></td>
         <td><span ng-bind="bills.price"></span></td>
       </tr>
@@ -137,18 +138,26 @@
 					<th><span>Cover Page Cost</span></th>
 					<td><span data-prefix>INR</span>&nbsp&nbsp&nbsp<span>{{totalamt}}</span></td>
 				</tr>
+				   <tr>
+					<th><span>Total Registers</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number"  ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
+				</tr>
 				<tr>
 					<th><span >Shipping charges</span></th>
 					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.ship_chrg' class="form-control invoc_in"/></td>
 				</tr>
 				<tr>
 					<th><span>Tax</span></th>
-					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.tax' class="form-control invoc_in"/></td>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-model='$crtl.tax' ng-change="modalcalc()" class="form-control invoc_in"/></td>
 				</tr>
+				
+				
+				<tr ng-show="IsVisible">
+					<th><span>Deal Discount</span></th>
+					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" class="form-control invoc_in"/></td>
+				</tr>
+		
 				<tr>
-					<th><span>Other Charge(s), If any.</span></th>
-					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" ng-change="modalcalc()" ng-model='$crtl.o_chrg' class="form-control invoc_in"/></td>
-				</tr>
 				<tr>
 					<th><span>Total</span></th>
 					<td id="bil_b"><span data-prefix>INR</span>&nbsp<input type="number" class="form-control invoc_in" value="{{finalamt}}"/></td>
@@ -171,4 +180,5 @@
     </div>
   </div>
 </body>
+
 </html>

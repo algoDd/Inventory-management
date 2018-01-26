@@ -281,6 +281,13 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  console.log(i);
 	  }
 	  /*..........................Billing...................................*/
+
+	  $scope.IsVisible = false;
+      $scope.dealer = function (value) {
+          //If DIV is visible it will be hidden and vice versa.
+          $scope.IsVisible = value == "Y";
+      }
+	  
 	  $scope.invoice=function()
 	   {
 		   var number=Math.floor((Math.random() * 999999) + 1000);
@@ -289,9 +296,9 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		   $scope.inNo="#AR"+n+chr.toString()+number;
 		   
 	   }
-	  $scope.stockcheck=function(code,quan,category)
+	  $scope.stockcheck=function(code,quan)
 	  {
-		  var cate=code.slice(3,5);
+		  /*var cate=code.slice(3,5);
 		  if(cate=="cp"&&category=="Cover Page")
 			  {
 			  	
@@ -303,7 +310,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				  }else{
 					  $scope.checkc=false;	
 					  return ;
-				  }
+				  }*/
 		  
 		  $http({
 			   method:"POST",
@@ -311,30 +318,42 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 			   data:{"code":code,"quantity":quan}
 		   }).then(function (success){			  
 			   $scope.StockError=false;
+			   $scope.genError=false;
 			   $scope.err=false;
 			   if(success.data=="done"){
 				   $scope.succ=false;
-				   
+				   $scope.stch=true;
 				   
 			   }else
 				   {
+				   $scope.stch=false;
 				   $scope.StockError=true;
+				   
 				   $timeout(function(){
 					   $scope.war=false;
+					   $scope.wa=false;
 				   },10000);
 				    $scope.war=true;
 				    $scope.warning=success.data;
+				    $scope.wa=true;
+				    $scope.w=success.data;
+				    $scope.genError=true;
 				   }
 			   
 		   },function (error){
 			   $scope.err=true;
+			   $scope.er=true;
 			   $timeout(function(){
 				   $scope.err=false;
+				   $scope.er=false;
 			   },10000);
 			   $scope.succ=false;
 			   $scope.error=error.data;
+			   $scope.er=error.data;
 			   $scope.StockError=true;
-			   
+			   $scope.stch=false;
+			   $scope.genError=true;
+
 		   });
 		  
 	  }
@@ -343,10 +362,12 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined&&$scope.vm.$crtl.code!=undefined&&$scope.vm.$crtl.quantity!=undefined){ 
-	    	 $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity,"Cover Page"); 
-	      if($scope.checkc==true){
+	    	//$scope.checkc== $scope.stockcheck($scope.vm.$crtl.code,$scope.vm.$crtl.quantity,"Cover Page"); 
+	    	 $scope.StockError=false;
+	      if(true){
 	      if($scope.bill.length!=(i))
 		  {   
+	    	  
 	    	  
 	    	  if ($scope.bitems.length < 10) {
 	    		  $scope.bitems.push(k++);
@@ -478,11 +499,11 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 
 	  $scope.save=function(){
 		  
-		  if( $scope.base64data!=null && $scope.totalamt!=0){
+		  if( $scope.base64data!=null && $scope.finalamt!=0 && $scope.stch==true){
 		  $http({
 			   method:"POST",
 			   url:"/api/billinvoice",
-			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.totalamt,"date":$scope.date,"status":"P"}//,"name":$scope.pdfname
+			   data:{"pdf":$scope.base64data,"invoice_no": $scope.inNo,"total_amt":$scope.finalamt,"date":$scope.date,"status":"P"}//,"name":$scope.pdfname
 		   }).then(function (success){
 			   console.log('done');
 
@@ -493,7 +514,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 
 			   $scope.s="Pdf Generated Successfully"
 				   $timeout(function(){
-					   window.location="/";
+					   window.location="/index";
 				   },2000);
 		   },function (error){
 			   console.log('Not done');
@@ -584,6 +605,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		  var regi1 = document.getElementById("r200").checked;   
 		  var regi2 = document.getElementById("r300").checked;
 		  var regi3 = document.getElementById("r500").checked;
+		   
 		  if(type1){
 			  console.log("ruled");
 			   if(retail1){
@@ -591,52 +613,78 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 				   if(regi1)
 					   {
 					   console.log("200" + "%"+$scope.finalamt);
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+40;
-					   $scope.noOfPages=200;
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*40;
+					  $scope.noOfPages=200;
+					   $scope.code235='#ARRG200';
+					   $scope.code235='#ARRG200';
+					   $scope.stockcheck('#ARRG200',$scope.vm.$crtl.o_chrg);
 					   }else if(regi2){
-						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+55;
-						   $scope.noOfPages=300;
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*55;
+						  $scope.noOfPages=300;
+					   $scope.code235='#ARRG300';
+						   $scope.stockcheck('#ARRG300',$scope.vm.$crtl.o_chrg);
 					   }else{
-						   $scope.noOfPages=500;
-						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+90;
+						  $scope.noOfPages=500;
+					   $scope.code235='#ARRG500';
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*90;
+						   $scope.stockcheck('#ARRG500',$scope.vm.$crtl.o_chrg);
 					   }
 			   }else{
 				   if(regi1)
 				   {
-					   $scope.noOfPages=200;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+45;
+					 $scope.noOfPages=200;
+					   $scope.code235='#ARRG200';
+					   $scope.code235='#ARRG200';
+					   $scope.stockcheck('#ARRG200',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*45;
 				   }else if(regi2){
-					   $scope.noOfPages=300;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+65; 
+					  $scope.noOfPages=300;
+					   $scope.code235='#ARRG300';
+					   $scope.stockcheck('#ARRG300',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*65; 
 				   }else{
-					   $scope.noOfPages=500;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+100;
+					  $scope.noOfPages=500;
+					   $scope.code235='#ARRG500';
+					   $scope.stockcheck('ARRG500',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*100;
 				   }
 			   }
 		  }else{
 			  if(retail1){
 				   if(regi1)
 					   {
-					   $scope.noOfPages=200;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+35;
+					  $scope.noOfPages=200;
+					   $scope.code235='#ARRG200';
+					   $scope.stockcheck('#ARRG200',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*35;
 					   }else if(regi2){
-						   $scope.noOfPages=300;
-						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+50;
+						  $scope.noOfPages=300;
+					   $scope.code235='#ARRG300';
+						   $scope.stockcheck('#ARRG300',$scope.vm.$crtl.o_chrg);
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*50;
 					   }else{
-						   $scope.noOfPages=500;
-						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+85;
+						  $scope.noOfPages=500;
+					   $scope.code235='#ARRG500';
+						   $scope.stockcheck('#ARRG500',$scope.vm.$crtl.o_chrg);
+						   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*85;
 					   }
 			   }else{
 				   if(regi1)
 				   {
-					   $scope.noOfPages=200;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+40;
+					  $scope.noOfPages=200;
+					   $scope.code235='#ARRG200';
+					   $scope.stockcheck('#ARRG200',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*40;
 				   }else if(regi2){
-					   $scope.noOfPages=300;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+60;
+					  $scope.noOfPages=300;
+					   $scope.code235='#ARRG300';
+					   $scope.stockcheck('#ARRG300',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*60;
 				   }else{
-					   $scope.noOfPages=500;
-					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg+95;  
+					  $scope.noOfPages=500;
+					   $scope.code235='#ARRG500';
+					   $scope.stockcheck('#ARRG500',$scope.vm.$crtl.o_chrg);
+					   $scope.finalamt=$scope.totalamt+$scope.vm.$crtl.ship_chrg+$scope.vm.$crtl.tax+$scope.vm.$crtl.o_chrg*95;  
 				   }
 			   }
 		  }
@@ -655,7 +703,7 @@ app.controller('RMCrtl',function($scope,$http,$timeout){
 		 	 
 		  $scope.vm = this;
 	     if($scope.vm.$crtl!=undefined){ 
-	    	 if($scope.vm.$crtl.code!=undefined&&scope.vm.$crtl.quantity!=undefined)
+	    	 if($scope.vm.$crtl.code!=undefined&& $scope.vm.$crtl.quantity!=undefined)
 	    	 {
 	      if($scope.stocks.length!=(i))
 		  {   

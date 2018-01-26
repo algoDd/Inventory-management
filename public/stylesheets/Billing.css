@@ -3,6 +3,27 @@
 	padding: 0.8em 2px !important;
 	font-size: 10px !important;
 	}
+	.k-pdf-export #logo_img
+   { 
+	margin-left: -62px !important;
+   }
+   .k-pdf-export #h_s{
+	margin-top:10px !important;
+	margin-bottom: 10px !important;
+	margin-left: 65% !important;
+ }
+  .k-pdf-export #stamp 
+{ 
+	margin-left: 70% !important;
+ }
+ .k-pdf-export .l_a 
+{ 
+	padding-bottom: 10px !important;
+ }
+	.c_algn{
+	padding-right:0px !important;
+	padding-left: 0px !important;
+	}
 	#stamp{
 	margin-left: 60% !important;
 	}
@@ -96,7 +117,7 @@
 	}
 	.bl_clr{
 	padding: 4px 3px !important;
-	margin-right: 2px !important;
+	margin-right: 1px !important;
 	margin-left: -9px !important;
 	font-size: 10px !important;
 	}
@@ -104,6 +125,7 @@
 	margin-right: -4px !important;
 	padding: 4px 3px !important;
 	font-size: 10px !important;
+	margin-left: 0px !important;
 	}
 	.gen_butn{
 	margin-left: 30% !important;
@@ -125,8 +147,8 @@
 	margin-left:-13% ;
 }
 .fbill_ctrl{
-	margin-right:1% !important;
-	max-width:95%;
+	margin-right:3% ;
+	max-width:46%;
 	font-size:15px ;
 	color:black !important;
 	height:30px ;
@@ -140,7 +162,7 @@
 	margin-right: 2px ;
 	background-color:rgb(23, 211, 2) !important;
 	border-color:rgb(23, 211, 2) !important;
-	padding: 4px 5px;
+	padding: 4px 7px;
 }
 #prc_b{
 	border-top:none !important;
@@ -148,15 +170,17 @@
 	border-right:none !important;
 	border-bottom:1px solid black !important;
 	box-shadow:none !important;
-	width:50% ;
+	width:45% ;
 	font-weight: bold !important;
     font-size: 18px ;
     color: black !important;
+    margin-right: 0% !important;
 }
 #content {
+
   max-width: 96%;
  min-height: 40vh;
-  padding-bottom:6% !important;
+
   overflow:auto;
   margin-top:1% !important;
   margin-bottom:6%;
@@ -174,8 +198,9 @@
 .b_clr{
 	background:red !important;
 	border-color: red !important;
-	padding: 4px 5px ;
+	padding: 4px 7px ;
 	margin-right: -3px;
+	margin-left: 4px;
 }
 body {
     overflow-y: scroll; 
@@ -203,8 +228,10 @@ body {
   /*background-image: -webkit-repeating-linear-gradient(135deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.075) 10%, rgba(255, 255, 255, 0.075) 14%, rgba(255, 255, 255, 0.15) 14%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.075) 17%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0.075) 40%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.075) 60%, rgba(255, 255, 255, 0.075) 66%, rgba(255, 255, 255, 0.15) 66%, rgba(255, 255, 255, 0.075) 70%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%), -webkit-radial-gradient(ellipse farthest-corner, transparent, rgba(0, 0, 0, 0.2) 110%);
   background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.075) 10%, rgba(255, 255, 255, 0.075) 14%, rgba(255, 255, 255, 0.15) 14%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.075) 17%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0.075) 40%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.075) 60%, rgba(255, 255, 255, 0.075) 66%, rgba(255, 255, 255, 0.15) 66%, rgba(255, 255, 255, 0.075) 70%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%), radial-gradient(ellipse farthest-corner, transparent, rgba(0, 0, 0, 0.2) 110%);*/
 }
-
-
+.btn:active{
+	box-shadow: none !important;
+	webkit-box-shadow: none !important;
+}
 .nav-dark .btn-glass {
   color: black;
   font-weight:bold;
@@ -404,6 +431,9 @@ label{
     margin-bottom:8px !important;
     border-top: 3px solid rgb(16, 125, 140) !important;	
 }
+.deal_disc{
+	display:none;
+}
 .modal-content{
 	overflow-y:auto;
 }
@@ -473,6 +503,10 @@ address{
 .k-pdf-export #pd 
 { 
 	display: none;
+ }
+.k-pdf-export #h_s 
+{ 
+	margin-left: 65%;
  }
 .k-pdf-export .modal-content
 { 
@@ -546,6 +580,23 @@ address{
 	margin-top: -13px !important;
 	margin-left: -9px !important;
 	}
+	.k-pdf-export #logo_img
+   { 
+	margin-left: -62px !important;
+   }
+   .k-pdf-export #h_s{
+	margin-top:10px !important;
+	margin-bottom: 10px !important;
+	margin-left: 60% !important;
+ }
+  .k-pdf-export #stamp 
+{ 
+	margin-left: 70% !important;
+ }
+ .k-pdf-export .l_a 
+{ 
+	padding-bottom: 10px !important;
+ }
 	.f_i{
 	font-size: 15px !important;
 	}
@@ -596,13 +647,14 @@ address{
 	.bl_clr{
 	padding: 4px 2px !important;
 	margin-right: 0px !important;
-	margin-left: 0px !important;
+	margin-left: -3px !important;
 	font-size: 10px !important;
 	}
 	.b_clr{
 	margin-right: 0px !important;
 	padding: 4px 2px !important;
 	font-size: 10px !important;
+	margin-left: 0px !important;
 	}
 	.gen_butn{
 	margin-left: 28% !important;

@@ -3,7 +3,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                          controllers.Assets.at(path="/public", file="html/index.html")
+GET     /                          controllers.Assets.at(path="/public", file="html/login.html")
 
 
 # An example controller showing how to use dependency injection
@@ -16,16 +16,23 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #Routes
 GET  /RawMaterial						controllers.Assets.at(path="/public", file="html/index.html")
 GET  /Billing						    controllers.Assets.at(path="/public", file="html/index.html")
+
+GET /index								controllers.Assets.at(path="/public", file="html/index.html")
+#GET /home
 GET  /Sales						        controllers.Assets.at(path="/public", file="html/index.html")
 GET  /Stock						    	controllers.Assets.at(path="/public", file="html/index.html")
-#GET /index								controllers.Assets.at(path="/public", file="html/index.html")
-GET /home								controllers.Assets.at(path="/public", file="html/index.html")
+    
+
+
+
 #GET /contact							controllers.Assets.at(path="/public", file="html/index.html")
 #GET /notespot							controllers.Assets.at(path="/public", file="html/upload.html")
 #GET /login								controllers.Assets.at(path="/public", file="html/index.html")
 #GET /admin								controllers.Assets.at(path="/public", file="html/admin.html")
 #APIs
 POST /api/rawMaterial					controllers.RawMaterialCrtl.rawMaterial
+POST /api/login		     				controllers.LoginCtrl.login
+POST /api/forgot						controllers.LoginCtrl.forgotPassword
 POST /api/bill							controllers.BillCrtl.getCode
 POST /api/billinvoice					controllers.BillCrtl.savepdf
 POST /api/rawTotal						controllers.BillCrtl.savetotal
@@ -35,4 +42,4 @@ GET /api/pdfdetails/:status				controllers.BillCrtl.getpdf(status:String)
 POST /api/update						controllers.BillCrtl.update
 POST /api/getSales						controllers.BillCrtl.getSales
 GET /api/getStocks						controllers.StockCrtl.getStocks
-#GET /api/scarap						controllers.Scarap.gethtmllink
+

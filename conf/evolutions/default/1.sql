@@ -21,6 +21,16 @@ create table public.code (
   constraint pk_code primary key (id))
 ;
 
+create table public.login (
+  id                        serial not null,
+  usernm                    varchar(255),
+  passwd                    varchar(255),
+  phone                     integer,
+  lastlogin                 date,
+  name                      varchar(255),
+  constraint pk_login primary key (id))
+;
+
 create table public.raw_material (
   id                        serial not null,
   quantity                  integer,
@@ -51,6 +61,8 @@ create table public.stock (
 drop table if exists public.billsales cascade;
 
 drop table if exists public.code cascade;
+
+drop table if exists public.login cascade;
 
 drop table if exists public.raw_material cascade;
 

@@ -487,6 +487,8 @@ margin-bottom:20px !important
 .navbar-collapse{
 	padding-right: 0px !important;
 	padding-left: 0px !important;
+	overflow-y: hidden !important;
+	overflow-x: hidden !important;
 }
 .links1{
 	padding-top:5%;
@@ -546,19 +548,19 @@ a:focus #activepg4{
 }
 #r1{
 	font-size: 19px;
-	margin-left: -24px !important;
+	margin-left: -10px !important;
 }
 #b1{
 	font-size: 19px;
-	margin-left: -24px !important;
+	margin-left: -10px !important;
 }
 #st1{
 	font-size: 19px;
-	margin-left: -24px !important;
+	margin-left: -10px !important;
 }
 #s1{
 	font-size: 19px;
-	margin-left: -24px !important;
+	margin-left: -10px !important;
 }
  /* .stok_butn{
   margin-left: 30% !important;
@@ -626,18 +628,22 @@ a:focus #activepg4{
 	padding-top:3%;
 	margin-top:0%;
 	padding-bottom:3%;
+	color: white;
 }
 .links2{
 	padding-top:3%;
 	padding-bottom:3%;
+	color: white;
 }
 .links3{
 	padding-top:3%;
 	padding-bottom:3%;
+	color: white;
 }
 .links4{
 	padding-top:3%;
 	padding-bottom:3%;
+	color: white;
 }
 a:focus #activepg{
 	padding-right: 2%;
@@ -727,18 +733,22 @@ a:focus #activepg4{
   padding-top: 3%;
   padding-bottom:3%;
   margin-top: 0%;
+  color: white;
   }
   .links2{
   padding-top: 3%;
   padding-bottom:3%;
+  color: white;
   }
   .links3{
   padding-top: 3%;
+  color: white;
   padding-bottom:3%;
   }
   .links4{
   padding-top: 3%;
   padding-bottom:3%;
+  color: white;
   }
   a:focus #activepg{
 	padding-right: 2%;
@@ -834,6 +844,8 @@ a:focus #activepg4{
 .navbar-collapse{
 	padding-right:0px !important;
 	padding-left:0px !important;
+	overflow-y: hidden !important;
+	overflow-x: hidden !important;
 }
 .logo{
 	padding-top: 0px;
@@ -864,21 +876,25 @@ a:focus #activepg4{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 .links2{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 .links3{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 .links4{
 	padding-top:5%;
 	padding-bottom:5%;
 	margin-top:0%;
+	color: white;
 }
 #r1{
 	font-size:15px;
