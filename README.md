@@ -1,29 +1,18 @@
-# README #
+# Inventory Management Software
+Software can be used for inventory management, it contains all the basic needs to keep up with the daily stock billing and automatically detects if stocks are running low.
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Language : Java
 
-### What is this repository for? ###
+Framework Used :
+Play Framework
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
+### Step To Run:
+- Install play framework follow https://www.playframework.com/documentation/2.5.x/Installing
+- Intall can run postgres
+- change postgres conf in https://github.com/algoDd/anshretails/blob/master/conf/application.conf 
+- Run the project
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Enjoy!! ;)
 
-### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
